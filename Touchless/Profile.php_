@@ -1,0 +1,204 @@
+<?php
+$HostName = "localhost"; 
+$HostUser = "root";
+$HostPass = "kaitoinc.com";
+$DatabaseName = "touchless";
+
+include 'phpqrcode/qrlib.php';
+
+if (isset($_GET['sig'])){   
+    if (strlen($_GET['sig'])==10){       
+        $signature = $_GET['sig'];       
+        $db = mysqli_connect($HostName,$HostUser,$HostPass,$DatabaseName);
+        if($db === false){
+          die("Invalid" . mysqli_connect_error());
+        }            
+/*       $sig_check_query = "SELECT name,signature,website,brochure,facebook,url,linkedin,whatsapp,wechat,instagram,twitter,youtude,bio,organization,position,workTel,homeTel,mobile1,mobile2,email,homeEmail,otherEmail,address,signature64,website1,website2,website3,webstie4,website5 FROM Vcard WHERE signature='$signature' LIMIT 1";*/
+              $sig_check_query = "SELECT * FROM Vcard WHERE signature='$signature' LIMIT 1"; 
+        
+       $result = mysqli_query($db, $sig_check_query);
+        if(mysqli_num_rows($result)==1){
+           while($row = mysqli_fetch_array($result)){
+               $name = $row['name'];
+               if(empty($name)){
+                   $name = 'Name';
+               }
+               $website = $row['website'];
+               $website1 = $row['website1'];
+               $website2 = $row['website2'];
+               $website3 = $row['website3'];
+               $website4 = $row['website4'];
+               $website5 = $row['website5'];
+               $facebook = $row['facebook'];
+               $instagram = $row['instagram'];
+               $wechat = $row['wechat'];
+               $linkedin = $row['linkedin'];
+               $youtude = $row['youtude'];
+               $whatsapp = $row['whatsapp'];
+               $twitter = $row['twitter'];
+               $url = $row['url'];
+               $brochure = $row['brochure'];
+               $signature = $row['signature'];
+               $signature64 = $row['signature64'];
+               $bio = $row['bio'];
+               if(empty($bio)){
+                   $bio = '';
+               }
+               $organization = $row['organization'];
+               if(empty($organization)){
+                   $organization = 'Organization';
+               }
+               $position = $row['position'];
+               if(empty($position)){
+                   $position = 'Title';
+               }
+               $workTel = $row['workTel'];
+               $homeTel = $row['homeTel'];
+               $mobile1 = $row['mobile1'];
+               $mobile2 = $row['mobile2'];
+               $email = $row['email'];
+               $homeEmail = $row['homeEmail'];
+               $otherEmail = $row['otherEmail'];
+               $address = $row['address'];
+               $path = "UploadImage/".$row['signature']."jpg";
+               $var = $row['name']."+".$row['website']."+".$signature."+".$url ;
+               $downloadVcfUrl = '';
+               $saveVcfPath = '';
+ 
+
+               $phone = '';
+               $wphone = '';
+               $_email = '';
+               
+               if(!empty($workTel)){
+                   $wphone = $workTel;                  
+               }elseif (!empty($homeTel)){
+                    $wphone = $homeTel;                    
+               }elseif (!empty($mobile1)) {
+                     $wphone = $mobile1;                      
+               }else if(!empty($mobile2)) {
+                     $wphone = $mobile2;                     
+               }
+               
+               if(!empty($mobile1)){
+                   $phone = $mobile1;                  
+               }elseif (!empty($mobile2)){
+                    $phone = $mobile2;                    
+               }elseif (!empty($workTel)) {
+                     $phone = $workTel;                      
+               }else if(!empty($homeTel)) {
+                     $phone = $homeTel;                     
+               }
+               
+               if(!empty($email)){
+                   $_email = $email;                  
+               }elseif (!empty($otherEmail)){
+                   $_email = $otherEmail;                   
+               }elseif (!empty($homeEmail)) {
+                     $_email = $homeEmail;                      
+               }
+               
+            if(!empty($signature64) && strlen($signature64) == 64){
+                $filePath = "../VCF/".$signature64.".vcf";
+                if (file_exists($filePath)){
+                  $downloadVcfUrl = "https://nfctouch.com.hk/VCF/".$signature64.".vcf";
+                  $saveVcfPath = "../VCF/".$signature64.".vcf";                    
+                }    
+            }
+            
+            $codeContents  = 'BEGIN:VCARD'."\n";
+            $codeContents .= 'VERSION:2.1'."\n";
+ 
+            if(!empty($name)){
+              $codeContents .= 'N;CHARSET=utf-8:;'.$name.";;;"."\n";
+              $codeContents .= 'FN;CHARSET=utf-8:'.$name."\n";
+            }
+            if(!empty($email)){
+               $codeContents .= 'EMAIL;WORK:'.$email."\n";     
+            }
+            if(!empty($homeEmail)){
+              $codeContents .= 'EMAIL;HOME:'.$homeEmail."\n";     
+            }
+            if(!empty($otherEmail)){
+              $codeContents .= 'EMAIL:'.$otherEmail."\n";     
+            }     
+            if(!empty($address)){
+             $codeContents .= 'ADR;WORK;CHARSET=utf-8:'.$address.";;;;;;;"."\n";     
+            }
+            if(!empty($mobile1)){
+              $codeContents .= 'TEL;CELL:'.$mobile1."\n";     
+             }
+            if(!empty($mobile2)){
+              $codeContents .= 'TEL;CELL:'.$mobile2."\n";     
+            }      
+           if(!empty($homeTel)){
+              $codeContents .= 'TEL;HOME:'.$homeTel."\n";     
+           }
+           if(!empty($workTel)){
+               $codeContents .= 'TEL;WORK:'.$workTel."\n";     
+           }
+           if(!empty($organization)){
+             $codeContents .= 'ORG;CHARSET=utf-8:'.$organization."\n";     
+           }      
+           if(!empty($position)){
+             $codeContents .= 'TITLE;CHARSET=utf-8:'.$position."\n";     
+           }
+          if(!empty($website1)){
+            $codeContents .= 'URL;WORK;CHARSET=utf-8:'.$website1."\n";     
+          }
+          if(!empty($website2)){
+            $codeContents .= 'URL;WORK;CHARSET=utf-8:'.$website2."\n";     
+          }
+          if(!empty($website3)){
+            $codeContents .= 'URL;WORK;CHARSET=utf-8:'.$website3."\n";     
+          }
+          if(!empty($website4)){
+            $codeContents .= 'URL;WORK;CHARSET=utf-8:'.$website4."\n";     
+          }
+          if(!empty($website5)){
+            $codeContents .= 'URL;WORK;CHARSET=utf-8:'.$website5."\n";     
+          }
+ 
+          $codeContents .= 'URL;WORK;CHARSET=utf-8:https://businesscard.technology/Touchless/Profile?sig='.$signature."\n";       
+ 
+     
+           $codeContents .= 'END:VCARD';        
+               
+            $tempDir = "../Touchless/QR/";
+    
+            $content = 'https://businesscard.technology/Touchless/Profile?sig='.$signature.'#resume';
+ 
+//            $_fileName = 'qr'.$signature.'.png';
+            $fileName = 'Qr'.$signature.rand(1,100000).'.png' ;   
+    
+//            $_pngAbsoluteFilePath = $tempDir.$_fileName;
+            $pngAbsoluteFilePath = $tempDir.$fileName;
+            $urlRelativeFilePath = '..Touchless/QR/'.$fileName;
+
+            QRcode::png($codeContents, $pngAbsoluteFilePath,'L',12,8);
+ 
+ /*           if (!file_exists($pngAbsoluteFilePath)) {
+              QRcode::png($content, $pngAbsoluteFilePath,'L',12,8);
+            } */
+            
+             if(strlen($downloadVcfUrl) == 0){
+                 
+                include 'index-mobile.html'; 
+                 
+             }else{
+                 
+                include 'index2.html';                 
+             }  
+           }   //
+        }else{
+ //           echo "Invalid Profile Index";
+            include 'index2.html';
+        }   
+  }else{       
+      echo "Invalid parameter";        
+  }
+}else{
+    echo "Invalid sig";
+}
+
+?>
