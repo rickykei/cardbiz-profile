@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 include 'phpqrcode/qrlib.php';
 
 $dbhost = 'localhost';
@@ -31,7 +31,10 @@ if (isset($_GET['sig'])){
                $whatsapp = $document->whatsapp_url;
                $twitter = $document->twitter_url;
 			   $website=$document->web_link;
-               $url = "https://nfctouch.com.hk/Touchless/UploadImage/050C7EA6472822.jpg"; //headshot url
+               if ($document->headshot !="")
+			   $url = "https://e-profile.digital/api/files/".$document->headshot; //headshot url
+				else
+			   $url = "https://nfctouch.com.hk/Touchless/UploadImage/050C7EA6472822.jpg"; //headshot url
                $brochure = "https://www.nfctouch.com.hk/assets/Brochure.pdf";
                $signature = $document->smartcard_uid;
                $signature64 = $document->smartcard_uid;
@@ -157,18 +160,19 @@ if (isset($_GET['sig'])){
             $codeContents .= 'URL;WORK;CHARSET=utf-8:'.$website5."\n";     
           }
  
-          $codeContents .= 'URL;WORK;CHARSET=utf-8:https://e-profile.digital/Touchless/Profile.php?sig='.$signature."\n";       
+          $codeContents .= 'URL;WORK;CHARSET=utf-8:https://e-profile.digital/Touchless/Profile.php?sig='.$sig."\n";       
  
      
            $codeContents .= 'END:VCARD';   
 		   
             $tempDir = "../Touchless/QR/";
     
-            $content = 'ttps://e-profile.digital/Touchless/Profile.php?sig='.$signature.'#resume';
+            $content = 'https://e-profile.digital/Touchless/Profile.php?sig='.$signature.'#resume';
  
            //            $_fileName = 'qr'.$signature.'.png';
-            $fileName = 'Qr'.$signature.rand(1,100000).'.png' ;   
-    
+           $fileName = 'Qr'.$signature.rand(1,100000).'.png' ;   
+			// $fileName = $signature.'.png' ;   
+	
             $pngAbsoluteFilePath = $tempDir.$fileName;
             $urlRelativeFilePath = '..Touchless/QR/'.$fileName;
     
