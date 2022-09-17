@@ -1,103 +1,32 @@
 <?php
-error_reporting(E_ALL);
-date_default_timezone_set('Asia/Hong_Kong');
- //header('Content-Disposition: inline; filename= aa.vcf');  
+//error_reporting(E_ALL);
+  error_reporting(0);
 
-//header('Content-Length: '.filesize($path.$file));  
+$debug=0;
+$needPhoto=1;
+if(isset($_GET['debug']))$debug = $_GET['debug']; 
+
+
+$sig = $_GET['sig']; 
+if($sig=="")
+{
+	$uid = $_GET['uid']; 
+	$tid=$uid;
+}else{
+	$tid=$sig;
+}
+
+
  
+ 
+if(!$debug){
 header('Content-Type: text/x-vcard');  
-header('Content-Disposition: attachment; filename= '.$_GET['sig'].".vcf");  
+header('Content-Disposition: attachment; filename= '.$tid.".vcf");  
 header('Connection: close');  
-
- 
- $dbhost = 'localhost';
-$dbname = 'bezkoder_db';
-$username='cardbiz';
-$password='cardbiz98014380';  
-$m = new MongoDB\Driver\Manager("mongodb://cardbiz:cardbiz98014380@localhost:27017/cardbiz_db?authSource=admin");
-
-  $sig = $_GET['sig']; 
-
-if (strlen($sig)==10){  
+}
   
-            
-		
-		$filter = ['smartcard_uid' => $sig];
-		$options = [
-			'projection' => ['_id' => 0],
-			'sort' => ['_id' => -1],
-		];
 
- $query = new MongoDB\Driver\Query($filter, $options);
-$cursor = $m->executeQuery('cardbiz_db.staffs', $query);
-
-		foreach ($cursor as $document) {
-		 
-		    $fname=$document->fname;
-			$lname=$document->lname;
-			$web_link=$document->web_link;
-			$work_email= $document->work_email;
-			$home_email= $document->home_email;
-			$other_email= $document->other_email;
-			$position=$document->position;
-			$mobile1= $document->mobile;
-			$smartcard_uid= $document->smartcard_uid;
-			$facebook= $document->facebook_url ;
-				$linkedin= $document->linkedin_url;
-				$address= $document->address;
-				$url=$document->web_link6;
-				 
-				 
-			  if($url!=""){ 
-			    $url = str_replace("https", "http",$url);
-				
-				$getPhoto               = file_get_contents_curl($url);
-				
-				$b64vcard               = base64_encode($getPhoto);
-				$b64mline               = chunk_split($b64vcard,74,"\n");
-				$b64final               = preg_replace('/(.+)/', ' $1', $b64mline);
-				$photo                  = $b64final;
-				
-			  }
-			  
-			  $vCard = "BEGIN:VCARD\r\n";
-			  $vCard .= "VERSION:3.0\r\n";
-			  $vCard .= "FN:" . $name . "\r\n";
-			   
-			  if($email!=""){
-				$vCard .= "EMAIL;TYPE=internet,pref:" . $email . "\r\n";
-			  }
-			  if($getPhoto){
-				$vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:";
-				$vCard .= $photo . "\r\n";
-			  }
-
-			  if($mobile1){
-				$vCard .= "TEL;CELL:" . $mobile1 . "\r\n"; 
-			  }
-			  
-			  if($smartcard_uid){
-				  $vCard.="URL: https://e-profile.digital/Touchless/Profile?sig=".$smartcard_uid. "\r\n";;
-			  }
-			  
-			  if($facebook){
-				$vCard .= "URL:" . $facebook . "\r\n"; 
-			  }
-			  if($linkedin){
-				$vCard .= "URL:" . $linkedin. "\r\n"; 
-			  }
-			   if($address){
-				$vCard .= "ADR;WORK:" . $address . "\r\n"; 
-			  }
-			  
-			  $vCard .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
-			   
-			  $vCard .= "END:VCARD\r\n";
-			  echo $vCard;
-			  
-		 }
-	 
-}else if ($sig=="56rr77h3e"){
+ if ($sig=="56rr77h3e"){
 	    $vCard= "BEGIN:VCARD\r\n";
 	$vCard.="VERSION:3.0\r\n";
 	$vCard.="N;CHARSET=utf-8:;Gary Tsoi 蔡偉雄\r\n";
@@ -451,28 +380,20 @@ $vCard.="ADR;WORK:G Fl. The Chinese Bank Building, 61-65 Des Voeux Road Central,
 
 $vCard .= "END:VCARD\r\n";
 		  echo $vCard;
+}else{
+	include_once("config_db.php");
+ 
+	foreach ($results as $document) {
+		 
+			  include_once("include_doc2vcf.php");
+ 
+			  echo $vCard;
+			  
+		 }
 }
 
 
-function get_content($URL){
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-      curl_setopt($ch, CURLOPT_URL, $URL);
-      $data = curl_exec($ch);
-      curl_close($ch);
-      return $data;
-}
-function file_get_contents_curl($url) {
-    $ch = curl_init();
-  
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_URL, $url);
-  
-    $data = curl_exec($ch);
-    curl_close($ch);
-  
-    return $data;
-}
+
 ?>
+
 

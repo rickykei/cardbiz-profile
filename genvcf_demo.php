@@ -1,30 +1,18 @@
 <?php
 //error_reporting(E_ALL);
-  error_reporting(0);
-
-$debug=0;
-$needPhoto=1;
-if(isset($_GET['debug']))$debug = $_GET['debug']; 
-
-
-$sig = $_GET['sig']; 
-if($sig=="")
-{
-	$uid = $_GET['uid']; 
-	$tid=$uid;
-}else{
-	$tid=$sig;
-}
-
-
+error_reporting(0);
+ 
+ $sig="";
+ $sig = $_GET['sig']; 
+if($sig=="") $sig="1234567890";
+date_default_timezone_set('Asia/Hong_Kong');
  
  
-if(!$debug){
 header('Content-Type: text/x-vcard');  
-header('Content-Disposition: attachment; filename= '.$tid.".vcf");  
+header('Content-Disposition: attachment; filename= '.$_GET['sig'].".vcf");  
 header('Connection: close');  
-}
-  
+
+ 
 if ( $sig=="frazer"){  
 $vCard.="BEGIN:VCARD
 VERSION:3.0
@@ -947,24 +935,32 @@ $vCard.="TEL;CELL:+85212345678\r\n";
 $vCard.="TEL;CELL:+8688898765432\r\n";
 $vCard.="URL: https://www.cncbinternational.com\r\n";
 $vCard.="ADR;WORK:G Fl. The Chinese Bank Building, 61-65 Des Voeux Road Central, Hong Kong\r\n";
- $vCard.="NOTE:Licensed Technical Representative (Agent) License No. ZZ0000, HKMA Reg. No. Of Relevant Individual: XX0000, Regulated Activity: Dealing in Securities, Advising on Securities. Meet on " . date("d/m/Y H:i") . "\r\n";
-
+$vCard.="NOTE:Licensed Technical Representative (Agent) License No. ZZ0000, HKMA Reg. No. Of Relevant Individual: XX0000, Regulated Activity: Dealing in Securities, Advising on Securities. Meet on " . date("d/m/Y H:i") . "\r\n";
 $vCard .= "END:VCARD\r\n";
 		  echo $vCard;
-}else{
-	include_once("config_db.php");
- 
-	foreach ($results as $document) {
-		 
-			  include_once("include_doc2vcf.php");
- 
-			  echo $vCard;
-			  
-		 }
 }
 
 
-
+function get_content($URL){
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($ch, CURLOPT_URL, $URL);
+      $data = curl_exec($ch);
+      curl_close($ch);
+      return $data;
+}
+function file_get_contents_curl($url) {
+    $ch = curl_init();
+  
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+  
+    $data = curl_exec($ch);
+    curl_close($ch);
+  
+    return $data;
+}
 ?>
 
 

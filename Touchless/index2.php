@@ -96,7 +96,14 @@
     	<div class="site">
                     	<div class="left-navbar">
                             <br>
-                        	<a  class="" href=""><img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50"></a>
+                        	<a  class="" href="">
+							<?php
+							if($company_logo!=""){ ?>
+							<img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50">
+							<?php} else { ?>
+							<img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50">
+							<?php }?>
+							</a>
                             <div class="navigation">	
                                 <ul class="links-to-floor">
                                     <li><a>ABOUT ME</a></li>
@@ -179,7 +186,7 @@
  
                         <br>
                         <br>
-                         <img src="<?php QRcode::png($vCard);?>" alt="" >
+                         <img src="genvcf2png.php?sig=<?php echo $sig;?>" alt="" >
  
                         <br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>

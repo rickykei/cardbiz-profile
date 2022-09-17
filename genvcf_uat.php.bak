@@ -1,21 +1,26 @@
 <?php
 error_reporting(E_ALL);
+//error_reporting(0);
 require_once('vendor/autoload.php'); 
 date_default_timezone_set('Asia/Hong_Kong');
- //header('Content-Disposition: inline; filename= aa.vcf');  
 
-//header('Content-Length: '.filesize($path.$file));  
+$debug=0;
+if(isset($_GET['debug']))$debug = $_GET['debug']; 
+
+$sig = $_GET['sig']; 
+if($sig=="") $sig="1234567890";
  
+if(!$debug){
 header('Content-Type: text/x-vcard');  
 header('Content-Disposition: attachment; filename= '.$_GET['sig'].".vcf");  
 header('Connection: close');  
+}
  
 
 $mongourl="mongodb://cardbiz:cardbiz98014380@localhost:27017/cardbiz_db?authSource=admin";
 $m = new MongoDB\Driver\Manager($mongourl);
 $client = new MongoDB\Client($mongourl);
 $collection = $client->selectDatabase("cardbiz_db")->selectCollection("staffs");
-$sig = $_GET['sig']; 
 
 $abk=[['$match' => ['smartcard_uid' => $sig]], ['$lookup' => ['from' => 'companies', 'localField' => 'company_id', 'foreignField' => '_id', 'as' => 'company_detail']]];
 $results = $collection->aggregate($abk);
@@ -23,24 +28,58 @@ $results = $collection->aggregate($abk);
 	
 if (strlen($sig)==10){  
   
-            
-	
 		foreach ($results as $document) {
 		// print_r($document);
-		    $fname=$document->fname;
+		
+			$company_name=$document->company_detail[0]['name'];
+			$fname=$document->fname;
 			$lname=$document->lname;
-			$web_link=$document->web_link;
+			
 			$work_email= $document->work_email;
 			$home_email= $document->home_email;
 			$other_email= $document->other_email;
+			
 			$position=$document->position;
+			
+			$work_tel1=$document->work_tel;
+			$work_tel2=$document->work_tel2;
+			 
 			$mobile1= $document->mobile;
+			$mobile2= $document->mobile2;
+			
+			$home_tel=$document->home_tel;
+			$fax=$document->fax;
+			 
+			$web_link1=$document->web_link;
+			$web_link2=$document->web_link2;
+			$web_link3=$document->web_link3;
+			$web_link4=$document->web_link4;
+			$web_link5=$document->web_link5;
+			$url=$document->web_link6;
+			
+			$address1= $document->address;
+			$address2= $document->address2;
+			
+			$division=$document->division;
+			$department=$document->department;
+			
+			$country=$document->country;
+			
+			$bio=$document->bio;
+			$company_website_url=$document->company_website_url;
+			$more_info_tab_url=$document->more_info_tab_url;
+			
+			$facebook_url= $document->facebook_url ;
+			$instagram_url= $document->instagram_url;
+			$whatsapp_url= $document->whatsapp_url;
+			$linkedin_url= $document->linkedin_url;
+			$youtube_url= $document->youtube_url;
+			$twitter_url= $document->twitter_url;
+			$wechat_id= $document->wechat_id;
+			  
 			$smartcard_uid= $document->smartcard_uid;
-			$facebook= $document->facebook_url ;
-				$linkedin= $document->linkedin_url;
-				$address= $document->address;
-				$url=$document->web_link6;
-				 
+			
+			 
 				 
 			  if($url!=""){ 
 			    $url = str_replace("https", "http",$url);
@@ -56,38 +95,40 @@ if (strlen($sig)==10){
 			  
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
-			  $vCard .= "F;" . $fname . "\r\n";
-			  $vCard .= "N:" . $lname . "\r\n";
+			  
+			  if($company_name!="")$vCard .= "ORG:" . $company_name . "\r\n";
+			  if($fname!="")$vCard .= "F:" . $fname . "\r\n";
+			  if($lname!="")$vCard .= "N:" . $lname . "\r\n";
+			  if($work_email!="") $vCard .= "EMAIL;TYPE=internet,pref:" . $work_email . "\r\n"; 
+			  if($work_tel1) $vCard .= "TEL;WORK:" . $work_tel1 . "\r\n"; 
+			  if($work_tel2) $vCard .= "TEL;CELL:" . $work_tel2 . "\r\n";  
+			  if($mobile1)	$vCard .= "TEL;CELL:" . $mobile1 . "\r\n"; 
+			  if($mobile2)$vCard .= "TEL;CELL:" . $mobile2 . "\r\n"; 
+			  if($home_tel)$vCard .= "TEL;CELL:" . $home_tel . "\r\n"; 
+			  if($fax)	$vCard .= "TEL;WORK;FAX:" . $fax . "\r\n";
+			  if($web_link1)$vCard .= "TEL;WORK;FAX:" . $web_link1 . "\r\n";
+			  if($web_link2)$vCard .= "TEL;WORK;FAX:" . $web_link2 . "\r\n";
+			  if($web_link3)$vCard .= "TEL;WORK;FAX:" . $web_link3 . "\r\n";
+			  if($web_link4)$vCard .= "TEL;WORK;FAX:" . $web_link4 . "\r\n";
+			  if($web_link5)$vCard .= "TEL;WORK;FAX:" . $web_link5 . "\r\n";
+			  
+			  if($address1)$vCard .= "ADR;WORK:" . $address1 . "\r\n"; 
+			  if($address2)$vCard .= "ADR;WORK:" . $address2 . "\r\n"; 
+			 
+			  if($company_website_url)$vCard .= "URL:" . $company_website_url . "\r\n"; 
+			  if($more_info_tab_url)$vCard .= "URL:" . $more_info_tab_url . "\r\n"; 
+			  if($facebook_url)$vCard .= "URL:" . $facebook_url . "\r\n"; 
+			  if($instagram_url)$vCard .= "URL:" . $instagram_url . "\r\n"; 
+			  if($whatsapp_url)$vCard .= "URL: https://api.whatsapp.com/send?phone=852" . $whatsapp_url . "\r\n"; 
+			  if($linkedin_url)$vCard .= "URL:" . $linkedin_url. "\r\n"; 
+			  if($youtube_url)$vCard .= "URL:" . $youtube_url. "\r\n"; 
+			  if($twitter_url)$vCard .= "URL:" . $twitter_url. "\r\n"; 
 			   
-			  if($work_email!=""){
-				$vCard .= "EMAIL;TYPE=internet,pref:" . $work_email . "\r\n";
-			  }
-			  if($getPhoto){
-				$vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:";
-				$vCard .= $photo . "\r\n";
-			  }
-
-			  if($mobile1){
-				$vCard .= "TEL;CELL:" . $mobile1 . "\r\n"; 
-			  }
+			  if($getPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$photo . "\r\n";
+			  if($smartcard_uid)$vCard.="URL: https://e-profile.digital/Touchless/Profile?sig=".$smartcard_uid. "\r\n";
+    
+			  $vCard .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\nEND:VCARD\r\n";
 			  
-			  if($smartcard_uid){
-				  $vCard.="URL: https://e-profile.digital/Touchless/Profile?sig=".$smartcard_uid. "\r\n";;
-			  }
-			  
-			  if($facebook){
-				$vCard .= "URL:" . $facebook . "\r\n"; 
-			  }
-			  if($linkedin){
-				$vCard .= "URL:" . $linkedin. "\r\n"; 
-			  }
-			   if($address){
-				$vCard .= "ADR;WORK:" . $address . "\r\n"; 
-			  }
-			  
-			  $vCard .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
-			   
-			  $vCard .= "END:VCARD\r\n";
 			  echo $vCard;
 			  
 		 }
@@ -470,4 +511,5 @@ function file_get_contents_curl($url) {
     return $data;
 }
 ?>
+
 

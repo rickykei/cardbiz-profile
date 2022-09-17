@@ -96,7 +96,7 @@
     	<div class="site">
                     	<div class="left-navbar">
                             <br>
-                        	<a  class="" href=""><img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50"></a>
+                        	<a  class="" href=""><img class="signature" src="../Touchless/vcard/images/citic4.jpg" alt=""></a>
                             <div class="navigation">	
                                 <ul class="links-to-floor">
                                     <li><a>ABOUT ME</a></li>
@@ -105,21 +105,22 @@
                                 </ul>
                             </div>
                            
-                        </div>	
-						<div class="profile-image">
+                        </div>
+                		<div class="profile-image">
                         	<img src="../Touchless/vcard/images/profile2.jpg" alt=""> 
                         </div>
+               
                     <div id="ascensorBuilding">
                 	<!-- HOME SECTION -->
                         <div class="floor home-page">
                             <div class="home-box">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
+                                 <img class="signature" src="https://nfctouch.com.hk/Touchless/UploadImage/5ED5ABE37E629.jpg" alt="" width="200" height="200"  style="border-radius: 50% ;" />
                                 <br>
                                 <br>
-                                <h1><?php echo "$fname $lname" ; ?></h1>
+                                <h1>Gary Tsoi 蔡偉雄</h1>
                                 <br>
-                                <span><?php echo "$position" ; ?></span>
-                                <p><?php echo "$bio" ; ?>
+                                <span>General Manager, Operations Management, OPG Management, Operations Management Group</span>
+                                <p>100 Grow Together Trust Forever
                                 </p>
                                 
                             </div>
@@ -128,14 +129,14 @@
                     <!-- ABOUT SECTION -->
                     <div class="scroll-out">
                     <div class="floor about">
-                    	<h2 class="page-title"><?php echo "$company_name" ; ?></h2>
+                    	<h2 class="page-title">CHINA CITIC BANK INTERNATIONAL LIMITED 中信銀行(國際)</h2>
                        
                         <ul class="list top15 bottom30">
-                        	<li><span>Website :</span> <?php echo "$web_link1" ; ?></li>
-                            <li><span>Address :</span> <?php echo "$address1" ; ?></li> 
-                            <li><span>Phone :</span> <?php echo "$work_tel1" ; ?></li>
+                        	<li><span>Website :</span> www.cncbinternational.com</li>
+                            <li><span>Address :</span> 18 Fl. Devon House, Taikoo Place, 979 King's Road, Quarry Bay, Hong Kong</li> 
+                            <li><span>Phone :</span> +852 3603 6265</li>
                         </ul>
-                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $brochure; ?>" >More Information</a>
+                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="https://www.cncbinternational.com" >More Information</a>
                        
                    
                         
@@ -147,43 +148,15 @@
                     <div class="floor contact">
                    		<h2 class="page-title">Contact Me</h2>
                         
-                        <ul class="list top15 bottom15">
-                            <li><span>Mobile :</span> <?php if($mobile1!=""){echo $mobile1;} ?></li>
-                            <li><span>Email :</span> <?php echo $work_email; ?></li>
-                            <li><span>Wechat :</span> <?php echo $wechat_id; ?></li>                            
+                      <ul class="list top15 bottom15">
+                            <li><span>Mobile :</span> +852 9080 3905</li>
+                            <li><span>Email :</span> garywh_tsoi@cncbinternational.com</li>                        
                         </ul>
                         
-                        <div class="social">
-						<?php if ($facebook_url!=""){ ?>
-                           <a id="FB" class="facebook" onclick='onclick(event);' href="<?php echo $facebook_url; ?>"><i class="fa fa-facebook"></i> </a>
-						<?php } ?>   
-                         <?php if ($twitter_url!=""){ ?>
-                          <a class="twitter" href="<?php echo $twitter_url; ?>"><i class="fa fa-twitter"></i> </a>
-						<?php } ?> 
-						  <?php if ($whatsapp_url!=""){ ?>
-                           <a class="whatsapp" href="<?php echo $whatsapp_url; ?>"><i class="fa fa-whatsapp"></i> </a>
-						<?php } ?> 
-						  <?php if ($instagram_url!=""){ ?>
-                              <a class="instagram" href="<?php echo $instagram_url; ?>"><i class="fa fa-instagram"></i> </a>
-						<?php } ?> 
-                          	  <?php if ($youtube_url !=""){ ?>
-                              <a class="youtube" href="<?php echo $youtude_url; ?>"><i class="fa fa-youtube"></i> </a>
-						<?php } ?> 
-                             	  <?php if ($linkedin_url!=""){ ?>
-                            <a class="linkedin" href="<?php echo $linkedin_url; ?>"><i class="fa fa-linkedin"></i> </a>
-						<?php } ?>   
-                        
-                           
-                          
-                        </div>
- 
-                        <br>
-                        <br>
-                         <img src="<?php QRcode::png($vCard);?>" alt="" >
- 
-                        <br>
-                         <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="https://e-profile.digital/genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
+                      
+                         <img  src="https://www.nfctouch.com.hk/Touchless/QR/QRGary.png" alt="" width="250" height="250" >
+  <br><br> <h4 class="subtitle">Save My Contact</h4><br><br>
+                          <a class="recoba-btn" href="https://e-profile.digital/genvcf.php?sig=56rr77h3e" >Click Here</a>
                     </div>
                          
                     </div>
