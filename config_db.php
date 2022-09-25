@@ -9,7 +9,7 @@ $mongourl="mongodb://cardbiz:cardbiz98014380@localhost:27017/cardbiz_db?authSour
 $m = new MongoDB\Driver\Manager($mongourl);
 $dbclient = new MongoDB\Client($mongourl);
 $collection = $dbclient->selectDatabase("cardbiz_db")->selectCollection("staffs");
-
+ 
 		if($uid!="")
 		$abk=[['$match' => ['smartcard_uid' => $uid]], ['$lookup' => ['from' => 'companies', 'localField' => 'company_id', 'foreignField' => '_id', 'as' => 'company_detail']]];
 		else if($sig!="")

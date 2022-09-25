@@ -1,37 +1,60 @@
 <?php  
-error_reporting(0);
+    error_reporting(0);
  
-$sig=$_GET["sig"];
+$debug=$_GET["debug"];
+$sig = $_GET['sig']; 
+if($sig=="")
+{
+	$uid = $_GET['uid']; 
+	$tid=$uid;
+}else{
+	$tid=$sig;
+}
 
-if ($sig!=""){
+if ($sig!=""|| $uid!=""){
 	//$sig="050C7EA647";
 	
 	//get digital or vcf option from staff document
-	$m = new MongoDB\Driver\Manager("mongodb://cardbiz:cardbiz98014380@localhost:27017/cardbiz_db?authSource=admin");
-    $filter = ['smartcard_uid' => $sig];
+
 		$options = [
-			'projection' => ['_id' => 0],
+			//'projection' => ['_id' => 0],
 			'sort' => ['_id' => -1],
 		];
 
-		 $query = new MongoDB\Driver\Query($filter, $options);
-		$cursor = $m->executeQuery('cardbiz_db.staffs', $query);
+	include_once("config_db.php");
+ 
+	foreach ($results as $document) {
+		 
+			  include_once("include_doc2vcf.php");
+ 
+			//  echo $vCard;
+			  
+	}
 
-		foreach ($cursor as $document) {
-				   $option=$document->bizcard_option;
-						   break;
-			
-		}
+	 
 
 	// redirect to which path VCF or e-profile
-	if ($option==true){
-		$str="https://businesscard.technology/Touchless/Profile?sig=".$sig."#resume";
-		header("Location: ".$str);
-		 
-	die();
-	}else{
-		$str="http://e-profile.digital/genvcf.php?sig=".$sig;
-		header("Location: ".$str);
+	if ($bizcard_option==true){
+		$str="https://e-profile.digital/Touchless/Profile.php?sig=".$sig."#resume";
+		if ($debug==1){
+			echo "bizcard_option".$bizcard_option;
+			echo "sig".$sig;
+			echo "smartcard_uid".$uid;
+			echo "str".$str;
+		}
+		else
+			header("Location: ".$str);
+	 
+	}else if ($bizcard_option=="dsfd"){
+		$str="https://e-profile.digital/genvcf.php?sig=".$sig;
+		if ($debug==1)
+		{
+			echo "bizcard_option".$bizcard_option;
+			echo "sig".$sig;
+			echo "smartcard_uid".$uid;
+			echo "str".$str;}
+		else
+			header("Location: ".$str);
 	 
 	 
 	}

@@ -97,12 +97,11 @@
                     	<div class="left-navbar">
                             <br>
                         	<a  class="" href="">
-							<?php
-							if($company_logo!=""){ ?>
+							<?php if($company_logo!=""){ ?>
 							<img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50">
-							<?php} else { ?>
-							<img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50">
-							<?php }?>
+							<?php } else { ?>
+							<img class="signature" src="https://e-profile.digital/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<?php } ?>
 							</a>
                             <div class="navigation">	
                                 <ul class="links-to-floor">
@@ -123,7 +122,7 @@
                                  <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
                                 <br>
                                 <br>
-                                <h1><?php echo "$fname $lname" ; ?></h1>
+                                <h1><?php echo "$fname" ; ?></h1>
                                 <br>
                                 <span><?php echo "$position" ; ?></span>
                                 <p><?php echo "$bio" ; ?>
@@ -157,7 +156,9 @@
                         <ul class="list top15 bottom15">
                             <li><span>Mobile :</span> <?php if($mobile1!=""){echo $mobile1;} ?></li>
                             <li><span>Email :</span> <?php echo $work_email; ?></li>
+							<?php if ($wechat_id!=""){ ?>
                             <li><span>Wechat :</span> <?php echo $wechat_id; ?></li>                            
+							<?php } ?>
                         </ul>
                         
                         <div class="social">
@@ -173,8 +174,8 @@
 						  <?php if ($instagram_url!=""){ ?>
                               <a class="instagram" href="<?php echo $instagram_url; ?>"><i class="fa fa-instagram"></i> </a>
 						<?php } ?> 
-                          	  <?php if ($youtube_url !=""){ ?>
-                              <a class="youtube" href="<?php echo $youtude_url; ?>"><i class="fa fa-youtube"></i> </a>
+                          	  <?php if ($youtube_url!=""){ ?>
+                              <a class="youtube" href="<?php echo $youtube_url; ?>"><i class="fa fa-youtube"></i> </a>
 						<?php } ?> 
                              	  <?php if ($linkedin_url!=""){ ?>
                             <a class="linkedin" href="<?php echo $linkedin_url; ?>"><i class="fa fa-linkedin"></i> </a>
@@ -186,9 +187,9 @@
  
                         <br>
                         <br>
-                         <img src="genvcf2png.php?sig=<?php echo $sig;?>" alt="" >
+                         <img src="genvcf2png.php?sig=<?php echo $sig;?>" alt=""  width="250" >
  
-                        <br>
+                        <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
                          <a class="recoba-btn" href="https://e-profile.digital/genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
                     </div>
