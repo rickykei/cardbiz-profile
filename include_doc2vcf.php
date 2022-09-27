@@ -51,7 +51,8 @@
 			$wechat_id= $document->wechat_id;
 			  
 			$smartcard_uid= $document->smartcard_uid;
-			$doc_sig=$document->_id;
+			$sig=$document->_id;
+			$staff_status=$document->status;
 			
 			$bizcard_option= $document->bizcard_option;
 							 

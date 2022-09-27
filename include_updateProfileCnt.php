@@ -5,7 +5,7 @@
 		  $date = date("Y-m-d h:i:sa"); //Current Date
 						$utcdatetime = new MongoDB\BSON\UTCDateTime(strtotime($date)*1000);
 		$db = $dbclient->selectDatabase("cardbiz_db");
-		$collectionVcf = $db->selectCollection("profile_counter");
+		$collectionVcf = $db->selectCollection("profile_counters");
 		$insertOneResult=$collectionVcf->insertOne(array(
 				   'staff_id' => $doc_sig,
 				   'ip' => $_SERVER['REMOTE_ADDR'],
