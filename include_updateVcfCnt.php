@@ -4,7 +4,7 @@
 		$db = $dbclient->selectDatabase("cardbiz_db");
 		$collectionVcf = $db->selectCollection("vcf_counters");
 		$insertOneResult=$collectionVcf->insertOne(array(
-				   'staff_id' => $doc_sig,
+				   'staff_id' => $sig,
 				   'ip' => $_SERVER['REMOTE_ADDR'],
 				   'user_agent' => $_SERVER['HTTP_USER_AGENT'],
 				   'createdAt'=> $utcdatetime,
@@ -14,7 +14,7 @@
 				//echo $insertOneResult;
 				 if ($debug){
 				echo $utcdatetime;
-			 echo "sig=".$doc_sig;
+			 echo "sig=".$sig;
 				echo "ip=".$_SERVER['REMOTE_ADDR'];
 		 echo "usera=".$_SERVER['HTTP_USER_AGENT'];
 		   printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
