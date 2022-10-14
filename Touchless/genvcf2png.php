@@ -17,11 +17,11 @@ if (isset($_GET['sig'])){
 	}			 
 				
 				if($debug){
-				 echo $vCard;
+					echo $qrPng;
 				}else{
 					$vCard="https://e-profile.digital/?sig=".$sig;
 					//QRcode::png($vCard);
-					echo QRcode::svg($vCard);
+					echo QRcode::svg($qrPng);
 				}
 }
 ?>

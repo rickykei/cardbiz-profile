@@ -1,6 +1,6 @@
 <?php
-  error_reporting(0);
-$debug=0;
+  error_reporting(1);
+$debug=1;
 $needPhoto=0;
 
 $sig = $_GET['sig']; 
@@ -23,7 +23,8 @@ if (isset($tid)){
 			 
 			   include_once("../include_doc2vcf.php");
 	 
-	 		   include_once("../include_updateVcfCnt.php");
+	 
+	 		   include_once("../include_updateProfileCnt.php");
 
 					include_once('index2.php');                 
 				  

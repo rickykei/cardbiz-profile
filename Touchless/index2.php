@@ -137,9 +137,15 @@
                     	<h2 class="page-title"><?php echo "$company_name" ; ?></h2>
                        
                         <ul class="list top15 bottom30">
+						<?php if ($web_link1!=""){ ?>
                         	<li><span>Website :</span> <?php echo "$web_link1" ; ?></li>
+						<?php } ?>
+						<?php if ($address1!=""){ ?>
                             <li><span>Address :</span> <?php echo "$address1" ; ?></li> 
+							<?php } ?>
+							<?php if ($work_tel1!=""){ ?>
                             <li><span>Phone :</span> <?php echo "$work_tel1" ; ?></li>
+							<?php } ?>
                         </ul>
                         <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $brochure; ?>" >More Information</a>
                        
@@ -154,8 +160,12 @@
                    		<h2 class="page-title">Contact Me</h2>
                         
                         <ul class="list top15 bottom15">
+						<?php if ($mobile1!=""){ ?>
                             <li><span>Mobile :</span> <?php if($mobile1!=""){echo $mobile1;} ?></li>
+							<?php } ?>
+							<?php if ($work_email!=""){ ?>
                             <li><span>Email :</span> <?php echo $work_email; ?></li>
+							<?php } ?>
 							<?php if ($wechat_id!=""){ ?>
                             <li><span>Wechat :</span> <?php echo $wechat_id; ?></li>                            
 							<?php } ?>

@@ -72,7 +72,7 @@
 			  //prepare vcf Variable
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
-
+			 
 			  if($company_name!="")$vCard .= "ORG:" . $company_name . "\r\n";
 			  if($fname!="")$vCard .= "N;CHARSET=utf-8:;" . $fname . "\r\n";
 			  //if($lname!="")$vCard .= "N;CHARSET=utf-8:;" . $lname . "\r\n";
@@ -109,6 +109,33 @@
  
 			  $vCard .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\nEND:VCARD\r\n";
 			  
+			  //gather qrcode png info
+			  $qrPng = "BEGIN:VCARD\r\n";
+			  $qrPng .= "VERSION:3.0\r\n";
+				if($company_name!="")$qrPng .= "ORG:" . $company_name . "\r\n";
+				if($fname!="")$qrPng .= "N;CHARSET=utf-8:;" . $fname . "\r\n";
+				if($work_email!="") $qrPng .= "EMAIL;TYPE=Work Email,pref:" . $work_email . "\r\n"; 
+				if($position!="")$qrPng.="TITLE:".$position."\r\n";
+				if($work_tel1) $qrPng .= "TEL;WORK:" . $work_tel1 . "\r\n"; 
+				if($mobile1)	$qrPng .= "TEL;TYPE=CELL:" . $mobile1 . "\r\n"; 
+				//if($home_tel)$qrPng .= "TEL;TYPE=HOME:" . $home_tel . "\r\n";
+				//if($fax)	$qrPng .= "TEL;TYPE=FAX:" . $fax . "\r\n";
+				if($web_link1)$qrPng .= "URL;TYPE=Website,pref:" . $web_link1 . "\r\n";
+				//if($web_link2)$qrPng .= "URL;TYPE=Website,pref:" . $web_link2 . "\r\n";
+				//if($web_link3)$qrPng .= "URL;TYPE=Website,pref:" . $web_link3 . "\r\n";
+			    if($address1)$qrPng .= "ADR;WORK:" . $address1 . "\r\n"; 
+				//if($company_website_url)$qrPng .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 
+			    //if($facebook_url)$qrPng .= "URL;TYPE=Facebook,pref:" . $facebook_url . "\r\n"; 
+				//if($instagram_url)$qrPng .= "URL;TYPE=Instagram,pref:" . $instagram_url . "\r\n"; 
+				//if($whatsapp_url)$qrPng .= "URL;TYPE=Whatsapp,pref:" . $whatsapp_url . "\r\n"; 
+				//if($linkedin_url)$qrPng .= "URL;TYPE=Linkedin,pref:" . $linkedin_url. "\r\n"; 
+				//if($youtube_url)$qrPng .= "URL;TYPE=Youtube,pref:" . $youtube_url. "\r\n"; 
+				//if($twitter_url)$qrPng .= "URL;TYPE=Twitter,pref:" . $twitter_url. "\r\n"; 
+				 
+			   //if($headshot&&!$debug) $qrPng .= "PHOTO;TYPE=jpeg;VALUE=uri:".$headshot . "\r\n";
+			   // $qrPng .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
+				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
+				$qrPng .= "END:VCARD\r\n";
 			  
  function get_content($URL){
       $ch = curl_init();
