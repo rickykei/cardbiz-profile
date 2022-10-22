@@ -147,8 +147,9 @@
                             <li><span>Phone :</span> <?php echo "$work_tel1" ; ?></li>
 							<?php } ?>
                         </ul>
-                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $brochure; ?>" >More Information</a>
-                       
+						<?php if ($more_info_tab_url!=""){ ?>
+                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
+                       <?php } ?>
                    
                         
                     </div>
