@@ -20,7 +20,7 @@ if (isset($_GET['sig'])){
 				if($debug){
 					echo $qrPng;
 				}else{
-					$vCard="https://e-profile.digital/?sig=".$sig;
+					$vCard="https://whospets.com/?sig=".$sig;
 					//	echo QRcode::svg($qrPng);
 					
 					$errorCorrectionLevel = 'H';
@@ -38,8 +38,9 @@ if (isset($_GET['sig'])){
 					$QR_height = imagesy($qr);
 					$logo_width = imagesx($logo);
 					$logo_height = imagesy($logo);
-					$logo_qr_width = $QR_width / 3;
+					
 					$scale = $logo_width/$logo_qr_width;
+					$logo_qr_width = $QR_width / 3;
 					$logo_qr_height = $logo_height/$scale;
 					$from_width = ($QR_width - $logo_qr_width) / 2;
 					

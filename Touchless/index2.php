@@ -98,9 +98,9 @@
                             <br>
                         	<a  class="" href="">
 							<?php if($company_logo!=""){ ?>
-							<img class="signature" src="https://e-profile.digital/api/files/<?php echo $company_logo;?>" alt="" width="50">
+							<img class="signature" src="https://whospets.com/api/files/<?php echo $company_logo;?>" alt="" width="50">
 							<?php } else { ?>
-							<img class="signature" src="https://e-profile.digital/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<img class="signature" src="https://whospets.com/assets/img/logo/white_logo.jpg" alt="" width="50">
 							<?php } ?>
 							</a>
                             <div class="navigation">	
@@ -202,7 +202,7 @@
  
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="https://e-profile.digital/genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
+                         <a class="recoba-btn" href="https://whospets.com/genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
                     </div>
                          
                     </div>

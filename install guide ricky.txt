@@ -1,0 +1,12 @@
+php issue mod mongodb
+
+sudo pecl install mongodb
+
+
+autoload php
+install composer mannual
+https://linuxhint.com/install-and-use-php-composer-ubuntu-22-04/
+
+sudo apt-get -y install php-gd
+
+sudo apt-get -y install php-curl
