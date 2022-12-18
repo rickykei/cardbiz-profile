@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title><?php echo $company_name_eng;?></title>
+<title>Touchless Profile</title>
 <meta charset="UTF-8">
-<meta property="og:title" content="<?php echo $company_name_eng;?>"/>
+<meta property="og:title" content="Touchless Profile"/>
 <meta property="og:description" content="<?php echo $name?>"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="<?php echo $url ; ?>"/>    
@@ -98,9 +98,9 @@
                             <br>
                         	<a  class="" href="">
 							<?php if($company_logo!=""){ ?>
-							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
+							<img class="signature" src="https://whospets.com/api/files/<?php echo $company_logo;?>" alt="" width="50">
 							<?php } else { ?>
-							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<img class="signature" src="https://whospets.com/assets/img/logo/white_logo.jpg" alt="" width="50">
 							<?php } ?>
 							</a>
                             <div class="navigation">	
@@ -119,80 +119,90 @@
                 	<!-- HOME SECTION -->
                         <div class="floor home-page">
                             <div class="home-box">
-                                <img class="signature" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
+                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
                                 <br>
                                 <br>
-                                <h1><?php echo "$name_eng" ; ?><br><?php echo "$name_chi" ; ?></h1>
+                                <h1><?php echo "$fname" ; ?></h1>
                                 <br>
-                                <span><?php echo $title_eng.", ".$subsidiary_eng; ?></span>
-								<span><?php echo $title_chi.", ".$subsidiary_chi; ?></span>
-                                <p style="font-size:10px">
-								<?php if ($agent_no!=""){
-								 echo "Licensed Technical Representative (Agent) License No. 持牌業務代表（代理人）牌照號碼: ".$agent_no;
-								}?>
-								
-								<?php if ($hkma_no!=""){
-									echo "<br> HKMA Reg. No. Of Relevant Individual 金融管理局有關人士註冊編號: ".$hkma_no;
-								}?>
-								<?php if ($hkma_eng!=""){
-									echo "<br> Regulated Activity: ".$hkma_eng;
-								}?>
-								<?php if ($hkma_chi!=""){
-									echo " 受規管活動： ".$hkma_chi;
-								}?>
-								 
+                                <span><?php echo "$position" ; ?></span>
+                                <p><?php echo "$bio" ; ?>
                                 </p>
+                                
                             </div>
                             
                         </div>
                     <!-- ABOUT SECTION -->
                     <div class="scroll-out">
                     <div class="floor about">
-					  <img class="signature" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
-					  <br>
-					  <br>
-                    	<h2 class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
+                    	<h2 class="page-title"><?php echo "$company_name" ; ?></h2>
                        
                         <ul class="list top15 bottom30">
-                        	<li><span>Website :</span> www.cncbinternational.com</li>
-                            <li><span>Address :</span> <?php echo $address_eng;?></li> 
-                            <li><?php echo $address_chi;?></li>
-                            <li><span>Phone :</span> <?php echo $work_tel;?></li>
+						<?php if ($web_link1!=""){ ?>
+                        	<li><span>Website :</span> <?php echo "$web_link1" ; ?></li>
+						<?php } ?>
+						<?php if ($address1!=""){ ?>
+                            <li><span>Address :</span> <?php echo "$address1" ; ?></li> 
+							<?php } ?>
+							<?php if ($work_tel1!=""){ ?>
+                            <li><span>Phone :</span> <?php echo "$work_tel1" ; ?></li>
+							<?php } ?>
                         </ul>
+						<?php if ($more_info_tab_url!=""){ ?>
+                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
+                       <?php } ?>
                    
-                        <a id="one" class="recoba-btn" onclick="onclick(event);" href="https://www.cncbinternational.com">More Information</a>
+                        
                     </div>
                     </div>
                   
                     <!-- CONTACT SECTION-->
                     <div class="scroll-out">
                     <div class="floor contact">
-					<img class="signature mCS_img_loaded" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
-					<br>
-					<br>
                    		<h2 class="page-title">Contact Me</h2>
                         
                         <ul class="list top15 bottom15">
-						<?php if ($mobile_tel!=""){ ?>
-                            <li><span>Mobile :</span> <?php if($mobile_tel!=""){echo $mobile_tel;} ?></li>
-							<?php } ?>
-							<?php if ($work_tel!=""){ ?>
-                            <li><span>work_tel :</span> <?php echo $work_tel; ?></li>
-							<?php } ?>
-							<?php if ($fax_no!=""){ ?>
-                            <li><span>fax_no :</span> <?php echo $fax_no; ?></li>
+						<?php if ($mobile1!=""){ ?>
+                            <li><span>Mobile :</span> <?php if($mobile1!=""){echo $mobile1;} ?></li>
 							<?php } ?>
 							<?php if ($work_email!=""){ ?>
-                            <li><span>work_email :</span> <?php echo $work_email; ?></li>
+                            <li><span>Email :</span> <?php echo $work_email; ?></li>
+							<?php } ?>
+							<?php if ($wechat_id!=""){ ?>
+                            <li><span>Wechat :</span> <?php echo $wechat_id; ?></li>                            
 							<?php } ?>
                         </ul>
                         
-   
+                        <div class="social">
+						<?php if ($facebook_url!=""){ ?>
+                           <a id="FB" class="facebook" onclick='onclick(event);' href="<?php echo $facebook_url; ?>"><i class="fa fa-facebook"></i> </a>
+						<?php } ?>   
+                         <?php if ($twitter_url!=""){ ?>
+                          <a class="twitter" href="<?php echo $twitter_url; ?>"><i class="fa fa-twitter"></i> </a>
+						<?php } ?> 
+						  <?php if ($whatsapp_url!=""){ ?>
+                           <a class="whatsapp" href="<?php echo $whatsapp_url; ?>"><i class="fa fa-whatsapp"></i> </a>
+						<?php } ?> 
+						  <?php if ($instagram_url!=""){ ?>
+                              <a class="instagram" href="<?php echo $instagram_url; ?>"><i class="fa fa-instagram"></i> </a>
+						<?php } ?> 
+                          	  <?php if ($youtube_url!=""){ ?>
+                              <a class="youtube" href="<?php echo $youtube_url; ?>"><i class="fa fa-youtube"></i> </a>
+						<?php } ?> 
+                             	  <?php if ($linkedin_url!=""){ ?>
+                            <a class="linkedin" href="<?php echo $linkedin_url; ?>"><i class="fa fa-linkedin"></i> </a>
+						<?php } ?>   
+                        
+                           
+                          
+                        </div>
+ 
+                        <br>
+                        <br>
                          <img src="genvcf2png.php?sig=<?php echo $sig;?>" alt=""  width="250" >
  
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="../genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
+                         <a class="recoba-btn" href="https://whospets.com/genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
                     </div>
                          
                     </div>

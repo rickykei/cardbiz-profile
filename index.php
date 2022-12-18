@@ -1,4 +1,6 @@
 <?php  
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
     error_reporting(0);
  
 $debug=$_GET["debug"];
@@ -36,7 +38,7 @@ if ($sig!=""|| $uid!=""){
 		 if ($staff_status==true){
 			// redirect to which path VCF or e-profile
 			if ($bizcard_option==true ){
-				$str="https://e-profile.digital/Touchless/Profile.php?sig=".$sig."#resume";
+				$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
 				if ($debug==1){
 					echo "bizcard_option".$bizcard_option;
 					echo "sig".$sig;
@@ -47,7 +49,7 @@ if ($sig!=""|| $uid!=""){
 					header("Location: ".$str);
 			 
 			}else {
-				$str="https://e-profile.digital/genvcf.php?sig=".$sig;
+				$str=$domain."/genvcf.php?sig=".$sig;
 				if ($debug==1)
 				{
 					echo "bizcard_option".$bizcard_option;

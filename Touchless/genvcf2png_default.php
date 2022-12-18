@@ -20,7 +20,7 @@ if (isset($_GET['sig'])){
 				if($debug){
 					echo $qrPng;
 				}else{
-					$qrPng=$domain."/?sig=".$sig;
+					$qrPng="https://e-profile.digital/?sig=".$sig;
 					//	echo QRcode::svg($qrPng);
 					
 					$errorCorrectionLevel = 'H';

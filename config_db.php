@@ -3,6 +3,7 @@
 use MongoDB\BSON\ObjectID;
 require_once('vendor/autoload.php'); 
 date_default_timezone_set('Asia/Hong_Kong');
+$domain="https://whospets.com";
 $mongourl="mongodb://cardbiz:cardbiz98014380@localhost:27017/cardbiz_db?authSource=admin";
 $m = new MongoDB\Driver\Manager($mongourl);
 $dbclient = new MongoDB\Client($mongourl);
