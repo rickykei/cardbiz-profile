@@ -33,7 +33,10 @@ if (isset($_GET['sig'])){
 					
 					 
 					$qr=imagecreatefrompng($filepath);
-					$logo = imagecreatefromstring(file_get_contents($logopath));
+					//$logo = imagecreatefromstring(file_get_contents($logopath));
+					$logo = imagecreatefrompng($logopath);
+					
+					 
 					$QR_width = imagesx($qr);
 					$QR_height = imagesy($qr);
 					$logo_width = imagesx($logo);
@@ -43,10 +46,20 @@ if (isset($_GET['sig'])){
 					$logo_qr_height = $logo_height/$scale;
 					$from_width = ($QR_width - $logo_qr_width) / 2;
 					
-					imagecopyresampled($qr, $logo, $from_width, $from_width, 0, 0, $logo_qr_width,$logo_qr_height, $logo_width, $logo_height);
-					//imagepng($qr, $filepath2);
-					imagepng($qr);
-					imagedestroy($qr);
+					
+					/* Create a new image onto which we will copy images & assign transparency */
+					$target = imagecreatetruecolor( $QR_width, $QR_height );
+					imagesavealpha( $target , true );
+
+					$transparent = imagecolorallocatealpha( $target, 0, 0, 0, 127 );
+					imagefill( $target,0, 0, $transparent );
+						
+					imagecopy( $target, $qr, 0, 0, 0, 0, $QR_width, $QR_height );
+						
+					imagecopyresampled($target, $logo, $from_width, $from_width, 0, 0, $logo_qr_width,$logo_qr_height, $logo_width, $logo_height);
+					 
+					 imagepng($target);
+				 	imagedestroy($target);
 				}
 }
 ?>

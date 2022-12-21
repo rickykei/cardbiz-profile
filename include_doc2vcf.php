@@ -41,7 +41,7 @@
 			
 			if($document->headshot!="")
 			$headshot=$domain."/api/files/".$document->headshot;
-			
+			$headshot=$domain."/Touchless/contact_citic.jpg";
 			
 			$division=$document->division;
 			 
@@ -71,25 +71,33 @@
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
 			 
-			  if($company_name_eng!="")$vCard .= "ORG:" . $company_name_eng . "\r\n";
-			  if($name_eng!="")$vCard .= "N;CHARSET=utf-8:;" . $name_eng . "\r\n";
-			  //if($lname!="")$vCard .= "N;CHARSET=utf-8:;" . $lname . "\r\n";
-			  if($title_eng!="")$vCard.="TITLE:".$title_eng."\r\n";
-			  if($work_email!="") $vCard .= "EMAIL;TYPE=Work Email,pref:" . $work_email . "\r\n"; 
+			  if($company_name_eng!="")$vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
+			  //if($company_name_chi!="")$vCard .= "ORG:" . $company_name_chi . "\r\n";
+			  if($name_eng!="")$vCard .= "N;CHARSET=utf-8:" . $name_eng ." ". $name_chi ."\r\n";
+			//  if($name_chi!="")$vCard .= "N;CHARSET=utf-8:" .  $name_eng ." ". $name_chi. "\r\n";
+			  if($title_eng!="")$vCard.="TITLE;CHARSET=utf-8:".$title_eng."\r\n";
+			  if($pro_title!="")$vCard .= "N;CHARSET=utf-8:" . $pro_title. "\r\n";
+			  if($subsidiary_eng!="")$vCard .= "TITLE;CHARSET=utf-8:" . $subsidiary_eng. "\r\n";
+			  if($address_eng)$vCard .= "ADR;WORK:" . $address_eng . "\r\n"; 
 			 
+			
 			  if($work_tel) $vCard .= "TEL;WORK:" . $work_tel . "\r\n"; 
 			 
-			  if($direct_tel)	$vCard .= "TEL;TYPE=CELL:" . $direct_tel . "\r\n"; 
+			  if($direct_tel)	$vCard .= "TEL;WORK:" . $direct_tel . "\r\n"; 
 			  if($mobile_tel)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
 			 
 			  if($fax_no)	$vCard .= "TEL;TYPE=FAX:" . $fax_no . "\r\n";
-	
-			  if($company_website_url)$vCard .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 
-			  if($more_info_tab_url)$vCard .= "URL;TYPE=More Info,pref:" . $more_info_tab_url . "\r\n"; 
+				if($reuters)	$vCard .= "TEL;WORK:" . $reuters . "\r\n"; 
+				if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 
+			 if($agent_no!="") $vCard .= "NOTE:" . $agent_no . "\r\n"; 
+			  if($broker_no!="") $vCard .= "NOTE:" . $broker_no . "\r\n"; 
+			  if($mpf_no!="") $vCard .= "NOTE:" . $mpf_no . "\r\n"; 
+			  if($hkma_no!="") $vCard .= "NOTE:" . $hkma_no . "\r\n"; 
+			  if($hkma_eng!="") $vCard .= "NOTE:" . $hkma_eng . "\r\n"; 
+			 
+			  
 			   
-			  if($address_eng)$vCard .= "ADR;WORK:" . $address_eng . "\r\n"; 
-			  if($address_chi)$vCard .= "ADR;WORK:" . $address_chi . "\r\n"; 
-			   
+		
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
 			  //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
 			  if($smartcard_uid)$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."/Touchless/Profile.php?sig=".$sig. "\r\n";

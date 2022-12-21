@@ -96,13 +96,7 @@
     	<div class="site">
                     	<div class="left-navbar">
                             <br>
-                        	<a  class="" href="">
-							<?php if($company_logo!=""){ ?>
-							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
-							<?php } else { ?>
-							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
-							<?php } ?>
-							</a>
+                         	
                             <div class="navigation">	
                                 <ul class="links-to-floor">
                                     <li><a>ABOUT ME</a></li>
@@ -110,7 +104,13 @@
                                     <li><a>GET IN TOUCH</a></li>
                                 </ul>
                             </div>
-                           
+                           <a class="" href="">
+							<?php if($company_logo=="test"){ ?>
+							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
+							<?php } else if($company_logo="test"){ ?>
+							<img class="signature" src="../Touchless/vcard/images/citicsmall26.jpg" alt="" width="50" height="50">
+							<?php } ?>
+							</a>  
                         </div>	
 						<div class="profile-image">
                         	<img src="../Touchless/vcard/images/profile2.jpg" alt=""> 
@@ -122,7 +122,7 @@
                                 <img class="signature" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
                                 <br>
                                 <br>
-                                <h1><?php echo "$name_eng" ; ?><br><?php echo "$name_chi" ; ?></h1>
+                                <h1><?php echo "$name_eng". " ".$pro_title ; ?><br><?php echo "$name_chi". " ".$pro_title ; ?></h1>
                                 <br>
                                 <span><?php echo $title_eng.", ".$subsidiary_eng; ?></span>
 								<span><?php echo $title_chi.", ".$subsidiary_chi; ?></span>
@@ -140,7 +140,12 @@
 								<?php if ($hkma_chi!=""){
 									echo " 受規管活動： ".$hkma_chi;
 								}?>
-								 
+								 	<?php if ($mpf_no!=""){
+									echo " MPF Intermediary Reg. No： ".$mpf_no;
+								}?>
+									<?php if ($broker_no!=""){
+									echo " Licensed Technical Representative (Broker) License No.： ".$broker_no;
+								}?>
                                 </p>
                             </div>
                             
@@ -174,16 +179,22 @@
                         
                         <ul class="list top15 bottom15">
 						<?php if ($mobile_tel!=""){ ?>
-                            <li><span>Mobile :</span> <?php if($mobile_tel!=""){echo $mobile_tel;} ?></li>
+                            <li><span>Company Mobile No. :</span> <?php if($mobile_tel!=""){echo $mobile_tel;} ?></li>
 							<?php } ?>
 							<?php if ($work_tel!=""){ ?>
-                            <li><span>work_tel :</span> <?php echo $work_tel; ?></li>
+                            <li><span>Tel No. :</span> <?php echo $work_tel; ?></li>
 							<?php } ?>
 							<?php if ($fax_no!=""){ ?>
-                            <li><span>fax_no :</span> <?php echo $fax_no; ?></li>
+                            <li><span>Fax No. :</span> <?php echo $fax_no; ?></li>
 							<?php } ?>
 							<?php if ($work_email!=""){ ?>
-                            <li><span>work_email :</span> <?php echo $work_email; ?></li>
+                            <li><span>Email Address :</span> <?php echo $work_email; ?></li>
+							<?php } ?>
+							<?php if ($direct_tel!=""){ ?>
+                            <li><span>Direct Line :</span> <?php echo $direct_tel; ?></li>
+							<?php } ?>
+							<?php if ($reuters!=""){ ?>
+                            <li><span>Reuters / Others Remarks :</span> <?php echo $reuters; ?></li>
 							<?php } ?>
                         </ul>
                         
