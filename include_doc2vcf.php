@@ -1,7 +1,10 @@
 <?php
  
-			$company_name_eng=$document->company_detail[0]['company_name_eng'];
-			$company_name_chi=$document->company_detail[0]['company_name_chi'];
+			//$company_name_eng=$document->company_detail[0]['company_name_eng'];	
+			//$company_name_chi=$document->company_detail[0]['company_name_chi'];
+			//citic
+			$company_name_eng=$document->company_name_eng;
+			$company_name_chi=$document->company_name_chi;
 			$company_logo=$document->company_detail[0]['logo'];
 			
 			
@@ -26,7 +29,9 @@
 			$direct_tel=$document->direct_tel;
 			 
 			$mobile_tel= $document->mobile_tel;
+			$mobile_tel2= $document->mobile_tel2;
 			$fax_no= $document->fax_no;
+			$fax_no2= $document->fax_no2;
 			
 			$reuters=$document->reuters;
 			$agent_no=$document->agent_no;
@@ -71,39 +76,41 @@
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
 			 
-			  if($company_name_eng!="")$vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
+			  if($company_name_eng!="") $vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
 			  //if($company_name_chi!="")$vCard .= "ORG:" . $company_name_chi . "\r\n";
-			  if($name_eng!="")$vCard .= "N;CHARSET=utf-8:" . $name_eng ." ". $name_chi ."\r\n";
+			  if($name_eng!="") $vCard .= "N;CHARSET=utf-8:" . $name_eng ." ". $name_chi ." ". $pro_title."\r\n";
 			//  if($name_chi!="")$vCard .= "N;CHARSET=utf-8:" .  $name_eng ." ". $name_chi. "\r\n";
-			  if($title_eng!="")$vCard.="TITLE;CHARSET=utf-8:".$title_eng."\r\n";
-			  if($pro_title!="")$vCard .= "N;CHARSET=utf-8:" . $pro_title. "\r\n";
-			  if($subsidiary_eng!="")$vCard .= "TITLE;CHARSET=utf-8:" . $subsidiary_eng. "\r\n";
-			  if($address_eng)$vCard .= "ADR;WORK:" . $address_eng . "\r\n"; 
-			 
-			
+			  if($title_eng!="") $vCard.="TITLE;CHARSET=utf-8:".$title_eng.", ".$subsidiary_eng."\r\n";
+			  
+			  
+			  if($address_eng) $vCard .= "ADR;WORK:" . $address_eng . "\r\n"; 
+			  
 			  if($work_tel) $vCard .= "TEL;WORK:" . $work_tel . "\r\n"; 
 			 
 			  if($direct_tel)	$vCard .= "TEL;WORK:" . $direct_tel . "\r\n"; 
 			  if($mobile_tel)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
-			 
+			 if($mobile_tel2)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel2 . "\r\n"; 
 			  if($fax_no)	$vCard .= "TEL;TYPE=FAX:" . $fax_no . "\r\n";
-				if($reuters)	$vCard .= "TEL;WORK:" . $reuters . "\r\n"; 
-				if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 
-			 if($agent_no!="") $vCard .= "NOTE:" . $agent_no . "\r\n"; 
-			  if($broker_no!="") $vCard .= "NOTE:" . $broker_no . "\r\n"; 
-			  if($mpf_no!="") $vCard .= "NOTE:" . $mpf_no . "\r\n"; 
-			  if($hkma_no!="") $vCard .= "NOTE:" . $hkma_no . "\r\n"; 
-			  if($hkma_eng!="") $vCard .= "NOTE:" . $hkma_eng . "\r\n"; 
+			  if($fax_no2)	$vCard .= "TEL;TYPE=FAX:" . $fax_no2 . "\r\n";
+			 if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 
 			 
-			  
+			 $cnt=0;
+			 if ($agent_no!="" || $broker_no!="" || $mpf_no!="" || $hkma_no!="" || $reuters!="" || $hkma_eng!="")
+				 $vCard.="NOTE:";
+			  if($agent_no!="") {if ($cnt>0) $vCard.=","; $vCard .= " Licensed Technical Representative (Agent) License No." . $agent_no;$cnt++;}
+			  if($broker_no!=""){if ($cnt>0) $vCard.=","; $vCard .= " Licensed Technical Representative (Broker) License No.: " . $broker_no; $cnt++;}
+			  if($mpf_no!="") {if ($cnt>0) $vCard.=",";$vCard .= " MPF Intermediary Reg. No.: " . $mpf_no;  $cnt++;}
+			  if($hkma_no!="") {if ($cnt>0) $vCard.=",";$vCard .= " HKMA Reg. No. Of Relevant Individual: " . $hkma_no;  $cnt++;}
+			  if($hkma_eng!="") {if ($cnt>0) $vCard.=",";$vCard .= " Regulated Activity: " . $hkma_eng ;  $cnt++;}
+			  if($reuters!="")	{if ($cnt>0) $vCard.=",";$vCard .= " " . $reuters;  $cnt++;}
+			  $vCard .= " Meet on " . date("d/m/Y H:i") . "\r\n";
 			   
 		
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
 			  //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
 			  if($smartcard_uid)$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."/Touchless/Profile.php?sig=".$sig. "\r\n";
- 
-			  $vCard .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\nEND:VCARD\r\n";
-			  
+				$vCard.="END:VCARD\r\n";
+			
 			  //gather qrcode png info
 			  $qrPng = "BEGIN:VCARD\r\n";
 			  $qrPng .= "VERSION:3.0\r\n";

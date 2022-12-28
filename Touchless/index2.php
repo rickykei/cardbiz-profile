@@ -122,7 +122,9 @@
                                 <img class="signature" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
                                 <br>
                                 <br>
-                                <h1><?php echo "$name_eng". " ".$pro_title ; ?><br><?php echo "$name_chi". " ".$pro_title ; ?></h1>
+                                <h1><?php echo $name_eng;?><br>
+                                    <?php echo $name_chi;?></h1>
+                                <h2><?php echo $pro_title;?></h2>
                                 <br>
                                 <span><?php echo $title_eng.", ".$subsidiary_eng; ?></span>
 								<span><?php echo $title_chi.", ".$subsidiary_chi; ?></span>
@@ -134,18 +136,19 @@
 								<?php if ($hkma_no!=""){
 									echo "<br> HKMA Reg. No. Of Relevant Individual 金融管理局有關人士註冊編號: ".$hkma_no;
 								}?>
-								<?php if ($hkma_eng!=""){
+								 	<?php if ($mpf_no!=""){
+									echo "<br> MPF Intermediary Reg. No 強積金中介人註冊編號: ".$mpf_no;
+								}?>
+									<?php if ($broker_no!=""){
+									echo "<br> Licensed Technical Representative (Broker) License No. 持牌業務代表(經紀) 牌照號碼: ".$broker_no;
+								}?>
+                                    <?php if ($hkma_eng!=""){
 									echo "<br> Regulated Activity: ".$hkma_eng;
 								}?>
 								<?php if ($hkma_chi!=""){
-									echo " 受規管活動： ".$hkma_chi;
-								}?>
-								 	<?php if ($mpf_no!=""){
-									echo " MPF Intermediary Reg. No： ".$mpf_no;
-								}?>
-									<?php if ($broker_no!=""){
-									echo " Licensed Technical Representative (Broker) License No.： ".$broker_no;
-								}?>
+									echo " 受規管活動: ".$hkma_chi;
+								}?><br>
+                                    <?php echo $reuters;?>
                                 </p>
                             </div>
                             
@@ -181,20 +184,23 @@
 						<?php if ($mobile_tel!=""){ ?>
                             <li><span>Company Mobile No. :</span> <?php if($mobile_tel!=""){echo $mobile_tel;} ?></li>
 							<?php } ?>
+                            <?php if ($mobile_tel2!=""){ ?>
+                            <li><span>Company Mobile No. :</span> <?php echo $mobile_tel2; ?></li>
+							<?php } ?>
 							<?php if ($work_tel!=""){ ?>
                             <li><span>Tel No. :</span> <?php echo $work_tel; ?></li>
 							<?php } ?>
 							<?php if ($fax_no!=""){ ?>
                             <li><span>Fax No. :</span> <?php echo $fax_no; ?></li>
+                            <?php } ?>
+							<?php if ($fax_no2!=""){ ?>
+                            <li><span>Fax No. :</span> <?php echo $fax_no2; ?></li>
 							<?php } ?>
 							<?php if ($work_email!=""){ ?>
                             <li><span>Email Address :</span> <?php echo $work_email; ?></li>
 							<?php } ?>
 							<?php if ($direct_tel!=""){ ?>
                             <li><span>Direct Line :</span> <?php echo $direct_tel; ?></li>
-							<?php } ?>
-							<?php if ($reuters!=""){ ?>
-                            <li><span>Reuters / Others Remarks :</span> <?php echo $reuters; ?></li>
 							<?php } ?>
                         </ul>
                         
