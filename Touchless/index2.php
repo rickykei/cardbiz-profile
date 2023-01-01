@@ -163,9 +163,10 @@
                        
                         <ul class="list top15 bottom30">
                         	<li><span>Website :</span> www.cncbinternational.com</li>
-                            <li><span>Address :</span> <?php echo $address_eng;?></li> 
-                            <li><?php echo $address_chi;?></li>
-                            <li><span>Phone :</span> <?php echo $work_tel;?></li>
+                            <?php if ($address_eng!=""){ ?><li><span>Address :</span> <?php echo $address_eng;?></li> <li><?php echo $address_chi;?></li><?php } ?>
+                            <?php if ($work_tel!=""){ ?><li><span>Phone :</span> <?php echo $work_tel;?></li><?php }?>
+							<?php if ($work_tel2!=""){ ?><li><span>Phone :</span> <?php echo $work_tel2;?></li><?php }?>
+							<?php if ($work_tel3!=""){ ?><li><span>Phone :</span> <?php echo $work_tel3;?></li><?php }?>
                         </ul>
                    
                         <a id="one" class="recoba-btn" onclick="onclick(event);" href="https://www.cncbinternational.com">More Information</a>
@@ -181,20 +182,45 @@
                    		<h2 class="page-title">Contact Me</h2>
                         
                         <ul class="list top15 bottom15">
-						<?php if ($mobile_tel!=""){ ?>
+							<?php if ($mobile_tel!=""){ ?>
                             <li><span>Company Mobile No. :</span> <?php if($mobile_tel!=""){echo $mobile_tel;} ?></li>
 							<?php } ?>
                             <?php if ($mobile_tel2!=""){ ?>
                             <li><span>Company Mobile No. :</span> <?php echo $mobile_tel2; ?></li>
 							<?php } ?>
+							<?php if ($mobile_tel3!=""){ ?>
+                            <li><span>Company Mobile No. :</span> <?php echo $mobile_tel3; ?></li>
+							<?php } ?>
+							<?php if ($mobile_tel4!=""){ ?>
+                            <li><span>Company Mobile No. :</span> <?php echo $mobile_tel4; ?></li>
+							<?php } ?>
+							<?php if ($mobile_tel5!=""){ ?>
+                            <li><span>Company Mobile No. :</span> <?php echo $mobile_tel5; ?></li>
+							<?php } ?>
 							<?php if ($work_tel!=""){ ?>
                             <li><span>Tel No. :</span> <?php echo $work_tel; ?></li>
 							<?php } ?>
+							<?php if ($work_tel2!=""){ ?>
+                            <li><span>Tel No. :</span> <?php echo $work_tel2; ?></li>
+							<?php } ?>
+							<?php if ($work_tel3!=""){ ?>
+                            <li><span>Tel No. :</span> <?php echo $work_tel3; ?></li>
+							<?php } ?>
+						 
 							<?php if ($fax_no!=""){ ?>
                             <li><span>Fax No. :</span> <?php echo $fax_no; ?></li>
                             <?php } ?>
 							<?php if ($fax_no2!=""){ ?>
                             <li><span>Fax No. :</span> <?php echo $fax_no2; ?></li>
+							<?php } ?>
+							<?php if ($fax_no3!=""){ ?>
+                            <li><span>Fax No. :</span> <?php echo $fax_no3; ?></li>
+							<?php } ?>
+							<?php if ($fax_no4!=""){ ?>
+                            <li><span>Fax No. :</span> <?php echo $fax_no4; ?></li>
+							<?php } ?>
+							<?php if ($fax_no5!=""){ ?>
+                            <li><span>Fax No. :</span> <?php echo $fax_no5; ?></li>
 							<?php } ?>
 							<?php if ($work_email!=""){ ?>
                             <li><span>Email Address :</span> <?php echo $work_email; ?></li>

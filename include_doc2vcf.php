@@ -7,6 +7,7 @@
 			$company_name_chi=$document->company_name_chi;
 			$company_logo=$document->company_detail[0]['logo'];
 			
+			$company_id=$document->company_id;
 			
 			$rc_no=$document->rc_no;
 			$staff_no=$document->staff_no;
@@ -26,12 +27,24 @@
 			$position=$document->position;
 			
 			$work_tel=$document->work_tel;
+			$work_tel2=$document->work_tel2;
+			$work_tel3=$document->work_tel3;
+			
 			$direct_tel=$document->direct_tel;
+			$direct_tel2=$document->direct_tel2;
+			$direct_tel3=$document->direct_tel3;
 			 
 			$mobile_tel= $document->mobile_tel;
 			$mobile_tel2= $document->mobile_tel2;
+			$mobile_tel3= $document->mobile_tel3;
+			$mobile_tel4= $document->mobile_tel4;
+			$mobile_tel5= $document->mobile_tel5;
+			
 			$fax_no= $document->fax_no;
 			$fax_no2= $document->fax_no2;
+			$fax_no3= $document->fax_no3;
+			$fax_no4= $document->fax_no4;
+			$fax_no5= $document->fax_no5;
 			
 			$reuters=$document->reuters;
 			$agent_no=$document->agent_no;
@@ -86,12 +99,25 @@
 			  if($address_eng) $vCard .= "ADR;WORK:" . $address_eng . "\r\n"; 
 			  
 			  if($work_tel) $vCard .= "TEL;WORK:" . $work_tel . "\r\n"; 
+			  if($work_tel2) $vCard .= "TEL;WORK:" . $work_tel2 . "\r\n"; 
+			  if($work_tel3) $vCard .= "TEL;WORK:" . $work_tel3 . "\r\n"; 
 			 
 			  if($direct_tel)	$vCard .= "TEL;WORK:" . $direct_tel . "\r\n"; 
+			  if($direct_tel2)	$vCard .= "TEL;WORK:" . $direct_tel2 . "\r\n"; 
+			  if($direct_tel3)	$vCard .= "TEL;WORK:" . $direct_tel3 . "\r\n"; 
+			  
 			  if($mobile_tel)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
 			 if($mobile_tel2)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel2 . "\r\n"; 
+			 if($mobile_tel3)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel3 . "\r\n"; 
+			 if($mobile_tel4)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel4 . "\r\n"; 
+			 if($mobile_tel5)$vCard .= "TEL;TYPE=CELL:" . $mobile_tel5 . "\r\n"; 
+			 
 			  if($fax_no)	$vCard .= "TEL;TYPE=FAX:" . $fax_no . "\r\n";
 			  if($fax_no2)	$vCard .= "TEL;TYPE=FAX:" . $fax_no2 . "\r\n";
+			  if($fax_no3)	$vCard .= "TEL;TYPE=FAX:" . $fax_no3 . "\r\n";
+			  if($fax_no4)	$vCard .= "TEL;TYPE=FAX:" . $fax_no4 . "\r\n";
+			  if($fax_no5)	$vCard .= "TEL;TYPE=FAX:" . $fax_no5 . "\r\n";
+			  
 			 if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 
 			 
 			 $cnt=0;
