@@ -126,29 +126,39 @@
                                     <?php echo $name_chi;?></h1>
                                 <h2><?php echo $pro_title;?></h2>
                                 <br>
-                                <span><?php echo $title_eng.", ".$subsidiary_eng; ?></span>
-								<span><?php echo $title_chi.", ".$subsidiary_chi; ?></span>
+                                <?php if ($title_eng!=""){  echo $title_eng;  } ?>
+								<?php if ($title_eng!="" && $subsidiary_eng!=""){ echo ","; } ?>
+								<?php if ($subsidiary_eng!=""){ echo $subsidiary_eng. "<br>";  } ?>
+								
+								<?php if ($title_chi!=""){   echo $title_chi;  } ?>
+								<?php if ($title_chi!="" && $subsidiary_chi!=""){ echo ","; } ?>
+								<?php if ($subsidiary_chi!=""){ echo $subsidiary_chi;  } ?>
+								
+                                
+								
                                 <p style="font-size:10px">
-								<?php if ($agent_no!=""){
+								<?php if ($agent_no!="" && $agent_no!="null"){
 								 echo "Licensed Technical Representative (Agent) License No. 持牌業務代表（代理人）牌照號碼: ".$agent_no;
 								}?>
 								
-								<?php if ($hkma_no!=""){
+								<?php if ($hkma_no!="" && $agent_no!="null"){
 									echo "<br> HKMA Reg. No. Of Relevant Individual 金融管理局有關人士註冊編號: ".$hkma_no;
 								}?>
-								 	<?php if ($mpf_no!=""){
+								 	<?php if ($mpf_no!="" && $agent_no!="null"){
 									echo "<br> MPF Intermediary Reg. No 強積金中介人註冊編號: ".$mpf_no;
 								}?>
-									<?php if ($broker_no!=""){
+									<?php if ($broker_no!="" && $agent_no!="null"){
 									echo "<br> Licensed Technical Representative (Broker) License No. 持牌業務代表(經紀) 牌照號碼: ".$broker_no;
 								}?>
-                                    <?php if ($hkma_eng!=""){
+                                    <?php if ($hkma_eng!="" && $agent_no!="null"){
 									echo "<br> Regulated Activity: ".$hkma_eng;
 								}?>
-								<?php if ($hkma_chi!=""){
+								<?php if ($hkma_chi!="" && $agent_no!="null"){
 									echo " 受規管活動: ".$hkma_chi;
 								}?><br>
-                                    <?php echo $reuters;?>
+								<?php if ($reuters!="" && $reuters!="null"){
+                                     echo $reuters;
+									 }?>
                                 </p>
                             </div>
                             
@@ -164,9 +174,6 @@
                         <ul class="list top15 bottom30">
                         	<li><span>Website :</span> www.cncbinternational.com</li>
                             <?php if ($address_eng!=""){ ?><li><span>Address :</span> <?php echo $address_eng;?></li> <li><?php echo $address_chi;?></li><?php } ?>
-                            <?php if ($work_tel!=""){ ?><li><span>Phone :</span> <?php echo $work_tel;?></li><?php }?>
-							<?php if ($work_tel2!=""){ ?><li><span>Phone :</span> <?php echo $work_tel2;?></li><?php }?>
-							<?php if ($work_tel3!=""){ ?><li><span>Phone :</span> <?php echo $work_tel3;?></li><?php }?>
                         </ul>
                    
                         <a id="one" class="recoba-btn" onclick="onclick(event);" href="https://www.cncbinternational.com">More Information</a>
@@ -182,8 +189,28 @@
                    		<h2 class="page-title">Contact Me</h2>
                         
                         <ul class="list top15 bottom15">
-							<?php if ($mobile_tel!=""){ ?>
-                            <li><span>Company Mobile No. :</span> <?php if($mobile_tel!=""){echo $mobile_tel;} ?></li>
+							 <?php if ($work_tel!=""){ ?>
+                            <li><span>Tel No.:</span> <?php if($work_tel!=""){echo $work_tel;} ?></li>
+							<?php } ?>
+                            <?php if ($work_tel2!=""){ ?>
+                            <li><span>Tel No. :</span> <?php echo $work_tel2; ?></li>
+							<?php } ?>
+							<?php if ($work_tel3!=""){ ?>
+                            <li><span>Tel No. :</span> <?php echo $work_tel3; ?></li>
+							<?php } ?>
+                            
+                            <?php if ($direct_tel!=""){ ?>
+                            <li><span>Direct Line :</span> <?php echo $direct_tel; ?></li>
+							<?php } ?>
+                            <?php if ($direct_tel2!=""){ ?>
+                            <li><span>Direct Line :</span> <?php echo $direct_tel2; ?></li>
+							<?php } ?>
+                            <?php if ($direct_tel3!=""){ ?>
+                            <li><span>Direct Line :</span> <?php echo $direct_tel3; ?></li>
+							<?php } ?>
+                            
+                            <?php if ($mobile_tel!=""){ ?>
+                            <li><span>Company Mobile No. :</span> <?php echo $mobile_tel; ?></li>
 							<?php } ?>
                             <?php if ($mobile_tel2!=""){ ?>
                             <li><span>Company Mobile No. :</span> <?php echo $mobile_tel2; ?></li>
@@ -197,16 +224,7 @@
 							<?php if ($mobile_tel5!=""){ ?>
                             <li><span>Company Mobile No. :</span> <?php echo $mobile_tel5; ?></li>
 							<?php } ?>
-							<?php if ($work_tel!=""){ ?>
-                            <li><span>Tel No. :</span> <?php echo $work_tel; ?></li>
-							<?php } ?>
-							<?php if ($work_tel2!=""){ ?>
-                            <li><span>Tel No. :</span> <?php echo $work_tel2; ?></li>
-							<?php } ?>
-							<?php if ($work_tel3!=""){ ?>
-                            <li><span>Tel No. :</span> <?php echo $work_tel3; ?></li>
-							<?php } ?>
-						 
+                            			 
 							<?php if ($fax_no!=""){ ?>
                             <li><span>Fax No. :</span> <?php echo $fax_no; ?></li>
                             <?php } ?>
@@ -222,12 +240,11 @@
 							<?php if ($fax_no5!=""){ ?>
                             <li><span>Fax No. :</span> <?php echo $fax_no5; ?></li>
 							<?php } ?>
+                            
 							<?php if ($work_email!=""){ ?>
                             <li><span>Email Address :</span> <?php echo $work_email; ?></li>
 							<?php } ?>
-							<?php if ($direct_tel!=""){ ?>
-                            <li><span>Direct Line :</span> <?php echo $direct_tel; ?></li>
-							<?php } ?>
+                            
                         </ul>
                         
    
