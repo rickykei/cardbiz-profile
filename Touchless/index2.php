@@ -119,7 +119,7 @@
                 	<!-- HOME SECTION -->
                         <div class="floor home-page">
                             <div class="home-box">
-                                <img class="signature" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
+                                <img class="signature" src="./citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
                                 <br>
                                 <br>
                                 <h1><?php echo $name_eng;?><br>
@@ -166,7 +166,7 @@
                     <!-- ABOUT SECTION -->
                     <div class="scroll-out">
                     <div class="floor about">
-					  <img class="signature" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
+					  <img class="signature" src="./citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
 					  <br>
 					  <br>
                     	<h2 class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
@@ -183,7 +183,7 @@
                     <!-- CONTACT SECTION-->
                     <div class="scroll-out">
                     <div class="floor contact">
-					<img class="signature mCS_img_loaded" src="/Touchless/citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
+					<img class="signature mCS_img_loaded" src="./citiclogonew8.jpg" alt="" style="border-radius: 20% ;" width="230">
 					<br>
 					<br>
                    		<h2 class="page-title">Contact Me</h2>

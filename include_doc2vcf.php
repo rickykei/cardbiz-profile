@@ -93,8 +93,10 @@
 			  //if($company_name_chi!="")$vCard .= "ORG:" . $company_name_chi . "\r\n";
 			  if($name_eng!="") $vCard .= "N;CHARSET=utf-8:" . $name_eng ." ". $name_chi ." ". $pro_title."\r\n";
 			//  if($name_chi!="")$vCard .= "N;CHARSET=utf-8:" .  $name_eng ." ". $name_chi. "\r\n";
-			  if($title_eng!="") $vCard.="TITLE;CHARSET=utf-8:".$title_eng.", ".$subsidiary_eng."\r\n";
-			  
+			  if ($title_eng !="" || $subsidiary_eng !="" )  $vCard.="TITLE;CHARSET=utf-8:";
+			  if ($title_eng !=""){		 	$vCard.=$title_eng;	 $temp_comma=1;}
+			  if ($subsidiary_eng !=""){		 	if ($temp_comma==1)	{	 	$vCard.=","; $temp_comma=0;}	 $vCard.=$subsidiary_eng;}
+			  if ($title_eng !="" || $subsidiary_eng !="" ) 	  $vCard.="\r\n";
 			  
 			  if($address_eng) $vCard .= "ADR;WORK:" . $address_eng . "\r\n"; 
 			  
@@ -121,7 +123,7 @@
 			 if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 
 			 
 			 $cnt=0;
-			 if ($agent_no!="" || $broker_no!="" || $mpf_no!="" || $hkma_no!="" || $reuters!="" || $hkma_eng!="")
+			 
 				 $vCard.="NOTE:";
 			  if($agent_no!="") {if ($cnt>0) $vCard.=","; $vCard .= " Licensed Technical Representative (Agent) License No." . $agent_no;$cnt++;}
 			  if($broker_no!=""){if ($cnt>0) $vCard.=","; $vCard .= " Licensed Technical Representative (Broker) License No.: " . $broker_no; $cnt++;}
