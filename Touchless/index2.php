@@ -248,11 +248,11 @@
                         </ul>
                         
    
-                         <img src="genvcf2png.php?sig=<?php echo $sig;?>" alt=""  width="250" >
+                         <img src="genvcf2png.php?key=<?php echo $encrypted;?>" alt=""  width="250" >
  
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="../genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
+                         <a class="recoba-btn" href="../genvcf.php?key=<?php echo $encrypted;?>">Click Here</a>
                     </div>
                          
                     </div>

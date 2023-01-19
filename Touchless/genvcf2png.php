@@ -2,12 +2,37 @@
 header("Content-type: image/png");
 $debug=0;
 $needPhoto=0;
-
 include 'phpqrcode/qrlib.php';
 
-if (isset($_GET['sig'])){   
+
+
+function EVP_BytesToKey($salt, $password) {
+    $derived = '';
+    $tmp = '';
+    while(strlen($derived) < 48) {
+        $tmp = md5($tmp . $password . $salt, true);
+        $derived .= $tmp;
+    }
+    return $derived;
+} 
+$password = '12345678123456781234567812345678';
+$encrypted = $_GET['key']; 
+$saltCiphertextB64=$encrypted;
+$saltCiphertext = base64_decode($saltCiphertextB64);
+$salt = substr($saltCiphertext, 8, 8);
+$ciphertext = substr($saltCiphertext, 16);
+$keyIv = EVP_BytesToKey($salt, $password);
+$key = substr($keyIv, 0, 32);
+$iv = substr($keyIv, 32);
+$sig = openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+
+ 
+if ($sig==""){
+	$_GET['sig'];
+}
+	
+if ($sig!=""){
        
-        $sig = $_GET['sig'];   
 	include_once("../config_db.php");
 	
  
@@ -20,7 +45,8 @@ if (isset($_GET['sig'])){
 				if($debug){
 					echo $qrPng;
 				}else{
-					$qrPng=$domain."/?sig=".$sig;
+					//$qrPng=$domain."/?sig=".$sig;
+					$qrPng=$domain."/?key=".urlencode($encrypted);
 					//	echo QRcode::svg($qrPng);
 					
 					$errorCorrectionLevel = 'H';
