@@ -21,18 +21,7 @@
 <!-- Theme Colors -->
 <link rel="stylesheet" href="../Touchless/vcard/css/colors/switcher.css"/>
 <link rel="stylesheet" href="../Touchless/vcard/css/colors/color-0.css"/>
-<link href="css/colors/color-2.css" rel="alternate stylesheet" type="text/css" title="color-2">
-<link href="css/colors/color-3.css" rel="alternate stylesheet" type="text/css" title="color-3">
-<link href="css/colors/color-4.css" rel="alternate stylesheet" type="text/css" title="color-4">
-<link href="css/colors/color-5.css" rel="alternate stylesheet" type="text/css" title="color-5">
-<link href="css/colors/color-6.css" rel="alternate stylesheet" type="text/css" title="color-6">
-<link href="css/colors/color-7.css" rel="alternate stylesheet" type="text/css" title="color-7">
-<link href="css/colors/color-8.css" rel="alternate stylesheet" type="text/css" title="color-8">
-<link href="css/colors/color-9.css" rel="alternate stylesheet" type="text/css" title="color-9">
-<link href="css/colors/color-10.css" rel="alternate stylesheet" type="text/css" title="color-10">
-<link href="css/colors/color-11.css" rel="alternate stylesheet" type="text/css" title="color-11">
-<link href="css/colors/color-12.css" rel="alternate stylesheet" type="text/css" title="color-12">
-
+ 
 <!-- Google Web fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" type="text/css">
