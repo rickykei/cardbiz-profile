@@ -1,6 +1,6 @@
 <?php  
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting( E_ALL );
  
   function EVP_BytesToKey($salt, $password) {
@@ -18,7 +18,9 @@ error_reporting( E_ALL );
 
 $debug=$_GET["debug"];
 $encrypted=$_GET["key"];
+$sig=$_GET["sig"];
 
+if ($sig==""){
 //decrypt key to sig\
 
 // Extract IV and ciphertext
@@ -37,8 +39,7 @@ $iv = substr($keyIv, 32);
 
 // Decrypt
 $sig = openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
-if ($sig=="")
-$sig = $_GET['sig']; 
+}
 
 
 if($sig=="")
@@ -83,7 +84,9 @@ if ($sig!=""|| $uid!=""){
 					echo "str".$str;
 				}
 				else
-					header("Location: ".$str);
+				{
+					//header("Location: ".$str);
+				}
 			 
 			}else {
 				$str=$domain."/genvcf.php?key=".$encrypted;
