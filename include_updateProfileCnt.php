@@ -8,6 +8,7 @@
 		$collectionVcf = $db->selectCollection("profile_counters");
 		$insertOneResult=$collectionVcf->insertOne(array(
 				   'staff_id' => $sig,
+				   'company_id' => $company_id,
 				   'ip' => $_SERVER['REMOTE_ADDR'],
 				   'user_agent' => $_SERVER['HTTP_USER_AGENT'],
 				   'createdAt'=> $utcdatetime,

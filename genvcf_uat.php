@@ -1,6 +1,6 @@
 <?php
-//error_reporting(E_ALL);
-error_reporting(0);
+error_reporting(E_ALL);
+//error_reporting(0);
 require_once('vendor/autoload.php'); 
 date_default_timezone_set('Asia/Hong_Kong');
 

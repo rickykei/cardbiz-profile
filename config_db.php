@@ -21,6 +21,5 @@ $collection = $dbclient->selectDatabase("cardbiz_db")->selectCollection("staffs"
 		}	else if($sig!=""){
 			$abk=[['$match' => ['_id' => new ObjectId($sig)]], ['$lookup' => ['from' => 'companies', 'localField' => 'company_id', 'foreignField' => '_id', 'as' => 'company_detail']]];
 		}
-		$results = $collection->aggregate($abk);
-		 
+$results = $collection->aggregate($abk);
 ?>

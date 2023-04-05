@@ -1,8 +1,47 @@
 <?php  
-    error_reporting(0);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting( E_ALL );
  
+  function EVP_BytesToKey($salt, $password) {
+    $derived = '';
+    $tmp = '';
+    while(strlen($derived) < 48) {
+        $tmp = md5($tmp . $password . $salt, true);
+        $derived .= $tmp;
+    }
+    return $derived;
+} 
+ $password = '12345678123456781234567812345678';
+	
+ 
+
 $debug=$_GET["debug"];
-$sig = $_GET['sig']; 
+$encrypted=$_GET["key"];
+$sig=$_GET["sig"];
+
+if ($sig==""){
+//decrypt key to sig\
+
+// Extract IV and ciphertext
+//$saltCiphertextB64 = "U2FsdGVkX1/ARpsMWWEdLiOanB67kh2akfCIN5s+RLDsJetSMagGsk444I+F/dbp";
+//$saltCiphertextB64 = "U2FsdGVkX19fKDCSLlX9b6Lys3ATGegOenWkVaFMP3CdyYmjyGQgXEiNyzr75gBF";
+ $saltCiphertextB64=$encrypted;
+ $encrypted=urlencode($encrypted);
+$saltCiphertext = base64_decode($saltCiphertextB64);
+$salt = substr($saltCiphertext, 8, 8);
+$ciphertext = substr($saltCiphertext, 16);
+
+// Derive key and IV
+$keyIv = EVP_BytesToKey($salt, $password);
+$key = substr($keyIv, 0, 32);
+$iv = substr($keyIv, 32);
+
+// Decrypt
+$sig = openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+}
+
+
 if($sig=="")
 {
 	$uid = $_GET['uid']; 
@@ -36,7 +75,8 @@ if ($sig!=""|| $uid!=""){
 		 if ($staff_status==true){
 			// redirect to which path VCF or e-profile
 			if ($bizcard_option==true ){
-				$str="https://e-profile.digital/Touchless/Profile.php?sig=".$sig."#resume";
+				$str=$domain."/Touchless/Profile.php?key=".$encrypted."#resume";
+				//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
 				if ($debug==1){
 					echo "bizcard_option".$bizcard_option;
 					echo "sig".$sig;
@@ -44,10 +84,13 @@ if ($sig!=""|| $uid!=""){
 					echo "str".$str;
 				}
 				else
+				{
 					header("Location: ".$str);
+				}
 			 
 			}else {
-				$str="https://e-profile.digital/genvcf.php?sig=".$sig;
+				$str=$domain."/genvcf.php?key=".$encrypted;
+				//$str=$domain."/genvcf.php?sig=".$sig;
 				if ($debug==1)
 				{
 					echo "bizcard_option".$bizcard_option;
