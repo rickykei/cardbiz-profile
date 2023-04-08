@@ -48,7 +48,13 @@ if($sig=="")
 	$tid=$uid;
 }else{
 	$tid=$sig;
+	 
 }
+
+
+$bo=$_GET['bo'];
+$gqt=$_GET['gqt'];
+$gq=$_GET['gq'];
 
 if ($sig!=""|| $uid!=""){
 	//$sig="050C7EA647";
@@ -65,17 +71,22 @@ if ($sig!=""|| $uid!=""){
  
 	//if smartcard active && uid!=""   or   sig 
 	if (($uid!="" && $smartcard_status==true) || $sig!=""){
-		
+	 
 		foreach ($results as $document) {
 				  include_once("include_doc2vcf.php");
-			//  echo $vCard;
+			 // echo $vCard;
+			
 		}
 	 
 		//staff status is active?
-		 if ($staff_status==true){
+		 if ($staff_status==true ){
+		 
 			// redirect to which path VCF or e-profile
-			if ($bizcard_option==true ){
-				$str=$domain."/Touchless/Profile.php?key=".$encrypted."#resume";
+			if ($bizcard_option==true || $bo==1){
+				
+				$str=$domain."Profile.php?key=".$encrypted."#resume";
+				 
+				include_once("profile.php");
 				//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
 				if ($debug==1){
 					echo "bizcard_option".$bizcard_option;
@@ -85,20 +96,22 @@ if ($sig!=""|| $uid!=""){
 				}
 				else
 				{
-					header("Location: ".$str);
+					//header("Location: ".$str);
 				}
 			 
 			}else {
-				$str=$domain."/genvcf.php?key=".$encrypted;
+				$str=$domain."genvcf.php?key=".$encrypted;
 				//$str=$domain."/genvcf.php?sig=".$sig;
+				include_once("genvcf.php");
 				if ($debug==1)
 				{
 					echo "bizcard_option".$bizcard_option;
 					echo "sig".$sig;
 					echo "smartcard_uid".$uid;
-					echo "str".$str;}
-				else
-					header("Location: ".$str);
+					echo "str".$str;
+				}
+				
+				//	header("Location: ".$str);
 			 
 			 
 			}

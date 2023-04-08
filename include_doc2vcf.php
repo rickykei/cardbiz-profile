@@ -13,8 +13,9 @@
 				$company_name_chi=$document->company_detail[0]['company_name_chi'];
 				
 			}
-			 
-
+			if ($document->company_detail[0]['profile_theme']!="")
+			$profile_theme=$domain."/api/files/".$document->company_detail[0]['profile_theme']; 
+ 
 			$company_logo=$document->company_detail[0]['logo'];
 			
 			$company_id=$document->company_id;
