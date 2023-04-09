@@ -286,11 +286,12 @@
  
                         <br>
                         <br>
-                         <img src="genvcf2png.php?sig=<?php echo $sig;?>" alt=""  width="250" >
+						
+                         <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
  
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="/genvcf.php?sig=<?php echo $sig;?>">Click Here</a>
+                         <a class="recoba-btn" href="/?key=<?php echo $encrypted;?>&bo=0">Click Here</a>
                     </div>
                          
                     </div>

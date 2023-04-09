@@ -48,7 +48,7 @@ if($sig=="")
 	$tid=$uid;
 }else{
 	$tid=$sig;
-	 
+	$qrtype=$_GET['qrtype']; 
 }
 
 
@@ -81,39 +81,49 @@ if ($sig!=""|| $uid!=""){
 		//staff status is active?
 		 if ($staff_status==true ){
 		 
-			// redirect to which path VCF or e-profile
-			if ($bizcard_option==true || $bo==1){
-				
-				$str=$domain."Profile.php?key=".$encrypted."#resume";
-				 
-				include_once("profile.php");
-				//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
-				if ($debug==1){
-					echo "bizcard_option".$bizcard_option;
-					echo "sig".$sig;
-					echo "smartcard_uid".$uid;
-					echo "str".$str;
-				}
+			if ($bo!="")
+				if ($bo==1)
+					$bizcard_option=true;
 				else
-				{
-					//header("Location: ".$str);
+					$bizcard_option=false;
+		 
+			// redirect to which path VCF or e-profile
+			if ($qrtype==""){
+				if ($bizcard_option==true ){
+					
+					 
+					include_once("profile.php");
+					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
+					if ($debug==1){
+						echo "bizcard_option".$bizcard_option;
+						echo "sig".$sig;
+						echo "smartcard_uid".$uid;
+						echo "str".$str;
+					}
+					else
+					{
+						//header("Location: ".$str);
+					}
+				 
+				}else if ($bizcard_option==true || $bo==0 ) {
+					$str=$domain."genvcf.php?key=".$encrypted;
+					//$str=$domain."/genvcf.php?sig=".$sig;
+					include_once("genvcf.php");
+					if ($debug==1)
+					{
+						echo "bizcard_option".$bizcard_option;
+						echo "sig".$sig;
+						echo "smartcard_uid".$uid;
+						echo "str".$str;
+					}
+					
+					//	header("Location: ".$str);
+				 
+				 
 				}
-			 
-			}else {
-				$str=$domain."genvcf.php?key=".$encrypted;
-				//$str=$domain."/genvcf.php?sig=".$sig;
-				include_once("genvcf.php");
-				if ($debug==1)
-				{
-					echo "bizcard_option".$bizcard_option;
-					echo "sig".$sig;
-					echo "smartcard_uid".$uid;
-					echo "str".$str;
-				}
+			}	else {
 				
-				//	header("Location: ".$str);
-			 
-			 
+				include_once("gen2qrcode.php");
 			}
 		}
 	}

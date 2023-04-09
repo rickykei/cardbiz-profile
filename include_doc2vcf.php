@@ -134,7 +134,7 @@
 			$staff_status=$document->status;
 			
 			$bizcard_option= $document->bizcard_option;
-							 
+			$qrcode_option=	$document->qrcode_option;
 			  if($headshot!=""&&$needPhoto==1){ 
 			  //  $url = str_replace("https", "http",$url);
 				
