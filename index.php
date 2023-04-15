@@ -19,6 +19,7 @@ error_reporting( E_ALL );
 $debug=$_GET["debug"];
 $encrypted=$_GET["key"];
 $sig=$_GET["sig"];
+$needPhoto=1;
 
 if ($sig==""){
 //decrypt key to sig\
