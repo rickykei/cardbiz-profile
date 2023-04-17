@@ -3,65 +3,65 @@
 			//$company_name_eng=$document->company_detail[0]['company_name_eng'];	
 			//$company_name_chi=$document->company_detail[0]['company_name_chi'];
 			//citic
-			$company_name_eng=$document->company_name_eng;
-			$company_name_chi=$document->company_name_chi;
+			$company_name_eng=chk_null($document->company_name_eng);
+			$company_name_chi=chk_null($document->company_name_chi);
 			$company_logo=$document->company_detail[0]['logo'];
 			
 			$company_id=$document->company_id;
 			
-			$rc_no=$document->rc_no;
-			$staff_no=$document->staff_no;
+			$rc_no=chk_null($document->rc_no);
+			$staff_no=chk_null($document->staff_no);
 			
 			
-			$name_eng=$document->name_eng;
-			$name_chi=$document->name_chi;
-			$title_eng=$document->title_eng;
-			$title_chi=$document->title_chi;
+			$name_eng=chk_null($document->name_eng);
+			$name_chi=chk_null($document->name_chi);
+			$title_eng=chk_null($document->title_eng);
+			$title_chi=chk_null($document->title_chi);
 			
-			$work_email= $document->work_email;
-			$pro_title= $document->pro_title;
+			$work_email= chk_null($document->work_email);
+			$pro_title= chk_null($document->pro_title);
 			
-			$subsidiary_eng=$document->subsidiary_eng;
-			$subsidiary_chi=$document->subsidiary_chi;
+			$subsidiary_eng=chk_null($document->subsidiary_eng);
+			$subsidiary_chi=chk_null($document->subsidiary_chi);
 			
-			$position=$document->position;
+			$position=chk_null($document->position);
 			
-			$work_tel=$document->work_tel;
-			$work_tel2=$document->work_tel2;
-			$work_tel3=$document->work_tel3;
+			$work_tel=chk_null($document->work_tel);
+			$work_tel2=chk_null($document->work_tel2);
+			$work_tel3=chk_null($document->work_tel3);
 			
-			$direct_tel=$document->direct_tel;
-			$direct_tel2=$document->direct_tel2;
-			$direct_tel3=$document->direct_tel3;
+			$direct_tel=chk_null($document->direct_tel);
+			$direct_tel2=chk_null($document->direct_tel2);
+			$direct_tel3=chk_null($document->direct_tel3);
 			 
-			$mobile_tel= $document->mobile_tel;
-			$mobile_tel2= $document->mobile_tel2;
-			$mobile_tel3= $document->mobile_tel3;
-			$mobile_tel4= $document->mobile_tel4;
-			$mobile_tel5= $document->mobile_tel5;
+			$mobile_tel= chk_null($document->mobile_tel);
+			$mobile_tel2= chk_null($document->mobile_tel2);
+			$mobile_tel3= chk_null($document->mobile_tel3);
+			$mobile_tel4= chk_null($document->mobile_tel4);
+			$mobile_tel5= chk_null($document->mobile_tel5);
 			
-			$fax_no= $document->fax_no;
-			$fax_no2= $document->fax_no2;
-			$fax_no3= $document->fax_no3;
-			$fax_no4= $document->fax_no4;
-			$fax_no5= $document->fax_no5;
+			$fax_no= chk_null($document->fax_no);
+			$fax_no2= chk_null($document->fax_no2);
+			$fax_no3= chk_null($document->fax_no3);
+			$fax_no4= chk_null($document->fax_no4);
+			$fax_no5= chk_null($document->fax_no5);
 			
-			$reuters=$document->reuters;
-			$agent_no=$document->agent_no;
-			$broker_no=$document->broker_no;
-			$mpf_no=$document->mpf_no;
-			$hkma_no=$document->hkma_no;
-			$hkma_eng=$document->hkma_eng;
-			$hkma_chi=$document->hkma_chi;
+			$reuters= chk_null($document->reuters);
+			$agent_no= chk_null($document->agent_no);
+			$broker_no=chk_null($document->broker_no);
+			$mpf_no=chk_null($document->mpf_no);
+			$hkma_no=chk_null($document->hkma_no);
+			$hkma_eng=chk_null($document->hkma_eng);
+			$hkma_chi=chk_null($document->hkma_chi);
 			 
-			$address_eng= $document->address_eng;
-			$address_chi= $document->address_chi;
+			$address_eng= chk_null($document->address_eng);
+			$address_chi= chk_null($document->address_chi);
 			
 			if($document->headshot!="")
 			$headshot=$domain."/api/files/".$document->headshot;
 			$headshot=$domain."/Touchless/contact_citic.jpg";
 			
-			$division=$document->division;
+			$division=chk_null($document->division);
 			 
 		 
 		 
@@ -166,7 +166,16 @@
 			   // $qrPng .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
 				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
 				$qrPng .= "END:VCARD\r\n";
-			  
+
+
+
+function chk_null($aa){
+	
+	if ($aa=="undefined" || $aa=="null" || $aa==null)
+		$aa="";
+	
+	return $aa;
+}	
  function get_content($URL){
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

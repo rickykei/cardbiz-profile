@@ -21,7 +21,7 @@
 <!-- Theme Colors -->
 <link rel="stylesheet" href="../Touchless/vcard/css/colors/switcher.css"/>
 <link rel="stylesheet" href="../Touchless/vcard/css/colors/color-0.css"/>
- 
+
 <!-- Google Web fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" type="text/css">
