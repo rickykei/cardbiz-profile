@@ -255,7 +255,7 @@
 				if($company_name_eng!=""|| $company_name_chi!="" )$qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
 				if($fname!="")$qrPng .= "N;CHARSET=utf-8:;" . $fname ." ".$lname. "\r\n";
 				if($work_email!="") $qrPng .= "EMAIL;TYPE=Work Email,pref:" . $work_email . "\r\n"; 
-				if($position!="")$qrPng.="TITLE:".$title_eng."\r\n";
+				if($position!="")$qrPng.="TITLE:".$position."\r\n";
 				if($work_tel) $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
 				if($mobile_tel)	$qrPng .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
 				//if($home_tel)$qrPng .= "TEL;TYPE=HOME:" . $home_tel . "\r\n";
