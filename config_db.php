@@ -3,6 +3,7 @@
 use MongoDB\BSON\ObjectID;
 require_once('vendor/autoload.php'); 
 date_default_timezone_set('Asia/Hong_Kong');
+$domain="https://uat.profiles.digital/";
 $mongourl="mongodb://cardbiz:cardbiz98014380@localhost:27017/cardbiz_db?authSource=admin";
 $m = new MongoDB\Driver\Manager($mongourl);
 $dbclient = new MongoDB\Client($mongourl);
@@ -21,5 +22,8 @@ $collection = $dbclient->selectDatabase("cardbiz_db")->selectCollection("staffs"
 		}	else if($sig!=""){
 			$abk=[['$match' => ['_id' => new ObjectId($sig)]], ['$lookup' => ['from' => 'companies', 'localField' => 'company_id', 'foreignField' => '_id', 'as' => 'company_detail']]];
 		}
-$results = $collection->aggregate($abk);
+		$results = $collection->aggregate($abk);
+	
+
+
 ?>
