@@ -1,5 +1,5 @@
 <?php  
-ini_set('display_errors', 0);
+ini_set('display_errors',0);
 ini_set('display_startup_errors', 0);
 error_reporting( E_ALL );
  
@@ -49,9 +49,9 @@ if($sig=="")
 	$tid=$uid;
 }else{
 	$tid=$sig;
-	$qrtype=$_GET['qrtype']; 
+	
 }
-
+$qrtype=$_GET['qrtype']; 
 
 $bo=$_GET['bo'];
 $gqt=$_GET['gqt'];
@@ -59,7 +59,7 @@ $gq=$_GET['gq'];
 
 if ($sig!=""|| $uid!=""){
 	//$sig="050C7EA647";
-	
+	//uid=04208552B57280
 	//get digital or vcf option from staff document
 
 		$options = [
