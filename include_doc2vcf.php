@@ -232,7 +232,14 @@
 			  
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
 			  //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
-			  if($smartcard_uid)  $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
+			  if($smartcard_uid && $fromkey==true){  
+				$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
+				$savemycontact=$domain."?key=".$encrypted."&bo=0";
+			  }
+			  else if($smartcard_uid && $fromuid==true){
+				  $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?uid=".$uid."&bo=1\r\n";
+				  $savemycontact=$domain."?uid=".$uid."&bo=0";
+			  }
 				$vCard.="END:VCARD\r\n";
 			
 			

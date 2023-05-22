@@ -291,7 +291,7 @@
  
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="/?key=<?php echo $encrypted;?>&bo=0">Click Here</a>
+                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
                     </div>
                          
                     </div>
