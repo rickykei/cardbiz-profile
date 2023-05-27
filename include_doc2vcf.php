@@ -242,7 +242,14 @@
 			  }
 				$vCard.="END:VCARD\r\n";
 			
-			
+			  if($fromkey==true){  
+			 
+				$savemycontact=$domain."?key=".$encrypted."&bo=0";
+			  }
+			  else if( $fromuid==true){
+				 
+				  $savemycontact=$domain."?uid=".$uid."&bo=0";
+			  }
 			
 			if ($debug==true)
 			{

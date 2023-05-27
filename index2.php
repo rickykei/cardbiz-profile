@@ -287,8 +287,12 @@
                         <br>
                         <br>
 						
+						<?php if ($fromkey){ ?>
                          <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
- 
+						<?php } ?>
+						<?php if ($fromuid){ ?>
+                         <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+						<?php } ?>
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
                          <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
