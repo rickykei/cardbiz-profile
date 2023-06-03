@@ -240,6 +240,10 @@
 				  $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?uid=".$uid."&bo=1\r\n";
 				  $savemycontact=$domain."?uid=".$uid."&bo=0";
 			  }
+			 else if ($smartcard_uid && $fromsig==true){
+				 $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?sig=".$sig."&bo=1\r\n";
+				 $savemycontact=$domain."?uid=".$sig."&bo=0";
+			 }
 				$vCard.="END:VCARD\r\n";
 			
 			  if($fromkey==true){  
@@ -249,6 +253,8 @@
 			  else if( $fromuid==true){
 				 
 				  $savemycontact=$domain."?uid=".$uid."&bo=0";
+			  }else if ( $fromsig==true){
+				 $savemycontact=$domain."?sig=".$sig."&bo=0";
 			  }
 			
 			if ($debug==true)

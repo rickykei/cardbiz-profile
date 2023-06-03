@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>e-Profile</title>
+<title><?php echo $fname." - "; echo $company_name_eng;?></title>
 <meta charset="UTF-8">
 <meta property="og:title" content="e-Profile"/>
 <meta property="og:description" content="<?php echo $name?>"/>
