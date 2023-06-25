@@ -134,6 +134,7 @@
 			$staff_status=$document->status;
 			
 			$bizcard_option= $document->bizcard_option;
+			$dig_card_in_vcf=$document->dig_card_in_vcf;
 			$qrcode_option=	$document->qrcode_option;
 			
 			$needPhoto=1;
@@ -233,14 +234,17 @@
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
 			  //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
 			  if($smartcard_uid && $fromkey==true){  
+				if ($dig_card_in_vcf==true)
 				$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
 				$savemycontact=$domain."?key=".$encrypted."&bo=0";
 			  }
 			  else if($smartcard_uid && $fromuid==true){
+				  if ($dig_card_in_vcf==true)
 				  $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?uid=".$uid."&bo=1\r\n";
 				  $savemycontact=$domain."?uid=".$uid."&bo=0";
 			  }
 			 else if ($smartcard_uid && $fromsig==true){
+				 if ($dig_card_in_vcf==true)
 				 $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?sig=".$sig."&bo=1\r\n";
 				 $savemycontact=$domain."?uid=".$sig."&bo=0";
 			 }
