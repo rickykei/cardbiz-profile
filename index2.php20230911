@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><?php echo $fname." - "; echo $company_name_eng;?></title>
+<meta charset="UTF-8">
+<meta property="og:title" content="e-Profile"/>
+<meta property="og:description" content="<?php echo $name?>"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="<?php echo $url ; ?>"/>    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/vcard/css/bootstrap.css"/>
+<link rel="stylesheet" href="/vcard/css/reset.css"/>
+<link rel="stylesheet" href="/vcard/css/style.css"/>
+<link rel="stylesheet" href="/vcard/css/magnific-popup.css"/> 
+<link rel="stylesheet" href="/vcard/css/jquery.mCustomScrollbar.css"/> 
+<link rel="stylesheet" href="/vcard/css/owl.theme.css"/> 
+<link rel="stylesheet" href="/vcard/css/owl.carousel.css"/> 
+    
+<!-- Theme Colors -->
+<link rel="stylesheet" href="/vcard/css/colors/switcher.css"/>
+<link rel="stylesheet" href="/vcard/css/colors/color-0.css"/>
+ 
+<!-- Google Web fonts -->
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" type="text/css">
+
+<!-- Font icons -->
+<link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.3.0/css/all.min.css"/>
+<link rel="stylesheet" href="/vcard/icon-fonts/essential-regular-fonts/essential-icons.css"/>
+
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+        <script>
+ 
+                  
+           function onClick(event) {
+            event.preventDefault();
+            var href = event.currentTarget.getAttribute('href')
+              if(href !== ""){
+                 if( href.includes("http")){
+                    window.location= href;                   
+                 }else{
+                    href = "https://" + href ;
+                    window.location= href;    
+                 }
+             }
+           }
+            
+          function download(event) {
+            event.preventDefault();
+            var url = event.currentTarget.getAttribute('href');
+            if(url !== ""){
+              if(url.includes("https")){
+                const a = document.createElement('a');
+                 a.href = url;
+                 a.download = url.split('/').pop();
+                 document.body.appendChild(a);
+                 a.click();
+                 document.body.removeChild(a);               
+              }
+            }
+          }
+            
+          </script>
+
+ 
+</head>
+ 
+<body>
+
+ <!-- Preloading --> 
+    
+ <!-- Switcher -->
+     
+	<div class="container wrapper">
+    	<div class="site">
+                    	<div class="left-navbar">
+                            <br>
+                        	<a  class="" href="">
+							<?php if($company_logo!=""){ ?>
+							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<?php } else { ?>
+							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<?php } ?>
+							</a>
+                            <div class="navigation">	
+                                <ul class="links-to-floor">
+                                    <li><a>ABOUT ME</a></li>
+                                    <li><a>OUR COMPANY</a> </li>
+                                    <li><a>GET IN TOUCH</a></li>
+                                </ul>
+                            </div>
+                           
+                        </div>	
+						<div class="profile-image">
+						<?php if ($profile_theme==""){ ?>
+                        	<img src="/vcard/images/profile2.jpg" alt=""> 
+						<?php }else{ ?>
+							<img src="<?php echo $profile_theme;?>" alt=""> 
+						<?php } ?>
+                        </div>
+                    <div id="ascensorBuilding">
+                	<!-- HOME SECTION -->
+                    <div class="scroll-out">
+                        <div class="floor home-page">
+                            <div class="home-box">
+                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
+                                <br>
+                                <br>
+                               <h1><?php echo $fname;?><br>
+                                    <?php echo $lname;?></h1>
+                                <br>
+                                <span><?php echo "$title_eng" ; ?> <?php echo "$title_chi" ; ?></span>
+								  <span><?php echo "$pro_title" ; ?> </span>
+                                <p><?php echo "$division_eng" ; ?> <?php echo "$division_chi" ; ?></p>
+								<p><?php echo "$dept_eng" ; ?> <?php echo "$dept_chi" ; ?></p>
+                                
+                            </div>
+                            </div>
+                        </div>
+                   
+                    <!-- ABOUT SECTION -->
+                    <div class="scroll-out">
+                    <div class="floor about">
+                    	<h2 class="page-title"><?php echo $company_name_option_eng[$company_name_option];?><br><?php echo $company_name_option_chi[$company_name_option];?></h2>
+                       <h2 class="page-title"><?php echo $company_name_eng2;?><br><?php echo $company_name_chi2;?></h2>
+                       <h2 class="page-title"><?php echo $company_name_eng3;?><br><?php echo $company_name_chi3;?></h2>
+                        <ul class="list top15 bottom30">
+						 
+							<?php if ($web_link!=""){ ?>
+                            <li><span><?php echo $web_link_label;?>:</span> <?php echo "$web_link" ; ?></li>
+							<?php } ?>
+                            <?php if ($web_link2!=""){ ?>
+                            <li><span><?php echo $web_link_label2;?>:</span> <?php echo "$web_link2" ; ?></li>
+							<?php } ?>
+                            <?php if ($web_link3!=""){ ?>
+                            <li><span><?php echo $web_link_label3;?>:</span> <?php echo "$web_link3" ; ?></li>
+							<?php } ?>
+                           
+                            <?php if ($address_eng!=""){ ?>
+                            <li><span>Address :</span> <?php echo "$address_eng" ; ?><?php echo "$address_chi" ; ?></li> 
+							<?php } ?>
+                              <?php if ($address_eng2!=""){ ?>
+                            <li><span>Address2 :</span> <?php echo "$address_eng2" ; ?><?php echo "$address_chi2" ; ?></li> 
+							<?php } ?>
+							    <?php if ($address_eng3!=""){ ?>
+                            <li><span>Address3 :</span> <?php echo "$address_eng3" ; ?><?php echo "$address_chi3" ; ?></li> 
+							<?php } ?>
+                        </ul>
+						<?php if ($more_info_tab_url!=""){ ?>
+                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
+                       <?php } ?>
+                   
+                        
+                    </div>
+                    </div>
+                  
+                    <!-- CONTACT SECTION-->
+                    <div class="scroll-out">
+                    <div class="floor contact">
+                   		<h2 class="page-title">Contact Me</h2>
+                        
+                        <ul class="list top15 bottom15">
+						<?php if ($mobile_tel!=""){ ?>
+                            <li><span>Mobile :</span> <?php echo $mobile_tel; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_tel2!=""){ ?>
+                            <li><span>Mobile :</span> <?php echo $mobile_tel2; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_tel3!=""){ ?>
+                            <li><span>Mobile :</span> <?php echo $mobile_tel3; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_china_tel!=""){ ?>
+                            <li><span>Mobile :</span> <?php echo $mobile_china_tel; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_china_tel2!=""){ ?>
+                            <li><span>Phone :</span> <?php echo $mobile_china_tel2; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_china_tel3!=""){ ?>
+                            <li><span>Phone :</span> <?php echo $mobile_china_tel3; ?></li>
+							<?php } ?>
+                            <?php if ($fax_no!=""){ ?>
+                            <li><span>fax_no :</span> <?php echo $fax_no; ?></li>
+							<?php } ?>
+                            <?php if ($work_email!=""){ ?>
+                            <li><span>Email :</span> <?php echo $work_email; ?></li>
+							<?php } ?>
+                            <?php if ($work_email2!=""){ ?>
+                            <li><span>Email :</span> <?php echo $work_email2; ?></li>
+							<?php } ?>
+							<?php if ($work_email3!=""){ ?>
+                            <li><span>Email :</span> <?php echo $work_email3; ?></li>
+							<?php } ?>
+                          
+                        </ul>
+                        
+                       
+ 
+                        <br>
+                        <br>
+						
+						<?php if ($fromkey){ ?>
+                         <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+						<?php } ?>
+						<?php if ($fromuid){ ?>
+                         <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+						<?php } ?>
+                        <br><br>
+                         <h4 class="subtitle">Save My Contact</h4><br><br>
+                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
+                    </div>
+                         
+                    </div>
+                    <!-- CONTACT END-->
+                </div>
+        </div>
+    </div> <!-- wrapper end -->
+    
+ 
+<!-- Javascripts -->
+ 
+<script src="/vcard/js/jquery-2.1.4.min.js"></script><!-- jQuery library -->
+<script src="/vcard/js/bootstrap.min.js"></script> 
+<script src="/vcard/js/jquery.ascensor.js"></script>
+<script src="/vcard/js/isotope.pkgd.min.js"></script>
+<script src="/vcard/js/jquery.magnific-popup.min.js"></script>
+<script src="/vcard/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/vcard/js/owl.carousel.min.js"></script>
+ 
+<script src="/vcard/js/styleswitcher.js"></script> 
+<script src="/vcard/js/main.js"></script>    
+    
+
+
+
+
+    
+</body>
+</html>

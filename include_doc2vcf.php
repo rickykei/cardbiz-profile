@@ -1,26 +1,57 @@
 <?php
 
+			$company_name_option_eng[0]="The Bank of East Asia";
+			$company_name_option_eng[1]="Bank of East Asia (Trustees) Limited";
+			$company_name_option_eng[2]="East Asia Futures Limited";
+			$company_name_option_eng[3]="East Asia Property Agency Company Limited";
+			$company_name_option_eng[4]="East Asia Facility Management Limited";
+			$company_name_option_eng[5]="East Asia Securities Company Limited";
+			$company_name_option_eng[6]="BEA Insurance Agency Limite";
+			$company_name_option_chi[0]="東亞銀行";
+			$company_name_option_chi[1]="Bank of East Asia (Trustees) Limited";
+			$company_name_option_chi[2]="East Asia Futures Limited";
+			$company_name_option_chi[3]="East Asia Property Agency Company Limited";
+			$company_name_option_chi[4]="East Asia Facility Management Limited";
+			$company_name_option_chi[5]="東亞證券";
+			$company_name_option_chi[6]="BEA Insurance Agency Limite";
+			 
  
- 
- 
+			//company level
+			$company_name_option=$document->company_name_option;
 			$company_name_eng=$document->company_name_eng;
 			$company_name_chi=$document->company_name_chi;
 
 			if ($company_name_eng=="" || $company_name_chi==""){
 				$admin_company_name_eng=$document->company_detail[0]['company_name_eng'];	
 				$admin_company_name_chi=$document->company_detail[0]['company_name_chi'];
-				$company_name_eng=$document->company_name_eng;	
-				$company_name_chi=$document->company_name_chi;
-				
+				$admin_company_name_img=$document->company_detail[0]['company_name_img'];
+				$admin_company_name_eng2=$document->company_detail[0]['company_name_eng2'];	
+				$admin_company_name_chi2=$document->company_detail[0]['company_name_chi2'];
+				$admin_company_name_img2=$document->company_detail[0]['company_name_img2'];
+				$admin_company_name_eng3=$document->company_detail[0]['company_name_eng3'];	
+				$admin_company_name_chi3=$document->company_detail[0]['company_name_chi3'];
+				$admin_company_name_img3=$document->company_detail[0]['company_name_img3'];
+				$company_name_eng=$admin_company_name_eng;
+				$company_name_chi=$admin_company_name_chi;
 			}
+			
+				$company_name_eng2=$document->company_name_eng2;	
+				$company_name_chi2=$document->company_name_chi2;
+				
+				$company_name_eng3=$document->company_name_eng3;	
+				$company_name_chi3=$document->company_name_chi3;
+				
+			
 			if ($document->company_detail[0]['profile_theme']!="")
 			$profile_theme=$domain."/api/files/".$document->company_detail[0]['profile_theme']; 
  
 			$company_logo=$document->company_detail[0]['logo'];
+			$company_banner=$document->company_detail[0]['banner'];
 			
 			$company_id=$document->company_id;
 			
-			$rc_no=$document->rc_no;
+			//staff records
+			$cc_no=$document->cc_no;
 			$staff_no=$document->staff_no;
 			
 			
@@ -28,104 +59,104 @@
 			$lname=$document->lname;
 			$title_eng=$document->title_eng;
 			$title_chi=$document->title_chi;
-			
-			$work_email= $document->work_email;
-			$work_email2= $document->work_email2;
-			$work_email3= $document->work_email3;
-
-			$home_email= $document->home_email;
-			$other_email = $document->other_email;
-
+			$title_eng2=$document->title_eng2;
+			$title_chi2=$document->title_chi2;
 			$pro_title= $document->pro_title;
 			
-			$subsidiary_eng=$document->subsidiary_eng;
-			$subsidiary_chi=$document->subsidiary_chi;
-			
-			$position=$document->position;
+			$division_eng=$document->division_eng;
+			$division_chi=$document->division_chi;
+
+			$dept_eng=$document->dept_eng;			 
+			$dept_chi=$document->dept_chi;			 
+			 
+			 
+			$address_eng= $document->address_eng;
+			$address_chi= $document->address_chi;
+			$address_eng2= $document->address_eng2;
+			$address_chi2= $document->address_chi2;
 			
 			$work_tel=$document->work_tel;
 			$work_tel2=$document->work_tel2;
 			$work_tel3=$document->work_tel3;
-			$work_tel4=$document->work_tel4;
 			
 			$direct_tel=$document->direct_tel;
 			$direct_tel2=$document->direct_tel2;
 			$direct_tel3=$document->direct_tel3;
 
-			$home_tel=$document->home_tel;
-			
-			$web_link=$document->web_link;
-			$web_link_label=$document->web_link_label;
-
-
-			$web_link2=$document->web_link2;
-			$web_link_label2=$document->web_link_label2;
-
-
-			$web_link3=$document->web_link3;
-			$web_link_label3=$document->web_link_label3;
-
-
-			$web_link4=$document->web_link4;
-			$web_link_label4=$document->web_link_label4;
-
-
-			$web_link5=$document->web_link5;
-			$web_link_label5=$document->web_link_label5;
-
-			$web_link6=$document->web_link6;
-			$web_link_label6=$document->web_link_label6;
-
 			$mobile= $document->mobile;
 			$mobile2= $document->mobile2;
 			$mobile3= $document->mobile3;
-			$mobile4= $document->mobile4;
 			
-			 
+			$mobile_china_tel= $document->mobile_china_tel;
+			$mobile_china_tel2= $document->mobile_china_tel2;
+			$mobile_china_tel3= $document->mobile_china_tel3;
+			
 			$fax= $document->fax;
-			 
-			 
-			$address= $document->address;
-			$address2= $document->address2;
-			$address3= $document->address3;
-			$address4= $document->address4;
 			
+			$swift_no= $document->swift_no;
+			 
+			$work_email= $document->work_email;
+			$work_email2= $document->work_email2;
+			$work_email3= $document->work_email3;
+
+		  	$web_link=$document->web_link;
+			$web_link_label=$document->web_link_label;
+ 
+			$web_link2=$document->web_link2;
+			$web_link_label2=$document->web_link_label2;
+ 
+			$web_link3=$document->web_link3;
+			$web_link_label3=$document->web_link_label3;
 			
-			if($document->headshot!="")
-			$headshot=$domain."/api/files/".$document->headshot;
+			$agent_no=$document->agent_no;
+			$insurance_no=$document->insurance_no;
+			$mpf_no=$document->mpf_no;
+			$hkma_no=$document->hkma_no;  
+			
+			$type1_no=$document->type1_no;
+			$type4_no=$document->type4_no;
+			$type6_no=$document->type6_no;
+			$type9_no=$document->type9_no;
+			
+			$reuters_code=$document->reuters_code;
+			$bloomberg_info=$document->bloomberg_info;
+			$sfc_no=$document->sfc_no; 
+			$sfc_type1_no=$document->sfc_type1_no; 
+			$sfc_type2_no=$document->sfc_type2_no; 
+			
+			$additional_info=$document->additional_info;
+			
+			//if($document->headshot!="")
+			//$headshot=$domain."/api/files/".$document->headshot;
 			//$headshot=$domain."/Touchless/contact_citic.jpg";
 			
-			$division=$document->division;
+			//generic field
+			
+			$field051=$document->field051;
+			$field052=$document->field052;
+			$field053=$document->field053;
+			$field054=$document->field054;
+			$field055=$document->field055;
+			$field056=$document->field056;
+			$field057=$document->field057;
+			$field058=$document->field058;
+			$field059=$document->field059;
+			
+			
+			$field060=$document->field060;
+			$field061=$document->field061;
+			$field062=$document->field062;
+			$field063=$document->field063;
+			$field064=$document->field064;
+			$field065=$document->field065;
+			$field066=$document->field066;
+			$field067=$document->field067;
+			$field068=$document->field068;
+			$field069=$document->field069;
+			
+			$field070=$document->field070; 
+		 	
 			 
-		 	$department=$document->department;
-			$country=$document->country;
-			$bio=$document->bio;
-
-			$company_website_url=$document->company_website_url;
-		 	$more_info_tab_url=$document->more_info_tab_url;
-			$facebook_url=$document->facebook_url;
-			$instagram_url=$document->instagram_url;
-			$whatsapp_url=$document->whatsapp_url;
-			$linkedin_url=$document->linkedin_url;
-			$youtube_url=$document->youtube_url;
-			$twitter_url=$document->twitter_url;
-			$wechat_id=$document->wechat_id;
-			$wechatpage_url=$document->wechatpage_url;
-			$weixin_url=$document->weixin_url;
-			$douyin_url=$document->douyin_url;
-			$tiktok_url=$document->tiktok_url;
-			$kuaishou_url=$document->kuaishou_url;
-			$line_url=$document->line_url;
-			$facebook_messenger_url=$document->facebook_messenger_url;
-			$weibo_url=$document->weibo_url;
-			$bilibili_url=$document->bilibili_url;
-			$qq_url=$document->qq_url;
-			$zhihu_url=$document->zhihu_url;
-			$app_store_url=$document->app_store_url;
-			$google_play_url=$document->google_play_url;
-			$snapchat_url=$document->snapchat_url;
-			$telegram_url=$document->telegram_url;
-			$xiaohongshu_url=$document->xiaohongshu_url;
 			$note=$document->note;
 			$note_timestamp=$document->note_timestamp;
 			  
@@ -163,72 +194,43 @@
 			 
 			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
 		 
-			  if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 			 
-			  if($work_email2!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email2 . "\r\n"; 			 
-			  if($work_email3!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email3 . "\r\n"; 			 
-			  
-			  if($home_email!="") $vCard .= "EMAIL;TYPE=HOME:" . $home_email . "\r\n"; 			 
-			  
-			  if($other_email!="") $vCard .= "EMAIL;TYPE=OTHER:" . $other_email . "\r\n"; 			 
-			  
-			  if($position!="") $vCard .= "TITLE;CHARSET=utf-8:" . $position . "\r\n"; 			 
-			  
+			  if($title_eng!="") $vCard .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $title_chi ." ". $dept_eng ."\r\n"; 
+			 			 
+			  if($address_eng!="") $vCard .= "ADR;WORK:" . $address_eng ."\r\n"; 
+			   
 			  if($work_tel!="") $vCard .= "TEL;WORK:" . $work_tel . "\r\n"; 
 			  if($work_tel2!="") $vCard .= "TEL;WORK:" . $work_tel2 . "\r\n"; 
 			  if($work_tel3!="") $vCard .= "TEL;WORK:" . $work_tel3 . "\r\n"; 
-			  if($work_tel4!="") $vCard .= "TEL;WORK:" . $work_tel4 . "\r\n"; 
+			  			 
+			  if($direct_tel!="") $vCard .= "TEL;WORK:" . $direct_tel . "\r\n"; 
+			  if($direct_tel2!="") $vCard .= "TEL;WORK:" . $direct_tel2 . "\r\n"; 
+			  if($direct_tel3!="") $vCard .= "TEL;WORK:" . $direct_tel3 . "\r\n"; 
+			  
+			  if($mobile_tel!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
+			  if($mobile_tel2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_tel2 . "\r\n"; 
+			  if($mobile_tel3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_tel2 . "\r\n"; 
+			  
+			  if($mobile_china_tel!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel . "\r\n"; 
+			  if($mobile_china_tel2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel2 . "\r\n"; 
+			  if($mobile_china_tel3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel3 . "\r\n"; 
+			  
+			  if($fax_no!="") $vCard .= "TEL;TYPE=FAX:" . $fax_no . "\r\n"; 
 			 
-			  if($mobile!="") $vCard .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
-			 if($mobile2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile2 . "\r\n"; 
-			 if($mobile3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile3 . "\r\n"; 
-			 if($mobile4!="") $vCard .= "TEL;TYPE=CELL:" . $mobile4 . "\r\n"; 
-			 
-			 if($home_tel!="") $vCard .= "TEL;TYPE=HOME:" . $home_tel . "\r\n"; 
-			 
-			 if($fax!="") $vCard .= "TEL;WORK;TYPE=FAX:" . $fax . "\r\n";
-			   
-			 
+			 if($work_email!="") $vCard .= "EMAIL;WORK:" . $work_email . "\r\n"; 
+			 if($work_email2!="") $vCard .= "EMAIL;WORK:" . $work_email2 . "\r\n"; 
+			 if($work_email3!="") $vCard .= "EMAIL;WORK:" . $work_email3 . "\r\n"; 
+			  
 			 if($web_link!="")	$vCard .= "URL;TYPE=".$web_link_label.",pref:" . $web_link. "\r\n"; 
-			 if($web_link2!="")	$vCard .= "URL;TYPE=" . $web_link_label2.",pref:" . $web_link2. "\r\n"; 
-			 if($web_link3!="")	$vCard .= "URL;TYPE=" . $web_link_label3 .",pref:" . $web_link3.  "\r\n"; 
-			 if($web_link4!="")	$vCard .= "URL;TYPE=" . $web_link_label4 .",pref:" . $web_link4.  "\r\n"; 
-			 if($web_link5!="")	$vCard .= "URL;TYPE=" . $web_link_label5 .",pref:" . $web_link5. "\r\n"; 
-			 if($web_link6!="")	$vCard .= "URL;TYPE=" . $web_link_label6 .",pref:" . $web_link6. "\r\n"; 
+			  if($field068!="")	$qrPng .= "TEL;WORK:".$field068."\r\n"; 	
+			 if($field069!="")	$vCard .= "TEL;WORK:".$field069."\r\n";		
+			 if($field070!="")	$vCard .= "TEL;WORK:".$field070."\r\n";			
+			  	 
 			 
-
-			 if($address!="")	$vCard .= "ADR;WORK:" . $address . "\r\n"; 			 
-			 if($address2!="")	$vCard .= "ADR;WORK:" . $address2 . "\r\n"; 			 
-			 if($address3!="")	$vCard .= "ADR;WORK:" . $address3 . "\r\n"; 			 
-			 if($address4!="")	$vCard .= "ADR;WORK:" . $address4 . "\r\n"; 			 
-			 
-			 if($company_website_url!="")	$vCard .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 			 
-			 
-			 if($more_info_tab_url!="")	$vCard .= "URL;TYPE=More Info,pref:" . $more_info_tab_url . "\r\n"; 			 
-			 if($facebook_url!="")	$vCard .= "URL;TYPE=Facebook,pref:" . $facebook_url . "\r\n"; 			 
-			 if($instagram_url!="")	$vCard .= "URL;TYPE=Instagram,pref:" . $instagram_url . "\r\n"; 			 
-			 if($whatsapp_url!="")	$vCard .= "URL;TYPE=Whatsapp,pref:" . $whatsapp_url . "\r\n"; 			 
-			 if($linkedin_url!="")	$vCard .= "URL;TYPE=Linkedin,pref:" . $linkedin_url . "\r\n"; 			 
-			 if($youtube_url!="")	$vCard .= "URL;TYPE=Youtube,pref:" . $youtube_url . "\r\n"; 			 
-			 if($twitter_url!="")	$vCard .= "URL;TYPE=Twitter,pref:" . $twitter_url . "\r\n"; 			 
-			 
-			 if($wechatpage_url!="")	$vCard .= "URL;TYPE=Wechat,pref:" . $wechatpage_url . "\r\n"; 			 
-			 if($tiktok_url!="")	$vCard .= "URL;TYPE=Tiktok,pref:" . $tiktok_url . "\r\n"; 			 
-			 if($line_url!="")	$vCard .= "URL;TYPE=Line,pref:" . $line_url . "\r\n"; 			 
-			 if($facebook_messenger_url!="")	$vCard .= "URL;TYPE=Facebook Messenger,pref:" . $facebook_messenger_url . "\r\n"; 			 
-			 if($weibo_url!="")	$vCard .= "URL;TYPE=Weibo,pref:" . $weibo_url . "\r\n"; 			 
-			 if($bilibili_url!="")	$vCard .= "URL;TYPE=Bilibili,pref:" . $bilibili_url . "\r\n"; 			 
-			 if($qq_url!="")	$vCard .= "URL;TYPE=QQ,pref:" . $qq_url . "\r\n"; 			 
-			 if($zhihu_url!="")	$vCard .= "URL;TYPE=Zhihu,pref:" . $zhihu_url . "\r\n"; 			 
-			 if($app_store_url!="")	$vCard .= "URL;TYPE=App Store,pref:" . $app_store_url . "\r\n"; 			 
-			 if($google_play_url!="")	$vCard .= "URL;TYPE=Google Play,pref:" . $google_play_url . "\r\n"; 			 
-			 if($snapchat_url!="")	$vCard .= "URL;TYPE=Snapchat,pref:" . $snapchat_url . "\r\n"; 			 
-			 if($telegram_url!="")	$vCard .= "URL;TYPE=Telegram,pref:" . $telegram_url . "\r\n"; 			 
-			 
-			 if ($note_timestamp==true) 
+			/* if ($note_timestamp==true) 
 			  $temp_note= " Meet on " . date("d/m/Y H:i");
 		  
 			 if($note!="" || $temp_note!="")	$vCard .= "NOTE:" . $note ." ".$temp_note. "\r\n"; 			 
-			  
+			  */
 			 
 			  
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
@@ -276,18 +278,34 @@
 			  //gather qrcode png info
 			  $qrPng = "BEGIN:VCARD\r\n";
 			  $qrPng .= "VERSION:3.0\r\n";
-				if($company_name_eng!=""|| $company_name_chi!="" )$qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
-				if($fname!="")$qrPng .= "N;CHARSET=utf-8:;" . $fname ." ".$lname. "\r\n";
-				if($work_email!="") $qrPng .= "EMAIL;TYPE=Work Email,pref:" . $work_email . "\r\n"; 
-				if($position!="")$qrPng.="TITLE:".$position."\r\n";
-				if($work_tel) $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
-				if($mobile_tel)	$qrPng .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
-				//if($home_tel)$qrPng .= "TEL;TYPE=HOME:" . $home_tel . "\r\n";
-				//if($fax)	$qrPng .= "TEL;TYPE=FAX:" . $fax . "\r\n";
-				//if($web_link1)$qrPng .= "URL;TYPE=Website,pref:" . $web_link1 . "\r\n";
-				//if($web_link2)$qrPng .= "URL;TYPE=Website,pref:" . $web_link2 . "\r\n";
-				//if($web_link3)$qrPng .= "URL;TYPE=Website,pref:" . $web_link3 . "\r\n";
-			    if($address)$qrPng .= "ADR;WORK:" . $address . "\r\n"; 
+				  if($company_name_eng!="") $qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
+			 
+			  if($fname!="") $qrPng .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
+		 
+			  if($title_eng!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng." ". $title_chi ." ". $dept_eng ."\r\n"; 
+			  if($title_eng2!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng2." ". $title_chi2 ." ". $dept_eng2 ."\r\n"; 
+			 			 
+			  if($address_eng!="") $qrPng .= "ADR;WORK:" . $address_eng ."\r\n"; 
+			   
+			  if($work_tel!="") $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
+			  
+			  			 
+			  if($direct_tel!="") $qrPng .= "TEL;WORK:" . $direct_tel . "\r\n"; 
+			  
+			  
+			  if($mobile_tel!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
+			 
+			  if($mobile_china_tel!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile_china_tel . "\r\n"; 
+			   
+			  
+			  if($fax_no!="") $qrPng .= "TEL;TYPE=FAX:" . $fax_no . "\r\n"; 
+			 
+			 if($work_email!="") $qrPng .= "EMAIL;WORK:" . $work_email . "\r\n"; 
+		 
+			  
+			 if($web_link!="")	$qrPng .= "URL;TYPE=".$web_link_label.",pref:" . $web_link. "\r\n"; 
+			 
+			  if($field068!="")	$qrPng .= "TEL;WORK:".$field068."\r\n"; 
 				//if($company_website_url)$qrPng .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 
 			    //if($facebook_url)$qrPng .= "URL;TYPE=Facebook,pref:" . $facebook_url . "\r\n"; 
 				//if($instagram_url)$qrPng .= "URL;TYPE=Instagram,pref:" . $instagram_url . "\r\n"; 

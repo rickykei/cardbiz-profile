@@ -81,16 +81,16 @@
                     	<div class="left-navbar">
                             <br>
                         	<a  class="" href="">
-							<?php if($company_logo!=""){ ?>
-							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
-							<?php } else { ?>
+							<?php if($company_logo=""){ ?>
 							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<?php } else { ?>
+							
+							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
 							<?php } ?>
 							</a>
                             <div class="navigation">	
                                 <ul class="links-to-floor">
                                     <li><a>ABOUT ME</a></li>
-                                    <li><a>OUR COMPANY</a> </li>
                                     <li><a>GET IN TOUCH</a></li>
                                 </ul>
                             </div>
@@ -107,186 +107,204 @@
                 	<!-- HOME SECTION -->
                     <div class="scroll-out">
                         <div class="floor home-page">
-                            <div class="home-box">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
-                                <br>
-                                <br>
-                               <h1><?php echo $fname;?><br>
-                                    <?php echo $lname;?></h1>
-                                <br>
-                                <span><?php echo "$position" ; ?></span>
-                                <p><?php echo "$bio" ; ?>
-                                </p>
+                             <div class="home-box" style="font-family:Arial">
+                                <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
+                                <br><br>
+                                <h1><?php echo $fname;?><br>
+                                    <?php echo $lname;?></h1><br>
+                                <ul class="list top5 bottom15">
+                        	<li><span><?php echo "$pro_title" ; ?> </span></li>
+                        </ul>
+                               <span><?php echo "$title_eng" ; ?> </span><br>
+                                <span><?php echo "$title_eng2" ; ?> </span><br>
+                                <span><?php echo "$dept_eng" ; ?> </span><br>
+                                <span><?php echo "$division_eng" ; ?> </span><br>
+                                <span><?php echo "$title_chi" ; ?> </span><br>
+                                <span><?php echo "$title_chi2" ; ?> </span><br>
+                                <span><?php echo "$dept_chi" ; ?> </span><br>
+                                <span><?php echo "$division_chi" ; ?> </span><br>
                                 
+								<p style="font-size:12px">
+                                <?php if ($hkma_no!=""){ ?>
+									HKMA Reg. No. 金管局註冊編號  :<?php echo "$hkma_no" ; ?> <br>
+								<?php } ?>
+                                 <?php if ($type1_no!=""){ ?>
+									&nbsp;&nbsp;&nbsp;Type 1: Dealing in Securities 第1類：證券交易<br>
+								<?php } ?>
+                                <?php if ($type4_no!=""){ ?>
+                                    &nbsp;&nbsp;&nbsp;Type 4: Advising on Securities 第4類：就證券提供意見<br>
+							<?php } ?>
+                                <?php if ($type6_no!=""){ ?>
+								&nbsp;&nbsp;&nbsp;Type 6: Advising on Corporate Finance 第6類：就機構融資提供意見<br>
+							<?php } ?>
+                                <?php if ($type9_no!=""){ ?>
+                            &nbsp;&nbsp;&nbsp;Type 9: Asset Management 第9類 : 提供資產管理<br> 
+							<?php } ?>
+                                 <?php echo "$field056" ; ?><br>
+                                 <?php echo "$field057" ; ?><br>
+                                 <?php echo "$field058" ; ?><br>
+                                <?php if ($mpf_no!=""){ ?>
+                             MPF Intermediary Reg. No. 強積金中介人註冊編號 : <?php echo "$mpf_no" ; ?><br>
+							<?php } ?>
+                                <?php if ($agent_no!=""){ ?>
+                             Technical Representative (Agent) Licence No. 保險業務代表(代理人)牌照號碼 : <?php echo "$agent_no" ; ?><br>
+							<?php } ?>
+                                 <?php if ($sfc_no!=""){ ?>
+                             SFC Central Entity No. 證監會中央編號 : <?php echo "$sfc_no" ; ?><br>
+							<?php } ?>
+                                 <?php if ($sfc_type1_no!=""){ ?>
+                             &nbsp;&nbsp;&nbsp;Type 1: Dealing in Securities 第1類：證券交易 <br>
+							<?php } ?>
+                                <?php if ($sfc_type2_no!=""){ ?>
+                            &nbsp;&nbsp;&nbsp;Type 4: Advising on Securities 第4類：就證券提供意見<br>
+							<?php } ?>
+                                 <?php echo "$field059" ; ?><br>
+                                 <?php echo "$field060" ; ?><br>
+                                 <?php if ($bloomberg_info!=""){ ?>
+                            Bloomberg 彭博 : <?php echo "$bloomberg_info" ; ?><br>
+							<?php } ?>
+                                <?php if ($reuters_code!=""){ ?>
+                            Reuters Dealing Code 路透社交易編號 : <?php echo "$reuters_code" ; ?><br>
+							<?php } ?>
+                                <?php if ($field052!=""){ ?>
+                            Estate Agent's Licence (Individual) No. 地產代理 ( 個人 ) 牌照號碼 : <?php echo "$field052" ; ?><br>
+							<?php } ?>
+                                <?php if ($field054!=""){ ?>
+                            PMP (Tier 1) Licence No. 物業管理人 ( 第1級）牌照號碼 : <?php echo "$field054" ; ?><br>
+							<?php } ?>
+                                <?php if ($field055!=""){ ?>
+                            PMP (Tier 2) Licence No. 物業管理人 ( 第2級）牌照號碼 :<?php echo "$field055" ; ?><br>
+							<?php } ?>
+                             <?php if ($field061!=""){ echo "$field061" ; }?><br>
+							 <?php if ($field062!=""){ echo "$field062" ; }?><br>
+							 <?php if ($field063!=""){ echo "$field063" ; }?><br>
+							 <?php if ($field064!=""){ echo "$field064" ; }?><br>
+                             </p>
+							   <?php if ($company_name_eng!=""){ ?>
+                                <h4 class="subtitle"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h4>
+							   <?php } ?>
+							   <?php if ($company_name_eng2!=""){ ?>
+                                <h4 class="subtitle"><?php echo $company_name_eng2;?><br><?php echo $company_name_chi2;?></h4>
+								<?php } ?>
+								<?php if ($company_name_eng3!=""){ ?>
+                                <h4 class="subtitle"><?php echo $company_name_eng3;?><br><?php echo $company_name_chi3;?></h4>
+								<?php } ?>
+								<p style="font-size:12px">
+                                <?php if ($insurance_no!=""){ ?>
+                            Insurance Agency Licence No. 保險代理機構牌照號碼 :<?php echo "$insurance_no" ; ?> <br>
+							<?php } ?>
+							
+                                <?php if ($swift_no!=""){ ?>
+                             SWIFT Code 銀行國際代碼 : <?php echo "$swift_no" ; ?> <br>
+							<?php } ?>
+                                <?php if ($field051!=""){ ?>
+                             Estate Agent's Licence (Company) No. 地產代理 ( 公司 ) 牌照號碼 :<?php echo "$field051" ; ?><br>
+							<?php } ?>
+                                <?php if ($field053!=""){ ?>
+                             PMC Licence No. 物業管理公司牌照號碼 : <?php echo "$field053" ; ?><br> 
+							<?php } ?>
+                                 <?php echo "$field065" ; ?><br>
+                                
+								</p>
                             </div>
+                            
+                           
                             </div>
                         </div>
                    
-                    <!-- ABOUT SECTION -->
-                    <div class="scroll-out">
-                    <div class="floor about">
-                    	<h2 class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
-                       
-                        <ul class="list top15 bottom30">
-						<?php if ($company_website_url!=""){ ?>
-                        	<li><span>Company Website :</span> <?php echo "$company_website_url" ; ?></li>
-						<?php } ?>
-							<?php if ($web_link!=""){ ?>
-                            <li><span><?php echo $web_link_label;?>:</span> <?php echo "$web_link" ; ?></li>
-							<?php } ?>
-                            <?php if ($web_link2!=""){ ?>
-                            <li><span><?php echo $web_link_label2;?>:</span> <?php echo "$web_link2" ; ?></li>
-							<?php } ?>
-                            <?php if ($web_link3!=""){ ?>
-                            <li><span><?php echo $web_link_label3;?>:</span> <?php echo "$web_link3" ; ?></li>
-							<?php } ?>
-                            <?php if ($web_link4!=""){ ?>
-                            <li><span><?php echo $web_link_label4;?>:</span> <?php echo "$web_link4" ; ?></li>
-							<?php } ?>
-                            <?php if ($web_link5!=""){ ?>
-                            <li><span><?php echo $web_link_label5;?>:</span> <?php echo "$web_link5" ; ?></li>
-							<?php } ?>
-                            <?php if ($web_link6!=""){ ?>
-                            <li><span><?php echo $web_link_label6;?>:</span> <?php echo "$web_link6" ; ?></li>
-							<?php } ?>
-                            <?php if ($address!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address" ; ?></li> 
-							<?php } ?>
-                            <?php if ($address2!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address2" ; ?></li>
-							<?php } ?>
-                            <?php if ($address3!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address3" ; ?></li> 
-							<?php } ?>
-                            <?php if ($address4!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address4" ; ?></li>
-							<?php } ?>
-                        </ul>
-						<?php if ($more_info_tab_url!=""){ ?>
-                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
-                       <?php } ?>
                    
-                        
-                    </div>
-                    </div>
                   
                     <!-- CONTACT SECTION-->
                     <div class="scroll-out">
-                    <div class="floor contact">
+                    <div class="floor home-page">
+                         <div class="home-box" style="font-family:Arial">
+                                <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
+                                <br><br>
                    		<h2 class="page-title">Contact Me</h2>
-                        
                         <ul class="list top15 bottom15">
-						<?php if ($mobile!=""){ ?>
-                            <li><span>Mobile :</span> <?php if($mobile!=""){echo $mobile;} ?></li>
-							<?php } ?>
-                            <?php if ($mobile2!=""){ ?>
-                            <li><span>Mobile :</span> <?php echo $mobile2; ?></li>
-							<?php } ?>
-                            <?php if ($mobile3!=""){ ?>
-                            <li><span>Mobile :</span> <?php echo $mobile3; ?></li>
-							<?php } ?>
-                            <?php if ($mobile4!=""){ ?>
-                            <li><span>Mobile :</span> <?php echo $mobile4; ?></li>
-							<?php } ?>
-                            <?php if ($work_tel!=""){ ?>
-                            <li><span>Phone :</span> <?php echo $work_tel; ?></li>
+						<?php if ($work_tel!=""){ ?>
+                            <li><span>Telephone 電話 :</span> <?php if($work_tel!=""){echo $work_tel;} ?></li>
 							<?php } ?>
                             <?php if ($work_tel2!=""){ ?>
-                            <li><span>Phone :</span> <?php echo $work_tel2; ?></li>
+                            <li><span>Telephone 電話 :</span> <?php echo $work_tel2; ?></li>
 							<?php } ?>
                             <?php if ($work_tel3!=""){ ?>
-                            <li><span>Phone :</span> <?php echo $work_tel3; ?></li>
+                            <li><span>Telephone 電話 :</span> <?php echo $work_tel3; ?></li>
 							<?php } ?>
-                            <?php if ($work_tel4!=""){ ?>
-                            <li><span>Phone :</span> <?php echo $work_tel4; ?></li>
+                            <?php if ($direct_tel!=""){ ?>
+                            <li><span>Direct Line 直線 :</span> <?php echo $direct_tel; ?></li>
+							<?php } ?>
+                            <?php if ($direct_tel2!=""){ ?>
+                            <li><span>Direct Line 直線 :</span> <?php echo $direct_tel2; ?></li>
+							<?php } ?>
+                            <?php if ($direct_tel3!=""){ ?>
+                            <li><span>Direct Line 直線 :</span> <?php echo $direct_tel3; ?></li>
+							<?php } ?>
+                            <?php if ($mobile!=""){ ?>
+                            <li><span>Mobile 手提 :</span> <?php echo $mobile; ?></li>
+							<?php } ?>
+                            <?php if ($mobile2!=""){ ?>
+                            <li><span>Mobile 手提 :</span> <?php echo $mobile2; ?></li>
+							<?php } ?>
+                            <?php if ($mobile3!=""){ ?>
+                            <li><span>Mobile 手提 :</span> <?php echo $mobile3; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_china_tel!=""){ ?>
+                            <li><span>China Mobile 中國手提 :</span> <?php echo $mobile_china_tel; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_china_tel2!=""){ ?>
+                            <li><span>China Mobile 中國手提 :</span> <?php echo $mobile_china_tel2; ?></li>
+							<?php } ?>
+                            <?php if ($mobile_china_tel3!=""){ ?>
+                            <li><span>China Mobile 中國手提 :</span> <?php echo $mobile_china_tel3; ?></li>
+							<?php } ?>
+							<?php if ($fax!=""){ ?>
+                            <li><span>fax :</span> <?php echo $fax; ?></li>
+							<?php } ?>
+                            <?php if ($field068!=""){ ?>
+                            <li><span>Merchant Services Hotline 商戶服務熱線 :</span> <?php echo $field068; ?></li>
+							<?php } ?>
+                            <?php if ($field069!=""){ ?>
+                            <li><span>Merchant Services Hotline 商戶服務熱線 :</span> <?php echo $field069; ?></li>
+							<?php } ?>
+                            <?php if ($field070!=""){ ?>
+                            <li><span>Merchant Services Hotline 商戶服務熱線 :</span> <?php echo $field070; ?></li>
+							<?php } ?>
+                            <?php if ($field066!=""){ ?>
+                            <li><?php echo $field066; ?></li>
 							<?php } ?>
                             <?php if ($work_email!=""){ ?>
-                            <li><span>Email :</span> <?php echo $work_email; ?></li>
+                            <li><span>Email 電郵 :</span> <?php echo $work_email; ?></li>
 							<?php } ?>
-							<?php if ($work_email2!=""){ ?>
-                            <li><span>Email :</span> <?php echo $work_email2; ?></li>
+                            <?php if ($work_email2!=""){ ?>
+                            <li><span>Email 電郵 :</span> <?php echo $work_email2; ?></li>
 							<?php } ?>
-                            <?php if ($work_email3!=""){ ?>
-                            <li><span>Email :</span> <?php echo $work_email3; ?></li>
-							<?php } ?>
-                            <?php if ($home_email!=""){ ?>
-                            <li><span>Email :</span> <?php echo $home_email; ?></li>
-							<?php } ?>
-                            <?php if ($other_email!=""){ ?>
-                            <li><span>Email :</span> <?php echo $other_email; ?></li>
+							<?php if ($work_email3!=""){ ?>
+                            <li><span>Email 電郵 :</span> <?php echo $work_email3; ?></li>
 							<?php } ?>
                             <?php if ($fax!=""){ ?>
-                            <li><span>Fax :</span> <?php echo $fax; ?></li>
+                            <li><span>Fax 傳真 :</span> <?php echo $fax; ?></li>
 							<?php } ?>
-							<?php if ($wechat_id!=""){ ?>
-                            <li><span>Wechat ID:</span> <?php echo $wechat_id; ?></li>                            
+                            <?php if ($address_eng!=""){ ?>
+                            <li><span>Address 地址 :</span> <?php echo $address_eng; ?><br><?php echo $address_chi; ?></li>
+							<?php } ?>
+                            <?php if ($address_eng2!=""){ ?>
+                            <li><span>Address 地址 :</span> <?php echo $address_eng2; ?><br><?php echo $address_chi2; ?></li>
+							<?php } ?>
+                            <?php if ($web_link!=""){ ?>
+                            <li><span><?php echo $web_link_label; ?>:</span> <?php echo $web_link; ?></li>
+							<?php } ?>
+                            <?php if ($web_link2!=""){ ?>
+                            <li><span><?php echo $web_link_label2; ?>:</span> <?php echo $web_link2; ?></li>
+							<?php } ?>
+                            <?php if ($web_link3!=""){ ?>
+                            <li><span><?php echo $web_link_label3; ?>:</span> <?php echo $web_link3; ?></li>
+							<?php } ?>
+                            <?php if ($field067!=""){ ?>
+                            <li><?php echo $field067; ?></li>
 							<?php } ?>
                         </ul>
-                        
-                        <div class="social">
-						<?php if ($facebook_url!=""){ ?>
-                           <a id="FB" class="facebook" onclick='onclick(event);' href="<?php echo $facebook_url; ?>"><i class="fa-brands fa-facebook"></i> </a>
-						<?php } ?>   
-                         <?php if ($twitter_url!=""){ ?>
-                          <a class="twitter" href="<?php echo $twitter_url; ?>"><i class="fa-brands fa-twitter"></i> </a>
-						<?php } ?> 
-						  <?php if ($whatsapp_url!=""){ ?>
-                           <a class="whatsapp" href="<?php echo $whatsapp_url; ?>"><i class="fa-brands fa-whatsapp"></i> </a>
-						<?php } ?> 
-						  <?php if ($instagram_url!=""){ ?>
-                              <a class="instagram" href="<?php echo $instagram_url; ?>"><i class="fa-brands fa-instagram"></i> </a>
-						<?php } ?> 
-                          	  <?php if ($youtube_url!=""){ ?>
-                              <a class="youtube" href="<?php echo $youtube_url; ?>"><i class="fa-brands fa-youtube"></i> </a>
-						<?php } ?> 
-                          <?php if ($linkedin_url!=""){ ?>
-                            <a class="linkedin" href="<?php echo $linkedin_url; ?>"><i class="fa-brands fa-linkedin"></i> </a>
-						<?php } ?>   
-                            <?php if ($wechatpage_url!=""){ ?>
-                          <a class="WechatPage" href="<?php echo $wechatpage_url; ?>"><i class="fa-brands fa-weixin"></i> </a>
-						<?php } ?> 
-						  <?php if ($tiktok_url!=""){ ?>
-                              <a class="tiktok" href="<?php echo $tiktok_url; ?>"><i class="fa-brands fa-tiktok"></i> </a>
-						<?php } ?> 
-                          	 
-                             	  <?php if ($line_url!=""){ ?>
-                            <a class="line" href="<?php echo $line_url; ?>"><i class="fa-brands fa-line"></i> </a>
-						<?php } ?> 
-                           
-                            <?php if ($facebook_messenger_url!=""){ ?>
-                           <a class="facebookmessenger" href="<?php echo $facebook_messenger_url; ?>"><i class="fa-brands fa-facebook-messenger"></i> </a>
-						<?php } ?> 
-						  <?php if ($weibo_url!=""){ ?>
-                              <a class="weibo" href="<?php echo $weibo_url; ?>"><i class="fa-brands fa-weibo"></i> </a>
-						<?php } ?> 
-                          	  <?php if ($bilibili_url!=""){ ?>
-                              <a class="bilibili" href="<?php echo $bilibili_url; ?>"><i class="fa-brands fa-bilibili"></i> </a>
-						<?php } ?> 
-                             	  <?php if ($qq_url!=""){ ?>
-                            <a class="qq" href="<?php echo $qq_url; ?>"><i class="fa-brands fa-qq"></i> </a>
-						<?php } ?>   
-                            <?php if ($zhihu_url!=""){ ?>
-                           <a class="zhihu" href="<?php echo $zhihu_url; ?>"><i class="fa-brands fa-zhihu"></i> </a>
-						<?php } ?> 
-						  <?php if ($app_store_url!=""){ ?>
-                              <a class="appsstore" href="<?php echo $app_store_url; ?>"><i class="fa-brands fa-app-store"></i> </a>
-						<?php } ?> 
-                          	  <?php if ($google_play_url!=""){ ?>
-                              <a class="googleplay" href="<?php echo $google_play_url; ?>"><i class="fa-brands fa-google-play"></i> </a>
-						<?php } ?> 
-                             	  <?php if ($snapchat_url!=""){ ?>
-                            <a class="snapchat" href="<?php echo $snapchat_url; ?>"><i class="fa-brands fa-snapchat"></i> </a>
-						<?php } ?>   
-                             <?php if ($telegram_url!=""){ ?>
-                              <a class="telegram" href="<?php echo $telegram_url; ?>"><i class="fa-brands fa-telegram"></i> </a>
-						<?php } ?> 
-                             	 
-                          
-                        </div>
- 
-                        <br>
-                        <br>
-						
+                         
 						<?php if ($fromkey){ ?>
                          <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
@@ -297,7 +315,7 @@
                          <h4 class="subtitle">Save My Contact</h4><br><br>
                          <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
                     </div>
-                         
+                    </div>     
                     </div>
                     <!-- CONTACT END-->
                 </div>
@@ -314,7 +332,7 @@
 <script src="/vcard/js/jquery.magnific-popup.min.js"></script>
 <script src="/vcard/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="/vcard/js/owl.carousel.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDj3cQNQ5dhNXHB-TkI4EbsF62nzBR1Wug"></script>
+ 
 <script src="/vcard/js/styleswitcher.js"></script> 
 <script src="/vcard/js/main.js"></script>    
     
