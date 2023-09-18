@@ -169,15 +169,15 @@
 			$qrcode_option=	$document->qrcode_option;
 			
 			$needPhoto=1;
-			
+			$headshot=1;
 			
 		
 			
 			  if($headshot!=""&&$needPhoto==1){ 
 			  //  $url = str_replace("https", "http",$url);
-				
-				$getPhoto               = file_get_contents_curl($headshot);
-				
+				$url=$domain."comp_logo_small/".$company_name_option.".png";
+				$getPhoto               = file_get_contents_curl($url);
+				  
 				$b64vcard               = base64_encode($getPhoto);
 				$b64mline               = chunk_split($b64vcard,74,"\n");
 				$b64final               = preg_replace('/(.+)/', ' $1', $b64mline);
@@ -234,7 +234,7 @@
 			 
 			  
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
-			  //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
+			 // if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
 			  if($smartcard_uid && $fromkey==true){  
 				if ($dig_card_in_vcf==true)
 				$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";

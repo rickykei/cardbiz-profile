@@ -30,7 +30,7 @@
 body{
 	background:url(../images/bg.jpg) #f7f6f3 fixed;
 	height: 100%;
-	font-family: 'Arial', Arial;
+	font-family: 'Lora', serif;
 }
 
 html{
@@ -612,7 +612,7 @@ p{
 
 .home-box{
       display: table-cell;
-      vertical-align: top;
+      vertical-align: middle;
 }
 
 
@@ -630,10 +630,10 @@ p{
 }
 
 .home-box span{
-    //letter-spacing: 2px;
-    //font-size: 15px;
-    //display: block;
-	//margin-top:3px;
+    letter-spacing: 2px;
+    font-size: 15px;
+    display: block;
+	margin-top:3px;
 }
 
 
@@ -945,12 +945,6 @@ font-size: 14px;
 
 
 /*------------------------ 6 Contact ------------------------*/	
-
-.contact{
-      padding:0 33px;
-      height: 100%;
-      display: table
-}
 
 .contact .social {
 	width: 100%;

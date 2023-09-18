@@ -84,8 +84,8 @@
 							<?php if($company_logo=""){ ?>
 							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
 							<?php } else { ?>
+							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
 							
-							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
 							<?php } ?>
 							</a>
                             <div class="navigation">	
@@ -110,19 +110,21 @@
                              <div class="home-box" style="font-family:Arial">
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
-                                <h1><?php echo $fname;?><br>
-                                    <?php echo $lname;?></h1><br>
-                                <ul class="list top5 bottom15">
-                        	<li><span><?php echo "$pro_title" ; ?> </span></li>
-                        </ul>
-                               <span><?php echo "$title_eng" ; ?> </span><br>
-                                <span><?php echo "$title_eng2" ; ?> </span><br>
-                                <span><?php echo "$dept_eng" ; ?> </span><br>
-                                <span><?php echo "$division_eng" ; ?> </span><br>
-                                <span><?php echo "$title_chi" ; ?> </span><br>
-                                <span><?php echo "$title_chi2" ; ?> </span><br>
-                                <span><?php echo "$dept_chi" ; ?> </span><br>
-                                <span><?php echo "$division_chi" ; ?> </span><br>
+                                <?php if($fname!=""){?><h1><?php echo $fname; ?><br> <?php }?>
+                                   <?php if($lname!=""){?> <?php echo $lname; ?></h1><br><?php }?>
+                               <?php if($pro_title!=""){?> 
+							   <ul class="list top5 bottom15">
+									<li><span><?php echo "$pro_title" ; ?> </span></li>
+								</ul>
+								<?php }?>
+                                 <?php if($title_eng!=""){?> <span><?php echo "$title_eng" ; ?> </span><br><?php }?>
+                                   <?php if($title_eng2!=""){?><span><?php echo "$title_eng2" ; ?> </span><br><?php }?>
+                                  <?php if($dept_eng!=""){?><span><?php echo "$dept_eng" ; ?> </span><br><?php }?>
+                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><br><?php }?>
+                                  <?php if($title_chi!=""){?><span><?php echo "$title_chi" ; ?> </span><br><?php }?>
+                                  <?php if($title_chi2!=""){?><span><?php echo "$title_chi2" ; ?> </span><br><?php }?>
+                                  <?php if($dept_chi!=""){?><span><?php echo "$dept_chi" ; ?> </span><br><?php }?>
+                                  <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><br><?php }?>
                                 
 								<p style="font-size:12px">
                                 <?php if ($hkma_no!=""){ ?>
@@ -140,48 +142,59 @@
                                 <?php if ($type9_no!=""){ ?>
                             &nbsp;&nbsp;&nbsp;Type 9: Asset Management 第9類 : 提供資產管理<br> 
 							<?php } ?>
-                                 <?php echo "$field056" ; ?><br>
-                                 <?php echo "$field057" ; ?><br>
-                                 <?php echo "$field058" ; ?><br>
+                                   <?php if ($field056!=""){ echo $field056; ?><br><?php }?>
+                                 <?php if ($field057!=""){ echo $field057; ?><br><?php }?>
+								 <?php if ($field058!=""){ echo $field058; ?><br><?php }?>
                                 <?php if ($mpf_no!=""){ ?>
                              MPF Intermediary Reg. No. 強積金中介人註冊編號 : <?php echo "$mpf_no" ; ?><br>
 							<?php } ?>
+							
                                 <?php if ($agent_no!=""){ ?>
                              Technical Representative (Agent) Licence No. 保險業務代表(代理人)牌照號碼 : <?php echo "$agent_no" ; ?><br>
 							<?php } ?>
+							
                                  <?php if ($sfc_no!=""){ ?>
-                             SFC Central Entity No. 證監會中央編號 : <?php echo "$sfc_no" ; ?><br>
-							<?php } ?>
+								 SFC Central Entity No. 證監會中央編號 : <?php echo "$sfc_no" ; ?><br>
+								<?php } ?>
+								
                                  <?php if ($sfc_type1_no!=""){ ?>
                              &nbsp;&nbsp;&nbsp;Type 1: Dealing in Securities 第1類：證券交易 <br>
 							<?php } ?>
+							
                                 <?php if ($sfc_type2_no!=""){ ?>
                             &nbsp;&nbsp;&nbsp;Type 4: Advising on Securities 第4類：就證券提供意見<br>
 							<?php } ?>
-                                 <?php echo "$field059" ; ?><br>
-                                 <?php echo "$field060" ; ?><br>
+							
+                                  <?php if ($field059!=""){ echo $field059; ?><br><?php }?>
+                                 <?php if ($field060!=""){ echo $field060; ?><br><?php }?>
+								 
                                  <?php if ($bloomberg_info!=""){ ?>
                             Bloomberg 彭博 : <?php echo "$bloomberg_info" ; ?><br>
 							<?php } ?>
+							
                                 <?php if ($reuters_code!=""){ ?>
                             Reuters Dealing Code 路透社交易編號 : <?php echo "$reuters_code" ; ?><br>
 							<?php } ?>
+							
                                 <?php if ($field052!=""){ ?>
                             Estate Agent's Licence (Individual) No. 地產代理 ( 個人 ) 牌照號碼 : <?php echo "$field052" ; ?><br>
 							<?php } ?>
+							
                                 <?php if ($field054!=""){ ?>
                             PMP (Tier 1) Licence No. 物業管理人 ( 第1級）牌照號碼 : <?php echo "$field054" ; ?><br>
 							<?php } ?>
+							
                                 <?php if ($field055!=""){ ?>
                             PMP (Tier 2) Licence No. 物業管理人 ( 第2級）牌照號碼 :<?php echo "$field055" ; ?><br>
 							<?php } ?>
-                             <?php if ($field061!=""){ echo "$field061" ; }?><br>
-							 <?php if ($field062!=""){ echo "$field062" ; }?><br>
-							 <?php if ($field063!=""){ echo "$field063" ; }?><br>
-							 <?php if ($field064!=""){ echo "$field064" ; }?><br>
+							
+                             <?php if ($field061!=""){ echo $field061; ?><br><?php }?>
+							 <?php if ($field062!=""){ echo $field062; ?><br><?php }?>
+							 <?php if ($field063!=""){ echo $field063; ?><br><?php }?>
+							 <?php if ($field064!=""){ echo $field064; ?><br><?php }?>
                              </p>
-							   <?php if ($company_name_eng!=""){ ?>
-                                <h4 class="subtitle"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h4>
+							   <?php if ($company_name_option!=""){ ?>
+                                <h4 class="subtitle"><?php echo $company_name_option_eng[$company_name_option];?><br><?php echo $company_name_option_chi[$company_name_option];?></h4>
 							   <?php } ?>
 							   <?php if ($company_name_eng2!=""){ ?>
                                 <h4 class="subtitle"><?php echo $company_name_eng2;?><br><?php echo $company_name_chi2;?></h4>
@@ -203,7 +216,7 @@
                                 <?php if ($field053!=""){ ?>
                              PMC Licence No. 物業管理公司牌照號碼 : <?php echo "$field053" ; ?><br> 
 							<?php } ?>
-                                 <?php echo "$field065" ; ?><br>
+                                  <?php if ($field065!=""){ echo $field065; ?><br><?php }?>
                                 
 								</p>
                             </div>
@@ -258,9 +271,7 @@
                             <?php if ($mobile_china_tel3!=""){ ?>
                             <li><span>China Mobile 中國手提 :</span> <?php echo $mobile_china_tel3; ?></li>
 							<?php } ?>
-							<?php if ($fax!=""){ ?>
-                            <li><span>fax :</span> <?php echo $fax; ?></li>
-							<?php } ?>
+							 
                             <?php if ($field068!=""){ ?>
                             <li><span>Merchant Services Hotline 商戶服務熱線 :</span> <?php echo $field068; ?></li>
 							<?php } ?>
