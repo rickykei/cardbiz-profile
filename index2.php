@@ -79,15 +79,15 @@
 	<div class="container wrapper">
     	<div class="site">
                     	<div class="left-navbar">
-                            <br>
-                        	<a  class="" href="">
+                             
+                        	 
 							<?php if($company_logo=""){ ?>
-							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50" height="1">
 							<?php } else { ?>
-							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
+							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50" height="1">
 							
 							<?php } ?>
-							</a>
+							 
                             <div class="navigation">	
                                 <ul class="links-to-floor">
                                     <li><a>ABOUT ME</a></li>
@@ -315,7 +315,7 @@
                             <li><?php echo $field067; ?></li>
 							<?php } ?>
                         </ul>
-                         
+                          
 						<?php if ($fromkey){ ?>
                          <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
