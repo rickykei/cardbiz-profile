@@ -117,14 +117,14 @@
 									<li><span><?php echo "$pro_title" ; ?> </span></li>
 								</ul>
 								<?php }?>
-                                 <?php if($title_eng!=""){?> <span><?php echo "$title_eng" ; ?> </span><br><?php }?>
-                                   <?php if($title_eng2!=""){?><span><?php echo "$title_eng2" ; ?> </span><br><?php }?>
-                                  <?php if($dept_eng!=""){?><span><?php echo "$dept_eng" ; ?> </span><br><?php }?>
-                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><br><?php }?>
-                                  <?php if($title_chi!=""){?><span><?php echo "$title_chi" ; ?> </span><br><?php }?>
-                                  <?php if($title_chi2!=""){?><span><?php echo "$title_chi2" ; ?> </span><br><?php }?>
-                                  <?php if($dept_chi!=""){?><span><?php echo "$dept_chi" ; ?> </span><br><?php }?>
-                                  <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><br><?php }?>
+                                 <?php if($title_eng!=""){?> <span><?php echo "$title_eng" ; ?> </span><?php }?>
+                                   <?php if($title_eng2!=""){?><span><?php echo "$title_eng2" ; ?> </span><?php }?>
+                                  <?php if($dept_eng!=""){?><span><?php echo "$dept_eng" ; ?> </span><?php }?>
+                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><?php }?>
+                                  <?php if($title_chi!=""){?><span><?php echo "$title_chi" ; ?> </span><?php }?>
+                                  <?php if($title_chi2!=""){?><span><?php echo "$title_chi2" ; ?> </span><?php }?>
+                                  <?php if($dept_chi!=""){?><span><?php echo "$dept_chi" ; ?> </span><?php }?>
+                                  <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><?php }?>
                                 
 								<p style="font-size:12px">
                                 <?php if ($hkma_no!=""){ ?>
@@ -192,7 +192,7 @@
 							 <?php if ($field062!=""){ echo $field062; ?><br><?php }?>
 							 <?php if ($field063!=""){ echo $field063; ?><br><?php }?>
 							 <?php if ($field064!=""){ echo $field064; ?><br><?php }?>
-                             </p>
+                             </p><br>
 							   <?php if ($company_name_option!=""){ ?>
                                 <h4 class="subtitle"><?php echo $company_name_option_eng[$company_name_option];?><br><?php echo $company_name_option_chi[$company_name_option];?></h4>
 							   <?php } ?>
@@ -229,8 +229,8 @@
                   
                     <!-- CONTACT SECTION-->
                     <div class="scroll-out">
-                    <div class="floor home-page">
-                         <div class="home-box" style="font-family:Arial">
+                    <div class="floor contact">
+                    <div class="contact-box" style="font-family:Arial">
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
                    		<h2 class="page-title">Contact Me</h2>
@@ -325,7 +325,7 @@
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
                          <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
-                    </div>
+                        </div>
                     </div>     
                     </div>
                     <!-- CONTACT END-->

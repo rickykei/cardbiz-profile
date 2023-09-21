@@ -646,6 +646,13 @@ p{
 
 
 /*------------------------ 3 About Me ------------------------*/	
+.contact-box{
+  display: table-cell;
+  vertical-align: middle;
+}
+.contact .contact-box .signature{
+	margin-top:30px;
+}
 
 .list{
 font-size: 14px;
