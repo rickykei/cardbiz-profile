@@ -1,20 +1,20 @@
 <?php
 
-			$company_name_option_eng[0]="The Bank of East Asia";
+			$company_name_option_eng[0]="The Bank of East Asia, Limited";
 			$company_name_option_eng[1]="Bank of East Asia (Trustees) Limited";
 			$company_name_option_eng[2]="East Asia Futures Limited";
 			$company_name_option_eng[3]="East Asia Property Agency Company Limited";
 			$company_name_option_eng[4]="East Asia Facility Management Limited";
 			$company_name_option_eng[5]="East Asia Securities Company Limited";
-			$company_name_option_eng[6]="BEA Insurance Agency Limite";
-			$company_name_option_chi[0]="東亞銀行";
-			$company_name_option_chi[1]="Bank of East Asia (Trustees) Limited";
-			$company_name_option_chi[2]="East Asia Futures Limited";
-			$company_name_option_chi[3]="East Asia Property Agency Company Limited";
-			$company_name_option_chi[4]="East Asia Facility Management Limited";
-			$company_name_option_chi[5]="東亞證券";
-			$company_name_option_chi[6]="BEA Insurance Agency Limite";
-			 
+			$company_name_option_eng[6]="BEA Insurance Agency Limited";
+			$company_name_option_chi[0]="東亞銀行有限公司";
+			$company_name_option_chi[1]="東亞銀行（信託）有限公司";
+			$company_name_option_chi[2]="東亞期貨有限公司";
+			$company_name_option_chi[3]="東亞物業代理有限公司";
+			$company_name_option_chi[4]="東亞設施管理有限公司";
+			$company_name_option_chi[5]="東亞證券有限公司";
+			$company_name_option_chi[6]="東亞保險代理有限公司";
+ 
  
 			//company level
 			$company_name_option=$document->company_name_option;
@@ -190,11 +190,11 @@
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
 			 
-			  if($company_name_eng!="") $vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
+			  if($company_name_option!="") $vCard .= "ORG:" . $company_name_option_eng[$company_name_option] ." ". $company_name_option_chi[$company_name_option]. "\r\n";
 			 
 			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
 		 
-			  if($title_eng!="") $vCard .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $title_chi ." ". $dept_eng ."\r\n"; 
+			  if($title_eng!="") $vCard .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $dept_eng ."\r\n"; 
 			 			 
 			  if($address_eng!="") $vCard .= "ADR;WORK:" . $address_eng ."\r\n"; 
 			   
@@ -206,9 +206,9 @@
 			  if($direct_tel2!="") $vCard .= "TEL;WORK:" . $direct_tel2 . "\r\n"; 
 			  if($direct_tel3!="") $vCard .= "TEL;WORK:" . $direct_tel3 . "\r\n"; 
 			  
-			  if($mobile_tel!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
-			  if($mobile_tel2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_tel2 . "\r\n"; 
-			  if($mobile_tel3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_tel2 . "\r\n"; 
+			  if($mobile!="") $vCard .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
+			  if($mobile2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile2 . "\r\n"; 
+			  if($mobile3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile3 . "\r\n"; 
 			  
 			  if($mobile_china_tel!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel . "\r\n"; 
 			  if($mobile_china_tel2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel2 . "\r\n"; 
@@ -221,7 +221,7 @@
 			 if($work_email3!="") $vCard .= "EMAIL;WORK:" . $work_email3 . "\r\n"; 
 			  
 			 if($web_link!="")	$vCard .= "URL;TYPE=".$web_link_label.",pref:" . $web_link. "\r\n"; 
-			  if($field068!="")	$qrPng .= "TEL;WORK:".$field068."\r\n"; 	
+			 if($field068!="")	$vCard .= "TEL;WORK:".$field068."\r\n"; 	
 			 if($field069!="")	$vCard .= "TEL;WORK:".$field069."\r\n";		
 			 if($field070!="")	$vCard .= "TEL;WORK:".$field070."\r\n";			
 			  	 
@@ -278,18 +278,17 @@
 			  //gather qrcode png info
 			  $qrPng = "BEGIN:VCARD\r\n";
 			  $qrPng .= "VERSION:3.0\r\n";
-				  if($company_name_eng!="") $qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
-			 
+			  if($company_name_option!="") $qrPng .= "ORG:" . $company_name_option_eng[$company_name_option] ." ". $company_name_option_chi[$company_name_option]. "\r\n";
+			  
 			  if($fname!="") $qrPng .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
 		 
-			  if($title_eng!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng." ". $title_chi ." ". $dept_eng ."\r\n"; 
-			  if($title_eng2!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng2." ". $title_chi2 ." ". $dept_eng2 ."\r\n"; 
+			  if($title_eng!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng." ". $dept_eng ."\r\n"; 
+			  if($title_eng2!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng2." ". $dept_eng2 ."\r\n"; 
 			 			 
 			  if($address_eng!="") $qrPng .= "ADR;WORK:" . $address_eng ."\r\n"; 
 			   
 			  if($work_tel!="") $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
-			  
-			  			 
+			   
 			  if($direct_tel!="") $qrPng .= "TEL;WORK:" . $direct_tel . "\r\n"; 
 			  
 			  
