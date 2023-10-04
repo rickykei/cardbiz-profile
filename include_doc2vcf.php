@@ -161,7 +161,9 @@
 			 
 			  if($company_name_eng!="") $vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
 			 
-			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
+			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ."\r\n";
+			   if($lname!="") $vCard .= "N;CHARSET=utf-8:" . $lname ."\r\n";
+		 
 		 
 			  if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 			 
 			  if($work_email2!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email2 . "\r\n"; 			 
@@ -277,7 +279,8 @@
 			  $qrPng = "BEGIN:VCARD\r\n";
 			  $qrPng .= "VERSION:3.0\r\n";
 				if($company_name_eng!=""|| $company_name_chi!="" )$qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
-				if($fname!="")$qrPng .= "N;CHARSET=utf-8:;" . $fname ." ".$lname. "\r\n";
+				if($fname!="")$qrPng .= "N;CHARSET=utf-8:;" . $fname. "\r\n";
+				if($lname!="")$qrPng .= "N;CHARSET=utf-8:;" . $lname ."\r\n";
 				if($work_email!="") $qrPng .= "EMAIL;TYPE=Work Email,pref:" . $work_email . "\r\n"; 
 				if($position!="")$qrPng.="TITLE:".$position."\r\n";
 				if($work_tel) $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
