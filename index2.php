@@ -110,8 +110,7 @@
                              <div class="home-box" style="font-family:Arial">
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
-                                <?php if($fname!=""){?><h1><?php echo $fname; ?><br> <?php }?>
-                                   <?php if($lname!=""){?> <?php echo $lname; ?></h1><br><?php }?>
+                                <?php if($fname!="" || $lname!=""){?><h1><?php echo $fname."<br>";  echo $lname; ?></h1><br><?php }?>
                                <?php if($pro_title!=""){?> 
 							   <ul class="list top5 bottom15">
 									<li><span><?php echo "$pro_title" ; ?> </span></li>
