@@ -203,8 +203,6 @@
 			  if($work_tel3!="") $vCard .= "TEL;WORK:" . $work_tel3 . "\r\n"; 
 			  			 
 			  if($direct_tel!="") $vCard .= "TEL;WORK:" . $direct_tel . "\r\n"; 
-			  if($direct_tel2!="") $vCard .= "TEL;WORK:" . $direct_tel2 . "\r\n"; 
-			  if($direct_tel3!="") $vCard .= "TEL;WORK:" . $direct_tel3 . "\r\n"; 
 			  
 			  if($mobile!="") $vCard .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
 			  if($mobile2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile2 . "\r\n"; 
@@ -220,12 +218,10 @@
 			 if($work_email2!="") $vCard .= "EMAIL;WORK:" . $work_email2 . "\r\n"; 
 			 if($work_email3!="") $vCard .= "EMAIL;WORK:" . $work_email3 . "\r\n"; 
 			  
-			 if($web_link!="")	$vCard .= "URL;TYPE=".$web_link_label.",pref:" . $web_link. "\r\n"; 
-			 if($field068!="")	$vCard .= "TEL;WORK:".$field068."\r\n"; 	
-			 if($field069!="")	$vCard .= "TEL;WORK:".$field069."\r\n";		
-			 if($field070!="")	$vCard .= "TEL;WORK:".$field070."\r\n";			
+			 if($web_link!="")	$vCard .= "URL;TYPE=Website:" . $web_link. "\r\n"; 
+			 if($field068!="")	$vCard .= "TEL;WORK:".$field068."\r\n"; 		
 			  	 
-			 
+			 $vCard .= "URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
 			/* if ($note_timestamp==true) 
 			  $temp_note= " Meet on " . date("d/m/Y H:i");
 		  
@@ -316,7 +312,8 @@
 			   //if($headshot&&!$debug) $qrPng .= "PHOTO;TYPE=jpeg;VALUE=uri:".$headshot . "\r\n";
 			   // $qrPng .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
 				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
-				$qrPng .= "END:VCARD\r\n";
+$qrPng .= "URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";				
+$qrPng .= "END:VCARD\r\n";
 			  
  function get_content($URL){
       $ch = curl_init();
