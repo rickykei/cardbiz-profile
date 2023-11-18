@@ -18,7 +18,11 @@ error_reporting( E_ALL );
 
 $debug=$_GET["debug"];
 $encrypted=$_GET["key"];
+if ($encrypted!="")
+	$fromkey=true;
 $sig=$_GET["sig"];
+if ($sig!="")
+	$fromsig=true;
 $needPhoto=1;
 
 if ($sig==""){
@@ -47,6 +51,7 @@ if($sig=="")
 {
 	$uid = $_GET['uid']; 
 	$tid=$uid;
+	$fromuid=true;
 }else{
 	$tid=$sig;
 	
@@ -66,7 +71,7 @@ if ($sig!=""|| $uid!=""){
 			//'projection' => ['_id' => 0],
 			'sort' => ['_id' => -1],
 		];
-
+ 
 	include_once("config_db.php");
  
  

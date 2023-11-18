@@ -259,6 +259,7 @@
 				 $savemycontact=$domain."?sig=".$sig."&bo=0";
 			  }
 			
+			 
 			if ($debug==true)
 			{
 				echo "needPhoto=";
@@ -312,8 +313,8 @@
 			   //if($headshot&&!$debug) $qrPng .= "PHOTO;TYPE=jpeg;VALUE=uri:".$headshot . "\r\n";
 			   // $qrPng .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
 				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
-$qrPng .= "URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";				
-$qrPng .= "END:VCARD\r\n";
+			$qrPng .= "URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";				
+			$qrPng .= "END:VCARD\r\n";
 			  
  function get_content($URL){
       $ch = curl_init();
