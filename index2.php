@@ -123,21 +123,17 @@ span    {color: grey;}
                              <div class="home-box" style="font-family:Hando, Arial">
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
-                                <?php if($fname!="" || $lname!=""){?><h1 style="color:grey;"><?php echo $fname."<br>";  echo $lname; ?><p style="display:inline-block">&nbsp;&nbsp;&nbsp;<?php echo $field066; ?><?php }?></p></h1>
-                                 <?php if($pro_title!=""){?> <span><?php echo "$pro_title" ; ?> </span><?php }?>
-                                 <?php if($field071!=""){?> <span><?php echo "$field071" ; ?> </span><?php }?>
-                                 <br>
-                                 <div>
+                                 <?php if($fname!=""){?><h1 style="color:grey;"><?php echo "$fname"; ?><p style="display:inline-block">&nbsp;<?php echo $field066; ?>&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
+                                 
                                  <?php if($title_eng!=""){?> <span><?php echo "$title_eng" ; ?> </span><?php }?>
                                    <?php if($title_eng2!=""){?><span><?php echo "$title_eng2" ; ?> </span><?php }?>
                                   <?php if($dept_eng!=""){?><span><?php echo "$dept_eng" ; ?> </span><?php }?>
-                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><?php }?></div>
-                            <div style="margin-top: 10px">
+                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><?php }?><br>
+                                 <?php if($lname!=""){?><h1 style="color:grey;"><?php echo "$lname"; ?><p style="display:inline-block">&nbsp;<?php echo $field066; ?>&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
                                   <?php if($title_chi!=""){?><span><?php echo "$title_chi" ; ?> </span><?php }?>
                                   <?php if($title_chi2!=""){?><span><?php echo "$title_chi2" ; ?> </span><?php }?>
                                   <?php if($dept_chi!=""){?><span><?php echo "$dept_chi" ; ?> </span><?php }?>
                                   <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><?php }?>
-                                 </div>
 								<p style="font-size:12px">
                                 <?php if ($hkma_no!=""){ ?>
 									HKMA Reg. No. 金管局註冊編號  : <?php echo "$hkma_no" ; ?> <br>
@@ -211,13 +207,13 @@ span    {color: grey;}
 							   <?php if ($company_name_eng2!=""){ ?>
                                 <h4 class="subtitle" style="color:grey;"><br><?php echo $company_name_eng2;?><br><?php echo $company_name_chi2;?></h4>
 								<?php } ?>
-                                 <?php if($web_link_label!=""){?> <span><?php echo "$web_link_label" ; ?> </span><?php }?>
-                                 <?php if($web_link_label2!=""){?><span><?php echo "$web_link_label2" ; ?> </span><?php }?>
+                                 <?php if($field072!=""){?><span><?php echo $field072 ; ?> </span><?php }?>
+                                 <?php if($field073!=""){?><span><?php echo $field073 ; ?> </span><?php }?>
 								<?php if ($company_name_eng3!=""){ ?>
                                 <h4 class="subtitle" style="color:grey;"><br><?php echo $company_name_eng3;?><br><?php echo $company_name_chi3;?></h4>
 								<?php } ?>
-                                 <?php if($field069!=""){?> <span><?php echo "$field069" ; ?> </span><?php }?>
-                                 <?php if($field070!=""){?><span><?php echo "$field070" ; ?> </span><?php }?>
+                                 <?php if($field069!=""){?> <span><?php echo $field069 ; ?> </span><?php }?>
+                                 <?php if($field070!=""){?><span><?php echo $field070 ; ?> </span><?php }?>
 								<p style="font-size:12px">
                                 <?php if ($insurance_no!=""){ ?>
                             Insurance Agency Licence No. 保險代理機構牌照號碼 : <?php echo "$insurance_no" ; ?> <br>
@@ -297,12 +293,18 @@ span    {color: grey;}
                             <?php if ($fax!=""){ ?>
                             <li><span><i data-icon="T" class="icon"></i></span> <?php echo $fax; ?></li>
 							<?php } ?>
+                            <div style="line-height: 20px; margin-top: 6px">
                             <?php if ($address_eng!=""){ ?>
                             <li><span><i data-icon="_" class="icon"></i></span> <?php echo $address_eng; ?><br><?php echo $address_chi; ?></li>
 							<?php } ?>
+                                 </div>
+                            <div style="line-height: 20px; margin-top: 6px">
                             <?php if ($address_eng2!=""){ ?>
                             <li><span><i data-icon="_" class="icon"></i></span> <?php echo $address_eng2; ?><br><?php echo $address_chi2; ?></li>
 							<?php } ?>
+                            </div>
+                    
+                            <div style="margin-top: 20px">
                             <?php if ($web_link!=""){ ?>
                             <li><span><i data-icon="4" class="icon"></i></span> <?php echo $web_link; ?></li>
 							<?php } ?>
@@ -315,6 +317,7 @@ span    {color: grey;}
                             <?php if ($field067!=""){ ?>
                             <li><?php echo $field067; ?></li>
 							<?php } ?>
+                                </div>
                         </ul>
                           
 						<?php if ($fromkey){ ?>

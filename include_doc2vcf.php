@@ -156,6 +156,8 @@
 			
 			$field070=$document->field070; 
 		 	$field071=$document->field071; 
+			$field072=$document->field072; 
+		 	$field073=$document->field073; 
 			 
 			$note=$document->note;
 			$note_timestamp=$document->note_timestamp;
