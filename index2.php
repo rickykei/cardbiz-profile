@@ -113,7 +113,7 @@ span    {color: grey;}
 						<?php if ($profile_theme==""){ ?>
                         	<img src="/vcard/images/profile3.jpg" alt=""> 
 						<?php }else{ ?>
-							<img src="<?php echo $profile_theme;?>" alt=""> 
+							<img src="/background_img/<?php echo $company_name_option;?>.jpg" alt=""> 
 						<?php } ?>
                         </div>
                     <div id="ascensorBuilding">
