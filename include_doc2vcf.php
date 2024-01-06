@@ -223,7 +223,7 @@
 			 if($web_link!="")	$vCard .= "URL;TYPE=Website:" . $web_link. "\r\n"; 
 			 if($field068!="")	$vCard .= "TEL;WORK:".$field068."\r\n"; 		
 			  	 
-			 $vCard .= "URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
+			 $vCard .= "URL;TYPE=E-Profile,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
 			/* if ($note_timestamp==true) 
 			  $temp_note= " Meet on " . date("d/m/Y H:i");
 		  

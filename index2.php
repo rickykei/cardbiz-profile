@@ -34,38 +34,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-        <script>
- 
-                  
-           function onClick(event) {
-            event.preventDefault();
-            var href = event.currentTarget.getAttribute('href')
-              if(href !== ""){
-                 if( href.includes("http")){
-                    window.location= href;                   
-                 }else{
-                    href = "https://" + href ;
-                    window.location= href;    
-                 }
-             }
-           }
-            
-          function download(event) {
-            event.preventDefault();
-            var url = event.currentTarget.getAttribute('href');
-            if(url !== ""){
-              if(url.includes("https")){
-                const a = document.createElement('a');
-                 a.href = url;
-                 a.download = url.split('/').pop();
-                 document.body.appendChild(a);
-                 a.click();
-                 document.body.removeChild(a);               
-              }
-            }
-          }
-            
-          </script>
+       
 <style>
 span    {color: grey;}
     
@@ -121,20 +90,31 @@ span    {color: grey;}
                     <div class="scroll-out">
                         <div class="floor home-page">
                              <div class="home-box" style="font-family:Hando, Arial">
+                                 
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
-                                 <?php if($fname!=""){?><h1 style="color:grey;"><?php echo "$fname"; ?><p style="display:inline-block">&nbsp;<?php echo $field066; ?>&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
-                                 
+                                 <?php if($fname!=""){?><h1 style="color:grey;"><?php echo "$fname"; ?><p style="display:inline-block">&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
+                                 <div style="line-height: 20px; margin-top: 3px">
                                  <?php if($title_eng!=""){?> <span><?php echo "$title_eng" ; ?> </span><?php }?>
                                    <?php if($title_eng2!=""){?><span><?php echo "$title_eng2" ; ?> </span><?php }?>
                                   <?php if($dept_eng!=""){?><span><?php echo "$dept_eng" ; ?> </span><?php }?>
-                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><?php }?><br>
+                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><?php }?>
+                                 </div><br>
+                                 
                                  <?php if($lname!=""){?><h1 style="color:grey;"><?php echo "$lname"; ?><p style="display:inline-block">&nbsp;<?php echo $field066; ?>&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
+                                 <div style="line-height: 20px; margin-top: 3px">
                                   <?php if($title_chi!=""){?><span><?php echo "$title_chi" ; ?> </span><?php }?>
                                   <?php if($title_chi2!=""){?><span><?php echo "$title_chi2" ; ?> </span><?php }?>
                                   <?php if($dept_chi!=""){?><span><?php echo "$dept_chi" ; ?> </span><?php }?>
-                                  <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><?php }?>
-								<p style="font-size:12px">
+                                     <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><?php }?></div><br>
+                                 <div class="contact-box" style="font-family:Hando, Arial">
+									<a class="recoba-btn" style="color:grey;" href="<?php echo $savemycontact; ?>">Save Contact</a> 
+									<a class="recoba-btn2" style="color:grey" href="#" >Share Contact</a>
+									<p class="result"></p>
+									</div>
+								<input type="hidden" id="content-to-copy" />
+								<br>
+								<p style="font-size:12px; line-height: 20px; margin-top: 3px">
                                 <?php if ($hkma_no!=""){ ?>
 									HKMA Reg. No. 金管局註冊編號  : <?php echo "$hkma_no" ; ?> <br>
 								<?php } ?>
@@ -153,7 +133,7 @@ span    {color: grey;}
                                    <?php if ($field056!=""){ echo $field056; ?><br><?php }?>
                                  <?php if ($field057!=""){ echo $field057; ?><br><?php }?>
 								 <?php if ($field058!=""){ echo $field058; ?><br><?php }?>
-                                <?php if ($mpf_no!=""){ ?>
+                                    <?php if ($mpf_no!=""){ ?>
                              MPF Intermediary Reg. No. 強積金中介人註冊編號 : <?php echo "$mpf_no" ; ?><br>
 							<?php } ?>
 							
@@ -214,7 +194,7 @@ span    {color: grey;}
 								<?php } ?>
                                  <?php if($field069!=""){?> <span><?php echo $field069 ; ?> </span><?php }?>
                                  <?php if($field070!=""){?><span><?php echo $field070 ; ?> </span><?php }?>
-								<p style="font-size:12px">
+								<p style="font-size:12px; line-height: 25px; margin-top: 6px">
                                 <?php if ($insurance_no!=""){ ?>
                             Insurance Agency Licence No. 保險代理機構牌照號碼 : <?php echo "$insurance_no" ; ?> <br>
 							<?php } ?>
@@ -243,7 +223,7 @@ span    {color: grey;}
                     <div class="contact-box" style="font-family:Hando, Arial">
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
-                   		<h2 class="page-title" style="color:grey;">Contact Me</h2>
+                   		<h2 class="page-title" style="color:grey; ">Contact Me</h2>
                         <ul class="list top15 bottom15">
 						<?php if ($work_tel!=""){ ?>
                             <li><span><i data-icon="R" class="features"></i></span> <?php if($work_tel!=""){echo $work_tel;} ?></li>
@@ -326,9 +306,6 @@ span    {color: grey;}
 						<?php if ($fromuid){ ?>
                          <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
-                        <br><br>
-                         <h4 class="subtitle" style="color:grey;">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
                         </div>
                     </div>     
                     </div>
@@ -338,9 +315,9 @@ span    {color: grey;}
     </div> <!-- wrapper end -->
     
  
-<!-- Javascripts -->
  
-<script src="/vcard/js/jquery-2.1.4.min.js"></script><!-- jQuery library -->
+ 
+<script src="/vcard/js/jquery-2.1.4.min.js" ></script>
 <script src="/vcard/js/bootstrap.min.js"></script> 
 <script src="/vcard/js/jquery.ascensor.js"></script>
 <script src="/vcard/js/isotope.pkgd.min.js"></script>
@@ -349,10 +326,56 @@ span    {color: grey;}
 <script src="/vcard/js/owl.carousel.min.js"></script>
  
 <script src="/vcard/js/styleswitcher.js"></script> 
-<script src="/vcard/js/main.js"></script>    
+<script src="/vcard/js/main.js"></script>   
+<script src="/vcard/js/share_fnc.js?202401070188"></script> 
     
 
+ <script>
+			 
+			 const shareData = {
+			  url: document.URL, // 要分享的 URL
+			  title: "Shared", // 要分享的標題
+			  text: "" // 要分享的文字內容
+			};
+			
+			$('.recoba-btn2').click(function(){ 
+			  if (navigator.share) {
+				handleNavigatorShare();
+			  } else {
+				handleNotSupportNavigatorShare();
+			  }
+			});
 
+           function onClick(event) {
+			   alert('a');
+            event.preventDefault();
+            var href = event.currentTarget.getAttribute('href')
+              if(href !== ""){
+                 if( href.includes("http")){
+                    window.location= href;                   
+                 }else{
+                    href = "https://" + href ;
+                    window.location= href;    
+                 }
+             }
+           }
+            
+          function download(event) {
+            event.preventDefault();
+            var url = event.currentTarget.getAttribute('href');
+            if(url !== ""){
+              if(url.includes("https")){
+                const a = document.createElement('a');
+                 a.href = url;
+                 a.download = url.split('/').pop();
+                 document.body.appendChild(a);
+                 a.click();
+                 document.body.removeChild(a);               
+              }
+            }
+          }
+            
+          </script>
 
 
     
