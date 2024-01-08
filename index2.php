@@ -109,7 +109,7 @@ span    {color: grey;}
                                      <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><?php }?></div><br>
                                  <div class="contact-box" style="font-family:Hando, Arial">
 									<a class="recoba-btn" style="color:grey;" href="<?php echo $savemycontact; ?>">Save Contact</a> 
-									<a class="recoba-btn2" style="color:grey" href="#" >Share Contact</a>
+									<a class="recoba-btn2" style="color:grey" href="#" >Bookmark</a>
 									<p class="result"></p>
 									</div>
 								<input type="hidden" id="content-to-copy" />
@@ -152,8 +152,10 @@ span    {color: grey;}
                                 <?php if ($sfc_type2_no!=""){ ?>
                             &nbsp;&nbsp;&nbsp;Type 2: Dealing in Futures Contracts<br>&nbsp;&nbsp;&nbsp;第2類：期貨合約交易<br>
 							<?php } ?>
-							
-                                  <?php if ($field059!=""){ echo $field059; ?><br><?php }?>
+                                    
+							 <?php if ($field059!=""){ ?>
+                            &nbsp;&nbsp;&nbsp;Type 4: Advising on Securities<br>&nbsp;&nbsp;&nbsp;第4類： 就證券提供意見<br>
+							<?php } ?>
                                  <?php if ($field060!=""){ echo $field060; ?><br><?php }?>
 								 
                                  <?php if ($bloomberg_info!=""){ ?>

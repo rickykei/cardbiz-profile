@@ -194,7 +194,7 @@
 			 
 			  if($company_name_option!="") $vCard .= "ORG:" . $company_name_option_eng[$company_name_option] ." ". $company_name_option_chi[$company_name_option]. "\r\n";
 			 
-			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
+			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ." ". $field066 ."\r\n";
 		 
 			  if($title_eng!="") $vCard .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $dept_eng ."\r\n"; 
 			 			 
@@ -214,7 +214,7 @@
 			  if($mobile_china_tel2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel2 . "\r\n"; 
 			  if($mobile_china_tel3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile_china_tel3 . "\r\n"; 
 			  
-			  if($fax_no!="") $vCard .= "TEL;TYPE=FAX:" . $fax_no . "\r\n"; 
+			  if($fax!="") $vCard .= "TEL;type=WORK;type=FAX:" . $fax . "\r\n"; 
 			 
 			 if($work_email!="") $vCard .= "EMAIL;WORK:" . $work_email . "\r\n"; 
 			 if($work_email2!="") $vCard .= "EMAIL;WORK:" . $work_email2 . "\r\n"; 
@@ -223,31 +223,26 @@
 			 if($web_link!="")	$vCard .= "URL;TYPE=Website:" . $web_link. "\r\n"; 
 			 if($field068!="")	$vCard .= "TEL;WORK:".$field068."\r\n"; 		
 			  	 
-			 $vCard .= "URL;TYPE=E-Profile,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
+			// $vCard .= "URL;TYPE=E-Profile,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
 			/* if ($note_timestamp==true) 
 			  $temp_note= " Meet on " . date("d/m/Y H:i");
 		  
 			 if($note!="" || $temp_note!="")	$vCard .= "NOTE:" . $note ." ".$temp_note. "\r\n"; 			 
 			  */
 			 
-			  
-			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
-			 // if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
-			  if($smartcard_uid && $fromkey==true){  
-				if ($dig_card_in_vcf==true)
-				$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
+			  // if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
+			  if($fromkey==true){  
+				$vCard.="URL;TYPE=E-Profile,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";
 				$savemycontact=$domain."?key=".$encrypted."&bo=0";
-			  }
-			  else if($smartcard_uid && $fromuid==true){
-				  if ($dig_card_in_vcf==true)
-				  $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?uid=".$uid."&bo=1\r\n";
+			  }else if($fromuid==true){
+				  $vCard.="URL;TYPE=E-Profile,pref: ".$domain."?uid=".$uid."&bo=1\r\n";
 				  $savemycontact=$domain."?uid=".$uid."&bo=0";
-			  }
-			 else if ($smartcard_uid && $fromsig==true){
-				 if ($dig_card_in_vcf==true)
-				 $vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?sig=".$sig."&bo=1\r\n";
+			  } else if ($fromsig==true){
+				 $vCard.="URL;TYPE=E-Profile,pref: ".$domain."?sig=".$sig."&bo=1\r\n";
 				 $savemycontact=$domain."?uid=".$sig."&bo=0";
 			 }
+			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
+			
 				$vCard.="END:VCARD\r\n";
 			
 			  if($fromkey==true){  
@@ -279,10 +274,9 @@
 			  $qrPng .= "VERSION:3.0\r\n";
 			  if($company_name_option!="") $qrPng .= "ORG:" . $company_name_option_eng[$company_name_option] ." ". $company_name_option_chi[$company_name_option]. "\r\n";
 			  
-			  if($fname!="") $qrPng .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
-		 
-			  if($title_eng!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng." ". $dept_eng ."\r\n"; 
-			  if($title_eng2!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng2." ". $dept_eng2 ."\r\n"; 
+			  if($fname!="") $qrPng .= "N;CHARSET=utf-8:" . $fname ." ". $lname ." ". $field066 ."\r\n";
+
+			  if($title_eng!="") $qrPng .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $dept_eng ."\r\n"; 
 			 			 
 			  if($address_eng!="") $qrPng .= "ADR;WORK:" . $address_eng ."\r\n"; 
 			   
@@ -290,18 +284,16 @@
 			   
 			  if($direct_tel!="") $qrPng .= "TEL;WORK:" . $direct_tel . "\r\n"; 
 			  
-			  
-			  if($mobile_tel!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
+			  if($mobile!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
 			 
 			  if($mobile_china_tel!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile_china_tel . "\r\n"; 
 			   
 			  
-			  if($fax_no!="") $qrPng .= "TEL;TYPE=FAX:" . $fax_no . "\r\n"; 
+			  if($fax!="") $qrPng .= "TEL;type=WORK;type=FAX:" . $fax . "\r\n"; 
 			 
 			 if($work_email!="") $qrPng .= "EMAIL;WORK:" . $work_email . "\r\n"; 
-		 
-			  
-			 if($web_link!="")	$qrPng .= "URL;TYPE=".$web_link_label.",pref:" . $web_link. "\r\n"; 
+		  
+			 if($web_link!="")	$qrPng .= "URL;TYPE=Website:" . $web_link. "\r\n"; 
 			 
 			  if($field068!="")	$qrPng .= "TEL;WORK:".$field068."\r\n"; 
 				//if($company_website_url)$qrPng .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 
@@ -315,7 +307,7 @@
 			   //if($headshot&&!$debug) $qrPng .= "PHOTO;TYPE=jpeg;VALUE=uri:".$headshot . "\r\n";
 			   // $qrPng .= "NOTE:Meet on " . date("d/m/Y H:i") . "\r\n";
 				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
-			$qrPng .= "URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";				
+			$qrPng .= "URL;TYPE=E-Profile,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";				
 			$qrPng .= "END:VCARD\r\n";
 			  
  function get_content($URL){

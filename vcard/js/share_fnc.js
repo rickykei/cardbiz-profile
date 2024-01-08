@@ -8,14 +8,14 @@ async function handleNavigatorShare() {
   try {
     // 使用 Web Share API
     await navigator.share(shareData);
-    result.textContent = "感謝你的的分享";
+   // result.textContent = "感謝你的的分享";
   } catch (err) {
     // 使用者拒絕分享或發生錯誤
     const { name, message } = err;
     if (name === "AbortError") {
-      result.textContent = "您已取消分享此訊息";
+   //   result.textContent = "您已取消分享此訊息";
     } else {
-      result.textContent = err;
+     // result.textContent = err;
       console.log("發生錯誤", err);
     }
   }
