@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title><?php echo $fname." - "; echo $company_name_eng;?></title>
+<title><?php echo $fname ;?></title>
 <meta charset="UTF-8">
-<meta property="og:title" content="e-Profile"/>
-<meta property="og:description" content="<?php echo $name?>"/>
+<meta property="og:title" content="<?php echo $fname?>"/>
+<meta property="og:description" content=" "/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="<?php echo $url ; ?>"/>    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +49,9 @@ span    {color: grey;}
 
         
 }
+        .small-font {
+        font-size: 12px;
+    }
 </style>
 </head>
  
@@ -94,27 +97,27 @@ span    {color: grey;}
                                 <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
                                 <br><br>
                                  <?php if($fname!=""){?><h1 style="color:grey;"><?php echo "$fname"; ?><p style="display:inline-block">&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
-                                 <div style="line-height: 20px; margin-top: 3px">
-                                 <?php if($title_eng!=""){?> <span><?php echo "$title_eng" ; ?> </span><?php }?>
-                                   <?php if($title_eng2!=""){?><span><?php echo "$title_eng2" ; ?> </span><?php }?>
-                                  <?php if($dept_eng!=""){?><span><?php echo "$dept_eng" ; ?> </span><?php }?>
-                                  <?php if($division_eng!=""){?><span><?php echo "$division_eng" ; ?> </span><?php }?>
-                                 </div><br>
+                                 <p style="line-height: 20px; margin-top: 3px">
+                                 <?php if($title_eng!=""){?> <span style="font-size:13px"><?php echo "$title_eng" ; ?> </span><?php }?>
+                                   <?php if($title_eng2!=""){?><span style="font-size:13px"><?php echo "$title_eng2" ; ?> </span><?php }?>
+                                  <?php if($dept_eng!=""){?><span style="font-size:13px"><?php echo "$dept_eng" ; ?> </span><?php }?>
+                                  <?php if($division_eng!=""){?><span style="font-size:13px"><?php echo "$division_eng" ; ?> </span><?php }?></p>
+                                    <br>
                                  
                                  <?php if($lname!=""){?><h1 style="color:grey;"><?php echo "$lname"; ?><p style="display:inline-block">&nbsp;<?php echo $field066; ?>&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
-                                 <div style="line-height: 20px; margin-top: 3px">
-                                  <?php if($title_chi!=""){?><span><?php echo "$title_chi" ; ?> </span><?php }?>
-                                  <?php if($title_chi2!=""){?><span><?php echo "$title_chi2" ; ?> </span><?php }?>
-                                  <?php if($dept_chi!=""){?><span><?php echo "$dept_chi" ; ?> </span><?php }?>
-                                     <?php if($division_chi!=""){?><span><?php echo "$division_chi" ; ?> </span><?php }?></div><br>
+                                 <p style="line-height: 20px; margin-top: 3px">
+                                  <?php if($title_chi!=""){?><span style="font-size:13px"><?php echo "$title_chi" ; ?> </span><?php }?>
+                                  <?php if($title_chi2!=""){?><span style="font-size:13px"><?php echo "$title_chi2" ; ?> </span><?php }?>
+                                  <?php if($dept_chi!=""){?><span style="font-size:13px"><?php echo "$dept_chi" ; ?> </span><?php }?>
+                                     <?php if($division_chi!=""){?><span style="font-size:13px"><?php echo "$division_chi" ; ?> </span><?php }?></p><br>
                                  <div class="contact-box" style="font-family:Hando, Arial">
 									<a class="recoba-btn" style="color:grey;" href="<?php echo $savemycontact; ?>">Save Contact</a> 
-									<a class="recoba-btn2" style="color:grey" href="#" >Bookmark</a>
+									<a class="recoba-btn2" style="color:grey" href="#" >Share Contact</a>
 									<p class="result"></p>
 									</div>
 								<input type="hidden" id="content-to-copy" />
 								<br>
-								<p style="font-size:12px; line-height: 20px; margin-top: 3px">
+								<p style="font-size:13px; line-height: 20px; margin-top: 3px">
                                 <?php if ($hkma_no!=""){ ?>
 									HKMA Reg. No. 金管局註冊編號  : <?php echo "$hkma_no" ; ?> <br>
 								<?php } ?>
@@ -308,6 +311,27 @@ span    {color: grey;}
 						<?php if ($fromuid){ ?>
                          <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
+                        
+                                      
+                        <br>
+                        <button id="downloadBtn" class="recoba-btn" style="color:grey">Download Image</button>
+                        
+                        
+                        <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Base64 image string (truncated for brevity)
+            
+            //<!--                        <img src="<?php echo $namecard_jpg;?>" alt=""  width="250">-->
+            const base64Image = '<?php echo $namecard_jpg;?>'; 
+            const link = document.createElement('a');
+            link.href = base64Image;
+            link.download = 'businesscard.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+          
                         </div>
                     </div>     
                     </div>

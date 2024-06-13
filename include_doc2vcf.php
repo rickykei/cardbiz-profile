@@ -53,6 +53,28 @@
 			//staff records
 			$cc_no=$document->cc_no;
 			$staff_no=$document->staff_no;
+
+			function base64_to_jpeg($base64_string, $output_file) {
+				// open the output file for writing
+				$ifp = fopen( $output_file, 'wb' ); 
+			
+				// split the string on commas
+				// $data[ 0 ] == "data:image/png;base64"
+				// $data[ 1 ] == <actual base64 string>
+				$data = explode( ',', $base64_string );
+			
+				// we could add validation here with ensuring count( $data ) > 1
+				fwrite( $ifp, base64_decode( $data[ 1 ] ) );
+			
+				// clean up the file resource
+				fclose( $ifp ); 
+			
+				return $output_file; 
+			}
+			//echo "$document->namecard_jpg";
+			if ($document->namecard_jpg!="")
+			$namecard_jpg= $document->namecard_jpg;
+
 			
 			
 			$fname=$document->fname;
@@ -192,11 +214,11 @@
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
 			 
-			  if($company_name_option!="") $vCard .= "ORG:" . $company_name_option_eng[$company_name_option] ." ". $company_name_option_chi[$company_name_option]. "\r\n";
+//			  if($company_name_option!="") $vCard .= "ORG:" . $company_name_option_eng[$company_name_option] ." ". $company_name_option_chi[$company_name_option]. "\r\n";
 			 
 			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ." ". $field066 ."\r\n";
 		 
-			  if($title_eng!="") $vCard .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $dept_eng ."\r\n"; 
+//			  if($title_eng!="") $vCard .= "TITLE;CHARSET=utf-8:" . $title_eng ." ". $dept_eng ."\r\n"; 
 			 			 
 			  if($address_eng!="") $vCard .= "ADR;WORK:" . $address_eng ."\r\n"; 
 			   
