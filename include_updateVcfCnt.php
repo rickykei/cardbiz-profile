@@ -6,7 +6,7 @@
 		$insertOneResult=$collectionVcf->insertOne(array(
 				   'staff_id' => $sig,
 				    'company_id' => $company_id,
-				   'ip' => $_SERVER['REMOTE_ADDR'],
+				   'ip' => $_SERVER["HTTP_CF_CONNECTING_IP"],
 				   'user_agent' => $_SERVER['HTTP_USER_AGENT'],
 				   'createdAt'=> $utcdatetime,
 				    'updatedAt'=> $utcdatetime
@@ -16,7 +16,7 @@
 				 if ($debug){
 				echo $utcdatetime;
 			 echo "sig=".$sig;
-				echo "ip=".$_SERVER['REMOTE_ADDR'];
+				echo "ip=".$_SERVER["HTTP_CF_CONNECTING_IP"];
 		 echo "usera=".$_SERVER['HTTP_USER_AGENT'];
 		   printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
 			var_dump($insertOneResult->getInsertedId());
