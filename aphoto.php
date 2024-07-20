@@ -3,6 +3,13 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors', 1);
 error_reporting( E_ALL );
  
+$del=0;
+if (isset($_GET['del']) && $_GET['del']!="")
+$del=$_GET['del'];
+
+
+
+
 use MongoDB\BSON\ObjectID;
 require_once('vendor/autoload.php'); 
 date_default_timezone_set('Asia/Hong_Kong');
@@ -15,6 +22,8 @@ $domain="https://uat.profiles.digital/";
 // https://www.mongodb.com/docs/drivers/php/
 
 $client = new Client('mongodb://cardbiz:cardbiz98014380@172.105.241.13:27017/');
+$client = new Client('mongodb://cardbiz:cardbiz98014380@172.104.66.207:27017/');
+
 $collection = $client->selectCollection('cardbiz_db', 'photos.files');
 $cursor = $collection->find([], [
     'sort' => ['length' => -1],
@@ -242,17 +251,22 @@ echo "<hr>";
 	
 	
 	//delete
- 
-$collection7 = $client->selectCollection('cardbiz_db', 'photos.files');
-$updateResult = $collection7->deleteMany(['deleteOK' => true]);
- 
-printf("delete %d document(s)\n", $updateResult->getDeletedCount());
-echo "<hr>";
-$collection7 = $client->selectCollection('cardbiz_db', 'photos.chunks');
-$updateResult = $collection7->deleteMany(['deleteOK' => true]);
- 
-printf("delete %d document(s)\n", $updateResult->getDeletedCount());
+ if ($del=="1"){
+	$collection7 = $client->selectCollection('cardbiz_db', 'photos.files');
+	$updateResult = $collection7->deleteMany(['deleteOK' => true]);
+	
+	printf("delete %d document(s)\n", $updateResult->getDeletedCount());
+	echo "<hr>";
+	$collection7 = $client->selectCollection('cardbiz_db', 'photos.chunks');
+	$updateResult = $collection7->deleteMany(['deleteOK' => true]);
+	
+	printf("delete %d document(s)\n", $updateResult->getDeletedCount());
+ }else{
 
+	$collection8 = $client->selectCollection('cardbiz_db', 'photos.files');
+    $cursor8 = $collection8->countDocuments(["deleteOK"=> true]);
+	printf(" delete may trigger %d documents\n", $cursor8);
+ }
 	
 	
  ?>
