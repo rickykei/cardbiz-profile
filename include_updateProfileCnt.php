@@ -10,7 +10,7 @@
 				   'staff_id' => $sig,
 				   'company_id' => $company_id,
 				   'ip' => $_SERVER['REMOTE_ADDR'],
-				   'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+				   'user_agent' => $_SERVER['HTTP_CF_CONNECTING_IP'],
 				   'createdAt'=> $utcdatetime,
 				    'updatedAt'=> $utcdatetime
 				   
@@ -21,7 +21,7 @@
 					 echo $utcdatetime;
 			 echo "sig=".$sig;
 		 echo "ip=".$_SERVER['REMOTE_ADDR'];
-		 echo "usera=".$_SERVER['HTTP_USER_AGENT'];
+		 echo "usera=".$_SERVER['HTTP_CF_CONNECTING_IP'];
 		   printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
 
 			var_dump($insertOneResult->getInsertedId());
