@@ -21,8 +21,11 @@ $domain="https://uat.profiles.digital/";
 // Requires the MongoDB PHP Driver
 // https://www.mongodb.com/docs/drivers/php/
 
+
+//uat
 $client = new Client('mongodb://cardbiz:cardbiz98014380@172.105.241.13:27017/');
-$client = new Client('mongodb://cardbiz:cardbiz98014380@172.104.66.207:27017/');
+//production 
+//$client = new Client('mongodb://cardbiz:cardbiz98014380@172.104.66.207:27017/');
 
 $collection = $client->selectCollection('cardbiz_db', 'photos.files');
 $cursor = $collection->find([], [
