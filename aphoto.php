@@ -81,10 +81,10 @@ foreach ($cursor2 as $doc) {
 	$i++;
 
 }
-echo "Total Image Files Record =".$i;
+echo "Total Image Files Record and set all deleteOK to TRUE =".$i;
 echo "<hr>";
 
-
+ 
 echo "start compare staff. headshot";
 $collection3 = $client->selectCollection('cardbiz_db', 'photos.files');
 $cursor3 = $collection3->aggregate(
@@ -130,7 +130,7 @@ echo "<hr>";
 echo "Found using staffs.headshot records =".$i;
 echo "<hr>";
 	
-	
+ 
 echo "start compare company. logo";
 $collection4 = $client->selectCollection('cardbiz_db', 'photos.files');
 $cursor4 = $collection4->aggregate(
@@ -170,7 +170,7 @@ foreach ($cursor4 as $doc) {
 	echo "<hr>";
     echo "Found using companies logo records =".$i;
 	echo "<hr>";
-	
+ 
 	echo "start compare company. logo";
 $collection5 = $client->selectCollection('cardbiz_db', 'photos.files');
 $cursor5 = $collection5->aggregate(
@@ -211,7 +211,7 @@ foreach ($cursor5 as $doc) {
 } echo "<hr>";
     echo "Found using companies banner records =".$i;
 	echo "<hr>";
-	
+	 
 	echo "start compare profile_theme";
 	$collection6 = $client->selectCollection('cardbiz_db', 'photos.files');
 $cursor6 = $collection6->aggregate(
