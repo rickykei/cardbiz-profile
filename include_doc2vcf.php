@@ -1,9 +1,11 @@
-<?php
+<?php  
 
- 
- 
- 
-			$company_name_eng=$document->company_name_eng;
+
+
+	 
+
+
+  			$company_name_eng=$document->company_name_eng;
 			$company_name_chi=$document->company_name_chi;
 
 			if ($company_name_eng=="" || $company_name_chi==""){
@@ -26,6 +28,10 @@
 			
 			$fname=$document->fname;
 			$lname=$document->lname;
+            $mname=$document->mname;
+			$pname=$document->pname;
+            $oname=$document->oname;
+            $pdname=$document->pdname;
 			$title_eng=$document->title_eng;
 			$title_chi=$document->title_chi;
 			
@@ -36,7 +42,6 @@
 			$home_email= $document->home_email;
 			$other_email = $document->other_email;
 
-			$pro_title= $document->pro_title;
 			
 			$subsidiary_eng=$document->subsidiary_eng;
 			$subsidiary_chi=$document->subsidiary_chi;
@@ -161,7 +166,7 @@
 			 
 			  if($company_name_eng!="") $vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
 			 
-			  if($fname!="") $vCard .= "N;CHARSET=utf-8:" . $fname ." ". $lname ."\r\n";
+		 $vCard .="N:" . $lname .";" . $fname .";" . $mname .";" . $pname .";" . $oname ." " . $pdname ."\r\n";
 		 
 			  if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 			 
 			  if($work_email2!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email2 . "\r\n"; 			 
@@ -253,12 +258,15 @@
 			  if($fromkey==true){  
 			 
 				$savemycontact=$domain."?key=".$encrypted."&bo=0";
+				$minisite_url=$domain."?key=".$encrypted."&bo=1";
 			  }
 			  else if( $fromuid==true){
 				 
 				  $savemycontact=$domain."?uid=".$uid."&bo=0";
+				  $minisite_url=$domain."?uid=".$uid."&bo=1";
 			  }else if ( $fromsig==true){
 				 $savemycontact=$domain."?sig=".$sig."&bo=0";
+				 $minisite_url=$domain."?sig=".$sig."&bo=1";
 			  }
 			
 			if ($debug==true)
@@ -277,17 +285,17 @@
 			  $qrPng = "BEGIN:VCARD\r\n";
 			  $qrPng .= "VERSION:3.0\r\n";
 				if($company_name_eng!=""|| $company_name_chi!="" )$qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
-				if($fname!="")$qrPng .= "N;CHARSET=utf-8:;" . $fname ." ".$lname. "\r\n";
-				if($work_email!="") $qrPng .= "EMAIL;TYPE=Work Email,pref:" . $work_email . "\r\n"; 
+				if($fname!="") $qrPng .= "N:" . $lname .";" . $fname .";" . $mname .";" . $pname .";" . $oname ." " . $pdname ."\r\n";
+                if($work_email!="") $qrPng .= "EMAIL;WORK:" . $work_email . "\r\n";         
 				if($position!="")$qrPng.="TITLE:".$position."\r\n";
 				if($work_tel) $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
-				if($mobile_tel)	$qrPng .= "TEL;TYPE=CELL:" . $mobile_tel . "\r\n"; 
+                if($mobile!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
 				//if($home_tel)$qrPng .= "TEL;TYPE=HOME:" . $home_tel . "\r\n";
 				//if($fax)	$qrPng .= "TEL;TYPE=FAX:" . $fax . "\r\n";
 				//if($web_link1)$qrPng .= "URL;TYPE=Website,pref:" . $web_link1 . "\r\n";
 				//if($web_link2)$qrPng .= "URL;TYPE=Website,pref:" . $web_link2 . "\r\n";
 				//if($web_link3)$qrPng .= "URL;TYPE=Website,pref:" . $web_link3 . "\r\n";
-			    if($address)$qrPng .= "ADR;WORK:" . $address . "\r\n"; 
+			    if($address!="") $qrPng .= "ADR;WORK:" . $address . "\r\n"; 
 				//if($company_website_url)$qrPng .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 
 			    //if($facebook_url)$qrPng .= "URL;TYPE=Facebook,pref:" . $facebook_url . "\r\n"; 
 				//if($instagram_url)$qrPng .= "URL;TYPE=Instagram,pref:" . $instagram_url . "\r\n"; 
@@ -301,6 +309,25 @@
 				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
 				$qrPng .= "END:VCARD\r\n";
 			  
+
+				//include google wall class 20240907 prepare gw url
+	
+				try {
+					require __DIR__ . '/demo_generic.php';
+					$issuerId = '3388000000022314466';
+					$demo = new DemoGeneric();	
+					$gwarray['name']=$fname.$lname;
+					$gwarray['position']=$title_eng;
+					$gwarray['qrcode']=$minisite_url;
+					$date = new DateTime();
+					$generic_object_suffix="generic_object_suffix_".$date->format("YmdHis"); 
+					$gw_dl_link=$demo->createJWTNewObjects($issuerId, 'cardbizuat_generic', $generic_object_suffix,$gwarray);
+					 
+				} catch (\Throwable $e) {
+					echo "This was caught: " . $e->getMessage();
+				}
+
+
  function get_content($URL){
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

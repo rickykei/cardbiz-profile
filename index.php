@@ -16,13 +16,17 @@ error_reporting( E_ALL );
 	
  
 
-$debug=$_GET["debug"];
-$encrypted=$_GET["key"];
-$sig=$_GET["sig"];
-$needPhoto=1;
-
-if ($sig==""){
-//decrypt key to sig\
+ $debug=$_GET["debug"];
+ $encrypted=$_GET["key"];
+ if ($encrypted!="")
+	 $fromkey=true;
+ $sig=$_GET["sig"];
+ if ($sig!="")
+	 $fromsig=true;
+ $needPhoto=1;
+ 
+ if ($sig==""){
+ //decrypt key to sig\
 
 // Extract IV and ciphertext
 //$saltCiphertextB64 = "U2FsdGVkX1/ARpsMWWEdLiOanB67kh2akfCIN5s+RLDsJetSMagGsk444I+F/dbp";
@@ -56,6 +60,8 @@ $qrtype=$_GET['qrtype'];
 $bo=$_GET['bo'];
 $gqt=$_GET['gqt'];
 $gq=$_GET['gq'];
+$genaw=$_GET['genaw'];
+
 
 if ($sig!=""|| $uid!=""){
 	//$sig="050C7EA647";
@@ -69,7 +75,7 @@ if ($sig!=""|| $uid!=""){
 
 	include_once("config_db.php");
  
- 
+	
 	//if smartcard active && uid!=""   or   sig 
 	if (($uid!="" && $smartcard_status==true) || $sig!=""){
 	 
@@ -78,21 +84,22 @@ if ($sig!=""|| $uid!=""){
 			 // echo $vCard;
 			
 		}
-	 
+		
 		//staff status is active?
 		 if ($staff_status==true ){
-		 
+			
 			if ($bo!="")
 				if ($bo==1)
 					$bizcard_option=true;
 				else
 					$bizcard_option=false;
-		 
+				 
 			// redirect to which path VCF or e-profile
-			if ($qrtype==""){
-				if ($bizcard_option==true ){
+			
+			if ($qrtype=="" && $genaw!=1 ){
+				if ($bizcard_option==true ){ 
+
 					
-					 
 					include_once("profile.php");
 					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
 					if ($debug==1){
@@ -106,7 +113,9 @@ if ($sig!=""|| $uid!=""){
 						//header("Location: ".$str);
 					}
 				 
+			
 				}else if ($bizcard_option==true || $bo==0 ) {
+					 
 					$str=$domain."genvcf.php?key=".$encrypted;
 					//$str=$domain."/genvcf.php?sig=".$sig;
 					include_once("genvcf.php");
@@ -122,10 +131,12 @@ if ($sig!=""|| $uid!=""){
 				 
 				 
 				}
-			}	else {
-				
+			}else if ($genaw==1) {  
+			 
+				include_once("index_gen_aw.php");
+			}	else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
-			}
+			} 	
 		}
 	}
 }
