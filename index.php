@@ -75,7 +75,8 @@ if ($sig!=""|| $uid!=""){
 
 	include_once("config_db.php");
  
-	
+	 
+
 	//if smartcard active && uid!=""   or   sig 
 	if (($uid!="" && $smartcard_status==true) || $sig!=""){
 	 
@@ -84,7 +85,7 @@ if ($sig!=""|| $uid!=""){
 			 // echo $vCard;
 			
 		}
-		
+	
 		//staff status is active?
 		 if ($staff_status==true ){
 			
@@ -133,7 +134,7 @@ if ($sig!=""|| $uid!=""){
 				}
 			}else if ($genaw==1) {  
 			 
-				include_once("index_gen_aw.php");
+				include_once("gen_apple_wallet.php");
 			}	else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
 			} 	

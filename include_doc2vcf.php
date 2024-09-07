@@ -313,11 +313,13 @@
 				//include google wall class 20240907 prepare gw url
 	
 				try {
-					require __DIR__ . '/demo_generic.php';
+					require __DIR__ . '/gen_google_wallet.php';
 					$issuerId = '3388000000022314466';
+					//$issuerId = '3388000000022746391';
+
 					$demo = new DemoGeneric();	
-					$gwarray['name']=$fname.$lname;
-					$gwarray['position']=$title_eng;
+					$gwarray['name']=$fname.' '.$lname;
+					$gwarray['position']=$position;
 					$gwarray['qrcode']=$minisite_url;
 					$date = new DateTime();
 					$generic_object_suffix="generic_object_suffix_".$date->format("YmdHis"); 
