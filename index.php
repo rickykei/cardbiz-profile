@@ -61,6 +61,7 @@ $bo=$_GET['bo'];
 $gqt=$_GET['gqt'];
 $gq=$_GET['gq'];
 $genaw=$_GET['genaw'];
+$gengw=$_GET['gengw'];
 
 
 if ($sig!=""|| $uid!=""){
@@ -97,7 +98,7 @@ if ($sig!=""|| $uid!=""){
 				 
 			// redirect to which path VCF or e-profile
 			
-			if ($qrtype=="" && $genaw!=1 ){
+			if ($qrtype=="" && $genaw!=1 && $gengw!=1 ){
 				if ($bizcard_option==true ){ 
 
 					
@@ -135,7 +136,10 @@ if ($sig!=""|| $uid!=""){
 			}else if ($genaw==1) {  
 			 
 				include_once("gen_apple_wallet.php");
-			}	else if ($qrtype!="") {				
+			}else if ($gengw==1) {
+				header('Location: '.$gw_dl_link);
+			}
+			else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
 			} 	
 		}
