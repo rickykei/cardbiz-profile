@@ -90,8 +90,8 @@
                             <div class="navigation">	
                                 <ul class="links-to-floor">
                                     <li><a>ABOUT ME</a></li>
-                                    <li><a>OUR COMPANY</a> </li>
-                                    <li><a>GET IN TOUCH</a></li>
+                                    <li><a>THE EVENT</a> </li>
+<!--                                    <li><a>GET IN TOUCH</a></li>-->
                                 </ul>
                             </div>
                            
@@ -108,16 +108,24 @@
                     <div class="scroll-out">
                         <div class="floor home-page">
                             <div class="home-box">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
+                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="150" height="150"  style="border-radius: 50% ;" />
                                 <br>
                                 <br>
                                <h1><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
                                     <?php echo $oname; ?></h1>
                                 <br>
                                 <span><?php echo "$position" ; ?></span>
-                                <p><?php echo "$bio" ; ?>
-                                </p>
+                                <br>
                                 
+						<?php if ($fromkey){ ?>
+                         <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+						<?php } ?>
+						<?php if ($fromuid){ ?>
+                         <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+						<?php } ?>
+                        <br><br>
+                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
+                             
                             </div>
                             </div>
                         </div>
@@ -125,43 +133,9 @@
                     <!-- ABOUT SECTION -->
                     <div class="scroll-out">
                     <div class="floor about">
-                    	<h2 class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
-                       
-                        <ul class="list top15 bottom30">
-                            <?php if ($company_website_url!=""){ ?>
-                            <li><span>Company Website :</span> <a href="<?php echo "$company_website_url" ; ?>" target="_blank"><?php echo "$company_website_url" ; ?></a></li>
-							<?php } ?>
-							<?php if ($web_link!=""){ ?>
-                            <li><span><?php echo $web_link_label;?>:</span> <a href="<?php echo "$web_link" ; ?>" target="_blank"><?php echo $web_link; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link2!=""){ ?>
-                            <li><span><?php echo $web_link_label2;?>:</span> <a href="<?php echo "$web_link2" ; ?>" target="_blank"><?php echo $web_link2; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link3!=""){ ?>
-                            <li><span><?php echo $web_link_label3;?>:</span> <a href="<?php echo "$web_link3" ; ?>" target="_blank"><?php echo $web_link3; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link4!=""){ ?>
-                            <li><span><?php echo $web_link_label4;?>:</span> <a href="<?php echo "$web_link4" ; ?>" target="_blank"><?php echo $web_link4; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link5!=""){ ?>
-                            <li><span><?php echo $web_link_label5;?>:</span> <a href="<?php echo "$web_link5" ; ?>" target="_blank"><?php echo $web_link5; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link6!=""){ ?>
-                            <li><span><?php echo $web_link_label6;?>:</span> <a href="<?php echo "$web_link6" ; ?>" target="_blank"><?php echo $web_link6; ?></a></li>
-							<?php } ?>
-                            <?php if ($address!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address" ; ?></li> 
-							<?php } ?>
-                            <?php if ($address2!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address2" ; ?></li>
-							<?php } ?>
-                            <?php if ($address3!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address3" ; ?></li> 
-							<?php } ?>
-                            <?php if ($address4!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address4" ; ?></li>
-							<?php } ?>
-                        </ul>
+                        <p><?php echo "$bio" ; ?>
+                                </p>
+                    	<br><br>
 						<?php if ($more_info_tab_url!=""){ ?>
                         <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
                        <?php } ?>
@@ -171,6 +145,7 @@
                     </div>
                   
                     <!-- CONTACT SECTION-->
+<!--
                     <div class="scroll-out">
                     <div class="floor contact">
                    		<h2 class="page-title">Contact Me</h2>
@@ -297,13 +272,11 @@
 						<?php } ?>
                         <br><br>
                          <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" target="_blank" href="<?php echo $savemycontact; ?>">Click Here</a>
-<!-- 
-                         <a href="<?php echo $gw_dl_link;?>" target="_blank"><img width="200" src="gwallet/enUS_add_to_google_wallet_wallet-button.png"></a>
-                         <a href="?key=<?php echo $encrypted;?>&genaw=1" target="_blank"><img width="200" src="images/add-to-apple-wallet-logo.png"></a>END-->
+                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
                     </div>
                          
                     </div>
+-->
                     <!-- CONTACT END-->
                 </div>
         </div>

@@ -314,15 +314,17 @@
 	
 				try {
 					require __DIR__ . '/gen_google_wallet.php';
-					$issuerId = '3388000000022314466';
-					//$issuerId = '3388000000022746391';
+					//$issuerId = '3388000000022314466';
+					$issuerId = '3388000000022746391';
 
 					$demo = new DemoGeneric();	
 					$gwarray['name']=$fname.' '.$lname;
 					$gwarray['position']=$position;
 					$gwarray['qrcode']=$minisite_url;
 					$date = new DateTime();
-					$generic_object_suffix="generic_object_suffix_".$date->format("YmdHis"); 
+					//$demo->updateClass($issuerId, 'cardbizuat_generic');
+					$generic_object_suffix="generic_object_suffix_".$date->format("YmdHis");  
+					//$demo->createObject($issuerId, $generic_object_suffix);
 					$gw_dl_link=$demo->createJWTNewObjects($issuerId, 'cardbizuat_generic', $generic_object_suffix,$gwarray);
 					 
 				} catch (\Throwable $e) {
