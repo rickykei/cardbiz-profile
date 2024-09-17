@@ -141,7 +141,7 @@
 			$bizcard_option= $document->bizcard_option;
 			$dig_card_in_vcf=$document->dig_card_in_vcf;
 			$qrcode_option=	$document->qrcode_option;
-			
+			$minisite_option=$document->minisite_option;
 			$needPhoto=1;
 			
 			
