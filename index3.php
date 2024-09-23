@@ -29,6 +29,7 @@
 <!-- Font icons -->
 <link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.3.0/css/all.min.css"/>
 <link rel="stylesheet" href="/vcard/icon-fonts/essential-regular-fonts/essential-icons.css"/>
+    
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -108,14 +109,24 @@
                     <div class="scroll-out">
                         <div class="floor home-page">
                             <div class="home-box">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="150" height="150"  style="border-radius: 50% ;" />
-                                <br>
-                                <br>
+                                 <br>
                                <h1><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
                                     <?php echo $oname; ?></h1>
                                 <br>
-                                <span><?php echo "$position" ; ?></span>
+                                <span class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></span>
+                                <span class="page-title"><?php echo "$position" ; ?></span>
                                 <br>
+                                
+                               <ul class="list inline-list small-font">
+    
+    <?php if ($work_tel != "") { ?>
+        <li style="font-size: 0.9em;"><span style="font-size: 0.9em; display: inline">Phone :</span> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
+    <?php } ?><br>
+    <?php if ($work_email != "") { ?>
+        <li style="font-size: 0.9em;"><span style="font-size: 0.9em; display: inline">Email :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+    <?php } ?>
+   
+</ul>  
                                 
 						<?php if ($fromkey){ ?>
                          <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
@@ -124,7 +135,7 @@
                          <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
                         <br><br>
-                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Click Here</a>
+                         <a class="recoba-btn" href="<?php echo $savemycontact; ?>">Save Contact</a>
                              
                             </div>
                             </div>
@@ -133,6 +144,7 @@
                     <!-- ABOUT SECTION -->
                     <div class="scroll-out">
                     <div class="floor about">
+                        <img class="signature" src="<?php echo $headshot ; ?>" alt="" width=100%  />
                         <p><?php echo "$bio" ; ?>
                                 </p>
                     	<br><br>

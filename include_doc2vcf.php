@@ -230,7 +230,7 @@
 			 if($telegram_url!="")	$vCard .= "URL;TYPE=Telegram,pref:" . $telegram_url . "\r\n"; 			 
 			 
 			 if ($note_timestamp==true) 
-			  $temp_note= " Meet on " . date("d/m/Y H:i");
+			  $temp_note= " Met on: " . date("d/m/Y H:i") . " UTC+8";
 		  
 			 if($note!="" || $temp_note!="")	$vCard .= "NOTE:" . $note ." ".$temp_note. "\r\n"; 			 
 			  
