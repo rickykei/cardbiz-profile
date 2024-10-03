@@ -237,7 +237,17 @@
 			 
 			  
 			  if($getPhoto&&$needPhoto&&!$debug) $vCard .= "PHOTO;ENCODING=b;TYPE=JPEG:".$b64vcard . "\r\n";
-			  //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
+			 //if($url&&!$debug) $vCard .= "PHOTO;TYPE=JPEG;VALUE=URI:".$url . "\r\n";
+			 //
+			 if ($debug==1)
+			 {
+				 echo "fromkey=".$fromkey;
+				 echo "fromuid=".$fromuid;
+				 echo "fromsig=".$fromsig;
+				 echo "digcardinvcf=".$dig_card_in_vcf;
+			 }
+
+
 			  if($smartcard_uid && $fromkey==true){  
 				if ($dig_card_in_vcf==true)
 				$vCard.="URL;TYPE=Digital Business Card,pref: ".$domain."?key=".$encrypted."&bo=1\r\n";

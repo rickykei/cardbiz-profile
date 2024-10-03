@@ -49,7 +49,9 @@ $sig = openssl_decrypt($ciphertext, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
 
 if($sig=="")
 {
-	$uid = $_GET['uid']; 
+	$uid = $_GET['uid'];
+        if ($uid!="")
+	$fromuid=1;	
 	$tid=$uid;
 }else{
 	$tid=$sig;
