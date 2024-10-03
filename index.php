@@ -51,20 +51,37 @@ if($sig=="")
 {
 	$uid = $_GET['uid'];
         if ($uid!="")
-	$fromuid=1;	
+		$fromuid=1;	
 	$tid=$uid;
 }else{
 	$tid=$sig;
 	
 }
 $qrtype=$_GET['qrtype']; 
-
 $bo=$_GET['bo'];
 $gqt=$_GET['gqt'];
 $gq=$_GET['gq'];
 $genaw=$_GET['genaw'];
 $gengw=$_GET['gengw'];
+$mobilesite=$_GET['mobilesite'];
 
+if ($bo!=""){
+	if ($bo==1)
+		$bizcard_option=true;
+	else
+		$bizcard_option=false;
+}
+
+if ($debug==1){
+	echo "bizcard_option".$bizcard_option;
+	echo "sig".$sig;
+	echo "smartcard_uid".$uid;
+	echo "str".$str;
+}
+else
+{
+	//header("Location: ".$str);
+}
 
 if ($sig!=""|| $uid!=""){
 	//$sig="050C7EA647";
@@ -90,32 +107,17 @@ if ($sig!=""|| $uid!=""){
 		}
 	
 		//staff status is active?
-		 if ($staff_status==true ){
-			
-			if ($bo!="")
-				if ($bo==1)
-					$bizcard_option=true;
-				else
-					$bizcard_option=false;
+		 if ($staff_status==true ){ 
 				 
 			// redirect to which path VCF or e-profile
 			
-			if ($qrtype=="" && $genaw!=1 && $gengw!=1 ){
+			if ($qrtype=="" && $genaw!=1 && $gengw!=1 && $mobilesite!=1){
 				if ($bizcard_option==true ){ 
 
 					
 					include_once("profile.php");
 					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
-					if ($debug==1){
-						echo "bizcard_option".$bizcard_option;
-						echo "sig".$sig;
-						echo "smartcard_uid".$uid;
-						echo "str".$str;
-					}
-					else
-					{
-						//header("Location: ".$str);
-					}
+				
 				 
 			
 				}else if ($bizcard_option==true || $bo==0 ) {
@@ -144,6 +146,9 @@ if ($sig!=""|| $uid!=""){
 			else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
 			} 	
+			else if($mobilesite==1){
+				include_once("index_mobilesite.php");
+			}
 		}
 	}
 }
