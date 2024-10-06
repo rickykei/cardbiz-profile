@@ -61,9 +61,9 @@ $awpass->setData($awdata);
 
 // Add files to the pass package
 $awpass->addFile('images/icon.png');
-$awpass->addRemoteFile('https://e-profile.digital/logo.png');
+$awpass->addRemoteFile($gwarray['logo'],"logo.png");
 $awpass->addFile('images/icon@2x.png');
 //$pass->addFile('images/logo.png');
-$awpass->addRemoteFile('https://e-profile.digital/strip.png');
+$awpass->addRemoteFile($gwarray['banner'],"strip.png");
 // Create and output the pass
 $awpass->create(true);
