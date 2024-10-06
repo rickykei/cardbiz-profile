@@ -18,8 +18,18 @@
 			if ($document->company_detail[0]['profile_theme']!="")
 			$profile_theme=$domain."/api/files/".$document->company_detail[0]['profile_theme']; 
  
-			$company_logo=$document->company_detail[0]['logo'];
-			
+			$company_logo=$domain."/api/files/".$document->company_detail[0]['logo'];
+
+			//20241006  added wallet fields on company table
+			$wallet_banner=$domain."api/files/".$document->company_detail[0]['wallet_banner'];
+			$wallet_text_color=$document->company_detail[0]['wallet_text_color'];
+			$wallet_bg_color=$document->company_detail[0]['wallet_bg_color'];
+			$wallet_field1_option=$document->company_detail[0]['wallet_field1_option'];
+			$wallet_field2_option=$document->company_detail[0]['wallet_field2_option'];
+			$wallet_field3_option=$document->company_detail[0]['wallet_field3_option'];
+			$wallet_qrcode_option=$document->company_detail[0]['wallet_qrcode_option'];
+			$wallet_logo_option=$document->company_detail[0]['wallet_logo_option'];
+
 			$company_id=$document->company_id;
 			
 			$rc_no=$document->rc_no;
@@ -319,27 +329,68 @@
 				//$qrPng .= "PHOTO;VALUE=uri:http://d21buns5ku92am.cloudfront.net/69383/profile_pictures/38180/Unknown.png\r\n";
 				$qrPng .= "END:VCARD\r\n";
 			  
-
-				//include google wall class 20240907 prepare gw url
-	
-				try {
-					require __DIR__ . '/gen_google_wallet.php';
-					//$issuerId = '3388000000022314466';
-					$issuerId = '3388000000022746391';
-
-					$demo = new DemoGeneric();	
-					$gwarray['name']=$fname.' '.$lname;
-					$gwarray['position']=$position;
-					$gwarray['qrcode']=$minisite_url;
-					$date = new DateTime();
-					//$demo->updateClass($issuerId, 'cardbizuat_generic');
-					$generic_object_suffix="generic_object_suffix_".$date->format("YmdHis");  
-					//$demo->createObject($issuerId, $generic_object_suffix);
-					$gw_dl_link=$demo->createJWTNewObjects($issuerId, 'cardbizuat_generic', $generic_object_suffix,$gwarray);
-					 
-				} catch (\Throwable $e) {
-					echo "This was caught: " . $e->getMessage();
-				}
+//wallet 20241006
+				$wallet_text_color=$document->company_detail[0]['wallet_text_color'];
+				$wallet_bg_color=$document->company_detail[0]['wallet_bg_color'];
+			   
+			   
+				if ($wallet_logo_option==1)     $gwarray['logo']=$company_logo;
+				if ($wallet_logo_option==2)     $gwarray['logo']=$headshot;
+				if ($wallet_logo_option==3)     $gwarray['logo']="";
+				if ($gwarray['logo']=="")   $gwarray['logo']='https://e-profile.digital/logo.png';
+			   
+				if ($wallet_field1_option==1)  $gwarray['company_name']=$fname;
+				if ($wallet_field1_option==2)  $gwarray['company_name']=$fname." ".$lname;
+				if ($wallet_field1_option==3)  $gwarray['company_name']=$fname." ".$lname." ".$oname;
+				if ($wallet_field1_option==4)  $gwarray['company_name']=$fname." ".$lname." ".$mname." ".$pname." ".$oname." ".$pdname;
+				if ($wallet_field1_option==5)  $gwarray['company_name']=$company_name_eng;
+				if ($wallet_field1_option==6)  $gwarray['company_name']=$company_name_chi;
+				if ($wallet_field1_option==7)  $gwarray['company_name']=$company_name_eng." ".$company_name_chi;
+				if ($wallet_field1_option==8)  $gwarray['company_name']=$division;
+				if ($wallet_field1_option==9)  $gwarray['company_name']=$department;
+				if ($wallet_field1_option==10)  $gwarray['company_name']=$country;
+				if ($wallet_field1_option==11)  $gwarray['company_name']=$position;
+				if ($gwarray['company_name']=="")  $gwarray['company_name']="N/A";
+			  
+				
+				if ($wallet_field2_option==1)  $gwarray['name']=$fname;
+				if ($wallet_field2_option==2)  $gwarray['name']=$fname." ".$lname;
+				if ($wallet_field2_option==3)  $gwarray['name']=$fname." ".$lname." ".$oname;
+				if ($wallet_field2_option==4)  $gwarray['name']=$fname." ".$lname." ".$mname." ".$pname." ".$oname." ".$pdname;
+				if ($wallet_field2_option==5)  $gwarray['name']=$company_name_eng;
+				if ($wallet_field2_option==6)  $gwarray['name']=$company_name_chi;
+				if ($wallet_field2_option==7)  $gwarray['name']=$company_name_eng." ".$company_name_chi;
+				if ($wallet_field2_option==8)  $gwarray['name']=$division;
+				if ($wallet_field2_option==9)  $gwarray['name']=$department;
+				if ($wallet_field2_option==10)  $gwarray['name']=$country;
+				if ($wallet_field2_option==11)  $gwarray['name']=$position;
+				if ($gwarray['name']=="")  $gwarray['name']="N/A";
+			  
+				 
+				if ($wallet_field3_option==1)  $gwarray['position']=$fname;
+				if ($wallet_field3_option==2)  $gwarray['position']=$fname." ".$lname;
+				if ($wallet_field3_option==3)  $gwarray['position']=$fname." ".$lname." ".$oname;
+				if ($wallet_field3_option==4)  $gwarray['position']=$fname." ".$lname." ".$mname." ".$pname." ".$oname." ".$pdname;
+				if ($wallet_field3_option==5)  $gwarray['position']=$company_name_eng;
+				if ($wallet_field3_option==6)  $gwarray['position']=$company_name_chi;
+				if ($wallet_field3_option==7)  $gwarray['position']=$company_name_eng." ".$company_name_chi;
+				if ($wallet_field3_option==8)  $gwarray['position']=$division;
+				if ($wallet_field3_option==9)  $gwarray['position']=$department;
+				if ($wallet_field3_option==10)  $gwarray['position']=$country;
+				if ($wallet_field3_option==11)  $gwarray['position']=$position;
+				if ($gwarray['position']=="")  $gwarray['position']="N/A";
+			  
+				$gwarray['banner']=$wallet_banner;
+				if ($gwarray['banner']=="")  $gwarray['banner']="https://e-profile.digital/strip.png";
+			  
+			   
+				if ($wallet_qrcode_option==1)     $gwarray['qrcode']=$qrPng;
+				if ($wallet_qrcode_option==2)     $gwarray['qrcode']=$domain."?key=".$encrypted;
+				if ($wallet_qrcode_option==3)     $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=1";
+				if ($wallet_qrcode_option==4)     $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=0";
+			  
+				$gwarray['wallet_bg_color']=$wallet_bg_color;
+				$gwarray['wallet_text_color']=$wallet_text_color;
 
 
  function get_content($URL){

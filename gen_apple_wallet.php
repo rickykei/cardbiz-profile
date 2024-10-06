@@ -23,9 +23,9 @@ $awpass = new PKPass('/home/pkpass/Certificates.p12', '98014380');
  
 // Pass content
 $awdata = [
-    'description' => 'NFC Touch Cardbiz UAT',
+    'description' => $gwarray['company_name'],
     'formatVersion' => 1,
-    'organizationName' => 'NFC Touch Cardbiz UAT',
+    'organizationName' => $gwarray['company_name'],
     'passTypeIdentifier' => 'pass.com.nfctouch.uatNameCard', // Change this!
     'serialNumber' => $encrypted,
     'teamIdentifier' => 'UJR8TRUAK2', // Change this!
@@ -34,25 +34,25 @@ $awdata = [
             [
                 'key' => 'name',
                 'label' => 'Name',
-                'value' => $fname,
+                'value' =>  $gwarray['name'],
             ],
             [
                 'key' => 'position',
                 'label' => 'Position',
-                'value' => $position,
+                'value' => $gwarray['position'],
             ],
         ],
         'transitType' => 'PKTransitTypeAir',
     ],
     'barcode' => [
         'format' => 'PKBarcodeFormatQR',
-        'message' => $minisite_url,
+        'message' => $gwarray['qrcode'],
         'messageEncoding' => 'iso-8859-1',
     ],
-    'backgroundColor' => 'rgb(0,0,0)',
-    'foregroundColor' => 'rgb(255,255,255)',
+    'backgroundColor' => $gwarray['wallet_bg_color'],
+    'foregroundColor' => $gwarray['wallet_text_color'],
     'labelColor' => 'rgb(255,255,255)',
-    'logoText' => 'NFC Touch Cardbiz UAT',
+    'logoText' => $gwarray['company_name'],
     'relevantDate' => date('Y-m-d\TH:i:sP')
 ];
 

@@ -63,8 +63,8 @@ class DemoGeneric
 
   public function __construct()
   {
-    $this->keyFilePath = getenv('GOOGLE_APPLICATION_CREDENTIALS') ?: '/home/ggwall/key.json';
-
+    //$this->keyFilePath = getenv('GOOGLE_APPLICATION_CREDENTIALS') ?: '/home/ggwall/key.json';
+    $this->keyFilePath = getenv('GOOGLE_APPLICATION_CREDENTIALS') ?: '/home/ggwall/galvanized-sled-434811-g0-fe7b4463514a.json';
     $this->auth();
   }
   // [END setup]
@@ -642,6 +642,9 @@ $newClass = new GenericClass([
    *
    * @return string An "Add to Google Wallet" link.
    */
+
+    
+
   public function createJwtNewObjects(string $issuerId, string $classSuffix, string $objectSuffix, $array)
   {
     // See link below for more information on required properties
@@ -658,7 +661,7 @@ $newClass = new GenericClass([
       'state' => 'ACTIVE',
       'heroImage' => new Image([
         'sourceUri' => new ImageUri([
-          'uri' => 'https://e-profile.digital/strip.png'
+          'uri' => $array['banner']
         ]),
         'contentDescription' => new LocalizedString([
           'defaultValue' => new TranslatedString([
@@ -683,13 +686,13 @@ $newClass = new GenericClass([
       'cardTitle' => new LocalizedString([
         'defaultValue' => new TranslatedString([
           'language' => 'en-US',
-          'value' => 'NFC Touch cardbiz UAT'
+          'value' =>   $array['company_name']
         ])
       ]),
 		'subheader' => new LocalizedString([
         'defaultValue' => new TranslatedString([
           'language' => 'en-US',
-          'value' => 'Name'
+          'value' =>'Name'
         ])
       ]),
       'header' => new LocalizedString([
@@ -698,15 +701,15 @@ $newClass = new GenericClass([
           'value' => $array['name']
         ])
       ]),
-      'hexBackgroundColor' => '#000000',
+      'hexBackgroundColor' => $array['wallet_bg_color'],
       'logo' => new Image([
         'sourceUri' => new ImageUri([
-          'uri' => 'https://e-profile.digital/logo.png'
+          'uri' => $array['logo']
         ]),
         'contentDescription' => new LocalizedString([
           'defaultValue' => new TranslatedString([
             'language' => 'en-US',
-            'value' => 'NFC Touch cardbiz logo'
+            'value' =>  $array['company_name']
           ])
         ])
       ])

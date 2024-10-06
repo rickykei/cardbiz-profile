@@ -138,15 +138,12 @@ if ($sig!=""|| $uid!=""){
 				 
 				}
 			}else if ($genaw==1) {  
-			 
-				include_once("gen_apple_wallet.php");
+			 	include_once("gen_apple_wallet.php");
 			}else if ($gengw==1) {
-				header('Location: '.$gw_dl_link);
-			}
-			else if ($qrtype!="") {				
+				include_once("gen_google_wallet2.php");
+			}else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
-			} 	
-			else if($mobilesite==1){
+			}else if($mobilesite==1){
 				include_once("index_mobilesite.php");
 			}
 		}
