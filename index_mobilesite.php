@@ -88,7 +88,7 @@
         <div class="header">
             <div class="logo">
             <?php if($company_logo!=""){ ?>
-							<img  src="/api/files/<?php echo $company_logo;?>" alt="Logo" >
+							<img  src="<?php echo $company_logo;?>" alt="Logo" >
 							<?php } else { ?>
 							<img  src="/assets/img/logo/white_logo.jpg" alt="Logo" >
 							<?php } ?>

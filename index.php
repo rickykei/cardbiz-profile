@@ -65,18 +65,19 @@ $genaw=$_GET['genaw'];
 $gengw=$_GET['gengw'];
 $mobilesite=$_GET['mobilesite'];
 
-if ($bo!=""){
-	if ($bo==1)
-		$bizcard_option=true;
-	else
-		$bizcard_option=false;
-}
+ 
 
 if ($debug==1){
-	echo "bizcard_option".$bizcard_option;
-	echo "sig".$sig;
-	echo "smartcard_uid".$uid;
-	echo "str".$str;
+	echo "<br>bizcard_option=".$bizcard_option;
+	echo "<br>sig=".$sig;
+	echo "<br>smartcard_uid=".$uid;
+	echo "<br>smartcard_status=".$smartcard_status;
+	echo "<br>str=".$str;
+	echo "<br>qrtype=".$qrtype;
+	echo "<br>genaw=".$genaw;
+	echo "<br>gengw=".$gengw;
+	echo "<br>mobilesite=".$mobilesite;
+
 }
 else
 {
@@ -99,28 +100,36 @@ if ($sig!=""|| $uid!=""){
 
 	//if smartcard active && uid!=""   or   sig 
 	if (($uid!="" && $smartcard_status==true) || $sig!=""){
-	 
+		if ($debug==1){
+			echo "<br>bizcard_option=".$bizcard_option; 
+		
+		}
 		foreach ($results as $document) {
 				  include_once("include_doc2vcf.php");
 			 // echo $vCard;
 			
 		}
-	
+		
 		//staff status is active?
 		 if ($staff_status==true ){ 
-				 
+
+			if ($bo!="")
+			if ($bo==1)
+				$bizcard_option=true;
+			else
+				$bizcard_option=false;
 			// redirect to which path VCF or e-profile
 			
 			if ($qrtype=="" && $genaw!=1 && $gengw!=1 && $mobilesite!=1){
-				if ($bizcard_option==true ){ 
+				if ($bizcard_option==true || $bo==1 ){ 
 
-					
+				
 					include_once("profile.php");
 					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
 				
 				 
 			
-				}else if ($bizcard_option==true || $bo==0 ) {
+				}else if ($bizcard_option==false || $bo==0 ) {
 					 
 					$str=$domain."genvcf.php?key=".$encrypted;
 					//$str=$domain."/genvcf.php?sig=".$sig;

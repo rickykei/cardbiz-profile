@@ -82,7 +82,7 @@
                             <br>
                         	<a  class="" href="">
 							<?php if($company_logo!=""){ ?>
-							<img class="signature" src="/api/files/<?php echo $company_logo;?>" alt="" width="50">
+							<img class="signature" src="<?php echo $company_logo;?>" alt="" width="50">
 							<?php } else { ?>
 							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
 							<?php } ?>

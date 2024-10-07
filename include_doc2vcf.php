@@ -251,10 +251,10 @@
 			 //
 			 if ($debug==1)
 			 {
-				 echo "fromkey=".$fromkey;
-				 echo "fromuid=".$fromuid;
-				 echo "fromsig=".$fromsig;
-				 echo "digcardinvcf=".$dig_card_in_vcf;
+				 echo "<br>fromkey=".$fromkey;
+				 echo "<br>fromuid=".$fromuid;
+				 echo "<br>fromsig=".$fromsig;
+				 echo "<br>digcardinvcf=".$dig_card_in_vcf;
 			 }
 
 
@@ -291,13 +291,13 @@
 			
 			if ($debug==true)
 			{
-				echo "needPhoto=";
+				echo "<br>eedPhoto=";
 				echo $needPhoto;
-				echo "headShot=";
+				echo "<br>headShot=";
 				echo $headshot;
 				
-				echo "b64vcard=";
-				echo $b64vcard;
+				//echo "b64vcard=";
+				//echo $b64vcard;
 			}
 			
 			
