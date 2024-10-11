@@ -460,7 +460,7 @@ $newClass = new GenericClass([
 
     $updatedObject->setLinksModuleData($linksModuleData);
 
- $newObject = new GenericObject([
+    $newObject = new GenericObject([
       'id' => "{$issuerId}.{$objectSuffix}",
       'classId' => "{$issuerId}.{$classSuffix}",
       'state' => 'ACTIVE',
@@ -507,7 +507,7 @@ $newClass = new GenericClass([
       'hexBackgroundColor' => '#000000',
       'logo' => new Image([
         'sourceUri' => new ImageUri([
-          'uri' => 'https://e-profile.digital/logo.png'
+          'uri' => ''
         ]),
         'contentDescription' => new LocalizedString([
           'defaultValue' => new TranslatedString([
@@ -671,51 +671,63 @@ $newClass = new GenericClass([
         ])
       ]),
       'textModulesData' => [
+        new TextModuleData([
+         'header' => '',
+         'body' => '',
+         'id' => 'name'
+       ])
+    
+     ],
+      'textModulesData' => [
          new TextModuleData([
-          'header' => 'Position',
+          'header' => $array['position_label'],
           'body' => $array['position'],
           'id' => 'position'
         ])
 		 
       ],
-   
       'barcode' => new Barcode([
         'type' => 'QR_CODE',
         'value' => $array['qrcode']
-      ]),
+      ]), 
       'cardTitle' => new LocalizedString([
         'defaultValue' => new TranslatedString([
           'language' => 'en-US',
           'value' =>   $array['company_name']
         ])
       ]),
-		'subheader' => new LocalizedString([
-        'defaultValue' => new TranslatedString([
-          'language' => 'en-US',
-          'value' =>'Name'
-        ])
-      ]),
+      
       'header' => new LocalizedString([
         'defaultValue' => new TranslatedString([
           'language' => 'en-US',
-          'value' => $array['name']
+          'value' => $array['name'],
+          'id' => 'name'
+        ])
+      ]),
+		'subheader' => new LocalizedString([
+        'defaultValue' => new TranslatedString([
+          'language' => 'en-US',
+          'value' => $array['name_label']
         ])
       ]),
       'hexBackgroundColor' => $array['wallet_bg_color'],
-      'logo' => new Image([
+      
+    ]);
+
+    if ($array['logo']!='')
+    $newObject -> logo = new Image([
         'sourceUri' => new ImageUri([
           'uri' => $array['logo']
         ]),
         'contentDescription' => new LocalizedString([
           'defaultValue' => new TranslatedString([
             'language' => 'en-US',
-            'value' =>  $array['company_name']
+            'value' =>  ''
           ])
         ])
-      ])
-    ]);
+      ]);
 
-
+      
     // The service account credentials are used to sign the JWT
     $serviceAccount = json_decode(file_get_contents($this->keyFilePath), true);
 

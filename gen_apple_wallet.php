@@ -33,12 +33,12 @@ $awdata = [
         'secondaryFields' => [
             [
                 'key' => 'name',
-                'label' => 'Name',
+                'label' => $gwarray['name_label'],
                 'value' =>  $gwarray['name'],
             ],
             [
                 'key' => 'position',
-                'label' => 'Position',
+                'label' =>  $gwarray['position_label'],
                 'value' => $gwarray['position'],
             ],
         ],
@@ -50,7 +50,7 @@ $awdata = [
         'messageEncoding' => 'iso-8859-1',
     ],
     'backgroundColor' => $gwarray['wallet_bg_color'],
-    'foregroundColor' => $gwarray['wallet_text_color'],
+    'foregroundColor' => '#000000',
     'labelColor' => 'rgb(255,255,255)',
     'logoText' => $gwarray['company_name'],
     'relevantDate' => date('Y-m-d\TH:i:sP')
@@ -61,9 +61,11 @@ $awpass->setData($awdata);
 
 // Add files to the pass package
 $awpass->addFile('images/icon.png');
+if ($gwarray['logo']!="")
 $awpass->addRemoteFile($gwarray['logo'],"logo.png");
 $awpass->addFile('images/icon@2x.png');
 //$pass->addFile('images/logo.png');
+if ($gwarray['banner']!="")
 $awpass->addRemoteFile($gwarray['banner'],"strip.png");
 // Create and output the pass
 $awpass->create(true);

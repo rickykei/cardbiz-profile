@@ -16,7 +16,7 @@
             max-width: 370px;
             margin: 20px auto;
             padding: 0px;
-            background-color: #D32;
+            background-color: <?php if ($wallet_bg_color=="") echo "#D32"; else echo $wallet_bg_color;?>;
             border-radius: 30px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -86,27 +86,25 @@
 
     <div class="container">
         <div class="header">
-            <div class="logo">
-            <?php if($company_logo!=""){ ?>
-							<img  src="<?php echo $company_logo;?>" alt="Logo" >
-							<?php } else { ?>
-							<img  src="/assets/img/logo/white_logo.jpg" alt="Logo" >
-							<?php } ?>
+            
+            <?php if($gwarray['logo']!=""){ ?>
+                <div class="logo">
+							<img  src="<?php echo $gwarray['logo'];?>" alt="Logo" > 
+                        </div>
+			<?php }   ?> 
+         
+            <h1><?php echo 	$gwarray['company_name'] ; ?></h1>
+        </div>
 
-                 
+        <div class="card">
+            <div class="card-info"><?php echo 	$gwarray['name_label'] ; ?></div>
+            <div class="card-title"> <span style="display:inline-block"><?php echo 	$gwarray['name'] ; ?></span><br>
             </div>
-            <h1><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h1>
         </div>
 
         <div class="card">
-            <div class="card-info">Name</div>
-            <div class="card-title"> <?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-            <?php echo $oname; ?></div>
-        </div>
-
-        <div class="card">
-            <div class="card-info">Position</div>
-            <div class="card-title"><?php echo "$position" ; ?></div>
+            <div class="card-info"><?php echo $gwarray['position_label'];?></div>
+            <div class="card-title"><?php echo 	$gwarray['position'] ; ?></div>
         </div>
         
         <div class="image-container">
@@ -121,7 +119,7 @@
         </div>
 
         <div class="footer-image">
-            <img src="images/aaforum.png" alt="Footer Image"> <!-- Replace with your footer image path -->
+            <img src="<?php echo $gwarray['banner'];?>" alt="Footer Image"> <!-- Replace with your footer image path -->
         </div>
     </div>
 

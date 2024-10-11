@@ -1,10 +1,6 @@
 <?php  
 
 
-
-	 
-
-
   			$company_name_eng=$document->company_name_eng;
 			$company_name_chi=$document->company_name_chi;
 
@@ -337,12 +333,15 @@
 				if ($wallet_logo_option==1)     $gwarray['logo']=$company_logo;
 				if ($wallet_logo_option==2)     $gwarray['logo']=$headshot;
 				if ($wallet_logo_option==3)     $gwarray['logo']="";
-				if ($gwarray['logo']=="")   $gwarray['logo']='https://e-profile.digital/logo.png';
-			   
+				if ($gwarray['logo']=="")   $gwarray['logo']='';
+				 $gwarray['logo2']=$domain.'images/transparent.png';
+				
+				$walletField1SelectDataLabel = [" ","Name","Name","Name","Name","Company","Company","Company","Division","Department","Country","Position"];
+
 				if ($wallet_field1_option==1)  $gwarray['company_name']=$fname;
 				if ($wallet_field1_option==2)  $gwarray['company_name']=$fname." ".$lname;
 				if ($wallet_field1_option==3)  $gwarray['company_name']=$fname." ".$lname." ".$oname;
-				if ($wallet_field1_option==4)  $gwarray['company_name']=$fname." ".$lname." ".$mname." ".$pname." ".$oname." ".$pdname;
+				if ($wallet_field1_option==4)  $gwarray['company_name']=$pname." ".$fname." ".$mname." ".$lname." ".$pdname." ".$oname;
 				if ($wallet_field1_option==5)  $gwarray['company_name']=$company_name_eng;
 				if ($wallet_field1_option==6)  $gwarray['company_name']=$company_name_chi;
 				if ($wallet_field1_option==7)  $gwarray['company_name']=$company_name_eng." ".$company_name_chi;
@@ -350,13 +349,13 @@
 				if ($wallet_field1_option==9)  $gwarray['company_name']=$department;
 				if ($wallet_field1_option==10)  $gwarray['company_name']=$country;
 				if ($wallet_field1_option==11)  $gwarray['company_name']=$position;
-				if ($gwarray['company_name']=="")  $gwarray['company_name']="N/A";
-			  
+				if ($gwarray['company_name']=="")  $gwarray['company_name']="";
+				$gwarray['company_name_label']=$walletField1SelectDataLabel[$wallet_field1_option];
 				
 				if ($wallet_field2_option==1)  $gwarray['name']=$fname;
 				if ($wallet_field2_option==2)  $gwarray['name']=$fname." ".$lname;
 				if ($wallet_field2_option==3)  $gwarray['name']=$fname." ".$lname." ".$oname;
-				if ($wallet_field2_option==4)  $gwarray['name']=$fname." ".$lname." ".$mname." ".$pname." ".$oname." ".$pdname;
+				if ($wallet_field2_option==4)  $gwarray['name']=$pname." ".$fname." ".$mname." ".$lname." ".$pdname." ".$oname;
 				if ($wallet_field2_option==5)  $gwarray['name']=$company_name_eng;
 				if ($wallet_field2_option==6)  $gwarray['name']=$company_name_chi;
 				if ($wallet_field2_option==7)  $gwarray['name']=$company_name_eng." ".$company_name_chi;
@@ -364,13 +363,14 @@
 				if ($wallet_field2_option==9)  $gwarray['name']=$department;
 				if ($wallet_field2_option==10)  $gwarray['name']=$country;
 				if ($wallet_field2_option==11)  $gwarray['name']=$position;
-				if ($gwarray['name']=="")  $gwarray['name']="N/A";
-			  
+				if ($gwarray['name']=="")  $gwarray['name']="";
+				$gwarray['name_label']=$walletField1SelectDataLabel[$wallet_field2_option];
+				
 				 
 				if ($wallet_field3_option==1)  $gwarray['position']=$fname;
 				if ($wallet_field3_option==2)  $gwarray['position']=$fname." ".$lname;
 				if ($wallet_field3_option==3)  $gwarray['position']=$fname." ".$lname." ".$oname;
-				if ($wallet_field3_option==4)  $gwarray['position']=$fname." ".$lname." ".$mname." ".$pname." ".$oname." ".$pdname;
+				if ($wallet_field3_option==4)  $gwarray['position']=$pname." ".$fname." ".$mname." ".$lname." ".$pdname." ".$oname;
 				if ($wallet_field3_option==5)  $gwarray['position']=$company_name_eng;
 				if ($wallet_field3_option==6)  $gwarray['position']=$company_name_chi;
 				if ($wallet_field3_option==7)  $gwarray['position']=$company_name_eng." ".$company_name_chi;
@@ -378,8 +378,9 @@
 				if ($wallet_field3_option==9)  $gwarray['position']=$department;
 				if ($wallet_field3_option==10)  $gwarray['position']=$country;
 				if ($wallet_field3_option==11)  $gwarray['position']=$position;
-				if ($gwarray['position']=="")  $gwarray['position']="N/A";
-			  
+				if ($gwarray['position']=="")  $gwarray['position']="";
+				$gwarray['position_label']=$walletField1SelectDataLabel[$wallet_field3_option];
+				
 				$gwarray['banner']=$wallet_banner;
 				if ($gwarray['banner']=="")  $gwarray['banner']="https://e-profile.digital/strip.png";
 			  
