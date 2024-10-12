@@ -147,12 +147,15 @@ if ($sig!=""|| $uid!=""){
 				 
 				}
 			}else if ($genaw==1) {  
+				include_once("include_updateAWCnt.php");
 			 	include_once("gen_apple_wallet.php");
 			}else if ($gengw==1) {
+				include_once("include_updateGWCnt.php");
 				include_once("gen_google_wallet2.php");
 			}else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
 			}else if($mobilesite==1){
+				include_once("include_updateMobileSiteCnt.php");
 				include_once("index_mobilesite.php");
 			}
 		}
