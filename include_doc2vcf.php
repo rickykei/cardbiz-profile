@@ -351,6 +351,8 @@
 				if ($wallet_field1_option==11)  $gwarray['company_name']=$position;
 				if ($gwarray['company_name']=="")  $gwarray['company_name']="";
 				$gwarray['company_name_label']=$walletField1SelectDataLabel[$wallet_field1_option];
+
+				 
 				
 				if ($wallet_field2_option==1)  $gwarray['name']=$fname;
 				if ($wallet_field2_option==2)  $gwarray['name']=$fname." ".$lname;

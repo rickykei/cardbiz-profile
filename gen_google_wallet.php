@@ -690,12 +690,7 @@ $newClass = new GenericClass([
         'type' => 'QR_CODE',
         'value' => $array['qrcode']
       ]), 
-      'cardTitle' => new LocalizedString([
-        'defaultValue' => new TranslatedString([
-          'language' => 'en-US',
-          'value' =>   $array['company_name']
-        ])
-      ]),
+     
       
       'header' => new LocalizedString([
         'defaultValue' => new TranslatedString([
@@ -722,12 +717,19 @@ $newClass = new GenericClass([
         'contentDescription' => new LocalizedString([
           'defaultValue' => new TranslatedString([
             'language' => 'en-US',
-            'value' =>  ''
+            'value' =>  'Logo'
           ])
         ])
       ]);
 
-      
+      if ($array['company_name']!='')
+      $newObject -> cardTitle = new LocalizedString([
+        'defaultValue' => new TranslatedString([
+          'language' => 'en-US',
+          'value' =>   $array['company_name']
+        ])
+      ]);
+
     // The service account credentials are used to sign the JWT
     $serviceAccount = json_decode(file_get_contents($this->keyFilePath), true);
 
