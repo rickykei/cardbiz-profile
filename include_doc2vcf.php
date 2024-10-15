@@ -349,7 +349,7 @@
 				if ($wallet_field1_option==9)  $gwarray['company_name']=$department;
 				if ($wallet_field1_option==10)  $gwarray['company_name']=$country;
 				if ($wallet_field1_option==11)  $gwarray['company_name']=$position;
-				if ($gwarray['company_name']=="")  $gwarray['company_name']="";
+				if ($gwarray['company_name']=="")  $gwarray['company_name']="Digital Name Card";
 				$gwarray['company_name_label']=$walletField1SelectDataLabel[$wallet_field1_option];
 
 				 
@@ -365,7 +365,7 @@
 				if ($wallet_field2_option==9)  $gwarray['name']=$department;
 				if ($wallet_field2_option==10)  $gwarray['name']=$country;
 				if ($wallet_field2_option==11)  $gwarray['name']=$position;
-				if ($gwarray['name']=="")  $gwarray['name']="";
+				if ($gwarray['name']=="")  $gwarray['name']="N/A";
 				$gwarray['name_label']=$walletField1SelectDataLabel[$wallet_field2_option];
 				
 				 
@@ -380,7 +380,7 @@
 				if ($wallet_field3_option==9)  $gwarray['position']=$department;
 				if ($wallet_field3_option==10)  $gwarray['position']=$country;
 				if ($wallet_field3_option==11)  $gwarray['position']=$position;
-				if ($gwarray['position']=="")  $gwarray['position']="";
+				if ($gwarray['position']=="")  $gwarray['position']="N/A";
 				$gwarray['position_label']=$walletField1SelectDataLabel[$wallet_field3_option];
 				
 				$gwarray['banner']=$wallet_banner;

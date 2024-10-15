@@ -683,15 +683,12 @@ $newClass = new GenericClass([
           'header' => $array['position_label'],
           'body' => $array['position'],
           'id' => 'position'
-        ])
-		 
+        ]) 
       ],
       'barcode' => new Barcode([
         'type' => 'QR_CODE',
         'value' => $array['qrcode']
-      ]), 
-     
-      
+      ]),  
       'header' => new LocalizedString([
         'defaultValue' => new TranslatedString([
           'language' => 'en-US',
@@ -705,10 +702,8 @@ $newClass = new GenericClass([
           'value' => $array['name_label']
         ])
       ]),
-      'hexBackgroundColor' => $array['wallet_bg_color'],
-      
-    ]);
-
+      'hexBackgroundColor' => $array['wallet_bg_color'], 
+    ]); 
     if ($array['logo']!='')
     $newObject -> logo = new Image([
         'sourceUri' => new ImageUri([
@@ -720,8 +715,7 @@ $newClass = new GenericClass([
             'value' =>  'Logo'
           ])
         ])
-      ]);
-
+      ]); 
       if ($array['company_name']!='')
       $newObject -> cardTitle = new LocalizedString([
         'defaultValue' => new TranslatedString([

@@ -110,10 +110,10 @@
         <div class="image-container">
             <div class="image">
             <?php if ($fromkey){ ?>
-                         <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+                         <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $wallet_qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
 						<?php if ($fromuid){ ?>
-                         <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
+                         <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $wallet_qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
             </div>
         </div>

@@ -50,8 +50,8 @@ $awdata = [
         'messageEncoding' => 'iso-8859-1',
     ],
     'backgroundColor' => $gwarray['wallet_bg_color'],
-    'foregroundColor' => '#000000',
-    'labelColor' => 'rgb(255,255,255)',
+    'foregroundColor' => '#ffffff',
+    'labelColor' => '#ffffff',
     'logoText' => $gwarray['company_name'],
     'relevantDate' => date('Y-m-d\TH:i:sP')
 ];
