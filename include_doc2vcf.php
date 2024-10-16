@@ -336,7 +336,7 @@
 				if ($gwarray['logo']=="")   $gwarray['logo']='';
 				 $gwarray['logo2']=$domain.'images/transparent.png';
 				
-				$walletField1SelectDataLabel = [" ","Name","Name","Name","Name","Company","Company","Company","Division","Department","Country","Position"];
+				$walletField1SelectDataLabel = [" ","Name","Name","Name","Name","Company","Company","Division","Department","Country","Position"];
 
 				if ($wallet_field1_option==1)  $gwarray['company_name']=$fname;
 				if ($wallet_field1_option==2)  $gwarray['company_name']=$fname." ".$lname;
@@ -344,11 +344,11 @@
 				if ($wallet_field1_option==4)  $gwarray['company_name']=$pname." ".$fname." ".$mname." ".$lname." ".$pdname." ".$oname;
 				if ($wallet_field1_option==5)  $gwarray['company_name']=$company_name_eng;
 				if ($wallet_field1_option==6)  $gwarray['company_name']=$company_name_chi;
-				if ($wallet_field1_option==7)  $gwarray['company_name']=$company_name_eng." ".$company_name_chi;
-				if ($wallet_field1_option==8)  $gwarray['company_name']=$division;
-				if ($wallet_field1_option==9)  $gwarray['company_name']=$department;
-				if ($wallet_field1_option==10)  $gwarray['company_name']=$country;
-				if ($wallet_field1_option==11)  $gwarray['company_name']=$position;
+
+				if ($wallet_field1_option==7)  $gwarray['company_name']=$division;
+				if ($wallet_field1_option==8)  $gwarray['company_name']=$department;
+				if ($wallet_field1_option==9)  $gwarray['company_name']=$country;
+				if ($wallet_field1_option==10)  $gwarray['company_name']=$position;
 				if ($gwarray['company_name']=="")  $gwarray['company_name']="Digital Name Card";
 				$gwarray['company_name_label']=$walletField1SelectDataLabel[$wallet_field1_option];
 
@@ -360,11 +360,11 @@
 				if ($wallet_field2_option==4)  $gwarray['name']=$pname." ".$fname." ".$mname." ".$lname." ".$pdname." ".$oname;
 				if ($wallet_field2_option==5)  $gwarray['name']=$company_name_eng;
 				if ($wallet_field2_option==6)  $gwarray['name']=$company_name_chi;
-				if ($wallet_field2_option==7)  $gwarray['name']=$company_name_eng." ".$company_name_chi;
-				if ($wallet_field2_option==8)  $gwarray['name']=$division;
-				if ($wallet_field2_option==9)  $gwarray['name']=$department;
-				if ($wallet_field2_option==10)  $gwarray['name']=$country;
-				if ($wallet_field2_option==11)  $gwarray['name']=$position;
+				
+				if ($wallet_field2_option==7)  $gwarray['name']=$division;
+				if ($wallet_field2_option==8)  $gwarray['name']=$department;
+				if ($wallet_field2_option==9)  $gwarray['name']=$country;
+				if ($wallet_field2_option==10)  $gwarray['name']=$position;
 				if ($gwarray['name']=="")  $gwarray['name']="N/A";
 				$gwarray['name_label']=$walletField1SelectDataLabel[$wallet_field2_option];
 				
@@ -375,11 +375,11 @@
 				if ($wallet_field3_option==4)  $gwarray['position']=$pname." ".$fname." ".$mname." ".$lname." ".$pdname." ".$oname;
 				if ($wallet_field3_option==5)  $gwarray['position']=$company_name_eng;
 				if ($wallet_field3_option==6)  $gwarray['position']=$company_name_chi;
-				if ($wallet_field3_option==7)  $gwarray['position']=$company_name_eng." ".$company_name_chi;
-				if ($wallet_field3_option==8)  $gwarray['position']=$division;
-				if ($wallet_field3_option==9)  $gwarray['position']=$department;
-				if ($wallet_field3_option==10)  $gwarray['position']=$country;
-				if ($wallet_field3_option==11)  $gwarray['position']=$position;
+			
+				if ($wallet_field3_option==7)  $gwarray['position']=$division;
+				if ($wallet_field3_option==8)  $gwarray['position']=$department;
+				if ($wallet_field3_option==9)  $gwarray['position']=$country;
+				if ($wallet_field3_option==10)  $gwarray['position']=$position;
 				if ($gwarray['position']=="")  $gwarray['position']="N/A";
 				$gwarray['position_label']=$walletField1SelectDataLabel[$wallet_field3_option];
 				
