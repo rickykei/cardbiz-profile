@@ -46,7 +46,7 @@ $awdata = [
     ],
     'barcode' => [
         'format' => 'PKBarcodeFormatQR',
-        'message' => $gwarray['qrcode'],
+        'message' => urlencode($gwarray['qrcode']),
         'messageEncoding' => 'iso-8859-1',
     ],
     'backgroundColor' => $gwarray['wallet_bg_color'],
