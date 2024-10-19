@@ -46,8 +46,8 @@ $awdata = [
     ],
     'barcode' => [
         'format' => 'PKBarcodeFormatQR',
-        'message' => urlencode($gwarray['qrcode']),
-        'messageEncoding' => 'iso-8859-1',
+        'message' =>  $gwarray['qrcode'],
+        'messageEncoding' => 'UTF-8',
     ],
     'backgroundColor' => $gwarray['wallet_bg_color'],
     'foregroundColor' => '#ffffff',
@@ -57,8 +57,7 @@ $awdata = [
 ];
 
  
-$awpass->setData($awdata);
-
+$awpass->setData($awdata); 
 // Add files to the pass package
 $awpass->addFile('images/icon.png');
 if ($gwarray['logo']!="")
@@ -68,4 +67,10 @@ $awpass->addFile('images/icon@2x.png');
 if ($gwarray['banner']!="")
 $awpass->addRemoteFile($gwarray['banner'],"strip.png");
 // Create and output the pass
-$awpass->create(true);
+if ($debug!=1){
+   
+    $awpass->create(true);
+}else{
+    echo "dfdf<p>";
+    var_dump($awpass);
+}
