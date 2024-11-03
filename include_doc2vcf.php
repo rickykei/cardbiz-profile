@@ -5,8 +5,8 @@
 			$company_name_chi=$document->company_name_chi;
 
 			if ($company_name_eng=="" || $company_name_chi==""){
-				$admin_company_name_eng=$document->company_detail[0]['company_name_eng'];	
-				$admin_company_name_chi=$document->company_detail[0]['company_name_chi'];
+				$admin_company_name_eng=$document->company_detail[0]['name'];	
+				$admin_company_name_chi=$document->company_detail[0]['name'];
 				$company_name_eng=$document->company_name_eng;	
 				$company_name_chi=$document->company_name_chi;
 				
@@ -16,15 +16,7 @@
  
 			$company_logo=$domain."/api/files/".$document->company_detail[0]['logo'];
 
-			//20241006  added wallet fields on company table
-			$wallet_banner=$domain."api/files/".$document->company_detail[0]['wallet_banner'];
-			$wallet_text_color=$document->company_detail[0]['wallet_text_color'];
-			$wallet_bg_color=$document->company_detail[0]['wallet_bg_color'];
-			$wallet_field1_option=$document->company_detail[0]['wallet_field1_option'];
-			$wallet_field2_option=$document->company_detail[0]['wallet_field2_option'];
-			$wallet_field3_option=$document->company_detail[0]['wallet_field3_option'];
-			$wallet_qrcode_option=$document->company_detail[0]['wallet_qrcode_option'];
-			$wallet_logo_option=$document->company_detail[0]['wallet_logo_option'];
+	
 
 			$company_id=$document->company_id;
 			
@@ -324,6 +316,18 @@
 				$qrPng .= "END:VCARD\r\n";
 			  
 //wallet 20241006
+		//20241006  added wallet fields on company table
+	
+		$wallet_text_color=$document->company_detail[0]['wallet_text_color'];
+		$wallet_bg_color=$document->company_detail[0]['wallet_bg_color'];
+		
+		
+		$wallet_field1_option=$document->company_detail[0]['wallet_field1_option'];
+		$wallet_field2_option=$document->company_detail[0]['wallet_field2_option'];
+		$wallet_field3_option=$document->company_detail[0]['wallet_field3_option'];
+		$wallet_qrcode_option=$document->company_detail[0]['wallet_qrcode_option'];
+		$wallet_logo_option=$document->company_detail[0]['wallet_logo_option'];
+
 				$wallet_text_color=$document->company_detail[0]['wallet_text_color'];
 				$wallet_bg_color=$document->company_detail[0]['wallet_bg_color'];
 			   
@@ -331,7 +335,9 @@
 				if ($wallet_logo_option==1)     $gwarray['logo']=$company_logo;
 				if ($wallet_logo_option==2)     $gwarray['logo']=$headshot;
 				if ($wallet_logo_option==3)     $gwarray['logo']="";
-				if ($gwarray['logo']=="")   $gwarray['logo']='';
+				if ($wallet_logo_option=="")     $gwarray['logo']=$company_logo;
+ 
+
 				 $gwarray['logo2']=$domain.'images/transparent.png';
 				
 				$walletField1SelectDataLabel = [" ","Name","Name","Name","Name","Company","Company","Division","Department","Country","Position"];
@@ -348,7 +354,8 @@
 				if ($wallet_field1_option==8)  $gwarray['company_name']=$department;
 				if ($wallet_field1_option==9)  $gwarray['company_name']=$country;
 				if ($wallet_field1_option==10)  $gwarray['company_name']=$position;
-				if (trim($gwarray['company_name']," ")=="")  $gwarray['company_name']="Digital Name Card";
+				if ($wallet_field1_option=="")  { $gwarray['company_name']=$company_name_eng  ;$wallet_field1_option=5;}
+				if (trim($gwarray['company_name']," ")=="")   $gwarray['company_name']="Digital Name Card";
 				$gwarray['company_name_label']=$walletField1SelectDataLabel[$wallet_field1_option];
 
 				 
@@ -363,6 +370,7 @@
 				if ($wallet_field2_option==8)  $gwarray['name']=$department;
 				if ($wallet_field2_option==9)  $gwarray['name']=$country;
 				if ($wallet_field2_option==10)  $gwarray['name']=$position;
+				if ($wallet_field2_option=="")  {$gwarray['name']=$fname." ".$lname;$wallet_field2_option=2;}
 				if (trim($gwarray['name']," ")=="")  $gwarray['name']="N/A";
 				$gwarray['name_label']=$walletField1SelectDataLabel[$wallet_field2_option];
 				
@@ -377,35 +385,53 @@
 				if ($wallet_field3_option==8)  $gwarray['position']=$department;
 				if ($wallet_field3_option==9)  $gwarray['position']=$country;
 				if ($wallet_field3_option==10)  $gwarray['position']=$position;
+				if ($wallet_field3_option=="")  { $gwarray['position']=$position; $wallet_field3_option=10;}
 				if (trim($gwarray['position']," ")=="")  $gwarray['position']="N/A";
 				$gwarray['position_label']=$walletField1SelectDataLabel[$wallet_field3_option];
+
+
 				
-				$gwarray['banner']=$wallet_banner;
-				if ($gwarray['banner']=="")  $gwarray['banner']="https://e-profile.digital/strip.png";
+			 
+				if ($document->company_detail[0]['wallet_banner']=="") 
+					$gwarray['banner']="https://profiles.digital/strip.png";
+				else
+					$gwarray['banner']=$domain."api/files/".$document->company_detail[0]['wallet_banner'];
 			  
 			   
 				if ($wallet_qrcode_option==1)     $gwarray['qrcode']=$qrPng;
 				if ($wallet_qrcode_option==2)     $gwarray['qrcode']=$domain."?key=".$encrypted;
 				if ($wallet_qrcode_option==3)     $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=1";
 				if ($wallet_qrcode_option==4)     $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=0";
+				if ($wallet_qrcode_option=="")  $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=0";
 			  
 				$gwarray['wallet_bg_color']=$wallet_bg_color;
+				if($gwarray['wallet_bg_color']=="") $gwarray['wallet_bg_color']="#000000"; 
+
 				$gwarray['wallet_text_color']=$wallet_text_color;
+				if($gwarray['wallet_text_color']=="") $gwarray['wallet_text_color']="#FFFFFF"; 
 
 				if ($debug==1){
-					echo "<p>";
-					echo "wo1=".$wallet_field1_option."<p>";
-					echo "wo2=".$wallet_field2_option."<p>"; 
-					echo "wo3=".$wallet_field3_option."<p>"; 
+				 
+					echo "<p>"; 
+					echo "gwarray wallet_text_color=".$gwarray['wallet_text_color']."<p>";
+					echo "gwarray wallet_bg_color=".$gwarray['wallet_bg_color']."<p>";
+					echo "gwarray wallet_logo_option=".$wallet_logo_option."<p>";
+					echo "gwarray logo=".$gwarray['logo']."<p>";
+					echo "gwarray banner=".$gwarray['banner']."<p>"; 
+					echo "wallet_field1_option=".$wallet_field1_option."<p>";
+					echo "wallet_field2_option=".$wallet_field2_option."<p>"; 
+					echo "wallet_field3_option=".$wallet_field3_option."<p>"; 
+					echo "company_logo=".$company_logo; 
+					
 					echo "comp_name_label=".$gwarray['company_name_label']."<p>";
 					echo "comp_name=".$gwarray['company_name']."<p>";
 					echo "name_label=".$gwarray['name_label']."<p>";
 					echo "gwa name=".$gwarray['name']."<p>"; 
 					echo "gwa position_label=".$gwarray['position_label']."<p>"; 
-					echo "gwa position".$gwarray['position']."<p>"; 
+					echo "gwa position=".$gwarray['position']."<p>"; 
 					echo "qrstring=".$gwarray['qrcode']."<p>";
 				}
-
+ 
 
  function get_content($URL){
       $ch = curl_init();

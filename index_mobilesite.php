@@ -10,13 +10,13 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             background-color: #f5f5f5;
-            color: #333;
+            color: <?php if ($wallet_bg_color=="") echo "#FFFFFF"; else echo $wallet_bg_color;?>;
         }
         .container {
             max-width: 370px;
             margin: 20px auto;
             padding: 0px;
-            background-color: <?php if ($wallet_bg_color=="") echo "#D32"; else echo $wallet_bg_color;?>;
+            background-color: <?php if ($wallet_bg_color=="") echo "#000000"; else echo $wallet_bg_color;?>;
             border-radius: 30px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
