@@ -402,7 +402,7 @@
 				if ($wallet_qrcode_option==2)     $gwarray['qrcode']=$domain."?key=".$encrypted;
 				if ($wallet_qrcode_option==3)     $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=1";
 				if ($wallet_qrcode_option==4)     $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=0";
-				if ($wallet_qrcode_option=="")  $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=0";
+				if ($wallet_qrcode_option=="")  { $gwarray['qrcode']=$domain."?key=".$encrypted."&bo=0"; $wallet_qrcode_option=4;}
 			  
 				$gwarray['wallet_bg_color']=$wallet_bg_color;
 				if($gwarray['wallet_bg_color']=="") $gwarray['wallet_bg_color']="#000000"; 
@@ -412,10 +412,12 @@
 
 				if ($debug==1){
 				 
+					echo "<font color=black>sig=".$sig;
 					echo "<p>"; 
 					echo "gwarray wallet_text_color=".$gwarray['wallet_text_color']."<p>";
 					echo "gwarray wallet_bg_color=".$gwarray['wallet_bg_color']."<p>";
 					echo "gwarray wallet_logo_option=".$wallet_logo_option."<p>";
+					echo "gwarray wallet_qrcode_option=".$wallet_qrcode_option."<p>"; 
 					echo "gwarray logo=".$gwarray['logo']."<p>";
 					echo "gwarray banner=".$gwarray['banner']."<p>"; 
 					echo "wallet_field1_option=".$wallet_field1_option."<p>";
@@ -429,7 +431,7 @@
 					echo "gwa name=".$gwarray['name']."<p>"; 
 					echo "gwa position_label=".$gwarray['position_label']."<p>"; 
 					echo "gwa position=".$gwarray['position']."<p>"; 
-					echo "qrstring=".$gwarray['qrcode']."<p>";
+					echo "qrstring=".$gwarray['qrcode']."</font><p>";
 				}
  
 
