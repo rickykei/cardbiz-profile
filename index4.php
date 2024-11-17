@@ -180,17 +180,17 @@
                                  <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="120" height="120"  style="border-radius: 50% ; margin-right: 15px;" />
                                 
                             </div><br>
-                        <div class="home-box">
-                        <h1><strong><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-                                    <?php echo $oname; ?></strong></h1>
-<!--                        <h2><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>-->
+                        <div class="home-box bottom15">
+                            <h1><strong><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></strong></h1>
+                        <h1><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
+                                    <?php echo $oname; ?></h1>
                             <p><?php echo "$position" ; ?></p>
                         <!--
                                 <p><?php echo "$bio" ; ?>
                                 </p>
 -->
                             </div>
-                        <ul class="list top15 bottom15" style="font-size: 80%; line-height: 1.8;">
+                        <ul class="list top15 bottom15" style="font-size: 80%; line-height: 1.8; max-width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">
 						<?php if ($mobile != "") { ?>
     <li><span>Mobile :</span> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
 <?php } ?>
@@ -246,6 +246,15 @@
 							<?php } ?>
                              <?php if ($address!=""){ ?>
                             <li><span>Address :</span> <?php echo "$address" ; ?></li> 
+							<?php } ?>
+                            <?php if ($address2!=""){ ?>
+                            <li><span>Address :</span> <?php echo "$address2" ; ?></li>
+							<?php } ?>
+                            <?php if ($web_link!=""){ ?>
+                            <li><span><?php echo $web_link_label;?>:</span> <a href="<?php echo "$web_link" ; ?>" target="_blank"><?php echo $web_link; ?></a></li>
+							<?php } ?>
+                            <?php if ($web_link2!=""){ ?>
+                            <li><span><?php echo $web_link_label2;?>:</span> <a href="<?php echo "$web_link2" ; ?>" target="_blank"><?php echo $web_link2; ?></a></li>
 							<?php } ?>
                         </ul>
                         

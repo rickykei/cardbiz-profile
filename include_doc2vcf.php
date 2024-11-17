@@ -33,6 +33,13 @@
 			$title_eng=$document->title_eng;
 			$title_chi=$document->title_chi;
 			
+			$work_email_label= $document->work_email_label;
+			$work_email2_label= $document->work_email2_label;
+			$work_email3_label= $document->work_email3_label;
+
+			$home_email_label= $document->home_email_label;
+			$other_email_label = $document->other_email_label;
+
 			$work_email= $document->work_email;
 			$work_email2= $document->work_email2;
 			$work_email3= $document->work_email3;
@@ -46,6 +53,11 @@
 			
 			$position=$document->position;
 			
+			$work_tel_label=$document->work_tel_label;
+			$work_tel2_label=$document->work_tel2_label;
+			$work_tel3_label=$document->work_tel3_label;
+			$work_tel4_label=$document->work_tel4_label;
+
 			$work_tel=$document->work_tel;
 			$work_tel2=$document->work_tel2;
 			$work_tel3=$document->work_tel3;
@@ -55,7 +67,7 @@
 			$direct_tel2=$document->direct_tel2;
 			$direct_tel3=$document->direct_tel3;
 
-			$home_tel=$document->home_tel;
+		
 			
 			$web_link=$document->web_link;
 			$web_link_label=$document->web_link_label;
@@ -79,14 +91,25 @@
 			$web_link6=$document->web_link6;
 			$web_link_label6=$document->web_link_label6;
 
+			$mobile_label= $document->mobile_label;
+			$mobile2_label= $document->mobile2_label;
+			$mobile3_label= $document->mobile3_label;
+			$mobile4_label= $document->mobile4_label;
+			$home_tel_label=$document->home_tel_label;
+			$fax_label= $document->fax_label;
+
 			$mobile= $document->mobile;
 			$mobile2= $document->mobile2;
 			$mobile3= $document->mobile3;
 			$mobile4= $document->mobile4;
-			
-			 
+			$home_tel=$document->home_tel;
 			$fax= $document->fax;
-			 
+			
+			$address_label= $document->address_label;
+			$address2_label= $document->address2_label;
+			$address3_label= $document->address3_label;
+			$address4_label= $document->address4_label;
+			
 			 
 			$address= $document->address;
 			$address2= $document->address2;

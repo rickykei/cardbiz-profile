@@ -127,7 +127,9 @@
                     <div class="floor about">
                     	<h2 class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
                        
-                        <ul class="list top15 bottom30">
+                        <ul class="list top15 bottom30" style="max-width: 100%;
+    word-wrap: break-word;     /* Break long words if needed */
+    overflow-wrap: break-word;">
                             <?php if ($company_website_url!=""){ ?>
                             <li><span>Company Website :</span> <a href="<?php echo "$company_website_url" ; ?>" target="_blank"><?php echo "$company_website_url" ; ?></a></li>
 							<?php } ?>
@@ -150,16 +152,16 @@
                             <li><span><?php echo $web_link_label6;?>:</span> <a href="<?php echo "$web_link6" ; ?>" target="_blank"><?php echo $web_link6; ?></a></li>
 							<?php } ?>
                             <?php if ($address!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address" ; ?></li> 
+                            <li><span><?php echo $address_label;?> :</span> <?php echo "$address" ; ?></li> 
 							<?php } ?>
                             <?php if ($address2!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address2" ; ?></li>
+                            <li><span><?php echo $address2_label;?> :</span> <?php echo "$address2" ; ?></li>
 							<?php } ?>
                             <?php if ($address3!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address3" ; ?></li> 
+                            <li><span><?php echo $address3_label;?> :</span> <?php echo "$address3" ; ?></li> 
 							<?php } ?>
                             <?php if ($address4!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address4" ; ?></li>
+                            <li><span><?php echo $address4_label;?> :</span> <?php echo "$address4" ; ?></li>
 							<?php } ?>
                         </ul>
 						<?php if ($more_info_tab_url!=""){ ?>
@@ -177,44 +179,44 @@
                         
                         <ul class="list top15 bottom15">
 						<?php if ($mobile != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
+    <li><span><?php echo $mobile_label;?> :</span> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
 <?php } ?>
 <?php if ($mobile2 != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile2; ?>"><?php echo $mobile2; ?></a></li>
+    <li><span><?php echo $mobile2_label;?> :</span> <a href="tel:<?php echo $mobile2; ?>"><?php echo $mobile2; ?></a></li>
 <?php } ?>
 <?php if ($mobile3 != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile3; ?>"><?php echo $mobile3; ?></a></li>
+    <li><span><?php echo $mobile3_label;?> :</span> <a href="tel:<?php echo $mobile3; ?>"><?php echo $mobile3; ?></a></li>
 <?php } ?>
 <?php if ($mobile4 != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile4; ?>"><?php echo $mobile4; ?></a></li>
+    <li><span><?php echo $mobile4_label;?> :</span> <a href="tel:<?php echo $mobile4; ?>"><?php echo $mobile4; ?></a></li>
 <?php } ?>
 <?php if ($work_tel != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
+    <li><span><?php echo $work_tel_label;?> :</span> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
 <?php } ?>
 <?php if ($work_tel2 != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel2; ?>"><?php echo $work_tel2; ?></a></li>
+    <li><span><?php echo $work_tel2_label;?> :</span> <a href="tel:<?php echo $work_tel2; ?>"><?php echo $work_tel2; ?></a></li>
 <?php } ?>
 <?php if ($work_tel3 != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel3; ?>"><?php echo $work_tel3; ?></a></li>
+    <li><span><?php echo $work_tel3_label;?> :</span> <a href="tel:<?php echo $work_tel3; ?>"><?php echo $work_tel3; ?></a></li>
 <?php } ?>
 <?php if ($work_tel4 != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
+    <li><span><?php echo $work_tel4_label;?> :</span> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
 <?php } ?>
 
                             <?php if ($work_email != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+    <li><span><?php echo $work_email_label;?> :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
 <?php } ?>
 <?php if ($work_email2 != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
+    <li><span><?php echo $work_email2_label;?> :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
 <?php } ?>
 <?php if ($work_email3 != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
+    <li><span><?php echo $work_email3_label;?> :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
 <?php } ?>
 <?php if ($home_email != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
+    <li><span><?php echo $home_email_label;?> :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
 <?php } ?>
 <?php if ($other_email != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
+    <li><span><?php echo $other_email_label;?> :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
 <?php } ?>
 
                             <?php if ($fax!=""){ ?>
