@@ -134,34 +134,34 @@
                             <li><span>Company Website :</span> <a href="<?php echo "$company_website_url" ; ?>" target="_blank"><?php echo "$company_website_url" ; ?></a></li>
 							<?php } ?>
 							<?php if ($web_link!=""){ ?>
-                            <li><span><?php echo $web_link_label;?>:</span> <a href="<?php echo "$web_link" ; ?>" target="_blank"><?php echo $web_link; ?></a></li>
+                            <li><span><?php echo $web_link_label;?> :</span> <a href="<?php echo "$web_link" ; ?>" target="_blank"><?php echo $web_link; ?></a></li>
 							<?php } ?>
                             <?php if ($web_link2!=""){ ?>
-                            <li><span><?php echo $web_link_label2;?>:</span> <a href="<?php echo "$web_link2" ; ?>" target="_blank"><?php echo $web_link2; ?></a></li>
+                            <li><span><?php echo $web_link_label2;?> :</span> <a href="<?php echo "$web_link2" ; ?>" target="_blank"><?php echo $web_link2; ?></a></li>
 							<?php } ?>
                             <?php if ($web_link3!=""){ ?>
-                            <li><span><?php echo $web_link_label3;?>:</span> <a href="<?php echo "$web_link3" ; ?>" target="_blank"><?php echo $web_link3; ?></a></li>
+                            <li><span><?php echo $web_link_label3;?> :</span> <a href="<?php echo "$web_link3" ; ?>" target="_blank"><?php echo $web_link3; ?></a></li>
 							<?php } ?>
                             <?php if ($web_link4!=""){ ?>
-                            <li><span><?php echo $web_link_label4;?>:</span> <a href="<?php echo "$web_link4" ; ?>" target="_blank"><?php echo $web_link4; ?></a></li>
+                            <li><span><?php echo $web_link_label4;?> :</span> <a href="<?php echo "$web_link4" ; ?>" target="_blank"><?php echo $web_link4; ?></a></li>
 							<?php } ?>
                             <?php if ($web_link5!=""){ ?>
-                            <li><span><?php echo $web_link_label5;?>:</span> <a href="<?php echo "$web_link5" ; ?>" target="_blank"><?php echo $web_link5; ?></a></li>
+                            <li><span><?php echo $web_link_label5;?> :</span> <a href="<?php echo "$web_link5" ; ?>" target="_blank"><?php echo $web_link5; ?></a></li>
 							<?php } ?>
                             <?php if ($web_link6!=""){ ?>
-                            <li><span><?php echo $web_link_label6;?>:</span> <a href="<?php echo "$web_link6" ; ?>" target="_blank"><?php echo $web_link6; ?></a></li>
+                            <li><span><?php echo $web_link_label6;?> :</span> <a href="<?php echo "$web_link6" ; ?>" target="_blank"><?php echo $web_link6; ?></a></li>
 							<?php } ?>
                             <?php if ($address!=""){ ?>
-                            <li><span><?php echo $address_label;?> :</span> <?php echo "$address" ; ?></li> 
+                            <li><span><?php echo $address_label;?>  :</span> <?php echo "$address" ; ?></li> 
 							<?php } ?>
                             <?php if ($address2!=""){ ?>
-                            <li><span><?php echo $address2_label;?> :</span> <?php echo "$address2" ; ?></li>
+                            <li><span><?php echo $address2_label;?>  :</span> <?php echo "$address2" ; ?></li>
 							<?php } ?>
                             <?php if ($address3!=""){ ?>
-                            <li><span><?php echo $address3_label;?> :</span> <?php echo "$address3" ; ?></li> 
+                            <li><span><?php echo $address3_label;?>  :</span> <?php echo "$address3" ; ?></li> 
 							<?php } ?>
                             <?php if ($address4!=""){ ?>
-                            <li><span><?php echo $address4_label;?> :</span> <?php echo "$address4" ; ?></li>
+                            <li><span><?php echo $address4_label;?>  :</span> <?php echo "$address4" ; ?></li>
 							<?php } ?>
                         </ul>
 						<?php if ($more_info_tab_url!=""){ ?>
@@ -202,26 +202,28 @@
 <?php if ($work_tel4 != "") { ?>
     <li><span><?php echo $work_tel4_label;?> :</span> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
 <?php } ?>
-
-                            <?php if ($work_email != "") { ?>
-    <li><span><?php echo $work_email_label;?> :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
-<?php } ?>
-<?php if ($work_email2 != "") { ?>
-    <li><span><?php echo $work_email2_label;?> :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
-<?php } ?>
-<?php if ($work_email3 != "") { ?>
-    <li><span><?php echo $work_email3_label;?> :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
-<?php } ?>
-<?php if ($home_email != "") { ?>
-    <li><span><?php echo $home_email_label;?> :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
-<?php } ?>
-<?php if ($other_email != "") { ?>
-    <li><span><?php echo $other_email_label;?> :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
+<?php if ($home_tel != "") { ?>
+    <li><span><?php echo $home_tel_label;?> :</span> <a href="tel:<?php echo $home_tel; ?>"><?php echo $home_tel; ?></a></li>
 <?php } ?>
 
                             <?php if ($fax!=""){ ?>
-                            <li><span>Fax :</span> <?php echo $fax; ?></li>
+                            <li><span><?php echo $fax_label;?> :</span> <?php echo $fax; ?></li>
 							<?php } ?>
+                             <?php if ($work_email != "") { ?>
+    <li><span><?php echo $work_email_label;?> Email :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+<?php } ?>
+<?php if ($work_email2 != "") { ?>
+    <li><span><?php echo $work_email2_label;?> Email :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
+<?php } ?>
+<?php if ($work_email3 != "") { ?>
+    <li><span><?php echo $work_email3_label;?> Email :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
+<?php } ?>
+<?php if ($home_email != "") { ?>
+    <li><span><?php echo $home_email_label;?> Email :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
+<?php } ?>
+<?php if ($other_email != "") { ?>
+    <li><span><?php echo $other_email_label;?> Email :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
+<?php } ?>
 							<?php if ($wechat_id!=""){ ?>
                             <li><span>Wechat ID :</span> <?php echo $wechat_id; ?></li>                            
 							<?php } ?>

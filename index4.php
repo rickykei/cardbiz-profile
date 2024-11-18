@@ -181,9 +181,10 @@
                                 
                             </div><br>
                         <div class="home-box bottom15">
-                            <h1><strong><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></strong></h1>
-                        <h1><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-                                    <?php echo $oname; ?></h1>
+                        <h1><strong><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
+                                    <?php echo $oname; ?></strong></h1>
+                            
+                            <h1><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h1>
                             <p><?php echo "$position" ; ?></p>
                         <!--
                                 <p><?php echo "$bio" ; ?>
@@ -192,69 +193,65 @@
                             </div>
                         <ul class="list top15 bottom15" style="font-size: 80%; line-height: 1.8; max-width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">
 						<?php if ($mobile != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
+    <li><span><?php echo $mobile_label;?> :</span> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
 <?php } ?>
 <?php if ($mobile2 != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile2; ?>"><?php echo $mobile2; ?></a></li>
+    <li><span><?php echo $mobile2_label;?> :</span> <a href="tel:<?php echo $mobile2; ?>"><?php echo $mobile2; ?></a></li>
 <?php } ?>
-<!--
 <?php if ($mobile3 != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile3; ?>"><?php echo $mobile3; ?></a></li>
+    <li><span><?php echo $mobile3_label;?> :</span> <a href="tel:<?php echo $mobile3; ?>"><?php echo $mobile3; ?></a></li>
 <?php } ?>
 <?php if ($mobile4 != "") { ?>
-    <li><span>Mobile :</span> <a href="tel:<?php echo $mobile4; ?>"><?php echo $mobile4; ?></a></li>
+    <li><span><?php echo $mobile4_label;?> :</span> <a href="tel:<?php echo $mobile4; ?>"><?php echo $mobile4; ?></a></li>
 <?php } ?>
--->
 <?php if ($work_tel != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
+    <li><span><?php echo $work_tel_label;?> :</span> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
 <?php } ?>
 <?php if ($work_tel2 != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel2; ?>"><?php echo $work_tel2; ?></a></li>
+    <li><span><?php echo $work_tel2_label;?> :</span> <a href="tel:<?php echo $work_tel2; ?>"><?php echo $work_tel2; ?></a></li>
 <?php } ?>
-<!--
 <?php if ($work_tel3 != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel3; ?>"><?php echo $work_tel3; ?></a></li>
+    <li><span><?php echo $work_tel3_label;?> :</span> <a href="tel:<?php echo $work_tel3; ?>"><?php echo $work_tel3; ?></a></li>
 <?php } ?>
 <?php if ($work_tel4 != "") { ?>
-    <li><span>Phone :</span> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
+    <li><span><?php echo $work_tel4_label;?> :</span> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
 <?php } ?>
--->
-
-                            <?php if ($work_email != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+<?php if ($home_tel != "") { ?>
+    <li><span><?php echo $home_tel_label;?> :</span> <a href="tel:<?php echo $home_tel; ?>"><?php echo $home_tel; ?></a></li>
 <?php } ?>
-<?php if ($work_email2 != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
-<?php } ?>
-<!--
-<?php if ($work_email3 != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
-<?php } ?>
-<?php if ($home_email != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
-<?php } ?>
-<?php if ($other_email != "") { ?>
-    <li><span>Email :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
-<?php } ?>
--->
 
                             <?php if ($fax!=""){ ?>
-                            <li><span>Fax :</span> <?php echo $fax; ?></li>
+                            <li><span><?php echo $fax_label;?> :</span> <?php echo $fax; ?></li>
 							<?php } ?>
+                             <?php if ($work_email != "") { ?>
+    <li><span><?php echo $work_email_label;?> Email :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+<?php } ?>
+<?php if ($work_email2 != "") { ?>
+    <li><span><?php echo $work_email2_label;?> Email :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
+<?php } ?>
+<?php if ($work_email3 != "") { ?>
+    <li><span><?php echo $work_email3_label;?> Email :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
+<?php } ?>
+<?php if ($home_email != "") { ?>
+    <li><span><?php echo $home_email_label;?> Email :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
+<?php } ?>
+<?php if ($other_email != "") { ?>
+    <li><span><?php echo $other_email_label;?> Email :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
+<?php } ?>
 							<?php if ($wechat_id!=""){ ?>
-                            <li><span>Wechat ID :</span> <?php echo $wechat_id; ?></li>
+                            <li><span>Wechat ID :</span> <?php echo $wechat_id; ?></li>                            
 							<?php } ?>
                              <?php if ($address!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address" ; ?></li> 
+                            <li><span><?php echo $address_label;?> Address :</span> <?php echo "$address" ; ?></li> 
 							<?php } ?>
                             <?php if ($address2!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address2" ; ?></li>
+                            <li><span><?php echo $address2_label;?> Address :</span> <?php echo "$address2" ; ?></li>
 							<?php } ?>
-                            <?php if ($web_link!=""){ ?>
-                            <li><span><?php echo $web_link_label;?>:</span> <a href="<?php echo "$web_link" ; ?>" target="_blank"><?php echo $web_link; ?></a></li>
+                            <?php if ($address3!=""){ ?>
+                            <li><span><?php echo $address3_label;?> Address :</span> <?php echo "$address3" ; ?></li> 
 							<?php } ?>
-                            <?php if ($web_link2!=""){ ?>
-                            <li><span><?php echo $web_link_label2;?>:</span> <a href="<?php echo "$web_link2" ; ?>" target="_blank"><?php echo $web_link2; ?></a></li>
+                            <?php if ($address4!=""){ ?>
+                            <li><span><?php echo $address4_label;?> Address :</span> <?php echo "$address4" ; ?></li>
 							<?php } ?>
                         </ul>
                         

@@ -33,12 +33,21 @@
 			$title_eng=$document->title_eng;
 			$title_chi=$document->title_chi;
 			
+			 
 			$work_email_label= $document->work_email_label;
 			$work_email2_label= $document->work_email2_label;
 			$work_email3_label= $document->work_email3_label;
 
+			if ($work_email_label=="")	$work_email_label="Work";
+			if ($work_email2_label=="")	$work_email2_label="Work";
+			if ($work_email3_label=="")	$work_email3_label="Work";
+		
+
 			$home_email_label= $document->home_email_label;
 			$other_email_label = $document->other_email_label;
+			if ($home_email_label=="")	$home_email_label="Home";
+			if ($other_email_label=="")	$other_email_label="Other";
+		
 
 			$work_email= $document->work_email;
 			$work_email2= $document->work_email2;
@@ -57,6 +66,10 @@
 			$work_tel2_label=$document->work_tel2_label;
 			$work_tel3_label=$document->work_tel3_label;
 			$work_tel4_label=$document->work_tel4_label;
+			if ($work_tel_label=="")	$work_tel_label="Work";
+			if ($work_tel2_label=="")	$work_tel2_label="Work";
+			if ($work_tel3_label=="")	$work_tel3_label="Work";
+			if ($work_tel4_label=="")	$work_tel4_label="Work";
 
 			$work_tel=$document->work_tel;
 			$work_tel2=$document->work_tel2;
@@ -97,6 +110,15 @@
 			$mobile4_label= $document->mobile4_label;
 			$home_tel_label=$document->home_tel_label;
 			$fax_label= $document->fax_label;
+			if ($mobile_label=="")	$mobile_label="Mobile";
+			if ($mobile2_label=="")	$mobile2_label="Mobile";
+			if ($mobile3_label=="")	$mobile3_label="Mobile";
+			if ($mobile4_label=="")	$mobile4_label="Mobile";
+			if ($home_tel_label=="")	$home_tel_label="Home";
+			if ($fax_label=="")	$fax_label="Fax";
+
+
+
 
 			$mobile= $document->mobile;
 			$mobile2= $document->mobile2;
@@ -109,7 +131,11 @@
 			$address2_label= $document->address2_label;
 			$address3_label= $document->address3_label;
 			$address4_label= $document->address4_label;
-			
+			if ($address_label=="")	$address_label="Address";
+			if ($address2_label=="")	$address2_label="Address";
+			if ($address3_label=="")	$address3_label="Address";
+			if ($address4_label=="")	$address4_label="Address";
+
 			 
 			$address= $document->address;
 			$address2= $document->address2;
