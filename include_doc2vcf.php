@@ -110,10 +110,10 @@
 			$mobile4_label= $document->mobile4_label;
 			$home_tel_label=$document->home_tel_label;
 			$fax_label= $document->fax_label;
-			if ($mobile_label=="")	$mobile_label="Mobile";
-			if ($mobile2_label=="")	$mobile2_label="Mobile";
-			if ($mobile3_label=="")	$mobile3_label="Mobile";
-			if ($mobile4_label=="")	$mobile4_label="Mobile";
+			if ($mobile_label=="")	$mobile_label="Cell";
+			if ($mobile2_label=="")	$mobile2_label="Cell";
+			if ($mobile3_label=="")	$mobile3_label="Cell";
+			if ($mobile4_label=="")	$mobile4_label="Cell";
 			if ($home_tel_label=="")	$home_tel_label="Home";
 			if ($fax_label=="")	$fax_label="Fax";
 
