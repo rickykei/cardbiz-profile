@@ -210,19 +210,19 @@
                             <li><span><?php echo $fax_label;?> :</span> <?php echo $fax; ?></li>
 							<?php } ?>
                              <?php if ($work_email != "") { ?>
-    <li><span><?php echo $work_email_label;?> Email :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+    <li><span><?php echo $work_email_label;?> :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
 <?php } ?>
 <?php if ($work_email2 != "") { ?>
-    <li><span><?php echo $work_email2_label;?> Email :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
+    <li><span><?php echo $work_email2_label;?> :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
 <?php } ?>
 <?php if ($work_email3 != "") { ?>
-    <li><span><?php echo $work_email3_label;?> Email :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
+    <li><span><?php echo $work_email3_label;?> :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
 <?php } ?>
 <?php if ($home_email != "") { ?>
-    <li><span><?php echo $home_email_label;?> Email :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
+    <li><span><?php echo $home_email_label;?> :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
 <?php } ?>
 <?php if ($other_email != "") { ?>
-    <li><span><?php echo $other_email_label;?> Email :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
+    <li><span><?php echo $other_email_label;?> :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
 <?php } ?>
 							<?php if ($wechat_id!=""){ ?>
                             <li><span>Wechat ID :</span> <?php echo $wechat_id; ?></li>                            
