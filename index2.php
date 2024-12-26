@@ -318,7 +318,7 @@
                     <div class="floor contact">
                    		<h2 class="page-title">Wechat</h2>
                             <?php if ($wechat_id!=""){ ?>
-                            <?php include_once("gen2qrcode.php"); ?>                         
+                                <img src="/?key=<?php echo $encrypted;?>&qrtype=8" alt=""  width="250" >                  
 							<?php } ?>
                     </div>
                     </div>
