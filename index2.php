@@ -92,6 +92,9 @@
                                     <li><a>ABOUT ME</a></li>
                                     <li><a>OUR COMPANY</a> </li>
                                     <li><a>GET IN TOUCH</a></li>
+                                    <?php if ($wechat_id!=""){ ?>
+                                    <li><a>Wechat</a></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                            
@@ -309,6 +312,17 @@
                          
                     </div>
                     <!-- CONTACT END-->
+
+                    <!-- Wechat SECTION-->
+                    <div class="scroll-out">
+                    <div class="floor contact">
+                   		<h2 class="page-title">Wechat</h2>
+                            <?php if ($wechat_id!=""){ ?>
+                            <?php include_once("gen2qrcode.php"); ?>                         
+							<?php } ?>
+                    </div>
+                    </div>
+                    <!-- Wechat End-->       
                 </div>
         </div>
     </div> <!-- wrapper end -->
