@@ -64,7 +64,7 @@ $gq=$_GET['gq'];
 $genaw=$_GET['genaw'];
 $gengw=$_GET['gengw'];
 $mobilesite=$_GET['mobilesite'];
-
+$stylecss=$_GET['stylecss'];
  
 
 if ($debug==1){
@@ -77,6 +77,7 @@ if ($debug==1){
 	echo "<br>genaw=".$genaw;
 	echo "<br>gengw=".$gengw;
 	echo "<br>mobilesite=".$mobilesite;
+	echo "<br>stylecss=".$stylecss;
 
 }
 else
@@ -121,14 +122,9 @@ if ($sig!=""|| $uid!=""){
 			// redirect to which path VCF or e-profile
 			
 			if ($qrtype=="" && $genaw!=1 && $gengw!=1 && $mobilesite!=1){
-				if ($bizcard_option==true || $bo==1 ){ 
-
-				
+				if ($bizcard_option==true || $bo==1 ){  
 					include_once("profile.php");
-					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume";
-				
-				 
-			
+					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume"; 
 				}else if ($bizcard_option==false || $bo==0 ) {
 					 
 					$str=$domain."genvcf.php?key=".$encrypted;

@@ -26,13 +26,13 @@
 
 
 /*------------------------ 1 Body and Core Css ------------------------*/		
-
+/*---
 body{
 	background:url(../images/bg.jpg) #f7f6f3 fixed;
 	height: 100%;
 	font-family: 'Lora', serif;
 }
-
+----*/		
 html{
 	height: 100%;
 }
@@ -140,11 +140,13 @@ html{
 	-ms-transform-origin: left top;
     -ms-transform:rotate(-90deg) translateX(-100%);
 }
+/*---
 .links-to-floor {    
     margin:0 auto;
     height:100%;    
 	font-family: 'Lato', sans-serif;    
 }
+----*/		
 
 .links-to-floor li {    
     margin-right:20px;
@@ -231,7 +233,7 @@ html{
     color: #fff;
     background:#ea4c89;
 }
-
+/*ricky
 p{
   font-size: 14px;
   font-weight:400;
@@ -646,7 +648,7 @@ p{
 
 
 /*------------------------ 3 About Me ------------------------*/	
-
+/*--
 .list{
 font-size: 14px;
   font-weight:400;
@@ -657,7 +659,7 @@ font-size: 14px;
 .list span{
   color:#000;
 }
-
+---*/	
 .about a.recoba-btn2{
 	margin-right:7px;
 }

@@ -14,9 +14,63 @@
 			if ($document->company_detail[0]['profile_theme']!="")
 			$profile_theme=$domain."/api/files/".$document->company_detail[0]['profile_theme']; 
  
+			if ($document->company_detail[0]['logo']!="")
 			$company_logo=$domain."/api/files/".$document->company_detail[0]['logo'];
 
-	
+
+			//minisite style sheet 20250105
+			$minisite_font_size=14;
+			$minisite_font_color="#8c8c8c";
+			$minisite_font_family="Lato";
+			$minisite_bg_color="#f7f6f3";
+			$minisite_text_color="";
+			$minisite_title_text_color="#000000";
+			$minisite_social_icon_bg_color="";
+			$minisite_button_color="";
+			$minisite_links_hover_color="";
+			$minisite_links_not_hover_color="";
+			$minisite_links_selected_color="";
+			$minisite_left_nav_bar_color="";
+			$minisite_bio_wording_color="";
+			$minisite_photo_color="";
+			$minisite_site_bg_color="";
+			$minisite_bg_image="";
+			
+			if ($document->company_detail[0]['font_color']!="")
+			$minisite_font_color=$document->company_detail[0]['font_color'];
+			if ($document->company_detail[0]['font_size']!="")
+			$minisite_font_size=$document->company_detail[0]['font_size'];
+			if ($document->company_detail[0]['font_family']!="")
+			$minisite_font_family=$document->company_detail[0]['font_family'];
+			if ($document->company_detail[0]['bg_color']!="")
+			$minisite_bg_color=$document->company_detail[0]['bg_color'];
+			if ($document->company_detail[0]['text_color']!="")
+			$minisite_text_color=$document->company_detail[0]['text_color'];
+			if ($document->company_detail[0]['title_text_color']!="")
+			$minisite_title_text_color=$document->company_detail[0]['title_text_color']; 
+  			if ($document->company_detail[0]['social_icon_bg_color']!="")
+			$minisite_social_icon_bg_color=$document->company_detail[0]['social_icon_bg_color'];  
+			if ($document->company_detail[0]['button_color']!="")
+			$minisite_button_color=$document->company_detail[0]['button_color'];  
+			if ($document->company_detail[0]['links_hover_color']!="")
+			$minisite_links_hover_color=$document->company_detail[0]['links_hover_color'];  
+			if ($document->company_detail[0]['links_not_hover_color']!="")
+			$minisite_links_not_hover_color=$document->company_detail[0]['links_not_hover_color'];  
+			if ($document->company_detail[0]['links_selected_color']!="")
+			$minisite_links_selected_color=$document->company_detail[0]['links_selected_color'];  
+			if ($document->company_detail[0]['left_nav_bar_color']!="")
+			$minisite_left_nav_bar_color=$document->company_detail[0]['left_nav_bar_color'];  
+			if ($document->company_detail[0]['bio_wording_color']!="")
+			$minisite_bio_wording_color=$document->company_detail[0]['bio_wording_color'];  
+			if ($document->company_detail[0]['photo_color']!="")
+			$minisite_photo_color=$document->company_detail[0]['photo_color'];  
+			if ($document->company_detail[0]['site_bg_color']!="")
+			$minisite_site_bg_color=$document->company_detail[0]['site_bg_color'];  
+			if ($document->company_detail[0]['bg_image']!="")
+			$minisite_bg_image=$document->company_detail[0]['bg_image'];  
+			        
+		       
+
 
 			$company_id=$document->company_id;
 			
