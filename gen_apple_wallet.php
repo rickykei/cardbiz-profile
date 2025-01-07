@@ -34,16 +34,14 @@ $awdata = [
             [
                 'key' => 'name',
                 'label' => $gwarray['name_label'],
-                'value' =>  $gwarray['name'],
-                'isRelative' => true
+                'value' =>  $gwarray['name'] 
 
 
             ],
             [
                 'key' => 'position',
                 'label' =>  $gwarray['position_label'],
-                'value' => $gwarray['position'],
-                'isRelative' => true
+                'value' => $gwarray['position'] 
             ],
         ],
         'transitType' => 'PKTransitTypeAir',
