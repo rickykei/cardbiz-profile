@@ -35,11 +35,15 @@ $awdata = [
                 'key' => 'name',
                 'label' => $gwarray['name_label'],
                 'value' =>  $gwarray['name'],
+                'isRelative' => true
+
+
             ],
             [
                 'key' => 'position',
                 'label' =>  $gwarray['position_label'],
                 'value' => $gwarray['position'],
+                'isRelative' => true
             ],
         ],
         'transitType' => 'PKTransitTypeAir',
@@ -53,7 +57,7 @@ $awdata = [
     'foregroundColor' => '#ffffff',
     'labelColor' => '#ffffff',
     'logoText' => $gwarray['company_name'],
-    'relevantDate' => date('Y-m-d\TH:i:sP')
+    'relevantDate' => date('9999-m-d\TH:i:sP')
 ];
 
  
