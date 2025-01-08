@@ -62,7 +62,7 @@
 			$minisite_left_nav_bar_color=$document->company_detail[0]['left_nav_bar_color'];  
 			if ($document->company_detail[0]['bio_wording_color']!="")
 			$minisite_bio_wording_color=$document->company_detail[0]['bio_wording_color'];  
-			if ($document->company_detail[0]['photo_color']!="")
+			if ($document->company_detail[0]['key_wording_color']!="")
 			$minisite_key_wording_color=$document->company_detail[0]['key_wording_color'];  
 			if ($document->company_detail[0]['site_bg_color']!="")
 			$minisite_site_bg_color=$document->company_detail[0]['site_bg_color'];  

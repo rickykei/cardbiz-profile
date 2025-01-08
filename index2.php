@@ -34,7 +34,7 @@
 <style> 
 .list {font-size:  <?php echo $minisite_font_size;?>px !important; font-weight:400;  color:<?php echo $minisite_text_color;?>;  line-height:30px;} 
 p{   font-size:  <?php echo $minisite_font_size;?>px !important;  font-weight:400;  color:<?php echo $minisite_text_color;?>;  line-height:26px;}
-body{	background:url(<?php echo $minisite_bg_image;?>) <?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-family: '<?php echo $minisite_font_family;?>', serif;}
+body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-family: '<?php echo $minisite_font_family;?>', serif;}
 .links-to-floor {  margin:0 auto; height:100%; font-family: '<?php echo $minisite_font_family;?>', sans-serif;    }
 .list span{  color:<?php echo $minisite_title_text_color;?>;}
 .social a{  background: #000;color: <?php echo $minisite_social_icon_bg_color;?>; -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px; width: 30px;display: block; height: 30px;text-align: center; padding-top: 8px;font-size: 12px;margin: auto;}
@@ -44,7 +44,7 @@ body{	background:url(<?php echo $minisite_bg_image;?>) <?php echo $minisite_bg_c
 .links-to-floor li .selected{color:<?php echo $minisite_links_selected_color;?>;} 
 .left-navbar{left: 0;position: absolute;height: 100%;background: <?php echo $minisite_left_nav_bar_color;?>;z-index:9;}
 .site{	background:<?php echo $minisite_site_bg_color;?>;position:relative;height:100%;overflow:hidden;box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-moz-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-webkit-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-ms-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);}
-.page-title, .subtitle, .home-page .home-box h1, .testimonial .testi-profile span, .widget-submenu ul li, .widget-blog .latest-post .tag a, .post span ,.recoba-tabs .nav-tabs > li > a, ul.post-comment li a{color:#000000;}
+.page-title, .subtitle, .home-page .home-box h1, .testimonial .testi-profile span, .widget-submenu ul li, .widget-blog .latest-post .tag a, .post span ,.recoba-tabs .nav-tabs > li > a, ul.post-comment li a{color:<?php echo $minisite_key_wording_color;?>;}
 </style>
 
 <!--[if lt IE 9]>
