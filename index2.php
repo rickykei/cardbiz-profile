@@ -43,7 +43,7 @@
 <!-- Stylesheets custom -->
 <style> 
 .list {font-size:  <?php echo $minisite_font_size;?>px !important; font-weight:400;  color:<?php echo $minisite_text_color;?>;  line-height:30px;} 
-p{   font-size:  <?php echo $minisite_font_size;?>px !important;  font-weight:400;  color:<?php echo $minisite_key_wording_color;?>;  line-height:26px;}
+p{   font-size:  <?php echo $minisite_font_size;?>px !important;  font-weight:400;  color:<?php echo $minisite_bio_wording_color;?>;  line-height:26px;}
 body{ background:<?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-family: '<?php echo $minisite_font_family;?>', serif;}
 .links-to-floor {  margin:0 auto; height:100%; font-family: '<?php echo $minisite_font_family;?>', sans-serif;    }
 .list span{  color:<?php echo $minisite_title_text_color;?>;}
