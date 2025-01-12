@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" type="text/css">
 
 <!-- Font icons -->
-<link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.3.0/css/all.min.css"/>
+<link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.7.1/css/all.min.css"/>
 <link rel="stylesheet" href="/vcard/icon-fonts/essential-regular-fonts/essential-icons.css"/>
 
 <!-- Stylesheets custom -->
@@ -93,7 +93,91 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
 
  <!-- Preloading --> 
     
- <!-- Switcher -->
+ <!-- Switcher --> 
+      <div class="color-switcher">
+    	<div class="open"><i class="fa fa-globe fa-spin"></i></div>
+        <h4>SELECT A LANGUAGE</h4>
+        <ul>
+        	 <li>
+    <a class="language-1" onclick="setLanguage('en'); return false;" href="#" style="font-size: 12px;">
+        EN
+    </a>
+</li>
+
+        <!-- Language 2 -->
+        <li>
+            <a class="language-2" onclick="setLanguage('tc'); return false;" href="#" style="font-size: 12px;">
+                繁
+            </a> 
+        </li>
+
+        <!-- Language 3 -->
+        <li>
+            <a class="language-3" onclick="setLanguage('sc'); return false;" href="#" style="font-size: 12px;">
+                簡
+            </a> 
+        </li>
+            	 <li>
+            <a class="language-1" onclick="setLanguage('es'); return false;" href="#" style="font-size: 12px;">
+                ES
+            </a> 
+        </li>
+
+        <!-- Language 2 -->
+        <li>
+            <a class="language-2" onclick="setLanguage('fr'); return false;" href="#" style="font-size: 12px;">
+                FR
+            </a> 
+        </li>
+
+        <!-- Language 3 -->
+        <li>
+            <a class="language-3" onclick="setLanguage('de'); return false;" href="#" style="font-size: 12px;">
+                DE
+            </a> 
+        </li>
+            <li>
+            <a class="language-1" onclick="setLanguage('it'); return false;" href="#" style="font-size: 12px;">
+                IT
+            </a> 
+        </li>
+
+        <!-- Language 2 -->
+        <li>
+            <a class="language-2" onclick="setLanguage('pt'); return false;" href="#" style="font-size: 12px;">
+                PT
+            </a> 
+        </li>
+
+        <!-- Language 3 -->
+        <li>
+            <a class="language-3" onclick="setLanguage('ja'); return false;" href="#" style="font-size: 12px;">
+                日
+            </a> 
+        </li>
+            	 <li>
+            <a class="language-1" onclick="setLanguage('kr'); return false;" href="#" style="font-size: 12px;">
+                한
+            </a> 
+        </li>
+
+        <!-- Language 2 -->
+        <li>
+            <a class="language-2" onclick="setLanguage('ru'); return false;" href="#" style="font-size: 12px;">
+                RU
+            </a> 
+        </li>
+
+        <!-- Language 3 -->
+        <li>
+            <a class="language-3" onclick="setLanguage('ar'); return false;" href="#" style="font-size: 12px;">
+                AR
+            </a> 
+        </li>
+    </ul>
+    <button class="switcher-reset" onclick="setLanguage('en'); return false;">RESET</button>
+</div>
+    
      
 	<div class="container wrapper">
     	<div class="site">
@@ -112,7 +196,7 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
                                     <li><a>OUR COMPANY</a> </li>
                                     <li><a>GET IN TOUCH</a></li>
                                     <?php if ($wechat_id!=""){ ?>
-                                    <li><a>Wechat</a></li>
+                                    <li><a>WECHAT</a></li>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -130,16 +214,23 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
                     <div class="scroll-out">
                         <div class="floor home-page">
                             <div class="home-box">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
+                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="180" height="180"  style="border-radius: 50% ;" />
                                 <br>
                                 <br>
-                               <h1><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-                                    <?php echo $oname; ?></h1>
-                                <br>
+                               <h4 class="subtitle"><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span></h4>
+                                    <h4 class="subtitle"><?php echo $oname; ?></h4>
+                                
                                 <span><?php echo "$position" ; ?></span>
+                                
+                                
                                 <p><?php echo "$bio" ; ?>
                                 </p>
-                                
+                                <br>
+                                 <a class="recoba-btn" target="_blank" 
+   style="border-radius: 32px; display: inline-block; text-align: center;" 
+   href="<?php echo $savemycontact; ?>">
+   Save My Contact
+</a>
                             </div>
                             </div>
                         </div>
@@ -185,11 +276,11 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
                             <?php if ($address4!=""){ ?>
                             <li><span><?php echo $address4_label;?>  :</span> <?php echo "$address4" ; ?></li>
 							<?php } ?>
+                            
                         </ul>
 						<?php if ($more_info_tab_url!=""){ ?>
-                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
+                        <a id="one" class="recoba-btn" style="border-radius: 32px; display: inline-block; text-align: center;"  onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
                        <?php } ?>
-                   
                         
                     </div>
                     </div>
@@ -246,9 +337,6 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
 <?php if ($other_email != "") { ?>
     <li><span><?php echo $other_email_label;?> :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
 <?php } ?>
-							<?php if ($wechat_id!=""){ ?>
-                            <li><span>Wechat ID :</span> <?php echo $wechat_id; ?></li>                            
-							<?php } ?>
                         </ul>
                         
                         <div class="social">
@@ -321,9 +409,6 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
 						<?php if ($fromuid){ ?>
                          <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="250" >
 						<?php } ?>
-                        <br><br>
-                         <h4 class="subtitle">Save My Contact</h4><br><br>
-                         <a class="recoba-btn" target="_blank" href="<?php echo $savemycontact; ?>">Click Here</a>
 <!-- 
                          <a href="<?php echo $gw_dl_link;?>" target="_blank"><img width="200" src="gwallet/enUS_add_to_google_wallet_wallet-button.png"></a>
                          <a href="?key=<?php echo $encrypted;?>&genaw=1" target="_blank"><img width="200" src="images/add-to-apple-wallet-logo.png"></a>END-->
@@ -334,12 +419,17 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
 
                     <!-- Wechat SECTION-->
                     <div class="scroll-out">
-                    <div class="floor contact">
-                   		<h2 class="page-title">Wechat</h2>
-                            <?php if ($wechat_id!=""){ ?>
-                                <img src="/?key=<?php echo $encrypted;?>&qrtype=8" alt=""  width="250" >                  
-							<?php } ?>
-                    </div>
+                    <div class="floor contact" style="text-align: center;">
+    <?php if ($wechat_id != "") { ?>
+        <div class="centered-content" style="display: inline-block; text-align: center; margin-top: 20px;">
+            <img src="/?key=<?php echo $encrypted;?>&qrtype=8" alt="QR Code" width="250" style="display: block; margin: 80 auto;">
+            
+        </div>
+                        <ul class="list" style="list-style: none; padding: 0; text-align: center;">
+                <li><span>Wechat ID :</span> <?php echo $wechat_id; ?></li>
+            </ul>
+    <?php } ?>
+</div>
                     </div>
                     <!-- Wechat End-->       
                 </div>

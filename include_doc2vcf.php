@@ -265,75 +265,75 @@
 			  $vCard = "BEGIN:VCARD\r\n";
 			  $vCard .= "VERSION:3.0\r\n";
 			 
-			  if($company_name_eng!="") $vCard .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
+			  if($company_name_eng!="") $vCard .= "ORG;CHARSET=utf-8:" . $company_name_eng ." ". $company_name_chi. "\r\n";
 			 
-		 $vCard .="N:" . $lname .";" . $fname .";" . $mname .";" . $pname .";" . $oname ." " . $pdname ."\r\n";
+		 $vCard .="N;CHARSET=utf-8:" . $lname .";" . $fname .";" . $mname .";" . $pname .";" . $oname ." " . $pdname ."\r\n";
 		 
-			  if($work_email!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email . "\r\n"; 			 
-			  if($work_email2!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email2 . "\r\n"; 			 
-			  if($work_email3!="") $vCard .= "EMAIL;TYPE=Work:" . $work_email3 . "\r\n"; 			 
+			  if($work_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=Work:" . $work_email . "\r\n"; 			 
+			  if($work_email2!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=Work:" . $work_email2 . "\r\n"; 			 
+			  if($work_email3!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=Work:" . $work_email3 . "\r\n"; 			 
 			  
-			  if($home_email!="") $vCard .= "EMAIL;TYPE=HOME:" . $home_email . "\r\n"; 			 
+			  if($home_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=HOME:" . $home_email . "\r\n"; 			 
 			  
-			  if($other_email!="") $vCard .= "EMAIL;TYPE=OTHER:" . $other_email . "\r\n"; 			 
+			  if($other_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=OTHER:" . $other_email . "\r\n"; 			 
 			  
 			  if($position!="") $vCard .= "TITLE;CHARSET=utf-8:" . $position . "\r\n"; 			 
 			  
-			  if($work_tel!="") $vCard .= "TEL;WORK:" . $work_tel . "\r\n"; 
-			  if($work_tel2!="") $vCard .= "TEL;WORK:" . $work_tel2 . "\r\n"; 
-			  if($work_tel3!="") $vCard .= "TEL;WORK:" . $work_tel3 . "\r\n"; 
-			  if($work_tel4!="") $vCard .= "TEL;WORK:" . $work_tel4 . "\r\n"; 
+			  if($work_tel!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel . "\r\n"; 
+			  if($work_tel2!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel2 . "\r\n"; 
+			  if($work_tel3!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel3 . "\r\n"; 
+			  if($work_tel4!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel4 . "\r\n"; 
 			 
-			  if($mobile!="") $vCard .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
-			 if($mobile2!="") $vCard .= "TEL;TYPE=CELL:" . $mobile2 . "\r\n"; 
-			 if($mobile3!="") $vCard .= "TEL;TYPE=CELL:" . $mobile3 . "\r\n"; 
-			 if($mobile4!="") $vCard .= "TEL;TYPE=CELL:" . $mobile4 . "\r\n"; 
+			  if($mobile!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile . "\r\n"; 
+			 if($mobile2!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile2 . "\r\n"; 
+			 if($mobile3!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile3 . "\r\n"; 
+			 if($mobile4!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile4 . "\r\n"; 
 			 
-			 if($home_tel!="") $vCard .= "TEL;TYPE=HOME:" . $home_tel . "\r\n"; 
+			 if($home_tel!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=HOME:" . $home_tel . "\r\n"; 
 			 
-			 if($fax!="") $vCard .= "TEL;WORK;TYPE=FAX:" . $fax . "\r\n";
+			 if($fax!="") $vCard .= "TEL;CHARSET=utf-8;WORK;TYPE=FAX:" . $fax . "\r\n";
 			   
 			 
-			 if($web_link!="")	$vCard .= "URL;TYPE=".$web_link_label.",pref:" . $web_link. "\r\n"; 
-			 if($web_link2!="")	$vCard .= "URL;TYPE=" . $web_link_label2.",pref:" . $web_link2. "\r\n"; 
-			 if($web_link3!="")	$vCard .= "URL;TYPE=" . $web_link_label3 .",pref:" . $web_link3.  "\r\n"; 
-			 if($web_link4!="")	$vCard .= "URL;TYPE=" . $web_link_label4 .",pref:" . $web_link4.  "\r\n"; 
-			 if($web_link5!="")	$vCard .= "URL;TYPE=" . $web_link_label5 .",pref:" . $web_link5. "\r\n"; 
-			 if($web_link6!="")	$vCard .= "URL;TYPE=" . $web_link_label6 .",pref:" . $web_link6. "\r\n"; 
+			 if($web_link!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=".$web_link_label.":" . $web_link. "\r\n"; 
+			 if($web_link2!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label2.":" . $web_link2. "\r\n"; 
+			 if($web_link3!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label3 .":" . $web_link3.  "\r\n"; 
+			 if($web_link4!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label4 .":" . $web_link4.  "\r\n"; 
+			 if($web_link5!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label5 .":" . $web_link5. "\r\n"; 
+			 if($web_link6!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label6 .":" . $web_link6. "\r\n"; 
 			 
 
-			 if($address!="")	$vCard .= "ADR;WORK:" . $address . "\r\n"; 			 
-			 if($address2!="")	$vCard .= "ADR;WORK:" . $address2 . "\r\n"; 			 
-			 if($address3!="")	$vCard .= "ADR;WORK:" . $address3 . "\r\n"; 			 
-			 if($address4!="")	$vCard .= "ADR;WORK:" . $address4 . "\r\n"; 			 
+			 if($address!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address . "\r\n"; 			 
+			 if($address2!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address2 . "\r\n"; 			 
+			 if($address3!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address3 . "\r\n"; 			 
+			 if($address4!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address4 . "\r\n"; 			 
 			 
-			 if($company_website_url!="")	$vCard .= "URL;TYPE=Company Website,pref:" . $company_website_url . "\r\n"; 			 
+			 if($company_website_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Company Website:" . $company_website_url . "\r\n"; 			 
 			 
-			 if($more_info_tab_url!="")	$vCard .= "URL;TYPE=More Info,pref:" . $more_info_tab_url . "\r\n"; 			 
-			 if($facebook_url!="")	$vCard .= "URL;TYPE=Facebook,pref:" . $facebook_url . "\r\n"; 			 
-			 if($instagram_url!="")	$vCard .= "URL;TYPE=Instagram,pref:" . $instagram_url . "\r\n"; 			 
-			 if($whatsapp_url!="")	$vCard .= "URL;TYPE=Whatsapp,pref:" . $whatsapp_url . "\r\n"; 			 
-			 if($linkedin_url!="")	$vCard .= "URL;TYPE=Linkedin,pref:" . $linkedin_url . "\r\n"; 			 
-			 if($youtube_url!="")	$vCard .= "URL;TYPE=Youtube,pref:" . $youtube_url . "\r\n"; 			 
-			 if($twitter_url!="")	$vCard .= "URL;TYPE=Twitter,pref:" . $twitter_url . "\r\n"; 			 
+			 if($more_info_tab_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=More Info:" . $more_info_tab_url . "\r\n"; 			 
+			 if($facebook_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Facebook:" . $facebook_url . "\r\n"; 			 
+			 if($instagram_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Instagram:" . $instagram_url . "\r\n"; 			 
+			 if($whatsapp_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Whatsapp:" . $whatsapp_url . "\r\n"; 			 
+			 if($linkedin_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Linkedin:" . $linkedin_url . "\r\n"; 			 
+			 if($youtube_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Youtube:" . $youtube_url . "\r\n"; 			 
+			 if($twitter_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Twitter:" . $twitter_url . "\r\n"; 			 
 			 
-			 if($wechatpage_url!="")	$vCard .= "URL;TYPE=Wechat,pref:" . $wechatpage_url . "\r\n"; 			 
-			 if($tiktok_url!="")	$vCard .= "URL;TYPE=Tiktok,pref:" . $tiktok_url . "\r\n"; 			 
-			 if($line_url!="")	$vCard .= "URL;TYPE=Line,pref:" . $line_url . "\r\n"; 			 
-			 if($facebook_messenger_url!="")	$vCard .= "URL;TYPE=Facebook Messenger,pref:" . $facebook_messenger_url . "\r\n"; 			 
-			 if($weibo_url!="")	$vCard .= "URL;TYPE=Weibo,pref:" . $weibo_url . "\r\n"; 			 
-			 if($bilibili_url!="")	$vCard .= "URL;TYPE=Bilibili,pref:" . $bilibili_url . "\r\n"; 			 
-			 if($qq_url!="")	$vCard .= "URL;TYPE=QQ,pref:" . $qq_url . "\r\n"; 			 
-			 if($zhihu_url!="")	$vCard .= "URL;TYPE=Zhihu,pref:" . $zhihu_url . "\r\n"; 			 
-			 if($app_store_url!="")	$vCard .= "URL;TYPE=App Store,pref:" . $app_store_url . "\r\n"; 			 
-			 if($google_play_url!="")	$vCard .= "URL;TYPE=Google Play,pref:" . $google_play_url . "\r\n"; 			 
-			 if($snapchat_url!="")	$vCard .= "URL;TYPE=Snapchat,pref:" . $snapchat_url . "\r\n"; 			 
-			 if($telegram_url!="")	$vCard .= "URL;TYPE=Telegram,pref:" . $telegram_url . "\r\n"; 			 
+			 if($wechatpage_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Wechat:" . $wechatpage_url . "\r\n"; 			 
+			 if($tiktok_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Tiktok:" . $tiktok_url . "\r\n"; 			 
+			 if($line_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Line:" . $line_url . "\r\n"; 			 
+			 if($facebook_messenger_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Facebook Messenger:" . $facebook_messenger_url . "\r\n"; 			 
+			 if($weibo_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Weibo:" . $weibo_url . "\r\n"; 			 
+			 if($bilibili_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Bilibili:" . $bilibili_url . "\r\n"; 			 
+			 if($qq_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=QQ:" . $qq_url . "\r\n"; 			 
+			 if($zhihu_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Zhihu:" . $zhihu_url . "\r\n"; 			 
+			 if($app_store_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=App Store:" . $app_store_url . "\r\n"; 			 
+			 if($google_play_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Google Play:" . $google_play_url . "\r\n"; 			 
+			 if($snapchat_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Snapchat:" . $snapchat_url . "\r\n"; 			 
+			 if($telegram_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Telegram:" . $telegram_url . "\r\n"; 			 
 			 
 			 if ($note_timestamp==true) 
 			  $temp_note= " Met on: " . date("d/m/Y H:i") . " UTC+8";
 		  
-			 if($note!="" || $temp_note!="")	$vCard .= "NOTE:" . $note ." ".$temp_note. "\r\n"; 			 
+			 if($note!="" || $temp_note!="")	$vCard .= "NOTE;CHARSET=utf-8:" . $note ." ".$temp_note. "\r\n"; 			 
 			  
 			 
 			  
