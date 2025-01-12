@@ -9,6 +9,8 @@
 <meta property="og:image" content="<?php echo $url ; ?>"/>    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
 <!-- Stylesheets -->
 <link rel="stylesheet" href="/vcard/css/bootstrap.css"/>
 <link rel="stylesheet" href="/vcard/css/reset.css"/>
@@ -20,7 +22,7 @@
     
 <!-- Theme Colors -->
 <link rel="stylesheet" href="/vcard/css/colors/switcher.css"/>
-<link rel="stylesheet" href="/vcard/css/colors/color-0.css"/>
+<link rel="stylesheet" href="/vcard/css/colors/color-0.css?<?php echo date('yy-mm-dd');?>"/>
  
 <!-- Google Web fonts -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet" type="text/css">
@@ -30,22 +32,7 @@
 <link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.7.1/css/all.min.css"/>
 <link rel="stylesheet" href="/vcard/icon-fonts/essential-regular-fonts/essential-icons.css"/>
 
-<!-- Stylesheets custom -->
-<style> 
-.list {font-size:  <?php echo $minisite_font_size;?>px !important; font-weight:400;  color:<?php echo $minisite_text_color;?>;  line-height:30px;} 
-p{   font-size:  <?php echo $minisite_font_size;?>px !important;  font-weight:400;  color:<?php echo $minisite_text_color;?>;  line-height:26px;}
-body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-family: '<?php echo $minisite_font_family;?>', serif;}
-.links-to-floor {  margin:0 auto; height:100%; font-family: '<?php echo $minisite_font_family;?>', sans-serif;    }
-.list span{  color:<?php echo $minisite_title_text_color;?>;}
-.social a{  background: #000;color: <?php echo $minisite_social_icon_bg_color;?>; -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px; width: 30px;display: block; height: 30px;text-align: center; padding-top: 8px;font-size: 12px;margin: auto;}
-.recoba-btn {display: inline-block;vertical-align: middle; -webkit-transform: translateZ(0);transform: translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;position: relative;-webkit-transition-property: color;transition-property: color;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;padding: 12px 24px;color: #000;background:<?php echo $minisite_button_color;?>;border:solid 1px #000000;font-size:11px;text-decoration:none !important; font-weight:bold;}
-.links-to-floor li a { color: <?php echo $minisite_links_not_hover_color;?>; font-size:13px; height: 60px;float:left; }
-.links-to-floor li a:hover{cursor:pointer; text-decoration:none;color:<?php echo $minisite_links_hover_color;?>;transition:all ease 0.5s;}	
-.links-to-floor li .selected{color:<?php echo $minisite_links_selected_color;?>;} 
-.left-navbar{left: 0;position: absolute;height: 100%;background: <?php echo $minisite_left_nav_bar_color;?>;z-index:9;}
-.site{	background:<?php echo $minisite_site_bg_color;?>;position:relative;height:100%;overflow:hidden;box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-moz-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-webkit-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-ms-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);}
-.page-title, .subtitle, .home-page .home-box h1, .testimonial .testi-profile span, .widget-submenu ul li, .widget-blog .latest-post .tag a, .post span ,.recoba-tabs .nav-tabs > li > a, ul.post-comment li a{color:<?php echo $minisite_key_wording_color;?>;}
-</style>
+
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -53,6 +40,23 @@ body{	background:url(/api/files/<?php echo $minisite_bg_image;?>) <?php echo $mi
 <![endif]-->
 
 
+<!-- Stylesheets custom -->
+<style> 
+.list {font-size:  <?php echo $minisite_font_size;?>px !important; font-weight:400;  color:<?php echo $minisite_text_color;?>;  line-height:30px;} 
+p{   font-size:  <?php echo $minisite_font_size;?>px !important;  font-weight:400;  color:<?php echo $minisite_key_wording_color;?>;  line-height:26px;}
+body{ background:<?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-family: '<?php echo $minisite_font_family;?>', serif;}
+.links-to-floor {  margin:0 auto; height:100%; font-family: '<?php echo $minisite_font_family;?>', sans-serif;    }
+.list span{  color:<?php echo $minisite_title_text_color;?>;}
+.social a{  background: #000;color: <?php echo $minisite_social_icon_bg_color;?>; -webkit-border-radius: 30px;-moz-border-radius: 30px;border-radius: 30px; width: 30px;display: block; height: 30px;text-align: center; padding-top: 8px;font-size: 12px;margin: auto;}
+.recoba-btn {display: inline-block;vertical-align: middle; -webkit-transform: translateZ(0);transform: translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0);-webkit-backface-visibility: hidden;backface-visibility: hidden;-moz-osx-font-smoothing: grayscale;position: relative;-webkit-transition-property: color;transition-property: color;-webkit-transition-duration: 0.3s;transition-duration: 0.3s;padding: 12px 24px;color: #000;background:<?php echo $minisite_button_color;?>;border:solid 1px #000000;font-size:11px;text-decoration:none !important; font-weight:bold;}
+.links-to-floor li a:hover{cursor:pointer; text-decoration:none;color:<?php echo $minisite_links_hover_color;?>;transition:all ease 0.5s;}	
+.links-to-floor li a { color: <?php echo $minisite_links_not_hover_color;?>; font-size:13px; height: 60px;float:left; }
+.links-to-floor li .selected{color:<?php echo $minisite_links_selected_color;?>;} 
+.left-navbar{left: 0;position: absolute;height: 100%;background: <?php echo $minisite_left_nav_bar_color;?>;z-index:9;}
+.subtitle{color:<?php echo $minisite_key_wording_color;?>;}
+.site{	background:<?php echo $minisite_site_bg_color;?>;position:relative;height:100%;overflow:hidden;box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-moz-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-webkit-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);-ms-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);}
+ 
+</style>
         <script>
  
                   

@@ -1,7 +1,8 @@
-.page-title, .subtitle, .home-page .home-box h1, .testimonial .testi-profile span, .widget-submenu ul li, .widget-blog .latest-post .tag a, .post span ,.recoba-tabs .nav-tabs > li > a, ul.post-comment li a{
-	color:#000000;
-}
 
+/*.page-title, .subtitle, .home-page .home-box h1, .testimonial .testi-profile span, .widget-submenu ul li, .widget-blog .latest-post .tag a, .post span ,.recoba-tabs .nav-tabs > li > a, ul.post-comment li a{
+	color:#000000;
+}*/
+  
   .widget-submenu ul li a:hover{ 
   	color: #000000; 
   }
