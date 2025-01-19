@@ -437,8 +437,8 @@
 			   
 				if ($wallet_logo_option==1)     $gwarray['logo']=$company_logo;
 				if ($wallet_logo_option==2)     $gwarray['logo']=$headshot;
-				if ($wallet_logo_option==3)     $gwarray['logo']="";
-				if ($wallet_logo_option=="")     $gwarray['logo']=$company_logo;
+				if ($wallet_logo_option==3)     $gwarray['logo']=$domain.'logo.png';
+				if ($wallet_logo_option=="")     $gwarray['logo']=$domain.'logo.png';
  
 
 				 $gwarray['logo2']=$domain.'images/transparent.png';

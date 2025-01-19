@@ -82,7 +82,7 @@ if ($debug==1){
 }
 else
 {
-	//header("Location: ".$str);
+	//header("Location: https://nfctouch.com.hk/nfccard.html);
 }
 
 if ($sig!=""|| $uid!=""){
@@ -156,5 +156,8 @@ if ($sig!=""|| $uid!=""){
 			}
 		}
 	}
+}else{
+
+	header("Location: https://nfctouch.com.hk/nfccard.html");
 }
 ?>
