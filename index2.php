@@ -424,7 +424,7 @@ body{ background:<?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-fami
                     <!-- Wechat SECTION-->
                     <div class="scroll-out">
                     <div class="floor contact" style="text-align: center;">
-    <?php if ($wechat_id != "") { ?>
+    <?php if ($wechat_id != ""|| $wechat_qr_url!= "") { ?>
         <div class="centered-content" style="display: inline-block; text-align: center; margin-top: 20px;">
             <img src="/?key=<?php echo $encrypted;?>&qrtype=8" alt="QR Code" width="250" style="display: block; margin: 80 auto;">
             

@@ -32,7 +32,7 @@ if ($qrtype==7)
 $qrPng=$domain."?key=".$encrypted."&mobilesite=1";
 
 if ($qrtype==8)			
-$qrPng=$wechat_id;
+$qrPng=$wechat_qr_url;
 
 			if ($qrPng!="")
 				if($debug){

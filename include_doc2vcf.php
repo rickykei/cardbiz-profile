@@ -216,6 +216,7 @@
 			$youtube_url=$document->youtube_url;
 			$twitter_url=$document->twitter_url;
 			$wechat_id=$document->wechat_id;
+			$wechat_qr_url=$document->wechat_qr_url;
 			$wechatpage_url=$document->wechatpage_url;
 			$weixin_url=$document->weixin_url;
 			$douyin_url=$document->douyin_url;
