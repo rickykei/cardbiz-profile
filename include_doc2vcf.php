@@ -427,7 +427,9 @@
 		
 		
 		$wallet_field1_option=$document->company_detail[0]['wallet_field1_option'];
-		$wallet_field2_option=$document->company_detail[0]['wallet_field2_option'];
+		$wallet_field2_title=$document->company_detail[0]['wallet_field2_title'];
+	 	$wallet_field2_option=$document->company_detail[0]['wallet_field2_option'];
+		$wallet_field3_title=$document->company_detail[0]['wallet_field3_title'];
 		$wallet_field3_option=$document->company_detail[0]['wallet_field3_option'];
 		$wallet_qrcode_option=$document->company_detail[0]['wallet_qrcode_option'];
 		$wallet_logo_option=$document->company_detail[0]['wallet_logo_option'];
@@ -476,6 +478,10 @@
 				if ($wallet_field2_option==10)  $gwarray['name']=$position;
 				if ($wallet_field2_option=="")  {$gwarray['name']=$fname." ".$lname;$wallet_field2_option=2;}
 				if (trim($gwarray['name']," ")=="")  $gwarray['name']="N/A";
+
+				if ($wallet_field2_title!="")
+				$gwarray['name_label']=$wallet_field2_title;
+				else
 				$gwarray['name_label']=$walletField1SelectDataLabel[$wallet_field2_option];
 				
 				 
@@ -491,6 +497,9 @@
 				if ($wallet_field3_option==10)  $gwarray['position']=$position;
 				if ($wallet_field3_option=="")  { $gwarray['position']=$position; $wallet_field3_option=10;}
 				if (trim($gwarray['position']," ")=="")  $gwarray['position']="N/A";
+				if ($wallet_field3_title!="")
+				$gwarray['position_label']=$wallet_field3_title;
+				else
 				$gwarray['position_label']=$walletField1SelectDataLabel[$wallet_field3_option];
 
 

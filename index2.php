@@ -348,7 +348,7 @@ body{ background:<?php echo $minisite_bg_color;?> fixed;	height: 100%;	font-fami
                            <a id="FB" class="facebook" onclick='onclick(event);' href="<?php echo $facebook_url; ?>"><i class="fa-brands fa-facebook"></i> </a>
 						<?php } ?>   
                          <?php if ($twitter_url!=""){ ?>
-                          <a class="twitter" href="<?php echo $twitter_url; ?>"><i class="fa-brands fa-twitter"></i> </a>
+                          <a class="twitter" href="<?php echo $twitter_url; ?>"><i class="fa-brands fa-x-twitter"></i> </a>
 						<?php } ?> 
 						  <?php if ($whatsapp_url!=""){ ?>
                            <a class="whatsapp" href="<?php echo $whatsapp_url; ?>"><i class="fa-brands fa-whatsapp"></i> </a>
