@@ -265,12 +265,14 @@ p{
   font-size:11px;
   text-decoration:none !important;
   font-weight:bold;
+  border-radius: 32px;
 } 
 
 
 
 
 .recoba-btn:before  {
+  
   content: "";
   position: absolute;
   z-index: -1;
@@ -289,6 +291,7 @@ p{
   transition-duration: 0.3s;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
+  border-radius: 32px;
 }
 
 
@@ -298,6 +301,7 @@ p{
 .recoba-btn:hover:before, .recoba-btn:focus:before, .recoba-btn:active:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+  border-radius: 32px;
 }
 
 

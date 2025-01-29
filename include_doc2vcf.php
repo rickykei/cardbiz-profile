@@ -1,6 +1,15 @@
 <?php  
-
-
+			if ($_GET['lang']!=''){
+				$lang=strtolower($_GET['lang']);
+					if ($lang=="en"|| $lang=="tc"){
+						include_once("./lang/".$lang."_eprofile.php");
+					 
+					}
+			}else{
+				include_once("./lang/en_eprofile.php");
+			}
+			
+			 
   			$company_name_eng=$document->company_name_eng;
 			$company_name_chi=$document->company_name_chi;
 

@@ -252,7 +252,48 @@ echo "<hr>";
     echo "Found using companies profile_theme records =".$i;
 	echo "<hr>";
 	
+
+	echo "start compare wallet_banner";
+	$collection7 = $client->selectCollection('cardbiz_db', 'photos.files');
+$cursor7 = $collection7->aggregate(
+[
+ ['$lookup' => ['from' => 'companies', 'localField' => 'filename', 'foreignField' => 'wallet_banner', 'as' => 'staffs']],
+ ['$match' => ['staffs.0' => ['$exists' => true]]] 
+ 
+]
+);
+
+$i=0;
+
+foreach ($cursor7 as $doc) {
+	 /*
+	echo "<br>";
+	echo $doc['_id'];
+	echo "<br>";
+	echo $doc['filename']."length=".$doc['length'];
+	echo "<br>";
+	$aa="https://e-profile.digital/api/files/".rawurlencode ($doc['filename'])."";
+	echo "<a href=". $aa.">". $aa."</a>";
+	*/
+	$collection6 = $client->selectCollection('cardbiz_db', 'photos.files'); 
+	$updateResult = $collection6->updateMany(
+    [ '_id' => new \MongoDB\BSON\ObjectID($doc['_id'])],
+    [ '$set' => [ 'deleteOK' => false ]]);
+	 $collection6 = $client->selectCollection('cardbiz_db', 'photos.chunks'); 
+	$updateResult = $collection6->updateMany(
+    [ 'files_id' => new \MongoDB\BSON\ObjectID($doc['_id'])],
+    [ '$set' => [ 'deleteOK' => false ]]);
+	//printf("Matched %d document(s)\n", $updateResult->getMatchedCount());
+	//printf("Modified %d document(s)\n", $updateResult->getModifiedCount());
 	
+	$i++;
+
+}
+echo "<hr>";
+    echo "Found using companies wallet_banner records =".$i;
+	echo "<hr>";
+
+
 	//delete
  if ($del=="1"){
 	$collection7 = $client->selectCollection('cardbiz_db', 'photos.files');
