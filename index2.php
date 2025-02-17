@@ -495,6 +495,9 @@
                             <?php if ($telegram_url != "") { ?>
                                 <a class="telegram" href="<?php echo $telegram_url; ?>"><i class="fa-brands fa-telegram"></i> </a>
                             <?php } ?>
+                            <?php if ($xiaohongshu_url != "") { ?>
+                                <a  href="<?php echo $xiaohongshu_url; ?>"><img width="20" style="margin-top: -5px" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/XiaohongshuLOGO.png" /></a>
+                            <?php } ?>
 
 
                         </div>
