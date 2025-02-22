@@ -75,7 +75,92 @@
 
  <!-- Preloading --> 
     
- <!-- Switcher -->
+    <!-- Switcher -->
+    <div class="color-switcher">
+        <div class="open"><i class="fa fa-globe fa-spin"></i></div>
+        <h4><?php echo $lang_str['eprofile.lang-title'];?></h4>
+        <ul>
+            <li>
+                <a class="language-1" onclick="setLanguage('en'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=en";?>" style="font-size: 12px;">
+                    EN
+                </a>
+            </li>
+
+            <!-- Language 2 -->
+            <li>
+                <a class="language-2" onclick="setLanguage('tc'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=tc";?>" style="font-size: 12px;">
+                    繁
+                </a>
+            </li>
+
+            <!-- Language 3 -->
+            <li>
+                <a class="language-3" onclick="setLanguage('sc'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=sc";?>" style="font-size: 12px;">
+                    簡
+                </a>
+            </li>
+            <li>
+                <a class="language-1" onclick="setLanguage('es'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=es";?>" style="font-size: 12px;">
+                    ES
+                </a>
+            </li>
+
+            <!-- Language 2 -->
+            <li>
+                <a class="language-2" onclick="setLanguage('fr'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=fr";?>" style="font-size: 12px;">
+                    FR
+                </a>
+            </li>
+
+            <!-- Language 3 -->
+            <li>
+                <a class="language-3" onclick="setLanguage('de'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=de";?>" style="font-size: 12px;">
+                    DE
+                </a>
+            </li>
+            <li>
+                <a class="language-1" onclick="setLanguage('it'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=it";?>" style="font-size: 12px;">
+                    IT
+                </a>
+            </li>
+
+            <!-- Language 2 -->
+            <li>
+                <a class="language-2" onclick="setLanguage('pt'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=pt";?>" style="font-size: 12px;">
+                    PT
+                </a>
+            </li>
+
+            <!-- Language 3 -->
+            <li>
+                <a class="language-3" onclick="setLanguage('ja'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ja";?>" style="font-size: 12px;">
+                    日
+                </a>
+            </li>
+            <li>
+                <a class="language-1" onclick="setLanguage('kr'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=kr";?>" style="font-size: 12px;">
+                    한
+                </a>
+            </li>
+
+            <!-- Language 2 -->
+            <li>
+                <a class="language-2" onclick="setLanguage('ru'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ru";?>" style="font-size: 12px;">
+                    RU
+                </a>
+            </li>
+
+            <!-- Language 3 -->
+            <li>
+                <a class="language-3" onclick="setLanguage('ar'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ar";?>" style="font-size: 12px;">
+                    AR
+                </a>
+            </li>
+        </ul>
+        <a class="switcher-reset" onclick="setLanguage('en'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=en";?>">
+            <?php echo $lang_str['eprofile.lang-reset'];?>
+        </a>
+    </div>
      
 	<div class="container wrapper">
     	<div class="site">

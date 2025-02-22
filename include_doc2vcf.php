@@ -1,10 +1,10 @@
 <?php  
 			if ($_GET['lang']!=''){
 				$lang=strtolower($_GET['lang']);
-					if ($lang=="en"|| $lang=="tc"){
+					 
 						include_once("./lang/".$lang."_eprofile.php");
 					 
-					}
+					 
 			}else{
 				include_once("./lang/en_eprofile.php");
 			}
@@ -446,6 +446,7 @@
 				$wallet_text_color=$document->company_detail[0]['wallet_text_color'];
 				$wallet_bg_color=$document->company_detail[0]['wallet_bg_color'];
 			   
+			
 			   
 				if ($wallet_logo_option==1)     $gwarray['logo']=$company_logo;
 				if ($wallet_logo_option==2)     $gwarray['logo']=$headshot;
@@ -545,6 +546,8 @@
 					echo "wallet_field1_option=".$wallet_field1_option."<p>";
 					echo "wallet_field2_option=".$wallet_field2_option."<p>"; 
 					echo "wallet_field3_option=".$wallet_field3_option."<p>"; 
+					echo "wallet_field2_title=".$wallet_field2_title;
+					echo "wallet_field3_title=".$wallet_field3_title;
 					echo "company_logo=".$company_logo; 
 					
 					echo "comp_name_label=".$gwarray['company_name_label']."<p>";
@@ -553,6 +556,8 @@
 					echo "gwa name=".$gwarray['name']."<p>"; 
 					echo "gwa position_label=".$gwarray['position_label']."<p>"; 
 					echo "gwa position=".$gwarray['position']."<p>"; 
+
+				
 					echo "qrstring=".$gwarray['qrcode']."</font><p>";
 				}
  

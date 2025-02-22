@@ -72,9 +72,13 @@
         .list span {
             color: <?php echo $minisite_title_text_color; ?>;
         }
+        
+        .home-box span {
+            color: <?php echo $minisite_title_text_color; ?>;
+        }
 
         .social a {
-            background: #000;
+            background: <?php echo $minisite_key_wording_color; ?>;
             color: <?php echo $minisite_social_icon_bg_color; ?>;
             -webkit-border-radius: 30px;
             -moz-border-radius: 30px;
@@ -91,6 +95,8 @@
         .recoba-btn {
             display: inline-block;
             vertical-align: middle;
+            color: <?php echo $minisite_key_wording_color; ?>;
+            background-color: <?php echo $minisite_button_color; ?>;
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
             box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -102,16 +108,35 @@
             transition-property: color;
             -webkit-transition-duration: 0.3s;
             transition-duration: 0.3s;
-            padding: 12px 24px;
-            color: #000;
-            background: <?php echo $minisite_button_color; ?>;
-            border: solid 1px #000000;
+            padding: 12px 24px; 
+            border: solid 1px <?php echo $minisite_title_text_color; ?>;
             font-size: 11px;
             text-decoration: none !important;
             font-weight: bold;
             border-radius: 32px ;
         }
-
+        .recoba-btn:before  {
+                
+                content: "";
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: <?php echo $minisite_key_wording_color; ?>;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transform-origin: 0 50%;
+                transform-origin: 0 50%;
+                -webkit-transition-property: transform;
+                transition-property: transform;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+                -webkit-transition-timing-function: ease-out;
+                transition-timing-function: ease-out;
+                border-radius: 32px;
+                }         
         .links-to-floor li a:hover {
             cursor: pointer;
             text-decoration: none;
@@ -141,7 +166,11 @@
         .subtitle {
             color: <?php echo $minisite_key_wording_color; ?>;
         }
-
+        
+        .page-title {
+            color: <?php echo $minisite_key_wording_color; ?>;
+        }
+        
         .site {
             background: <?php echo $minisite_site_bg_color; ?>;
             position: relative;
@@ -210,64 +239,64 @@
 
             <!-- Language 3 -->
             <li>
-                <a class="language-3" onclick="setLanguage('sc'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-3" onclick="setLanguage('sc'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=sc";?>" style="font-size: 12px;">
                     簡
                 </a>
             </li>
             <li>
-                <a class="language-1" onclick="setLanguage('es'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-1" onclick="setLanguage('es'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=es";?>" style="font-size: 12px;">
                     ES
                 </a>
             </li>
 
             <!-- Language 2 -->
             <li>
-                <a class="language-2" onclick="setLanguage('fr'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-2" onclick="setLanguage('fr'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=fr";?>" style="font-size: 12px;">
                     FR
                 </a>
             </li>
 
             <!-- Language 3 -->
             <li>
-                <a class="language-3" onclick="setLanguage('de'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-3" onclick="setLanguage('de'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=de";?>" style="font-size: 12px;">
                     DE
                 </a>
             </li>
             <li>
-                <a class="language-1" onclick="setLanguage('it'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-1" onclick="setLanguage('it'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=it";?>" style="font-size: 12px;">
                     IT
                 </a>
             </li>
 
             <!-- Language 2 -->
             <li>
-                <a class="language-2" onclick="setLanguage('pt'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-2" onclick="setLanguage('pt'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=pt";?>" style="font-size: 12px;">
                     PT
                 </a>
             </li>
 
             <!-- Language 3 -->
             <li>
-                <a class="language-3" onclick="setLanguage('ja'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-3" onclick="setLanguage('ja'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ja";?>" style="font-size: 12px;">
                     日
                 </a>
             </li>
             <li>
-                <a class="language-1" onclick="setLanguage('kr'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-1" onclick="setLanguage('kr'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=kr";?>" style="font-size: 12px;">
                     한
                 </a>
             </li>
 
             <!-- Language 2 -->
             <li>
-                <a class="language-2" onclick="setLanguage('ru'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-2" onclick="setLanguage('ru'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ru";?>" style="font-size: 12px;">
                     RU
                 </a>
             </li>
 
             <!-- Language 3 -->
             <li>
-                <a class="language-3" onclick="setLanguage('ar'); return false;" href="#" style="font-size: 12px;">
+                <a class="language-3" onclick="setLanguage('ar'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ar";?>" style="font-size: 12px;">
                     AR
                 </a>
             </li>
@@ -293,7 +322,7 @@
                     <ul class="links-to-floor">
                         <li><a><?php echo $lang_str['eprofile.navbar-aboutme'];?></a></li>
                         <li><a><?php echo $lang_str['eprofile.navbar-ourcompany'];?></a> </li>
-                        <li><a>GET IN TOUCH</a></li>
+                         <li><a><?php echo $lang_str['eprofile.navbar-getintouch'];?></a> </li>
                         <?php if ($wechat_id != "" || $wechat_qr_url != "") { ?>
                             <li><a><?php echo $lang_str['eprofile.navbar-wechat'];?></a></li>
                         <?php } ?>
@@ -317,16 +346,11 @@
                             <br>
                             <br>
                             <h4 class="subtitle"><?php echo "$pname "; ?><?php echo "$fname "; ?><?php echo "$mname "; ?><?php echo "$lname "; ?><span style="display:inline-block"><?php echo "$pdname"; ?></span></h4>
-                            <h4 class="subtitle"><?php echo $oname; ?></h4>
-
-                            <span><?php echo "$position"; ?></span>
-
-
-                            <p><?php echo "$bio"; ?>
-                            </p>
+                            <h4 class="subtitle"><?php echo $oname; ?></h4> 
+                            <span><?php echo "$position"; ?></span> 
+                            <p><?php echo "$bio"; ?></p>
                             <br>
-                            <a class="recoba-btn" target="_blank"
-                                style="border-radius: 32px; display: inline-block; text-align: center;"
+                            <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
                             </a>
@@ -494,6 +518,9 @@
                             <?php } ?>
                             <?php if ($telegram_url != "") { ?>
                                 <a class="telegram" href="<?php echo $telegram_url; ?>"><i class="fa-brands fa-telegram"></i> </a>
+                            <?php } ?>
+                            <?php if ($xiaohongshu_url != "") { ?>
+                                <a  href="<?php echo $xiaohongshu_url; ?>"><img width="20" style="margin-top: -5px" src="/XiaohongshuLOGO.png" /></a>
                             <?php } ?>
 
 

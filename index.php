@@ -63,6 +63,7 @@ $gqt=$_GET['gqt'];
 $gq=$_GET['gq'];
 $genaw=$_GET['genaw'];
 $gengw=$_GET['gengw'];
+$geniosaos=$_GET['geniosaos'];
 $mobilesite=$_GET['mobilesite'];
 $stylecss=$_GET['stylecss'];
  
@@ -121,7 +122,7 @@ if ($sig!=""|| $uid!=""){
 				$bizcard_option=false;
 			// redirect to which path VCF or e-profile
 			
-			if ($qrtype=="" && $genaw!=1 && $gengw!=1 && $mobilesite!=1){
+			if ($qrtype=="" && $genaw!=1 && $gengw!=1 && $mobilesite!=1 && $geniosaos!=1){
 				if ($bizcard_option==true || $bo==1 ){  
 					include_once("profile.php");
 					//$str=$domain."/Touchless/Profile.php?sig=".$sig."#resume"; 
@@ -148,6 +149,8 @@ if ($sig!=""|| $uid!=""){
 			}else if ($gengw==1) {
 				include_once("include_updateGWCnt.php");
 				include_once("gen_google_wallet2.php");
+			}else if ($geniosaos==1) {
+				include_once("geniosaos.php");
 			}else if ($qrtype!="") {				
 				include_once("gen2qrcode.php");
 			}else if($mobilesite==1){

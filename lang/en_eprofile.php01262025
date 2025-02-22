@@ -2,8 +2,7 @@
 
 $lang_str = [
   "eprofile.navbar-aboutme" => "ABOUT ME",
-  "eprofile.navbar-ourcompany" => "OUR COMPANY",
-"eprofile.navbar-getintouch" => "GET IN TOUCH",
+  "eprofile.navbar-ourcompany" => "GET IN TOUCH",
   'eprofile.navbar-wechat' => 'WECHAT',
   'eprofile.savemycontact' => 'SAVE MY CONTACT',
   'eprofile.moreinfo' => 'MORE INFO',
