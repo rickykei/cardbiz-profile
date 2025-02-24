@@ -34,6 +34,9 @@ $qrPng=$domain."?key=".$encrypted."&mobilesite=1";
 if ($qrtype==8)			
 $qrPng=$wechat_qr_url;
 
+if ($qrtype==9)
+	$qrPng=$domain."?key=".$encrypted."&geniosaos=1";
+
 			if ($qrPng!="")
 				if($debug){
 					echo $qrPng;
@@ -43,6 +46,8 @@ $qrPng=$wechat_qr_url;
 	   
 				}
  
+//apple
+
 ?>
 				 
 					               
