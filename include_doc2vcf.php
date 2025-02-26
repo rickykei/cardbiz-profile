@@ -101,15 +101,15 @@
 			$work_email2_label= $document->work_email2_label;
 			$work_email3_label= $document->work_email3_label;
 
-			if ($work_email_label=="")	$work_email_label="Work";
-			if ($work_email2_label=="")	$work_email2_label="Work";
-			if ($work_email3_label=="")	$work_email3_label="Work";
+			if ($work_email_label=="")	$work_email_label=$lang_str["eprofile.work_email_label"];
+			if ($work_email2_label=="")	$work_email_label2=$lang_str["eprofile.work_email_label2"];
+			if ($work_email3_label=="")	$work_email_label3=$lang_str["eprofile.work_email_label3"];
 		
 
 			$home_email_label= $document->home_email_label;
 			$other_email_label = $document->other_email_label;
-			if ($home_email_label=="")	$home_email_label="Home";
-			if ($other_email_label=="")	$other_email_label="Other";
+			if ($home_email_label=="")	$home_email_label=$lang_str["eprofile.home_email_label"];
+			if ($other_email_label=="")	$other_email_label=$lang_str["eprofile.other_email_label"];
 		
 
 			$work_email= $document->work_email;
@@ -129,10 +129,10 @@
 			$work_tel2_label=$document->work_tel2_label;
 			$work_tel3_label=$document->work_tel3_label;
 			$work_tel4_label=$document->work_tel4_label;
-			if ($work_tel_label=="")	$work_tel_label="Work";
-			if ($work_tel2_label=="")	$work_tel2_label="Work";
-			if ($work_tel3_label=="")	$work_tel3_label="Work";
-			if ($work_tel4_label=="")	$work_tel4_label="Work";
+			if ($work_tel_label=="")	$work_tel_label=$lang_str["eprofile.work_tel_label"];
+			if ($work_tel2_label=="")	$work_tel2_label=$lang_str["eprofile.work2_tel_label"];
+			if ($work_tel3_label=="")	$work_tel3_label=$lang_str["eprofile.work3_tel_label"];
+			if ($work_tel4_label=="")	$work_tel4_label=$lang_str["eprofile.work4_tel_label"];
 
 			$work_tel=$document->work_tel;
 			$work_tel2=$document->work_tel2;
@@ -167,18 +167,26 @@
 			$web_link6=$document->web_link6;
 			$web_link_label6=$document->web_link_label6;
 
+			if ($web_link_label=="")	$web_link_label=$lang_str["eprofile.web_link_label"];
+			if ($web_link_label2=="")	$web_link_label2=$lang_str["eprofile.web_link_label2"];
+			if ($web_link_label3=="")	$web_link_label3=$lang_str["eprofile.web_link_label3"];
+			if ($web_link_label4=="") 	$web_link_label4=$lang_str["eprofile.web_link_label4"];
+			if ($web_link_label5=="")	$web_link_label5=$lang_str["eprofile.web_link_label5"];
+			if ($web_link_label6=="") 	$web_link_label6=$lang_str["eprofile.web_link_label6"];
+
 			$mobile_label= $document->mobile_label;
 			$mobile2_label= $document->mobile2_label;
 			$mobile3_label= $document->mobile3_label;
 			$mobile4_label= $document->mobile4_label;
 			$home_tel_label=$document->home_tel_label;
 			$fax_label= $document->fax_label;
-			if ($mobile_label=="")	$mobile_label="Cell";
-			if ($mobile2_label=="")	$mobile2_label="Cell";
-			if ($mobile3_label=="")	$mobile3_label="Cell";
-			if ($mobile4_label=="")	$mobile4_label="Cell";
-			if ($home_tel_label=="")	$home_tel_label="Home";
-			if ($fax_label=="")	$fax_label="Fax";
+
+			if ($mobile_label=="")	$mobile_label=$lang_str["eprofile.mobile_label"];
+			if ($mobile2_label=="")	$mobile2_label=$lang_str["eprofile.mobile2_label"];
+			if ($mobile3_label=="")	$mobile3_label=$lang_str["eprofile.mobile3_label"];
+			if ($mobile4_label=="") $mobile4_label=$lang_str["eprofile.mobile4_label"];
+			if ($home_tel_label=="") $home_tel_label=$lang_str["eprofile.home_tel_label"];
+			if ($fax_label=="")	$fax_label=$lang_str["eprofile.fax_label"];
 
 
 
@@ -194,11 +202,10 @@
 			$address2_label= $document->address2_label;
 			$address3_label= $document->address3_label;
 			$address4_label= $document->address4_label;
-			if ($address_label=="")	$address_label="Address";
-			if ($address2_label=="")	$address2_label="Address";
-			if ($address3_label=="")	$address3_label="Address";
-			if ($address4_label=="")	$address4_label="Address";
-
+			if ($address_label=="")	$address_label=$lang_str["eprofile.address_label"];
+			if ($address2_label=="") $address2_label=$lang_str["eprofile.address2_label"];
+			if ($address3_label=="")	$address3_label=$lang_str["eprofile.address3_label"];
+			if ($address4_label=="")	$address4_label=$lang_str["eprofile.address4_label"];
 			 
 			$address= $document->address;
 			$address2= $document->address2;

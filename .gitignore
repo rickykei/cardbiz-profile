@@ -2,3 +2,4 @@
 *.docx
 *.pdf
 *.bak
+.DS_Store
