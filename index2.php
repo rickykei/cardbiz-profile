@@ -367,7 +367,7 @@
                         word-wrap: break-word;     /* Break long words if needed */
                         overflow-wrap: break-word;">
                             <?php if ($company_website_url != "") { ?>
-                                <li><span>Company Website :</span> <a href="<?php echo "$company_website_url"; ?>" target="_blank"><?php echo "$company_website_url"; ?></a></li>
+                                <li><span><?php echo $company_website_url_label; ?> :</span> <a href="<?php echo "$company_website_url"; ?>" target="_blank"><?php echo "$company_website_url"; ?></a></li>
                             <?php } ?>
                             <?php if ($web_link != "") { ?>
                                 <li><span><?php echo $web_link_label; ?> :</span> <a href="<?php echo "$web_link"; ?>" target="_blank"><?php echo $web_link; ?></a></li>

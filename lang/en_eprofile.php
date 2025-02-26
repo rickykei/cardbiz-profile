@@ -36,6 +36,6 @@ $lang_str = [
     'eprofile.address_label2' => 'Address',
     'eprofile.address_label3' => 'Address',
     'eprofile.address_label4' => 'Address',
-    
+    'eprofile.company_website_url_label' => 'Company webiste',
 ];
 ?>

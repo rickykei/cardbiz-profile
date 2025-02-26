@@ -96,14 +96,16 @@
 			$title_eng=$document->title_eng;
 			$title_chi=$document->title_chi;
 			
+
+			if ($company_website_url_label=="")	$company_website_url_label=$lang_str["eprofile.company_website_url_label"];
 			 
 			$work_email_label= $document->work_email_label;
 			$work_email2_label= $document->work_email2_label;
 			$work_email3_label= $document->work_email3_label;
 
 			if ($work_email_label=="")	$work_email_label=$lang_str["eprofile.work_email_label"];
-			if ($work_email2_label=="")	$work_email_label2=$lang_str["eprofile.work_email_label2"];
-			if ($work_email3_label=="")	$work_email_label3=$lang_str["eprofile.work_email_label3"];
+			if ($work_email2_label=="")	$work_email2_label=$lang_str["eprofile.work_email2_label"];
+			if ($work_email3_label=="")	$work_email3_label=$lang_str["eprofile.work_email3_label"];
 		
 
 			$home_email_label= $document->home_email_label;
@@ -130,9 +132,9 @@
 			$work_tel3_label=$document->work_tel3_label;
 			$work_tel4_label=$document->work_tel4_label;
 			if ($work_tel_label=="")	$work_tel_label=$lang_str["eprofile.work_tel_label"];
-			if ($work_tel2_label=="")	$work_tel2_label=$lang_str["eprofile.work2_tel_label"];
-			if ($work_tel3_label=="")	$work_tel3_label=$lang_str["eprofile.work3_tel_label"];
-			if ($work_tel4_label=="")	$work_tel4_label=$lang_str["eprofile.work4_tel_label"];
+			if ($work_tel2_label=="")	$work_tel2_label=$lang_str["eprofile.work_tel2_label"];
+			if ($work_tel3_label=="")	$work_tel3_label=$lang_str["eprofile.work_tel3_label"];
+			if ($work_tel4_label=="")	$work_tel4_label=$lang_str["eprofile.work_tel4_label"];
 
 			$work_tel=$document->work_tel;
 			$work_tel2=$document->work_tel2;
