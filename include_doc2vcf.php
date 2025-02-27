@@ -205,9 +205,9 @@
 			$address3_label= $document->address3_label;
 			$address4_label= $document->address4_label;
 			if ($address_label=="")	$address_label=$lang_str["eprofile.address_label"];
-			if ($address2_label=="") $address2_label=$lang_str["eprofile.address2_label"];
-			if ($address3_label=="")	$address3_label=$lang_str["eprofile.address3_label"];
-			if ($address4_label=="")	$address4_label=$lang_str["eprofile.address4_label"];
+			if ($address2_label=="") $address2_label=$lang_str["eprofile.address_label2"];
+			if ($address3_label=="")	$address3_label=$lang_str["eprofile.address_label3"];
+			if ($address4_label=="")	$address4_label=$lang_str["eprofile.address_label4"];
 			 
 			$address= $document->address;
 			$address2= $document->address2;
