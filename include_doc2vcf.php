@@ -7,6 +7,7 @@
 			$company_name_option_eng[4]="East Asia Facility Management Limited";
 			$company_name_option_eng[5]="East Asia Securities Company Limited";
 			$company_name_option_eng[6]="BEA Insurance Agency Limited";
+			$company_name_option_eng[7]="BEA Global Services Centre (Guangdong) Co., Ltd";
 			$company_name_option_chi[0]="東亞銀行有限公司";
 			$company_name_option_chi[1]="東亞銀行（信託）有限公司";
 			$company_name_option_chi[2]="東亞期貨有限公司";
@@ -14,6 +15,7 @@
 			$company_name_option_chi[4]="東亞設施管理有限公司";
 			$company_name_option_chi[5]="東亞證券有限公司";
 			$company_name_option_chi[6]="東亞保險代理有限公司";
+			$company_name_option_chi[7]="东亚环球商业服务（广东）有限公司";
  
  
 			//company level

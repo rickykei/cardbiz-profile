@@ -94,7 +94,7 @@ span    {color: grey;}
                         <div class="floor home-page">
                              <div class="home-box" style="font-family:Hando, Arial">
                                  
-                                <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    width="250" />
+                                <img class="signature" src="/comp_logo/<?php echo $company_name_option;?>.png" alt=""    height="46" />
                                 <br><br>
                                  <?php if($fname!=""){?><h1 style="color:grey;"><?php echo "$fname"; ?><p style="display:inline-block">&nbsp;<?php echo $pro_title; ?>&nbsp;<?php echo $field071; ?><?php }?></p></h1>
                                  <p style="line-height: 20px; margin-top: 3px">
@@ -112,8 +112,29 @@ span    {color: grey;}
                                      <?php if($division_chi!=""){?><span style="font-size:13px"><?php echo "$division_chi" ; ?> </span><?php }?></p><br>
                                  <div class="contact-box" style="font-family:Hando, Arial">
 									<a class="recoba-btn" style="color:grey;" href="<?php echo $savemycontact; ?>">Save Contact</a> 
+<!--
 									<a class="recoba-btn2" style="color:grey" href="#" >Share Contact</a>
-									<p class="result"></p>
+                                     <p class="result"></p>
+-->
+                                     
+                                     <button id="downloadBtn" class="recoba-btn" style="color:grey">Download Image</button>
+                        
+                        
+                        <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Base64 image string (truncated for brevity)
+            
+            //<!--                        <img src="<?php echo $namecard_jpg;?>" alt=""  width="250">-->
+            const base64Image = '<?php echo $namecard_jpg;?>'; 
+            const link = document.createElement('a');
+            link.href = base64Image;
+            link.download = 'businesscard.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+									
 									</div>
 								<input type="hidden" id="content-to-copy" />
 								<br>
@@ -314,23 +335,7 @@ span    {color: grey;}
                         
                                       
                         <br>
-                        <button id="downloadBtn" class="recoba-btn" style="color:grey">Download Image</button>
                         
-                        
-                        <script>
-        document.getElementById('downloadBtn').addEventListener('click', function() {
-            // Base64 image string (truncated for brevity)
-            
-            //<!--                        <img src="<?php echo $namecard_jpg;?>" alt=""  width="250">-->
-            const base64Image = '<?php echo $namecard_jpg;?>'; 
-            const link = document.createElement('a');
-            link.href = base64Image;
-            link.download = 'businesscard.jpg';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    </script>
           
                         </div>
                     </div>     
