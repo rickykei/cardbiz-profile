@@ -4,10 +4,22 @@
 <head>
     <title>e-Profile</title>
     <meta charset="UTF-8">
-    <meta property="og:title" content="e-Profile" />
-    <meta property="og:description" content="<?php echo $name ?>" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="<?php echo $url; ?>" />
+<meta property="og:title" 
+  content="<?php 
+    $parts = [];
+
+    // Combine first + last name as one string
+    $fullname = trim($fname . ' ' . $lname);
+    if (!empty($fullname)) $parts[] = $fullname;
+
+    if (!empty($position)) $parts[] = $position;
+    if (!empty($company_name_eng)) $parts[] = $company_name_eng;
+
+    echo implode(', ', $parts);
+  ?>" />
+<meta property="og:description" content="Digital Business Card"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="<?php echo $headshot;?>"/>   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Stylesheets -->
@@ -413,9 +425,8 @@
                                 
                             </div><br>
                         <div class="home-box bottom15">
-                        <h1 style="font-size: 120%; margin-bottom: 5px;" class="subtitle"><strong><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-                                    <?php echo $oname; ?></strong></h1>
-                            
+                        <h1 style="font-size: 120%" class="subtitle"><strong><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span>
+                                    <?php echo $oname; ?></strong></h1><br><br>
                             <span><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></span>
                             <p style="line-height: 1.2;" class="position"><?php echo "$position" ; ?></p>
                         <!--

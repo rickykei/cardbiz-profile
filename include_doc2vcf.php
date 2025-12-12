@@ -26,8 +26,24 @@
 			if ($document->company_detail[0]['logo']!="")
 			$company_logo=$domain."/api/files/".$document->company_detail[0]['logo'];
 
-
+			//logo display on profile control by switch
+			$headshot_display_option=1;
+			$logo_display_option=1;
+			
+			    if (isset($document->company_detail[0]['headshot_display_option']))
+				$headshot_display_option=$document->company_detail[0]['headshot_display_option'];
+				 
+				 if (isset($document->company_detail[0]['logo_display_option']))
+				$logo_display_option=$document->company_detail[0]['logo_display_option'];
+				   
+			if ($debug==1){
+				
+			echo "<p>headshot display option = ". $headshot_display_option;
+			echo "<p>logo display option = ". $logo_display_option;
+			}
+			
 			//minisite style sheet 20250105
+			$minisite_title_font_size=18;
 			$minisite_font_size=14;
 			$minisite_font_color="#8c8c8c";
 			$minisite_font_family="Lato";
@@ -49,6 +65,8 @@
 			$minisite_font_color=$document->company_detail[0]['font_color'];
 			if ($document->company_detail[0]['font_size']!="")
 			$minisite_font_size=$document->company_detail[0]['font_size'];
+			if ($document->company_detail[0]['title_font_size']!="")
+			$minisite_title_font_size=$document->company_detail[0]['title_font_size'];
 			if ($document->company_detail[0]['font_family']!="")
 			$minisite_font_family=$document->company_detail[0]['font_family'];
 			if ($document->company_detail[0]['bg_color']!="")
@@ -126,6 +144,7 @@
 			$subsidiary_chi=$document->subsidiary_chi;
 			
 			$position=$document->position;
+			$position_other_lang=$document->position_other_lang;
 			
 			$work_tel_label=$document->work_tel_label;
 			$work_tel2_label=$document->work_tel2_label;
@@ -224,7 +243,10 @@
 		 	$department=$document->department;
 			$country=$document->country;
 			$bio=$document->bio;
-
+ 			$awards=$document->awards;
+    		$qualifications=$document->qualifications;
+    		$additional_address=$document->additional_address;
+    		$achievements=$document->achievements;
 			$company_website_url=$document->company_website_url;
 		 	$more_info_tab_url=$document->more_info_tab_url;
 			$facebook_url=$document->facebook_url;
@@ -296,7 +318,7 @@
 			  
 			  if($other_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=OTHER:" . $other_email . "\r\n"; 			 
 			  
-			  if($position!="") $vCard .= "TITLE;CHARSET=utf-8:" . $position . "\r\n"; 			 
+			  if($position!="") $vCard .= "TITLE;CHARSET=utf-8:" . $position ." ". $position_other_lang. "\r\n"; 			 
 			  
 			  if($work_tel!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel . "\r\n"; 
 			  if($work_tel2!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel2 . "\r\n"; 
@@ -415,7 +437,7 @@
 				if($company_name_eng!=""|| $company_name_chi!="" )$qrPng .= "ORG:" . $company_name_eng ." ". $company_name_chi. "\r\n";
 				if($fname!="") $qrPng .= "N:" . $lname .";" . $fname .";" . $mname .";" . $pname .";" . $oname ." " . $pdname ."\r\n";
                 if($work_email!="") $qrPng .= "EMAIL;WORK:" . $work_email . "\r\n";         
-				if($position!="")$qrPng.="TITLE:".$position."\r\n";
+				if($position!="")$qrPng.="TITLE:".$position." ". $position_other_lang. "\r\n";
 				if($work_tel) $qrPng .= "TEL;WORK:" . $work_tel . "\r\n"; 
                 if($mobile!="") $qrPng .= "TEL;TYPE=CELL:" . $mobile . "\r\n"; 
 				//if($home_tel)$qrPng .= "TEL;TYPE=HOME:" . $home_tel . "\r\n";
@@ -457,15 +479,31 @@
 			   
 			
 			   
-				if ($wallet_logo_option==1)     $gwarray['logo']=$company_logo;
-				if ($wallet_logo_option==2)     $gwarray['logo']=$headshot;
-				if ($wallet_logo_option==3)     $gwarray['logo']=$domain.'logo.png';
-				if ($wallet_logo_option=="")     $gwarray['logo']=$domain.'logo.png';
+				if ($wallet_logo_option==1)     
+						{
+						$gwarray['logo']='';
+						$gwarray['ioslogo']=$domain."nologo.png";
+						}
+				if ($wallet_logo_option==2){
+
+					$gwarray['logo']=$headshot;
+				  	$gwarray['ioslogo']=$headshot;
+				  }   
+				if ($wallet_logo_option==3) {
+				 	$gwarray['logo']=$company_logo;
+				 	$gwarray['ioslogo']=$company_logo;
+				 }   
+				if ($wallet_logo_option=="") 
+					{
+						$gwarray['logo']='';
+						$gwarray['ioslogo']=$domain."nologo.png";
+					}
+				
  
 
 				 $gwarray['logo2']=$domain.'images/transparent.png';
 				
-				$walletField1SelectDataLabel = [" ","Name","Name","Name","Name","Company","Company","Division","Department","Country","Position"];
+				$walletField1SelectDataLabel = ["","Name","Name","Name","Name","Company","Company","Division","Department","Country","Position","Position"];
 
 			
 
@@ -479,6 +517,7 @@
 				if ($wallet_field1_option==8)  $gwarray['company_name']=$department;
 				if ($wallet_field1_option==9)  $gwarray['company_name']=$country;
 				if ($wallet_field1_option==10)  $gwarray['company_name']=$position;
+				if ($wallet_field1_option==11)  $gwarray['company_name']=$position_other_lang;
 				if ($wallet_field1_option=="")  { $gwarray['company_name']=$company_name_eng  ;$wallet_field1_option=5;}
 				if (trim($gwarray['company_name']," ")=="")   $gwarray['company_name']="Digital Name Card";
 				$gwarray['company_name_label']=$walletField1SelectDataLabel[$wallet_field1_option];
@@ -495,6 +534,7 @@
 				if ($wallet_field2_option==8)  $gwarray['name']=$department;
 				if ($wallet_field2_option==9)  $gwarray['name']=$country;
 				if ($wallet_field2_option==10)  $gwarray['name']=$position;
+				if ($wallet_field2_option==11)  $gwarray['name']=$position_other_lang;
 				if ($wallet_field2_option=="")  {$gwarray['name']=$fname." ".$lname;$wallet_field2_option=2;}
 				if (trim($gwarray['name']," ")=="")  $gwarray['name']="N/A";
 
@@ -514,6 +554,7 @@
 				if ($wallet_field3_option==8)  $gwarray['position']=$department;
 				if ($wallet_field3_option==9)  $gwarray['position']=$country;
 				if ($wallet_field3_option==10)  $gwarray['position']=$position;
+				if ($wallet_field3_option==11)  $gwarray['position']=$position_other_lang;
 				if ($wallet_field3_option=="")  { $gwarray['position']=$position; $wallet_field3_option=10;}
 				if (trim($gwarray['position']," ")=="")  $gwarray['position']="N/A";
 				if ($wallet_field3_title!="")
@@ -555,13 +596,12 @@
 					echo "wallet_field1_option=".$wallet_field1_option."<p>";
 					echo "wallet_field2_option=".$wallet_field2_option."<p>"; 
 					echo "wallet_field3_option=".$wallet_field3_option."<p>"; 
-					echo "wallet_field2_title=".$wallet_field2_title;
-					echo "wallet_field3_title=".$wallet_field3_title;
-					echo "company_logo=".$company_logo; 
-					
-					echo "comp_name_label=".$gwarray['company_name_label']."<p>";
-					echo "comp_name=".$gwarray['company_name']."<p>";
-					echo "name_label=".$gwarray['name_label']."<p>";
+					echo "wallet_field2_title=".$wallet_field2_title."<p>"; 
+					echo "wallet_field3_title=".$wallet_field3_title."<p>"; 
+					echo "company_logo=".$company_logo."<p>"; 					
+					echo "gw comp_name_label=".$gwarray['company_name_label']."<p>";
+					echo "gw comp_name=".$gwarray['company_name']."<p>";
+					echo "gw name_label=".$gwarray['name_label']."<p>";
 					echo "gwa name=".$gwarray['name']."<p>"; 
 					echo "gwa position_label=".$gwarray['position_label']."<p>"; 
 					echo "gwa position=".$gwarray['position']."<p>"; 

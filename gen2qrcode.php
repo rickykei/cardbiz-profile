@@ -39,7 +39,7 @@ if ($qrtype==9)
 
 			if ($qrPng!="")
 				if($debug){
-					echo $qrPng;
+					echo "qrpng=".$qrPng;
 				}else{
 				 header("Content-type: image/png");
 						echo QRcode::svg($qrPng);

@@ -4,10 +4,22 @@
 <head>
     <title>e-Profile</title>
     <meta charset="UTF-8">
-    <meta property="og:title" content="e-Profile" />
-    <meta property="og:description" content="<?php echo $name ?>" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="<?php echo $url; ?>" />
+<meta property="og:title" 
+  content="<?php 
+    $parts = [];
+
+    // Combine first + last name as one string
+    $fullname = trim($fname . ' ' . $lname);
+    if (!empty($fullname)) $parts[] = $fullname;
+
+    if (!empty($position)) $parts[] = $position;
+    if (!empty($company_name_eng)) $parts[] = $company_name_eng;
+
+    echo implode(', ', $parts);
+  ?>" />
+<meta property="og:description" content="Digital Business Card"/>
+<meta property="og:type" content="article"/>
+<meta property="og:image" content="<?php echo $headshot;?>"/>   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -78,7 +90,7 @@
         }
 
         .social a {
-            background: <?php echo $minisite_key_wording_color; ?>;
+            background: linear-gradient(135deg, <?php echo $minisite_key_wording_color; ?>, <?php echo $minisite_title_text_color; ?>);
             color: <?php echo $minisite_social_icon_bg_color; ?>;
             -webkit-border-radius: 34px;
             -moz-border-radius: 34px;
@@ -165,11 +177,13 @@
         }
 
         .subtitle {
+             font-size: <?php echo $minisite_title_font_size; ?>px !important;
             color: <?php echo $minisite_key_wording_color; ?>;
         }
         
         .page-title {
             color: <?php echo $minisite_key_wording_color; ?>;
+             font-size: <?php echo $minisite_title_font_size; ?>px !important;
         }
         
         .site {
@@ -183,7 +197,20 @@
             -ms-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);
         }
         
-       
+                       .qr-section {
+            margin: 20px 0;
+        }
+
+        .qr-section img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
 
         
     </style>
@@ -317,7 +344,7 @@
             <div class="left-navbar">
                 <br>
                 <a class="" href="">
-                    <?php if ($company_logo != "") { ?>
+                    <?php if ($company_logo != "" && $logo_display_option==true) { ?>
                         <img class="signature" src="<?php echo $company_logo; ?>" alt="" width="50">
                     <?php } else { ?>
                         <img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
@@ -347,15 +374,16 @@
                 <div class="scroll-out">
                     <div class="floor home-page">
                         <div class="home-box">
+                            <?php if ($headshot_display_option!="") { ?>
                             <img class="signature" src="<?php echo $headshot; ?>" alt="" width="160" height="160" style="border-radius: 50% ;" />
                             <br>
                             <br>
-                            <h4 class="subtitle"><?php echo "$pname "; ?><?php echo "$fname "; ?><?php echo "$mname "; ?><?php echo "$lname "; ?><span style="display:inline-block"><?php echo "$pdname"; ?></span></h4>
+                            <?php } ?>
+                            <h4 class="subtitle" style="margin-top:20px;"><?php echo "$pname "; ?><?php echo "$fname "; ?><?php echo "$mname "; ?><?php echo "$lname "; ?><span style="display:inline-block"><?php echo "$pdname"; ?></span></h4>
                             <h4 class="subtitle"><?php echo $oname; ?></h4> 
-                            <span><?php echo "$position"; ?></span> 
-                            <p><?php echo "$bio"; ?></p>
-                            <br>
-                            <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center;"
+                            <span><?php echo "$position" ; ?><br><?php echo "$position_other_lang"; ?></span>
+                            <p><?php echo "$bio"; ?></p><br>
+                            <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center; margin-bottom: 20px;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
                             </a>
@@ -467,7 +495,7 @@
                             <?php } ?>
                         </ul>
 
-                        <div class="social">
+                        <div class="social" style="margin-bottom: 20px;">
                             <?php if ($facebook_url != "") { ?>
                                 <a id="FB" class="facebook" onclick='onclick(event);' href="<?php echo $facebook_url; ?>"><i class="fa-brands fa-facebook"></i> </a>
                             <?php } ?>
@@ -531,16 +559,16 @@
 
                         </div>
 
-                        <br>
                         <div>
+                             <div class="qr-section" style="text-align: left; margin-bottom: 30px;">
 
-                        <?php if ($fromkey) { ?>
+                        <?php if ($fromkey && $qrcode_option!=5) { ?>
                             <img src="/?key=<?php echo $encrypted; ?>&qrtype=<?php echo $qrcode_option; ?>" alt="" width="160">
                         <?php } ?>
-                        <?php if ($fromuid) { ?>
+                        <?php if ($fromuid && $qrcode_option!=5) { ?>
                             <img src="/?uid=<?php echo $uid; ?>&qrtype=<?php echo $qrcode_option; ?>" alt="" width="160">
                         <?php } ?>
-                        <br><br>
+                                 </div>
                          <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
@@ -560,12 +588,17 @@
                         <?php if ($wechat_id != "" || $wechat_qr_url != "") { ?>
                             <?php if ($wechat_qr_url != "") { ?>
                                 <div class="centered-content" style="display: inline-block; text-align: center; margin-top: 20px;">
+                                    <div class="qr-section">
                                 <?php if ($fromkey) { ?>
                                     <img src="/?key=<?php echo $encrypted; ?>&qrtype=8" alt="QR Code" width="250" style="display: block; margin: 80 auto;">
                                     <?php } ?>
                                     <?php if ($fromuid) { ?>
                                         <img src="/?uid=<?php echo $uid; ?>&qrtype=8" alt="QR Code" width="250" style="display: block; margin: 80 auto;">
                                     <?php } ?>
+                                    <?php if ($fromsig) { ?>
+                                        <img src="/?sig=<?php echo $sig; ?>&qrtype=8" alt="QR Code" width="250" style="display: block; margin: 80 auto;">
+                                    <?php } ?>
+                                        </div>
       
                             </div>
                             <?php } ?>

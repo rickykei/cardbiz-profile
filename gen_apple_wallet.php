@@ -62,10 +62,10 @@ $awdata = [
 $awpass->setData($awdata); 
 // Add files to the pass package
 $awpass->addFile('images/icon.png');
-if ($gwarray['logo']!="")
-$awpass->addRemoteFile($gwarray['logo'],"logo.png");
-$awpass->addRemoteFile($gwarray['logo'],"logo@2x.png");
-$awpass->addRemoteFile($gwarray['logo'],"logo@3x.png");
+if ($gwarray['ioslogo']!="")
+$awpass->addRemoteFile($gwarray['ioslogo'],"logo.png");
+$awpass->addRemoteFile($gwarray['ioslogo'],"logo@2x.png");
+$awpass->addRemoteFile($gwarray['ioslogo'],"logo@3x.png");
 $awpass->addFile('images/icon@2x.png');
 //$pass->addFile('images/logo.png');
 if ($gwarray['banner']!="")

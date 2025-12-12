@@ -1,12 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>电子名片</title>
+<title>e-Profile</title>
 <meta charset="UTF-8">
-<meta property="og:title" content="e-Profile"/>
-<meta property="og:description" content="<?php echo $name?>"/>
+<meta property="og:title" 
+  content="<?php 
+    $parts = [];
+
+    // Combine first + last name as one string
+    $fullname = trim($fname . ' ' . $lname);
+    if (!empty($fullname)) $parts[] = $fullname;
+
+    if (!empty($position)) $parts[] = $position;
+    if (!empty($company_name_eng)) $parts[] = $company_name_eng;
+
+    echo implode(', ', $parts);
+  ?>" />
+<meta property="og:description" content="Digital Business Card"/>
 <meta property="og:type" content="article"/>
-<meta property="og:image" content="<?php echo $url ; ?>"/>    
+<meta property="og:image" content="<?php echo $headshot;?>"/>    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Stylesheets -->
@@ -28,8 +40,8 @@
 
 <!-- Font icons -->
 <link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.3.0/css/all.min.css"/>
-    <link rel="stylesheet" href="/vcard/icon-fonts/font-awesome-6.3.0/css/brands.css"/>
 <link rel="stylesheet" href="/vcard/icon-fonts/essential-regular-fonts/essential-icons.css"/>
+    
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -67,7 +79,422 @@
           }
             
           </script>
+    <style>
+/*
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+*/
 
+        .container {
+            position: relative;
+            width: 85%;               /* take 85% of parent width */
+            max-width: 600px;          /* but no more than 600px */
+            margin: 200px auto 40px auto;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08), 
+              0 -2px 6px rgba(0,0,0,0.02);
+            overflow: visible;
+            text-align: center;
+            background-color: <?php echo $minisite_site_bg_color; ?>;
+            z-index: 1; /* keep container below */
+        }
+        
+        .banner-image {
+            width: 85%;
+            max-width: 600px;          /* but no more than 600px */
+            max-height: 200px;         /* adjust as needed */
+            margin: 100px auto 40px auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08), 
+              0 -2px 6px rgba(0,0,0,0.02);
+            overflow: hidden;
+            position: absolute;   
+            left: 50%;             /* move left edge to middle */
+            transform: translateX(-50%); /* center it horizontally */
+            top: -70px;          
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            text-align: center;
+            z-index: -1;  
+}
+
+.banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* fill the box */
+    object-position: top;    /* always show the top of the image */
+    display: block;
+}
+
+        .headshot {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;   /* take it out of normal flow */
+            top: -50px;           
+            left: 25%;             /* move left edge to 50% */
+            transform: translateX(-50%); /* shift it back by half its width */
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            text-align: center;
+            z-index: 2;  
+            border: 1mm solid <?php echo $minisite_site_bg_color; ?>; 
+        }
+
+        .headshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .companylogo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: absolute;   /* take it out of normal flow */
+            top: -155px;           
+            left: calc(90%);     
+            transform: translateX(-50%); /* shift it back by half its width */
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            text-align: center;
+            z-index: 2;  
+/*            border: 1mm solid <?php echo $minisite_key_wording_color; ?>; */
+        }
+
+        .companylogo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 10px 0 5px;
+            color: #111;
+        }
+
+        .subtitle {
+             font-size: <?php echo $minisite_title_font_size; ?>px !important;
+            color: <?php echo $minisite_key_wording_color; ?>;
+        }
+
+        .info-block {
+            margin: 15px 25px;
+        }
+        
+                        .info-block2 {
+            margin: 15px 25px;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: #222;
+        }
+
+        .qr-section {
+            margin: 20px 0;
+        }
+
+        .qr-section img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .footer-banner img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+                .list {
+            font-size: <?php echo $minisite_font_size; ?>px !important;
+            font-weight: 400;
+            color: <?php echo $minisite_text_color; ?>;
+            line-height: 30px;
+            margin: 12px 6px;  
+                    width: 90%;
+        }
+        
+        .list a {
+    text-decoration: none;          /* remove underline */
+    display: block;                 /* make anchor fill width */
+    margin: 2px 30px;               /* spacing between boxes */
+    width: 90%;                   /* fixed width for all */
+    border-radius: 32px;            /* rounded corners */
+    background-color: <?php echo $minisite_site_bg_color; ?>;      /* background */
+    color: <?php echo $minisite_text_color; ?>;                    /* text + icon color */
+    font-weight: bold;
+}
+
+.list a li {
+    display: flex;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    text-align: center;     /* make sure text aligns left */
+}
+
+
+        p {
+            font-size: <?php echo $minisite_font_size; ?>px !important;
+            font-weight: 400;
+            color: <?php echo $minisite_bio_wording_color; ?>;
+            line-height: 26px;
+        }
+
+        body {
+            background: <?php echo $minisite_bg_color; ?> fixed;
+            min-height:  100%;
+            font-family: '<?php echo $minisite_font_family; ?>', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .links-to-floor {
+            margin: 0 auto;
+            height: 100%;
+            font-family: '<?php echo $minisite_font_family; ?>', sans-serif;
+        }
+
+        .list span {
+            color: <?php echo $minisite_title_text_color; ?>;
+        }
+        
+        .list li {
+    font-weight: bold;
+    border-radius: 12px;          /* rounded corners */
+    padding: 0 16px;            /* spacing inside */
+    margin: 0 0;                /* space between boxes */
+    display: flex;        /* force each li on its own line */
+    background: <?php echo $minisite_site_bg_color; ?>;             /* optional: white background */
+            box-sizing: border-box; /* include padding in width */
+            align-items: center;
+            text-align: left;
+            color: <?php echo $minisite_key_wording_color; ?>;
+            
+}
+
+
+        .home-box span {
+            color: <?php echo $minisite_title_text_color; ?>;
+        }
+        
+        .position {
+            color: <?php echo $minisite_text_color; ?>;
+        }
+
+        
+        .social a {
+                        background: linear-gradient(135deg, <?php echo $minisite_key_wording_color; ?>, <?php echo $minisite_title_text_color; ?>);
+            color: <?php echo $minisite_social_icon_bg_color; ?>;
+            -webkit-border-radius: 44px;
+            -moz-border-radius: 44px;
+            border-radius: 44px;
+            width: 44px;
+            display: block;
+            height: 44px;
+            text-align: center;
+            font-size: 22px;
+            margin: auto;
+            margin-bottom: 4px;
+                flex-direction: column;   /* stack icons vertically */
+    align-items: center;      /* horizontal centering */
+        }
+
+        
+        .recoba-btn {
+            display: block;
+            width: fit-content;
+            color: <?php echo $minisite_key_wording_color; ?>;
+            background-color: <?php echo $minisite_button_color; ?>;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            -webkit-transition-property: color;
+            transition-property: color;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            padding: 12px 24px;
+            border: solid 1px <?php echo $minisite_title_text_color; ?>;
+            font-size: 11px;
+            text-decoration: none !important;
+            font-weight: bold;
+            border-radius: 32px;
+             text-align: left;
+            margin-left: 25px;
+        }
+
+        .recoba-btn:before {
+
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: <?php echo $minisite_key_wording_color; ?>;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+            -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+            border-radius: 32px;
+        }
+        
+        .recoba-tabs .tab-content{
+	    padding: <?php echo $minisite_font_size; ?>px !important;
+            background: <?php echo $minisite_site_bg_color; ?>;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+                white-space: normal;   /* ensures text wraps */
+    word-wrap: break-word; /* long words/URLs break onto next line */
+    overflow-wrap: break-word; /* modern equivalent */
+            
+}
+
+/* Active tabs */
+.recoba-tabs .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	color: <?php echo $minisite_key_wording_color; ?>;
+    cursor: default;
+    background-color: <?php echo $minisite_site_bg_color; ?>;
+    border: 1px solid color-mix(in srgb, <?php echo $minisite_key_wording_color; ?> 7%, <?php echo $minisite_site_bg_color; ?>);
+
+    border-bottom-color: <?php echo $minisite_site_bg_color; ?>;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+
+/* Inactive tabs */
+.recoba-tabs .nav-tabs > li > a {
+    color: <?php echo $minisite_title_text_color; ?>; /* text color for inactive */
+    display: block;
+  margin: 0;        /* remove gaps */
+  border-right: none; /* prevents double borders */
+}
+
+/* Hover effect for inactive tabs */
+.recoba-tabs .nav-tabs > li > a:hover {
+    color: <?php echo $minisite_key_wording_color; ?>;
+    background-color: <?php echo $minisite_site_bg_color; ?>;
+    border-color: color-mix(in srgb, <?php echo $minisite_key_wording_color; ?> 7%, <?php echo $minisite_site_bg_color; ?>);
+        border-bottom-color: <?php echo $minisite_site_bg_color; ?>;
+        border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+        
+        
+.recoba-tabs .nav-tabs > li > a{
+	font-size: <?php echo $minisite_font_size; ?>px !important;
+    flex: 1;  
+  text-align: center;     /* center the text inside */
+}
+
+        .recoba-tabs .nav-tabs li {
+    flex: 1;                  /* each tab takes equal width */
+    text-align: center;       /* center the icon/text inside */
+}
+        
+
+        
+        /* Change/remove the line under the tabs */
+.recoba-tabs .nav-tabs {
+    border-bottom: 1px solid color-mix(in srgb, <?php echo $minisite_key_wording_color; ?> 7%, <?php echo $minisite_site_bg_color; ?>); /* pick your color */
+        display: flex;            /* make tabs a flex container */
+    width: 100%;              /* fill parent container */
+    padding: 0;               /* remove default UL padding */
+    margin: 0;                /* remove default UL margin */
+    box-sizing: border-box;
+}
+        .recoba-tabs .nav-tabs > li.active > a:focus {
+/*    border: 1px solid <?php echo $minisite_key_wording_color; ?>;*/
+    border-bottom-color: <?php echo $minisite_site_bg_color; ?>; /* match tab-content bg */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+        
+        .recoba-tabs .nav-tabs li:last-child {
+    border-right: none;         /* ensure last tab has no border */
+}
+        
+        .links-to-floor li a:hover {
+            cursor: pointer;
+            text-decoration: none;
+            color: <?php echo $minisite_links_hover_color; ?>;
+            transition: all ease 0.5s;
+        }
+
+        .links-to-floor li a {
+            color: <?php echo $minisite_links_not_hover_color; ?>;
+            font-size: 13px;
+            height: 60px;
+            float: left;
+        }
+
+        .links-to-floor li .selected {
+            color: <?php echo $minisite_links_selected_color; ?>;
+        }
+
+/*
+        .left-navbar {
+            left: 0;
+            position: absolute;
+            height: 100%;
+            background: <?php echo $minisite_left_nav_bar_color; ?>;
+            z-index: 9;
+        }
+*/
+
+        .subtitle {
+            font-size: <?php echo $minisite_title_font_size; ?>px !important;
+            color: <?php echo $minisite_key_wording_color; ?>;
+        }
+
+        .page-title {
+            color: <?php echo $minisite_key_wording_color; ?>;
+        }
+        
+
+/*
+        .site {
+            background: <?php echo $minisite_site_bg_color; ?>;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);
+            -moz-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);
+            -webkit-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);
+            -ms-box-shadow: 0px 0px 46px 0px rgba(0, 0, 0, 0.09);
+        }
+*/
+    </style>
  
 </head>
  
@@ -75,9 +502,9 @@
 
  <!-- Preloading --> 
     
-    <!-- Switcher -->
-    <div class="color-switcher">
-        <div class="open"><i class="fa fa-globe fa-spin"></i></div>
+ <!-- Switcher -->
+    <div class="color-switcher" >
+        <div class="open" style=" border-radius: 0 50% 50% 0;"><i class="fa fa-globe fa-spin"></i></div>
         <h4><?php echo $lang_str['eprofile.lang-title'];?></h4>
         <ul>
             <li>
@@ -153,7 +580,7 @@
             <!-- Language 3 -->
             <li>
                 <a class="language-3" onclick="setLanguage('ar'); return false;" href="<?php echo $_SERVER['REQUEST_URI']."&lang=ar";?>" style="font-size: 12px;">
-                    AR
+                    हिंदी
                 </a>
             </li>
         </ul>
@@ -161,187 +588,230 @@
             <?php echo $lang_str['eprofile.lang-reset'];?>
         </a>
     </div>
-     
-	<div class="container wrapper">
-    	<div class="site">
-                    	<div class="left-navbar">
-                            <br>
-                        	<a  class="" href="">
-							<?php if($company_logo!=""){ ?>
-							<img class="signature" src="<?php echo $company_logo;?>" alt="" width="50">
-							<?php } else { ?>
-							<img class="signature" src="/assets/img/logo/white_logo.jpg" alt="" width="50">
-							<?php } ?>
-							</a>
-                            <div class="navigation">	
-                                <ul class="links-to-floor">
-                                    <li><a><?php echo $company_name_eng;?> <?php echo $company_name_chi;?></a></li>
-                                </ul>
-                            </div>
-                    
-                        </div>	
-						<div class="profile-image">
-						<?php if ($profile_theme==""){ ?>
-                        	<img src="/vcard/images/profile2.jpg" alt=""> 
-						<?php }else{ ?>
-							<img src="<?php echo $profile_theme;?>" alt=""> 
-						<?php } ?>
-                        </div>
-                    <div id="ascensorBuilding">
-                	<!-- HOME SECTION -->
-<!--
-                    <div class="scroll-out">
-                        <div class="floor home-page">
-                            <div class="home-box">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="200" height="200"  style="border-radius: 50% ;" />
-                                <br>
-                                <br>
-                               <h1><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-                                    <?php echo $oname; ?></h1>
-                                <br>
-                                <span><?php echo "$position" ; ?></span>
-                                <p><?php echo "$bio" ; ?>
-                                </p>
-                                
-                            </div>
-                            </div>
-                        </div>
--->
-                   
-                    <!-- ABOUT SECTION -->
-<!--
-                    <div class="scroll-out">
-                    <div class="floor about">
-                    	<h2 class="page-title"><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
-                       
-                        <ul class="list top15 bottom30">
-                            <?php if ($company_website_url!=""){ ?>
-                            <li><span>Company Website :</span> <a href="<?php echo "$company_website_url" ; ?>" target="_blank"><?php echo "$company_website_url" ; ?></a></li>
-							<?php } ?>
-							<?php if ($web_link!=""){ ?>
-                            <li><span><?php echo $web_link_label;?>:</span> <a href="<?php echo "$web_link" ; ?>" target="_blank"><?php echo $web_link; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link2!=""){ ?>
-                            <li><span><?php echo $web_link_label2;?>:</span> <a href="<?php echo "$web_link2" ; ?>" target="_blank"><?php echo $web_link2; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link3!=""){ ?>
-                            <li><span><?php echo $web_link_label3;?>:</span> <a href="<?php echo "$web_link3" ; ?>" target="_blank"><?php echo $web_link3; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link4!=""){ ?>
-                            <li><span><?php echo $web_link_label4;?>:</span> <a href="<?php echo "$web_link4" ; ?>" target="_blank"><?php echo $web_link4; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link5!=""){ ?>
-                            <li><span><?php echo $web_link_label5;?>:</span> <a href="<?php echo "$web_link5" ; ?>" target="_blank"><?php echo $web_link5; ?></a></li>
-							<?php } ?>
-                            <?php if ($web_link6!=""){ ?>
-                            <li><span><?php echo $web_link_label6;?>:</span> <a href="<?php echo "$web_link6" ; ?>" target="_blank"><?php echo $web_link6; ?></a></li>
-							<?php } ?>
-                            <?php if ($address!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address" ; ?></li> 
-							<?php } ?>
-                            <?php if ($address2!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address2" ; ?></li>
-							<?php } ?>
-                            <?php if ($address3!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address3" ; ?></li> 
-							<?php } ?>
-                            <?php if ($address4!=""){ ?>
-                            <li><span>Address :</span> <?php echo "$address4" ; ?></li>
-							<?php } ?>
-                        </ul>
-						<?php if ($more_info_tab_url!=""){ ?>
-                        <a id="one" class="recoba-btn" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>" >More Information</a>
-                       <?php } ?>
-                   
-                        
-                    </div>
-                    </div>
--->
-                  
-                    <!-- CONTACT SECTION-->
-                    <div class="scroll-out">
-                    <div class="floor contact">
-<!--                   		<h2 class="page-title">Contact Me</h2>-->
-                        <div class="home-box" style="align-items: center;">
-                                 <img class="signature" src="<?php echo $headshot ; ?>" alt="" width="120" height="120"  style="border-radius: 50% ; margin-right: 15px;" />
-                                
-                            </div><br>
-                        <div class="home-box bottom15">
-                        <h1 style="font-size: 120%; margin-bottom: 5px;"><strong><?php echo "$pname " ; ?><?php echo "$fname " ; ?><?php echo "$mname " ; ?><?php echo "$lname " ; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
-                                    <?php echo $oname; ?></strong></h1>
+    
+    <div class="banner-image">
+                <?php if ($profile_theme == "") { ?>
+                    <img src="/vcard/images/profile2.jpg" alt="">
+                <?php } else { ?>
+                    <img src="<?php echo $profile_theme; ?>" alt="">
+                <?php } ?>
+            </div>
+    
+     <div class="container">
+        <!-- Headshot / Logo -->
+                                     <?php if ($headshot_display_option==true) { ?>
+                            <img class="headshot" src="<?php echo $headshot; ?>" alt=""/>
+                            <?php } ?>
+         
+         <?php if ($logo_display_option==true) { ?>
+                            <img class="companylogo" src="<?php echo $company_logo; ?>" alt=""/>
+                            <?php } ?>
+        
+        <!-- Company / Name -->
+<div class="home-box" style="margin-top:80px; text-align:left; line-height:1.1; padding-left:24px;">
+
+                       <h4 class="subtitle"
+    style="margin-top:80px; text-align:left; line-height:1.2; ">
+<?php echo "$pname "; ?><?php echo "$fname "; ?><?php echo "$mname "; ?><?php echo "$lname "; ?><span style="display:inline-block"><?php echo "$pdname" ; ?></span><br>
+                                    <?php echo $oname; ?></h4>
                             
-                            <h2><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></h2>
-                            <p><?php echo "$position" ; ?></p>
-                        <!--
-                                <p><?php echo "$bio" ; ?>
-                                </p>
--->
                             </div>
-                       <ul class="list top15 bottom15" style="font-size: 80%; line-height: 1.8; max-width: 100%; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">
-						<?php if ($mobile != "") { ?>
-    <li><span><?php echo $mobile_label;?> :</span> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
+
+        <!-- Info Blocks -->
+        <div class="home-box" 
+     style="margin-bottom: 5px; text-align: left; display:flex; flex-direction:column; padding-left:24px;">
+
+              <span><?php echo $company_name_eng;?><br><?php echo $company_name_chi;?></span>
+                            <p style="line-height: 1.2;" class="position"><?php echo "$position" ; ?><br><?php echo "$position_other_lang"; ?></p>
+         <p style="line-height: 1.1; margin-top: 10px; text-align: left;"><br><?php echo "$bio" ; ?></p>
+         </div>
+         <div class="info-block">
+         <div class="qr-section" style="text-align: left; margin-bottom: 20px;">
+
+                        <?php if ($fromkey && $qrcode_option!=5) { ?>
+                            <img src="/?key=<?php echo $encrypted; ?>&qrtype=<?php echo $qrcode_option; ?>" alt="" width="160">
+                        <?php } ?>
+                        <?php if ($fromuid && $qrcode_option!=5) { ?>
+                            <img src="/?uid=<?php echo $uid; ?>&qrtype=<?php echo $qrcode_option; ?>" alt="" width="160">
+                        <?php } ?>
+                            </div>
+         </div>
+                                     <a class="recoba-btn" target="_blank" style="border-radius: 32px; font-weight: bold; margin-bottom: 5px;"
+                                href="<?php echo $savemycontact; ?>">
+                                <?php echo $lang_str['eprofile.savemycontact'];?>
+                            </a>
+         
+          <ul class="list top15 bottom15" style="border-radius: 32px; display: inline-block; text-align: center;">
+<?php if ($mobile != "") { ?>
+    <li><i class="fa-solid fa-mobile-screen-button"></i> <a href="tel:<?php echo $mobile; ?>"><?php echo $mobile; ?></a></li>
 <?php } ?>
 <?php if ($mobile2 != "") { ?>
-    <li><span><?php echo $mobile2_label;?> :</span> <a href="tel:<?php echo $mobile2; ?>"><?php echo $mobile2; ?></a></li>
+    <li><i class="fa-solid fa-mobile-screen-button"></i> <a href="tel:<?php echo $mobile2; ?>"><?php echo $mobile2; ?></a></li>
 <?php } ?>
 <?php if ($mobile3 != "") { ?>
-    <li><span><?php echo $mobile3_label;?> :</span> <a href="tel:<?php echo $mobile3; ?>"><?php echo $mobile3; ?></a></li>
+    <li><i class="fa-solid fa-mobile-screen-button"></i> <a href="tel:<?php echo $mobile3; ?>"><?php echo $mobile3; ?></a></li>
 <?php } ?>
 <?php if ($mobile4 != "") { ?>
-    <li><span><?php echo $mobile4_label;?> :</span> <a href="tel:<?php echo $mobile4; ?>"><?php echo $mobile4; ?></a></li>
+    <li><i class="fa-solid fa-mobile-screen-button"></i> <a href="tel:<?php echo $mobile4; ?>"><?php echo $mobile4; ?></a></li>
 <?php } ?>
 <?php if ($work_tel != "") { ?>
-    <li><span><?php echo $work_tel_label;?> :</span> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
+    <li><i class="fa-solid fa-phone"></i> <a href="tel:<?php echo $work_tel; ?>"><?php echo $work_tel; ?></a></li>
 <?php } ?>
 <?php if ($work_tel2 != "") { ?>
-    <li><span><?php echo $work_tel2_label;?> :</span> <a href="tel:<?php echo $work_tel2; ?>"><?php echo $work_tel2; ?></a></li>
+    <li><i class="fa-solid fa-phone"></i> <a href="tel:<?php echo $work_tel2; ?>"><?php echo $work_tel2; ?></a></li>
 <?php } ?>
 <?php if ($work_tel3 != "") { ?>
-    <li><span><?php echo $work_tel3_label;?> :</span> <a href="tel:<?php echo $work_tel3; ?>"><?php echo $work_tel3; ?></a></li>
+    <li><i class="fa-solid fa-phone"></i> <a href="tel:<?php echo $work_tel3; ?>"><?php echo $work_tel3; ?></a></li>
 <?php } ?>
 <?php if ($work_tel4 != "") { ?>
-    <li><span><?php echo $work_tel4_label;?> :</span> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
+    <li><i class="fa-solid fa-phone"></i> <a href="tel:<?php echo $work_tel4; ?>"><?php echo $work_tel4; ?></a></li>
 <?php } ?>
 <?php if ($home_tel != "") { ?>
-    <li><span><?php echo $home_tel_label;?> :</span> <a href="tel:<?php echo $home_tel; ?>"><?php echo $home_tel; ?></a></li>
+    <li><i class="fa-solid fa-phone"></i> <a href="tel:<?php echo $home_tel; ?>"><?php echo $home_tel; ?></a></li>
 <?php } ?>
 
                             <?php if ($fax!=""){ ?>
-                            <li><span><?php echo $fax_label;?> :</span> <?php echo $fax; ?></li>
+              <li><i class="fa fa-fax"></i><a><?php echo $fax; ?></a></li>
 							<?php } ?>
                              <?php if ($work_email != "") { ?>
-    <li><span><?php echo $work_email_label;?> :</span> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
+    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:<?php echo $work_email; ?>"><?php echo $work_email; ?></a></li>
 <?php } ?>
 <?php if ($work_email2 != "") { ?>
-    <li><span><?php echo $work_email2_label;?> :</span> <a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
+    <li><i class="fa-solid fa-envelope"></i><a href="mailto:<?php echo $work_email2; ?>"><?php echo $work_email2; ?></a></li>
 <?php } ?>
 <?php if ($work_email3 != "") { ?>
-    <li><span><?php echo $work_email3_label;?> :</span> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
+    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:<?php echo $work_email3; ?>"><?php echo $work_email3; ?></a></li>
 <?php } ?>
 <?php if ($home_email != "") { ?>
-    <li><span><?php echo $home_email_label;?> :</span> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
+    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:<?php echo $home_email; ?>"><?php echo $home_email; ?></a></li>
 <?php } ?>
 <?php if ($other_email != "") { ?>
-    <li><span><?php echo $other_email_label;?> :</span> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
+    <li><i class="fa-solid fa-envelope"></i> <a href="mailto:<?php echo $other_email; ?>"><?php echo $other_email; ?></a></li>
 <?php } ?>
 							<?php if ($wechat_id!=""){ ?>
-                            <li><span>微讯号 :</span> <?php echo $wechat_id; ?></li>                            
+                            <li><i class="fa-brands fa-weixin"></i> <a><?php echo $wechat_id; ?></a></li>                            
 							<?php } ?>
                              <?php if ($address!=""){ ?>
-                            <li><span><?php echo $address_label;?> :</span> <?php echo "$address" ; ?></li> 
+                            <li><i class="fa-solid fa-location-dot"></i> <a><?php echo "$address" ; ?></a></li> 
 							<?php } ?>
                             <?php if ($address2!=""){ ?>
-                            <li><span><?php echo $address2_label;?> :</span> <?php echo "$address2" ; ?></li>
+                            <li><i class="fa-solid fa-location-dot"></i> <a><?php echo "$address2" ; ?></a></li>
 							<?php } ?>
                             <?php if ($address3!=""){ ?>
-                            <li><span><?php echo $address3_label;?> :</span> <?php echo "$address3" ; ?></li> 
+                            <li><i class="fa-solid fa-location-dot"></i> <a><?php echo "$address3" ; ?></a></li> 
 							<?php } ?>
                             <?php if ($address4!=""){ ?>
-                            <li><span><?php echo $address4_label;?> :</span> <?php echo "$address4" ; ?></li>
+                            <li><i class="fa-solid fa-location-dot"></i> <a><?php echo "$address4" ; ?></a></li>
 							<?php } ?>
+              
+              <?php if ($company_website_url != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $company_website_url;?>"><?php echo $company_website_url_label; ?></a></li>
+<?php } ?>
+              <?php if ($more_info_tab_url != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $more_info_tab_url;?>"><?php echo $lang_str['eprofile.moreinfo'];?></a></li>
+<?php } ?>
+              <?php if ($web_link != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $web_link;?>"><?php echo $web_link_label;?></a></li>
+<?php } ?>
+              <?php if ($web_link2 != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $web_link2;?>"><?php echo $web_link_label2;?></a></li>
+<?php } ?>
+              <?php if ($web_link3 != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $web_link3;?>"><?php echo $web_link_label3;?></a></li>
+<?php } ?>
+              <?php if ($web_link4 != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $web_link4;?>"><?php echo $web_link_label4;?></a></li>
+<?php } ?>
+              <?php if ($web_link5 != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $web_link5;?>"><?php echo $web_link_label5;?></a></li>
+<?php } ?>
+              <?php if ($web_link6 != "") { ?>
+    <li><i class="fa-solid fa-globe"></i> <a href="<?php echo $web_link6;?>"><?php echo $web_link_label6;?></a></li>
+<?php } ?>
+              
                         </ul>
+ <?php
+// Reset all active states
+$tab1_active = $tab2_active = $tab3_active = $tab4_active = '';
+
+// Pick the first non-empty tab as active
+if ($awards != '') {
+    $tab1_active = 'active';
+} elseif ($qualifications != '') {
+    $tab2_active = 'active';
+} elseif ($additional_address != '') {
+    $tab3_active = 'active';
+} elseif ($achievements != '') {
+    $tab4_active = 'active';
+}
+?>
+<div class="info-block2">
+<?php if ($awards != '' || $qualifications != '' || $additional_address != '' || $achievements != '') { ?>
+    <div class="recoba-tabs">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" style="display:flex; justify-content:space-between;">
+            <?php if ($awards != "") { ?>
+                <li role="presentation" class="<?php echo $tab1_active; ?>">
+                    <a href="#tab1" role="tab" data-toggle="tab">
+                        <i class="fas fa-trophy"></i>
+                    </a>
+                </li>
+            <?php } ?>
+
+            <?php if ($qualifications != "") { ?>
+                <li role="presentation" class="<?php echo $tab2_active; ?>">
+                    <a href="#tab2" role="tab" data-toggle="tab">
+                        <i class="fas fa-medal"></i>
+                    </a>
+                </li>
+            <?php } ?>
+
+            <?php if ($additional_address != "") { ?>
+                <li role="presentation" class="<?php echo $tab3_active; ?>">
+                    <a href="#tab3" role="tab" data-toggle="tab">
+                        <i class="fas fa-compass"></i>
+                    </a>
+                </li>
+            <?php } ?>
+
+            <?php if ($achievements != "") { ?>
+                <li role="presentation" class="<?php echo $tab4_active; ?>">
+                    <a href="#tab4" role="tab" data-toggle="tab">
+                        <i class="fas fa-star"></i>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" style="text-align: left; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; overflow: hidden; margin-bottom: 30px;">
+            <?php if ($awards != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab1_active; ?>" id="tab1">
+                    <p><?php echo $awards; ?></p>
+                </div>
+            <?php } ?>
+            <?php if ($qualifications != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab2_active; ?>" id="tab2">
+                    <p><?php echo $qualifications; ?></p>
+                </div>
+            <?php } ?>
+            <?php if ($additional_address != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab3_active; ?>" id="tab3">
+                    <p><?php echo $additional_address; ?></p>
+                </div>
+            <?php } ?>
+            <?php if ($achievements != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab4_active; ?>" id="tab4">
+                    <p><?php echo $achievements; ?></p>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>
+</div>
+
                         
-                        <div class="social" style="margin-bottom: 15px;">
+                        <div class="social" style="margin-bottom: 15px; display:flex; justify-content:flex-start; flex-wrap:wrap; gap: 6px;max-width: 90%; margin: 30px auto 15px;">
 						<?php if ($facebook_url!=""){ ?>
                            <a id="FB" class="facebook" onclick='onclick(event);' href="<?php echo $facebook_url; ?>"><i class="fa-brands fa-facebook"></i> </a>
 						<?php } ?>   
@@ -398,29 +868,15 @@
                              <?php if ($telegram_url!=""){ ?>
                               <a class="telegram" href="<?php echo $telegram_url; ?>"><i class="fa-brands fa-telegram"></i> </a>
 						<?php } ?> 
+                            <?php if ($xiaohongshu_url != "") { ?>
+                                <a  href="<?php echo $xiaohongshu_url; ?>"><img width="20" style="margin-top: -5px" src="/XiaohongshuLOGO.png" /></a>
+                            <?php } ?>
                              	 
                           
-                        </div>
- 
-						
-						<?php if ($fromkey){ ?>
-                         <img src="/?key=<?php echo $encrypted;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="150" >
-						<?php } ?>
-						<?php if ($fromuid){ ?>
-                         <img src="/?uid=<?php echo $uid;?>&qrtype=<?php echo $qrcode_option;?>" alt=""  width="150" >
-						<?php } ?>
-                        <br><br>
-                         <a class="recoba-btn" target="_blank" href="<?php echo $savemycontact; ?>">保存联络人</a>
-<!-- 
-                         <a href="<?php echo $gw_dl_link;?>" target="_blank"><img width="200" src="gwallet/enUS_add_to_google_wallet_wallet-button.png"></a>
-                         <a href="?key=<?php echo $encrypted;?>&genaw=1" target="_blank"><img width="200" src="images/add-to-apple-wallet-logo.png"></a>END-->
-                    </div>
-                         
-                    </div>
-                    <!-- CONTACT END-->
-                </div>
-        </div>
-    </div> <!-- wrapper end -->
+                        
+             </div>
+
+   </div>
     
  
 <!-- Javascripts -->
