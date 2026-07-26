@@ -211,7 +211,109 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
+/* Deep tech background */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: <?php echo $minisite_site_bg_color; ?>;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
 
+#preloader .spinner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Logo: Hidden edges + Tech effects */
+#preloader .signature {
+    width: 250px;
+    /* This clips the logo into a circle so no square edges show */
+    clip-path: circle(0% at 50% 50%);
+    /* Funky tech glow */
+    filter: drop-shadow(0 0 0px <?php echo $minisite_key_wording_color; ?>);
+    animation: irisReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+/* The "Funky" Chromatic Glow - extra layer */
+#preloader .spinner::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 5px <?php echo $minisite_key_wording_color; ?>, 0 0 80px 10px <?php echo $minisite_title_text_color; ?>;
+    animation: spark 1.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+/* Animations */
+
+@keyframes irisReveal {
+    0% {
+        clip-path: circle(0% at 50% 50%);
+        transform: scale(0.2) rotate(-10deg);
+        filter: brightness(2) contrast(2) saturate(0);
+    }
+    20%, 80% {
+        clip-path: circle(50% at 50% 50%);
+        transform: scale(0.32) rotate(0deg);
+        filter: brightness(1.2) contrast(1.1) saturate(1.2) drop-shadow(0 0 15px <?php echo $minisite_key_wording_color; ?>);
+    }
+    80%, 100% {
+        clip-path: circle(50% at 50% 50%);
+        transform: scale(0.29);
+        filter: brightness(1) contrast(1) saturate(1) drop-shadow(0 0 5px transparent);
+    }
+}
+
+@keyframes spark {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    30% {
+        transform: scale(40); /* Rapid expansion */
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+        
+        /* Position the footer at the bottom */
+#preloader .preloader-footer {
+    position: absolute;
+    bottom: 30px; /* Distance from the bottom */
+    width: 100%;
+    text-align: center;
+    
+    /* Sleek Typography */
+    font-family: 'Inter', sans-serif; /* Or your site's main font */
+    font-size: 10px;                 /* Very small writing */
+    text-transform: uppercase;       /* Techy look */
+    letter-spacing: 2px;             /* Airy and smart */
+    font-weight: 300;                /* Thin weight for elegance */
+    
+    /* Color and subtle glow */
+    color: <?php echo $minisite_key_wording_color; ?>;
+    opacity: 0.5; /* This handles the transparency separately */
+    animation: footerFade 1.5s ease-in-out infinite;
+}
+
+/* Optional: Make it pulse very slightly with the logo */
+@keyframes footerFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
         
     </style>
     <script>
@@ -249,7 +351,21 @@
 
 <body>
 
-    <!-- Preloading -->
+ <!-- Preloading --> 
+  <?php if ($preloader==1) { ?>
+    <div id="preloader">
+        <div class="spinner">
+            <img class="signature" src="<?php echo $company_logo; ?>">
+            
+            <div></div>
+            <div></div>
+        </div>
+        <div class="preloader-footer">
+            <?php echo $company_name_eng; ?>
+        </div>
+    </div>
+    <?php } ?>
+    
 
     <!-- Switcher -->
     <div class="color-switcher">

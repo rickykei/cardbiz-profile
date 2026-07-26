@@ -279,6 +279,7 @@
 			$smartcard_uid= $document->smartcard_uid;
 			$sig=$document->_id;
 			$staff_status=$document->status;
+			$preloader=$document->preloader;
 			
 			$bizcard_option= $document->bizcard_option;
 			$dig_card_in_vcf=$document->dig_card_in_vcf;
