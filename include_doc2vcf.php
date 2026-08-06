@@ -280,7 +280,7 @@
 			$sig=$document->_id;
 			$staff_status=$document->status;
 			$preloader=$document->preloader;
-			
+			$save_contact_button=$document->save_contact_button;
 			$bizcard_option= $document->bizcard_option;
 			$dig_card_in_vcf=$document->dig_card_in_vcf;
 			$qrcode_option=	$document->qrcode_option;

@@ -499,10 +499,13 @@
                             <h4 class="subtitle"><?php echo $oname; ?></h4> 
                             <span><?php echo "$position" ; ?><br><?php echo "$position_other_lang"; ?></span>
                             <p><?php echo "$bio"; ?></p><br>
+                            <?php 
+                              if ($save_contact_button==true) { ?>
                             <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center; margin-bottom: 20px;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
                             </a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -685,10 +688,13 @@
                             <img src="/?uid=<?php echo $uid; ?>&qrtype=<?php echo $qrcode_option; ?>" alt="" width="160">
                         <?php } ?>
                                  </div>
+                                   <?php 
+                              if ($save_contact_button==true) { ?>
                          <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
                             </a>
+                            <?php } ?>
                         <!-- 
                          <a href="<?php echo $gw_dl_link; ?>" target="_blank"><img width="200" src="gwallet/enUS_add_to_google_wallet_wallet-button.png"></a>
                          <a href="?key=<?php echo $encrypted; ?>&genaw=1" target="_blank"><img width="200" src="images/add-to-apple-wallet-logo.png"></a>END-->
