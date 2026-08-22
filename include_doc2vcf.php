@@ -280,15 +280,14 @@
 			$sig=$document->_id;
 			$staff_status=$document->status;
 			$preloader=$document->preloader;
-			$save_contact_button=$document->save_contact_button;
+			$save_contact_button=$document->save_contact_button; 
 			$bizcard_option= $document->bizcard_option;
 			$dig_card_in_vcf=$document->dig_card_in_vcf;
 			$qrcode_option=	$document->qrcode_option;
 			$minisite_option=$document->minisite_option;
 			$needPhoto=1;
 			
-			
-		
+			 
 			
 			  if($headshot!=""&&$needPhoto==1){ 
 			  //  $url = str_replace("https", "http",$url);
@@ -311,30 +310,26 @@
 			 
 		 $vCard .="N;CHARSET=utf-8:" . $lname .";" . $fname .";" . $mname .";" . $pname .";" . $oname ." " . $pdname ."\r\n";
 		 
-			  if($work_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=Work:" . $work_email . "\r\n"; 			 
-			  if($work_email2!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=Work:" . $work_email2 . "\r\n"; 			 
-			  if($work_email3!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=Work:" . $work_email3 . "\r\n"; 			 
-			  
-			  if($home_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=HOME:" . $home_email . "\r\n"; 			 
-			  
-			  if($other_email!="") $vCard .= "EMAIL;CHARSET=utf-8;TYPE=OTHER:" . $other_email . "\r\n"; 			 
+			if ($work_email != "") {$vCard .= 'EMAIL;CHARSET=utf-8;TYPE="' . $work_email_label . '":' . $work_email . "\r\n";}
+if ($work_email2 != "") {$vCard .= 'EMAIL;CHARSET=utf-8;TYPE="' . $work_email2_label . '":' . $work_email2 . "\r\n";}
+if ($work_email3 != "") {$vCard .= 'EMAIL;CHARSET=utf-8;TYPE="' . $work_email3_label . '":' . $work_email3 . "\r\n";}
+if ($home_email != "") {$vCard .= 'EMAIL;CHARSET=utf-8;TYPE="' . $home_email_label . '":' . $home_email . "\r\n";}
+if ($other_email != "") {$vCard .= 'EMAIL;CHARSET=utf-8;TYPE="' . $other_email_label . '":' . $other_email . "\r\n";}	
 			  
 			  if($position!="") $vCard .= "TITLE;CHARSET=utf-8:" . $position ." ". $position_other_lang. "\r\n"; 			 
 			  
-			  if($work_tel!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel . "\r\n"; 
-			  if($work_tel2!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel2 . "\r\n"; 
-			  if($work_tel3!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel3 . "\r\n"; 
-			  if($work_tel4!="") $vCard .= "TEL;CHARSET=utf-8;WORK:" . $work_tel4 . "\r\n"; 
-			 
-			  if($mobile!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile . "\r\n"; 
-			 if($mobile2!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile2 . "\r\n"; 
-			 if($mobile3!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile3 . "\r\n"; 
-			 if($mobile4!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=CELL:" . $mobile4 . "\r\n"; 
-			 
-			 if($home_tel!="") $vCard .= "TEL;CHARSET=utf-8;TYPE=HOME:" . $home_tel . "\r\n"; 
-			 
-			 if($fax!="") $vCard .= "TEL;CHARSET=utf-8;WORK;TYPE=FAX:" . $fax . "\r\n";
-			   
+			   if ($work_tel != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $work_tel_label . '":' . $work_tel . "\r\n";}
+			   if ($work_tel2 != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $work_tel2_label . '":' . $work_tel2 . "\r\n";}
+			   if ($work_tel3 != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $work_tel3_label . '":' . $work_tel3 . "\r\n";}
+			   if ($work_tel4 != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $work_tel4_label . '":' . $work_tel4 . "\r\n";}
+
+			 if ($mobile != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $mobile_label . '":' . $mobile . "\r\n";}
+			if ($mobile2 != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $mobile2_label . '":' . $mobile2 . "\r\n";}
+			 if ($mobile3 != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $mobile3_label . '":' . $mobile3 . "\r\n";}
+			 if ($mobile4 != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $mobile4_label . '":' . $mobile4 . "\r\n";}
+			  
+if ($home_tel != "") {$vCard .= 'TEL;CHARSET=utf-8;TYPE="' . $home_tel_label . '":' . $home_tel . "\r\n";}
+if ($fax != "") {$vCard .= 'TEL;CHARSET=utf-8;WORK;TYPE="' . $fax_label . '":' . $fax . "\r\n";}
 			 
 			 if($web_link!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=".$web_link_label.":" . $web_link. "\r\n"; 
 			 if($web_link2!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label2.":" . $web_link2. "\r\n"; 
@@ -344,10 +339,10 @@
 			 if($web_link6!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=" . $web_link_label6 .":" . $web_link6. "\r\n"; 
 			 
 
-			 if($address!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address . "\r\n"; 			 
-			 if($address2!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address2 . "\r\n"; 			 
-			 if($address3!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address3 . "\r\n"; 			 
-			 if($address4!="")	$vCard .= "ADR;CHARSET=utf-8;WORK:" . $address4 . "\r\n"; 			 
+if ($address != "") {$vCard .= 'ADR;CHARSET=utf-8;TYPE="' . $address_label . '":' . $address . "\r\n";}
+if ($address2 != "") {$vCard .= 'ADR;CHARSET=utf-8;TYPE="' . $address2_label . '":' . $address2 . "\r\n";}
+if ($address3 != "") {$vCard .= 'ADR;CHARSET=utf-8;TYPE="' . $address3_label . '":' . $address3 . "\r\n";}
+if ($address4 != "") {$vCard .= 'ADR;CHARSET=utf-8;TYPE="' . $address4_label . '":' . $address4 . "\r\n";}	 			 
 			 
 			 if($company_website_url!="")	$vCard .= "URL;CHARSET=utf-8;TYPE=Company Website:" . $company_website_url . "\r\n"; 			 
 			 

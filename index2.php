@@ -210,7 +210,82 @@
             border-radius: 16px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
+  
+        .recoba-tabs .tab-content{
+	    padding: <?php echo $minisite_font_size; ?>px !important;
+            background: <?php echo $minisite_site_bg_color; ?>;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+                white-space: normal;   /* ensures text wraps */
+    word-wrap: break-word; /* long words/URLs break onto next line */
+    overflow-wrap: break-word; /* modern equivalent */
+            
+}
 
+/* Active tabs */
+.recoba-tabs .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	color: <?php echo $minisite_key_wording_color; ?>;
+    cursor: default;
+    background-color: <?php echo $minisite_site_bg_color; ?>;
+    border: 1px solid color-mix(in srgb, <?php echo $minisite_key_wording_color; ?> 7%, <?php echo $minisite_site_bg_color; ?>);
+
+    border-bottom-color: <?php echo $minisite_site_bg_color; ?>;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+
+/* Inactive tabs */
+.recoba-tabs .nav-tabs > li > a {
+    color: <?php echo $minisite_title_text_color; ?>; /* text color for inactive */
+    display: block;
+  margin: 0;        /* remove gaps */
+  border-right: none; /* prevents double borders */
+}
+
+/* Hover effect for inactive tabs */
+.recoba-tabs .nav-tabs > li > a:hover {
+    color: <?php echo $minisite_key_wording_color; ?>;
+    background-color: <?php echo $minisite_site_bg_color; ?>;
+    border-color: color-mix(in srgb, <?php echo $minisite_key_wording_color; ?> 7%, <?php echo $minisite_site_bg_color; ?>);
+        border-bottom-color: <?php echo $minisite_site_bg_color; ?>;
+        border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+        
+        
+.recoba-tabs .nav-tabs > li > a{
+	font-size: <?php echo $minisite_font_size; ?>px !important;
+    flex: 1;  
+  text-align: center;     /* center the text inside */
+}
+
+        .recoba-tabs .nav-tabs li {
+    flex: 1;                  /* each tab takes equal width */
+    text-align: center;       /* center the icon/text inside */
+}
+        
+
+        
+        /* Change/remove the line under the tabs */
+.recoba-tabs .nav-tabs {
+    border-bottom: 1px solid color-mix(in srgb, <?php echo $minisite_key_wording_color; ?> 7%, <?php echo $minisite_site_bg_color; ?>); /* pick your color */
+        display: flex;            /* make tabs a flex container */
+    width: 100%;              /* fill parent container */
+    padding: 0;               /* remove default UL padding */
+    margin: 0;                /* remove default UL margin */
+    box-sizing: border-box;
+}
+        .recoba-tabs .nav-tabs > li.active > a:focus {
+/*    border: 1px solid <?php echo $minisite_key_wording_color; ?>;*/
+    border-bottom-color: <?php echo $minisite_site_bg_color; ?>; /* match tab-content bg */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+        
+        .recoba-tabs .nav-tabs li:last-child {
+    border-right: none;         /* ensure last tab has no border */
+}
+    
 /* Deep tech background */
 #preloader {
     position: fixed;
@@ -361,7 +436,7 @@
             <div></div>
         </div>
         <div class="preloader-footer">
-            <?php echo $company_name_eng; ?>
+            <h3>Powered By NFC Touch</h3>
         </div>
     </div>
     <?php } ?>
@@ -498,9 +573,9 @@
                             <h4 class="subtitle" style="margin-top:20px;"><?php echo "$pname "; ?><?php echo "$fname "; ?><?php echo "$mname "; ?><?php echo "$lname "; ?><span style="display:inline-block"><?php echo "$pdname"; ?></span></h4>
                             <h4 class="subtitle"><?php echo $oname; ?></h4> 
                             <span><?php echo "$position" ; ?><br><?php echo "$position_other_lang"; ?></span>
-                            <p><?php echo "$bio"; ?></p><br>
+                            <p>sffd<?php echo "$bio"; ?></p><br>
                             <?php 
-                              if ($save_contact_button==true) { ?>
+                              if ($save_contact_button==TRUE) { ?>
                             <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center; margin-bottom: 20px;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
@@ -553,6 +628,86 @@
                             <?php } ?>
 
                         </ul>
+                        <!-- Tab panes -->
+ <?php
+// Reset all active states
+$tab1_active = $tab2_active = $tab3_active = $tab4_active = '';
+
+// Pick the first non-empty tab as active
+if ($awards != '') {
+    $tab1_active = 'active';
+} elseif ($qualifications != '') {
+    $tab2_active = 'active';
+} elseif ($additional_address != '') {
+    $tab3_active = 'active';
+} elseif ($achievements != '') {
+    $tab4_active = 'active';
+}
+?>
+<div class="info-block2">
+<?php if ($awards != '' || $qualifications != '' || $additional_address != '' || $achievements != '') { ?>
+    <div class="recoba-tabs">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" style="display:flex; justify-content:space-between;">
+            <?php if ($awards != "") { ?>
+                <li role="presentation" class="<?php echo $tab1_active; ?>">
+                    <a href="#tab1" role="tab" data-toggle="tab">
+                        <i class="fas fa-trophy"></i>
+                    </a>
+                </li>
+            <?php } ?>
+
+            <?php if ($qualifications != "") { ?>
+                <li role="presentation" class="<?php echo $tab2_active; ?>">
+                    <a href="#tab2" role="tab" data-toggle="tab">
+                        <i class="fas fa-medal"></i>
+                    </a>
+                </li>
+            <?php } ?>
+
+            <?php if ($additional_address != "") { ?>
+                <li role="presentation" class="<?php echo $tab3_active; ?>">
+                    <a href="#tab3" role="tab" data-toggle="tab">
+                        <i class="fas fa-compass"></i>
+                    </a>
+                </li>
+            <?php } ?>
+
+            <?php if ($achievements != "") { ?>
+                <li role="presentation" class="<?php echo $tab4_active; ?>">
+                    <a href="#tab4" role="tab" data-toggle="tab">
+                        <i class="fas fa-star"></i>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" style="text-align: left; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; overflow: hidden; margin-bottom: 30px;">
+            <?php if ($awards != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab1_active; ?>" id="tab1">
+                    <p><?php echo $awards; ?></p>
+                </div>
+            <?php } ?>
+            <?php if ($qualifications != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab2_active; ?>" id="tab2">
+                    <p><?php echo $qualifications; ?></p>
+                </div>
+            <?php } ?>
+            <?php if ($additional_address != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab3_active; ?>" id="tab3">
+                    <p><?php echo $additional_address; ?></p>
+                </div>
+            <?php } ?>
+            <?php if ($achievements != "") { ?>
+                <div role="tabpanel" class="tab-pane <?php echo $tab4_active; ?>" id="tab4">
+                    <p><?php echo $achievements; ?></p>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>
+</div>
                         <?php if ($more_info_tab_url != "") { ?>
                             <a id="one" class="recoba-btn" style="border-radius: 32px; display: inline-block; text-align: center;" onclick='onclick(event);' href="<?php echo $more_info_tab_url; ?>"> <?php echo $lang_str['eprofile.moreinfo'];?></a>
                         <?php } ?>
@@ -686,10 +841,11 @@
                         <?php } ?>
                         <?php if ($fromuid && $qrcode_option!=5) { ?>
                             <img src="/?uid=<?php echo $uid; ?>&qrtype=<?php echo $qrcode_option; ?>" alt="" width="160">
-                        <?php } ?>
+                        <?php } ?> 
                                  </div>
                                    <?php 
-                              if ($save_contact_button==true) { ?>
+                                   
+                              if ($save_contact_button==TRUE ) { ?>
                          <a class="recoba-btn" target="_blank" style="border-radius: 32px; display: inline-block; text-align: center;"
                                 href="<?php echo $savemycontact; ?>">
                                 <?php echo $lang_str['eprofile.savemycontact'];?>
