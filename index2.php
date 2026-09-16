@@ -128,7 +128,7 @@ span    {color: grey;}
             const base64Image = '<?php echo $namecard_jpg;?>'; 
             const link = document.createElement('a');
             link.href = base64Image;
-            link.download = 'businesscard.jpg';
+            link.download = 'businesscard.png';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -407,6 +407,49 @@ span    {color: grey;}
           }
             
           </script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"165cfbf843f546708dfa174d2ca45837","r":1,"spa":2}' crossorigin="anonymous"></script>
+            <script>
+    document.getElementById('downloadBtn').addEventListener('click', async function() {
+        // 1. Define your base64 string here (or make it globally scoped)
+        const base64Image = '<?php echo $namecard_jpg;?>'; // Replace with your full base64 string
+
+        try {
+            // Convert Base64 data URI to Blob
+            const res = await fetch(base64Image);
+            const blob = await res.blob();
+            const file = new File([blob], 'businesscard.png', { type: 'image/png' });
+
+// 2. Primary Method for iOS Safari: Native Web Share API
+if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    await navigator.share({
+        files: [file]
+    });
+    return;
+}
+
+            // 3. Method for Android / Desktop Chrome & Edge
+            const blobUrl = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = 'businesscard.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+
+        } catch (err) {
+            if (err.name !== 'AbortError') {
+                // Fallback for strict Safari versions: Open image directly in a new tab for manual long-press saving
+                const win = window.open();
+                if (win) {
+                    win.document.write('<img src="' + base64Image + '" alt="Business Card"/>');
+                } else {
+                    window.location.href = base64Image;
+                }
+            }
+        }
+    });
+</script>
 
 
     
